@@ -56,8 +56,8 @@
             // 
             // altoButton4
             // 
-            this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton4.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton4.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton4.Active2 = System.Drawing.Color.White;
             this.altoButton4.BackColor = System.Drawing.Color.Transparent;
             this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -78,8 +78,8 @@
             // 
             // altoButton3
             // 
-            this.altoButton3.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton3.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton3.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton3.Active2 = System.Drawing.Color.White;
             this.altoButton3.BackColor = System.Drawing.Color.Transparent;
             this.altoButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -100,8 +100,8 @@
             // 
             // altoButton2
             // 
-            this.altoButton2.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton2.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton2.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton2.Active2 = System.Drawing.Color.White;
             this.altoButton2.BackColor = System.Drawing.Color.Transparent;
             this.altoButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -123,8 +123,8 @@
             // 
             // altoButton1
             // 
-            this.altoButton1.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton1.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton1.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton1.Active2 = System.Drawing.Color.White;
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
