@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pContainer = new System.Windows.Forms.Panel();
-            this.altoButton1 = new AltoControls.AltoButton();
-            this.altoButton2 = new AltoControls.AltoButton();
-            this.altoButton3 = new AltoControls.AltoButton();
             this.altoButton4 = new AltoControls.AltoButton();
+            this.altoButton3 = new AltoControls.AltoButton();
+            this.altoButton2 = new AltoControls.AltoButton();
+            this.altoButton1 = new AltoControls.AltoButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,19 +54,78 @@
             this.panel1.Size = new System.Drawing.Size(1342, 100);
             this.panel1.TabIndex = 6;
             // 
-            // pContainer
+            // altoButton4
             // 
-            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContainer.Location = new System.Drawing.Point(0, 100);
-            this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1342, 830);
-            this.pContainer.TabIndex = 7;
+            this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
+            this.altoButton4.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton4.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton4.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton4.ForeColor = System.Drawing.Color.Black;
+            this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton4.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
+            this.altoButton4.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
+            this.altoButton4.Location = new System.Drawing.Point(988, -1);
+            this.altoButton4.Name = "altoButton4";
+            this.altoButton4.Radius = 10;
+            this.altoButton4.Size = new System.Drawing.Size(190, 101);
+            this.altoButton4.Stroke = false;
+            this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton4.TabIndex = 4;
+            this.altoButton4.Text = "Actualizacion";
+            this.altoButton4.Transparency = false;
+            // 
+            // altoButton3
+            // 
+            this.altoButton3.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
+            this.altoButton3.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton3.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton3.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton3.ForeColor = System.Drawing.Color.Black;
+            this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton3.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
+            this.altoButton3.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
+            this.altoButton3.Location = new System.Drawing.Point(770, -1);
+            this.altoButton3.Name = "altoButton3";
+            this.altoButton3.Radius = 10;
+            this.altoButton3.Size = new System.Drawing.Size(165, 101);
+            this.altoButton3.Stroke = false;
+            this.altoButton3.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton3.TabIndex = 3;
+            this.altoButton3.Text = "Pedido";
+            this.altoButton3.Transparency = false;
+            // 
+            // altoButton2
+            // 
+            this.altoButton2.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
+            this.altoButton2.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton2.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton2.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton2.ForeColor = System.Drawing.Color.Black;
+            this.altoButton2.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton2.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
+            this.altoButton2.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
+            this.altoButton2.Location = new System.Drawing.Point(534, 0);
+            this.altoButton2.Name = "altoButton2";
+            this.altoButton2.Radius = 10;
+            this.altoButton2.Size = new System.Drawing.Size(165, 101);
+            this.altoButton2.Stroke = false;
+            this.altoButton2.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton2.TabIndex = 1;
+            this.altoButton2.Text = "Cotizacion";
+            this.altoButton2.Transparency = false;
             // 
             // altoButton1
             // 
             this.altoButton1.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
             this.altoButton1.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton1.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
@@ -84,69 +143,6 @@
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
-            // altoButton2
-            // 
-            this.altoButton2.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton2.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
-            this.altoButton2.BackColor = System.Drawing.Color.Transparent;
-            this.altoButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton2.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton2.ForeColor = System.Drawing.Color.Black;
-            this.altoButton2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton2.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
-            this.altoButton2.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
-            this.altoButton2.Location = new System.Drawing.Point(534, 0);
-            this.altoButton2.Name = "altoButton2";
-            this.altoButton2.Radius = 10;
-            this.altoButton2.Size = new System.Drawing.Size(165, 101);
-            this.altoButton2.Stroke = false;
-            this.altoButton2.StrokeColor = System.Drawing.Color.Gray;
-            this.altoButton2.TabIndex = 1;
-            this.altoButton2.Text = "Cotizacion";
-            this.altoButton2.Transparency = false;
-            // 
-            // altoButton3
-            // 
-            this.altoButton3.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton3.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
-            this.altoButton3.BackColor = System.Drawing.Color.Transparent;
-            this.altoButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton3.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton3.ForeColor = System.Drawing.Color.Black;
-            this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton3.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
-            this.altoButton3.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
-            this.altoButton3.Location = new System.Drawing.Point(770, -1);
-            this.altoButton3.Name = "altoButton3";
-            this.altoButton3.Radius = 10;
-            this.altoButton3.Size = new System.Drawing.Size(165, 101);
-            this.altoButton3.Stroke = false;
-            this.altoButton3.StrokeColor = System.Drawing.Color.Gray;
-            this.altoButton3.TabIndex = 3;
-            this.altoButton3.Text = "Pedido";
-            this.altoButton3.Transparency = false;
-            // 
-            // altoButton4
-            // 
-            this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton4.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
-            this.altoButton4.BackColor = System.Drawing.Color.Transparent;
-            this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton4.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton4.ForeColor = System.Drawing.Color.Black;
-            this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton4.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
-            this.altoButton4.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
-            this.altoButton4.Location = new System.Drawing.Point(988, -1);
-            this.altoButton4.Name = "altoButton4";
-            this.altoButton4.Radius = 10;
-            this.altoButton4.Size = new System.Drawing.Size(190, 101);
-            this.altoButton4.Stroke = false;
-            this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
-            this.altoButton4.TabIndex = 4;
-            this.altoButton4.Text = "Actualizacion";
-            this.altoButton4.Transparency = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::pruebafirestore.Properties.Resources.logovectornegro;
@@ -157,12 +153,20 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // pContainer
+            // 
+            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pContainer.Location = new System.Drawing.Point(0, 100);
+            this.pContainer.Name = "pContainer";
+            this.pContainer.Size = new System.Drawing.Size(1342, 874);
+            this.pContainer.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1342, 930);
+            this.ClientSize = new System.Drawing.Size(1342, 974);
             this.Controls.Add(this.pContainer);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;

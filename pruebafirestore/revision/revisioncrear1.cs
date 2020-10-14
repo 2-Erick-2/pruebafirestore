@@ -16,5 +16,20 @@ namespace pruebafirestore.formularios
         {
             InitializeComponent();
         }
+
+        private void processingControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string fecha = DateTime.Now.ToShortDateString();
+            string hora = DateTime.Now.ToShortTimeString();
+
+
+
+            txthorayfecha.Text = fecha + "  " + hora;
+        }
     }
 }

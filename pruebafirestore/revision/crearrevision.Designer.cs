@@ -43,7 +43,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(174, 657);
+            this.panel1.Size = new System.Drawing.Size(174, 874);
             this.panel1.TabIndex = 3;
             // 
             // altoButton4
@@ -96,7 +96,7 @@
             this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContainer.Location = new System.Drawing.Point(174, 0);
             this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1102, 657);
+            this.pContainer.Size = new System.Drawing.Size(1168, 874);
             this.pContainer.TabIndex = 4;
             this.pContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pContenedor_Paint);
             // 
@@ -105,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1276, 657);
+            this.ClientSize = new System.Drawing.Size(1342, 874);
             this.Controls.Add(this.pContainer);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
