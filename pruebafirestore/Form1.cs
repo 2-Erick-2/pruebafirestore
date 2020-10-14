@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
+using pruebafirestore.Cotizacion;
 
 namespace pruebafirestore
 {
@@ -91,6 +92,11 @@ namespace pruebafirestore
         private void altoButton1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new crearrevision());
+        }
+
+        private void altoButton2_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new contcotizacion());
         }
     }
 }

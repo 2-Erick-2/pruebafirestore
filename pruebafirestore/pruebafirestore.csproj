@@ -127,6 +127,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cotizacion\contcotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\contcotizacion.Designer.cs">
+      <DependentUpon>contcotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="revision\busquedarevision.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <None Include="Resources\botonreviosiones.png" />
     <None Include="Resources\logovectornegro.png" />
     <None Include="Resources\logoepssvg.png" />
+    <EmbeddedResource Include="Cotizacion\contcotizacion.resx">
+      <DependentUpon>contcotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="revision\busquedarevision.resx">
       <DependentUpon>busquedarevision.cs</DependentUpon>
     </EmbeddedResource>

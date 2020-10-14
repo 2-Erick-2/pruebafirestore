@@ -34,8 +34,8 @@
             this.altoButton3 = new AltoControls.AltoButton();
             this.altoButton2 = new AltoControls.AltoButton();
             this.altoButton1 = new AltoControls.AltoButton();
-            this.pContainer = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +119,7 @@
             this.altoButton2.TabIndex = 1;
             this.altoButton2.Text = "Cotizacion";
             this.altoButton2.Transparency = false;
+            this.altoButton2.Click += new System.EventHandler(this.altoButton2_Click);
             // 
             // altoButton1
             // 
@@ -143,14 +144,6 @@
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
-            // pContainer
-            // 
-            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContainer.Location = new System.Drawing.Point(0, 100);
-            this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1342, 874);
-            this.pContainer.TabIndex = 7;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::pruebafirestore.Properties.Resources.logovectornegro;
@@ -160,6 +153,14 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // pContainer
+            // 
+            this.pContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pContainer.Location = new System.Drawing.Point(0, 100);
+            this.pContainer.Name = "pContainer";
+            this.pContainer.Size = new System.Drawing.Size(1342, 874);
+            this.pContainer.TabIndex = 7;
             // 
             // Form1
             // 

@@ -39,6 +39,7 @@ namespace pruebafirestore
             {
                 Form1 F1 = new Form1();
                 F1.Show();
+                this.Hide();
 
             }
         }
