@@ -1,4 +1,5 @@
 ﻿using pruebafirestore.formularios;
+using pruebafirestore.revision;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,11 @@ namespace pruebafirestore
         private void altoButton4_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new revisioncrear1());
+        }
+
+        private void altoButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new busquedarevision());
         }
     }
 }

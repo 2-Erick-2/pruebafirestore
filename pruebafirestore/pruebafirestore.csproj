@@ -127,6 +127,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="revision\busquedarevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="revision\busquedarevision.Designer.cs">
+      <DependentUpon>busquedarevision.cs</DependentUpon>
+    </Compile>
     <Compile Include="revision\crearrevision.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <None Include="Resources\botonreviosiones.png" />
     <None Include="Resources\logovectornegro.png" />
     <None Include="Resources\logoepssvg.png" />
+    <EmbeddedResource Include="revision\busquedarevision.resx">
+      <DependentUpon>busquedarevision.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="revision\crearrevision.resx">
       <DependentUpon>crearrevision.cs</DependentUpon>
     </EmbeddedResource>

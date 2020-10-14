@@ -90,6 +90,7 @@
             this.altoButton3.TabIndex = 4;
             this.altoButton3.Text = "Busqueda";
             this.altoButton3.Transparency = false;
+            this.altoButton3.Click += new System.EventHandler(this.altoButton3_Click);
             // 
             // pContainer
             // 
