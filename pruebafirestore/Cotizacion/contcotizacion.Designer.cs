@@ -81,6 +81,7 @@
             this.btncrear.TabIndex = 7;
             this.btncrear.Text = "Crear";
             this.btncrear.Transparency = false;
+            this.btncrear.Click += new System.EventHandler(this.btncrear_Click);
             // 
             // altoButton4
             // 

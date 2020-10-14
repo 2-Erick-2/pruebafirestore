@@ -139,6 +139,12 @@
     <Compile Include="Cotizacion\contcotizacion.Designer.cs">
       <DependentUpon>contcotizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cotizacion\crearcoti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\crearcoti.Designer.cs">
+      <DependentUpon>crearcoti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cotizacion\creardesdecoti.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\anadir.png" />
+    <None Include="Resources\menos.png" />
+    <None Include="Resources\plus %282%29.png" />
+    <None Include="Resources\plus %281%29.png" />
+    <None Include="Resources\plus.png" />
     <None Include="Resources\crearpedidoversion2.png" />
     <None Include="Resources\LOGIN.png" />
     <None Include="Resources\crearcotizacionversion2.png" />
@@ -189,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion\contcotizacion.resx">
       <DependentUpon>contcotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cotizacion\crearcoti.resx">
+      <DependentUpon>crearcoti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion\creardesdecoti.resx">
       <DependentUpon>creardesdecoti.cs</DependentUpon>

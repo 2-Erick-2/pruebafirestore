@@ -39,7 +39,6 @@ namespace pruebafirestore.Cotizacion
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
-
                 connection.Close();
             }
             catch (Exception ex)

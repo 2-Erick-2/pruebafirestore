@@ -92,11 +92,39 @@ namespace pruebafirestore
         private void altoButton1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new crearrevision());
+
+
+
+            altoButton1.Inactive1 = Color.RoyalBlue;
+            altoButton1.Inactive2 = Color.White;
+
+            altoButton2.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton2.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+
         }
 
         private void altoButton2_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new contcotizacion());
+
+            altoButton2.Inactive1 = Color.RoyalBlue;
+            altoButton2.Inactive2 = Color.White;
+
+            altoButton1.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton1.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+
         }
     }
 }

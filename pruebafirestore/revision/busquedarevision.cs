@@ -183,5 +183,17 @@ namespace pruebafirestore.revision
                 }
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtnombre.Text = dataGridView1.Rows.Count.ToString();
+           /* if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[3];
+                txtnombre.Text = row.Cells["nombre"].Value.ToString();
+
+
+            }*/
+        }
     }
 }

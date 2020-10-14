@@ -38,5 +38,10 @@ namespace pruebafirestore.Cotizacion
         {
             AbrirFormEnPanel2(new busquedacoti());
         }
+
+        private void btncrear_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new crearcoti());
+        }
     }
 }
