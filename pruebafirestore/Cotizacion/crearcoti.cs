@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Microsoft.SqlServer.Server;
+using System.Globalization;
 
 
 namespace pruebafirestore.Cotizacion
@@ -16,6 +18,8 @@ namespace pruebafirestore.Cotizacion
     {
         private OleDbConnection connection = new OleDbConnection();
         String tipoproducto = "";
+        String contar;
+
 
         public crearcoti()
         {
@@ -60,7 +64,7 @@ namespace pruebafirestore.Cotizacion
 
         private void crearcoti_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
+            ///dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
            /* try
             {
                 connection.Open();
@@ -169,6 +173,245 @@ namespace pruebafirestore.Cotizacion
         private void txtimporte_TextChanged(object sender, EventArgs e)
         {
             
+            //txtimporte.Text = Format.Native.ToString("G");
+        }
+
+        private void txtimporte_Leave(object sender, EventArgs e)
+        {
+            contar = txtimporte.Text;
+            if (contar.Length == 4)
+            {
+            double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+            txtimporte.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+            }
+            else if (contar.Length == 3)
+            {
+                double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                txtimporte.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+            }
+            else if (contar.Length == 2)
+            {
+                double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                txtimporte.Text = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+            }
+            else if (contar.Length == 6)
+            {
+                double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                txtimporte.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+            }
+            else if (contar.Length == 5)
+            {
+                double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                txtimporte.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+            }
+
+        }
+
+        private void altoButton1_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            //printDocument1.Print();
+           // printDocument1.Print();
+            printPreviewDialog1.Show();
+
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Image newImage = Image.FromFile(@"D:\ebestimprimr4.jpg");
+
+
+            printDocument1.PrinterSettings.PrinterName = "TM-T20II";
+
+            // Create rectangle for source image.
+            RectangleF srcRect = new RectangleF(100.0F, 100.0F, 150.0F, 150.0F);
+            e.Graphics.DrawImage(newImage, 30, 2);
+
+            //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
+            e.Graphics.DrawString("  Equipo en  cotización", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
+            e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
+            e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
+            e.Graphics.DrawString("                  Reynosa Tamaulipas", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 220));
+            e.Graphics.DrawString("                             88500", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 240));
+            e.Graphics.DrawString("                  e-best@live.com.mx", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 260));
+            e.Graphics.DrawString("                         8999222312", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 280));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 300));
+            e.Graphics.DrawString("      Fecha: " , new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 330));
+            e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 350));
+            e.Graphics.DrawString("      Modelo: " + txtmarca.Text+" "+txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 370));
+
+            if (dataGridView1.Rows.Count == 1)
+            {
+                String p1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                String p2 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                String p3 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString();
+                //String p1 = dataGridView1.Columns
+                e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+
+                e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                                            Total: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 520));
+                e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 545));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 565));
+               // e.Graphics.DrawImage(pictureBox2.Image, 40, 595);
+            }
+
+            if (dataGridView1.Rows.Count == 2)
+            {
+                String p1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                String p2 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                String p3 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString();
+                String p4 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+                String p5 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+                String p6 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString();
+                //String p1 = dataGridView1.Columns
+                e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+                p3 = p3.Replace("$","");
+                p6 = p6.Replace("$","");
+                Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6);
+
+                String contar2 = total.ToString();
+                if (contar2.Length == 4)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 3)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 2)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 6)
+                {
+                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 5)
+                {
+                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+
+
+
+
+
+
+
+                e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
+                e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 585));
+                // e.Graphics.DrawImage(pictureBox2.Image, 40, 615);
+
+
+
+            }
+
+            if (dataGridView1.Rows.Count == 3)
+            {
+                String p1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                String p2 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                String p3 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString();
+                String p4 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+                String p5 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+                String p6 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString();
+                String p7 = dataGridView1.Rows[2].Cells["Descripcion"].Value.ToString();
+                String p8 = dataGridView1.Rows[2].Cells["Cantidad"].Value.ToString();
+                String p9 = dataGridView1.Rows[2].Cells["Importe"].Value.ToString();
+
+                //String p1 = dataGridView1.Columns
+                e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+
+
+
+                p3 = p3.Replace("$", "");
+                p6 = p6.Replace("$", "");
+                p9 = p9.Replace("$", "");
+                Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9);
+
+                String contar2 = total.ToString();
+                if (contar2.Length == 4)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 3)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 2)
+                {
+                    double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 6)
+                {
+                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 5)
+                {
+                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                    contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+
+
+
+
+
+
+
+                e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
+                e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 585));
+                // e.Graphics.DrawImage(pictureBox2.Image, 40, 615);
+
+
+
+            }
+
+
+
+
+
         }
     }
     }
