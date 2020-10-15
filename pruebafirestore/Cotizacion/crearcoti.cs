@@ -26,7 +26,20 @@ namespace pruebafirestore.Cotizacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+
+
+            DataGridViewRow fila = new DataGridViewRow();
+            fila.CreateCells(dataGridView1);
+            fila.Cells[0].Value = txtcantidad.Text;
+            fila.Cells[1].Value = txtdescri.Text;
+            fila.Cells[2].Value = txtimporte.Text;
+
+            dataGridView1.Rows.Add(fila);
+            txtcantidad.Text = "";
+            txtdescri.Text = "";
+            txtimporte.Text = "";
+
+           /* try
             {
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
@@ -42,12 +55,13 @@ namespace pruebafirestore.Cotizacion
             {
                 MessageBox.Show("Error " + ex);
             }
-            crearcoti_Load(sender, e);
+            crearcoti_Load(sender, e);*/
         }
 
         private void crearcoti_Load(object sender, EventArgs e)
         {
-            try
+            dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
+           /* try
             {
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
@@ -97,7 +111,7 @@ namespace pruebafirestore.Cotizacion
             catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex);
-            }
+            }*/
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +120,7 @@ namespace pruebafirestore.Cotizacion
 
             //
 
-            if (e.RowIndex >= 0)
+          /*  if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 DataGridViewRow row2 = this.dataGridView2.Rows[e.RowIndex];
@@ -137,11 +151,25 @@ namespace pruebafirestore.Cotizacion
 
                     txteditable.Text = row.Cells["Importe"].Value.ToString();
 
-                }
+                }*/
                 //txtmodelo.Text = row.Cells["modelo"].Value.ToString();
 
 
             }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.RemoveAt(item.Index);
+            }
+            //dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+        }
+
+        private void txtimporte_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
-}
+    }
+
