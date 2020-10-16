@@ -11,12 +11,17 @@ using System.Data.OleDb;
 using Microsoft.SqlServer.Server;
 using System.Globalization;
 using BarcodeLib;
+using Google.Cloud.Firestore;
+
 
 
 namespace pruebafirestore.Cotizacion
 {
+
     public partial class crearcoti : Form
     {
+    FirestoreDb database;
+
         private OleDbConnection connection = new OleDbConnection();
 
         String tipoproducto = "";
@@ -31,7 +36,7 @@ namespace pruebafirestore.Cotizacion
         public crearcoti()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= \\EBEST-AB78DLU\ebest\Ebest_be.accdb; Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= \\EBEST-AB78DLU\ebest\Ebest3_be.accdb; Persist Security Info=False;";
 
         }
 
@@ -83,6 +88,9 @@ namespace pruebafirestore.Cotizacion
         {
             combodias.Text = "1 día";
             combohoras.Text = "1 hora";
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            database = FirestoreDb.Create("facturasebest2");
             ///dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
            /* try
             {
@@ -266,6 +274,20 @@ namespace pruebafirestore.Cotizacion
 
         }
 
+        void Add_Document_with_orden()
+        {
+            DocumentReference DOC = database.Collection("Clientes").Document(txtorden.Text);
+            Dictionary<String, Object> data1 = new Dictionary<string, object>()
+            {
+                {"Precio","500"},
+
+                {"Cantidad","2"}
+            };
+            DOC.SetAsync(data1, SetOptions.MergeAll);
+            MessageBox.Show("guardado");
+        }
+
+
         private void altoButton1_Click(object sender, EventArgs e)
         {
             sincopia:
@@ -314,6 +336,7 @@ namespace pruebafirestore.Cotizacion
                 MessageBox.Show("Error " + ex);
             }
 
+            Add_Document_with_orden();
 
 
             BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
