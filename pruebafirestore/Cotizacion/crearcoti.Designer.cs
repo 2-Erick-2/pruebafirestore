@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crearcoti));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crearcoti));
             this.label5 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,6 +53,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtimporte = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.altoButton1 = new AltoControls.AltoButton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
@@ -74,10 +78,7 @@
             this.txtrepetidos = new System.Windows.Forms.TextBox();
             this.checkiva = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtnombre2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -165,6 +166,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(470, 35);
             this.txtnombre.TabIndex = 9;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // txtcantidad
             // 
@@ -262,6 +264,36 @@
             this.dataGridView1.Size = new System.Drawing.Size(574, 162);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Cantidad
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Cantidad.HeaderText = "      Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Descripcion
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Descripcion.HeaderText = " Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // PU
+            // 
+            this.PU.HeaderText = "             PU";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            // 
+            // Importe
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Importe.HeaderText = "         Importe";
+            this.Importe.Name = "Importe";
             // 
             // altoButton1
             // 
@@ -471,7 +503,7 @@
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(467, 704);
+            this.txtorden.Location = new System.Drawing.Point(465, 704);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(206, 31);
             this.txtorden.TabIndex = 125;
@@ -539,35 +571,14 @@
             this.pictureBox2.TabIndex = 131;
             this.pictureBox2.TabStop = false;
             // 
-            // Cantidad
+            // txtnombre2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Cantidad.HeaderText = "      Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Descripcion
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Descripcion.HeaderText = " Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // PU
-            // 
-            this.PU.HeaderText = "             PU";
-            this.PU.Name = "PU";
-            this.PU.ReadOnly = true;
-            // 
-            // Importe
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "C0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Importe.HeaderText = "         Importe";
-            this.Importe.Name = "Importe";
+            this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombre2.Location = new System.Drawing.Point(966, 67);
+            this.txtnombre2.Name = "txtnombre2";
+            this.txtnombre2.Size = new System.Drawing.Size(86, 35);
+            this.txtnombre2.TabIndex = 132;
             // 
             // crearcoti
             // 
@@ -575,6 +586,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1168, 874);
+            this.Controls.Add(this.txtnombre2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.checkiva);
             this.Controls.Add(this.txtrepetidos);
@@ -664,5 +676,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.TextBox txtnombre2;
     }
 }

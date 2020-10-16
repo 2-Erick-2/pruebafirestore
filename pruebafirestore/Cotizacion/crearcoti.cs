@@ -201,6 +201,7 @@ namespace pruebafirestore.Cotizacion
             {
                 Double precio = Convert.ToDouble(txtcantidad.Text) * Convert.ToDouble(txtimporte.Text);
                 preciofinal = precio.ToString();
+                String contar2 = preciofinal;
 
                 contar = txtimporte.Text;
                 if (contar.Length == 4)
@@ -228,6 +229,35 @@ namespace pruebafirestore.Cotizacion
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                 }
+
+
+                if (contar2.Length == 4)
+                {
+                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar2.Length == 3)
+                {
+                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar2.Length == 2)
+                {
+                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar2.Length == 6)
+                {
+                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar2.Length == 5)
+                {
+                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+
+
             }
             catch(Exception ex)
             {
@@ -239,9 +269,9 @@ namespace pruebafirestore.Cotizacion
         private void altoButton1_Click(object sender, EventArgs e)
         {
             sincopia:
-            string Name = txtnombre.Text;
+            string Name = txtnombre2.Text;
             var rand = new Random();
-            pedido = "Cotizacion";
+            pedido = "COtizacion";
             //checkBoxcotizacion.Checked = false;
             ///checkBoxrevision.Checked = false;
 
@@ -257,7 +287,7 @@ namespace pruebafirestore.Cotizacion
             var random = new Random(seed);
 
             txtpruibea.Text = seed.ToString();
-
+            
             txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
 
             try
@@ -288,7 +318,7 @@ namespace pruebafirestore.Cotizacion
 
             BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
             Codigo.IncludeLabel = true;
-            pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.Black, 200, 60);
+            pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 
 
             printPreviewDialog1.Document = printDocument1;
@@ -301,7 +331,7 @@ namespace pruebafirestore.Cotizacion
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Image newImage = Image.FromFile(@"D:\ebestimprimr4.jpg");
+            Image newImage = Image.FromFile(@"\\EBEST-AB78DLU\ebest\ebestimprimr4.jpg");
 
 
             printDocument1.PrinterSettings.PrinterName = "TM-T20II";
@@ -324,7 +354,18 @@ namespace pruebafirestore.Cotizacion
             e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 350));
             e.Graphics.DrawString("      Modelo: " + txtmarca.Text+" "+txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 370));
 
+            if (checkrespuesta.Checked == true && checkBox2.Checked == true)
+            {
+                e.Graphics.DrawString("      Tiempo de espera: " + combodias.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
 
+            }
+            else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
+            {
+                e.Graphics.DrawString("      Tiempo de espera: " + combohoras.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
+
+            }
+
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 405));
 
 
 
@@ -708,8 +749,8 @@ namespace pruebafirestore.Cotizacion
 
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-
                     e.Graphics.DrawString("                                     SubTotal: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+
                     p3 = p3.Replace("$", "");
 
                     Double total = Convert.ToDouble(p3) * .08;
@@ -815,7 +856,7 @@ namespace pruebafirestore.Cotizacion
                     String contar3 = total2.ToString();
 
                     Double total3 = total + total2;
-                    String contar4 = total2.ToString();
+                    String contar4 = total3.ToString();
 
 
                     if (contar2.Length == 4)
@@ -953,8 +994,18 @@ namespace pruebafirestore.Cotizacion
                     p6 = p6.Replace("$", "");
                     p9 = p9.Replace("$", "");
                     Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9);
-
                     String contar2 = total.ToString();
+
+
+                    Double total2 = total * .08;
+                    String contar3 = total2.ToString();
+
+                    Double total3 = total + total2;
+                    String contar4 = total3.ToString();
+
+
+
+
                     if (contar2.Length == 4)
                     {
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
@@ -982,16 +1033,75 @@ namespace pruebafirestore.Cotizacion
                     }
 
 
+                    if (contar3.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+                    if (contar4.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
 
 
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+                    e.Graphics.DrawString("                                     SubTotal: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+
+                    e.Graphics.DrawString("                                              IVA: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
 
 
 
@@ -1043,6 +1153,17 @@ namespace pruebafirestore.Cotizacion
                     p12 = p12.Replace("$", "");
                     Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9) + Convert.ToDouble(p12);
                     String contar2 = total.ToString();
+
+
+                    Double total2 = total * .08;
+                    String contar3 = total2.ToString();
+
+                    Double total3 = total + total2;
+                    String contar4 = total3.ToString();
+
+
+
+
                     if (contar2.Length == 4)
                     {
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
@@ -1070,16 +1191,74 @@ namespace pruebafirestore.Cotizacion
                     }
 
 
+                    if (contar3.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+                    if (contar4.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
 
 
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+                    e.Graphics.DrawString("                                     SubTotal: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+
+                    e.Graphics.DrawString("                                              IVA: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 645));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 665));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 695);
 
 
 
@@ -1140,6 +1319,14 @@ namespace pruebafirestore.Cotizacion
                     p15 = p15.Replace("$", "");
                     Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9) + Convert.ToDouble(p12) + Convert.ToDouble(p15);
                     String contar2 = total.ToString();
+
+                    Double total2 = total * .08;
+                    String contar3 = total2.ToString();
+
+                    Double total3 = total + total2;
+                    String contar4 = total3.ToString();
+
+
                     if (contar2.Length == 4)
                     {
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
@@ -1169,14 +1356,72 @@ namespace pruebafirestore.Cotizacion
 
 
 
+                    if (contar3.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar3.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
+                        contar3 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+                    if (contar4.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar4.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total3.ToString(), CultureInfo.InvariantCulture);
+                        contar4 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+                    e.Graphics.DrawString("                                     SubTotal: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+
+                    e.Graphics.DrawString("                                              IVA: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 665));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 685));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 715);
 
 
 
@@ -1304,6 +1549,11 @@ namespace pruebafirestore.Cotizacion
                 combodias.Visible = true;
                 combohoras.Visible = false;
             }
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            txtnombre2.Text = txtnombre.Text;
         }
     }
     }
