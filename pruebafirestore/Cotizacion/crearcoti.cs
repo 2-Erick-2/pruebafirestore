@@ -279,7 +279,7 @@ namespace pruebafirestore.Cotizacion
             DocumentReference DOC = database.Collection("Clientes").Document(txtorden.Text);
             Dictionary<String, Object> data1 = new Dictionary<string, object>()
             {
-                {"Precio","500"},
+                {"Precio","500preuabinstalador"},
 
                 {"Cantidad","2"}
             };
@@ -304,7 +304,7 @@ namespace pruebafirestore.Cotizacion
 
             //generacion  de numero aleatorio de orden
             var guid = Guid.NewGuid();
-            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray());
+            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray()); 
             var seed = int.Parse(justNumbers.Substring(0, 9));
             var random = new Random(seed);
 
@@ -330,19 +330,35 @@ namespace pruebafirestore.Cotizacion
             {
                 MessageBox.Show("Error " + ex);
             }
-            Add_Document_with_orden();
+            if (txtorden.Text == txtrepetidos.Text)
+            {
+                MessageBox.Show("Se repitio la orden");
+                //txtorden.Text = "Reer548621579";
+                goto sincopia;
+
+            }
 
 
+            else
+            {
+                
             BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
             Codigo.IncludeLabel = true;
             pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 
 
-            printPreviewDialog1.Document = printDocument1;
+            //printPreviewDialog1.Document = printDocument1;
             //printDocument1.Print();
-           // printDocument1.Print();
-            printPreviewDialog1.Show();
+            printDocument1.Print();
+           // printPreviewDialog1.Show();
 
+                Add_Document_with_orden();
+
+
+            }
+
+
+           
 
         }
 
@@ -367,7 +383,7 @@ namespace pruebafirestore.Cotizacion
             e.Graphics.DrawString("                  e-best@live.com.mx", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 260));
             e.Graphics.DrawString("                         8999222312", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 280));
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 300));
-            e.Graphics.DrawString("      Fecha: " + label10.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 330));
+            e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 330));
             e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 350));
             e.Graphics.DrawString("      Modelo: " + txtmarca.Text+" "+txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 370));
 
@@ -408,6 +424,39 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 545));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 565));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 595);
+
+
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','"  + combodias.Text + "','" + p3 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + p3 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
+
+
                 }
 
                 if (dataGridView1.Rows.Count == 2)
@@ -472,6 +521,44 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 585));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 615);
+
+
+
+
+                    String cantidad = "*" + p2 + "*" + "*" + p5 +"*" ;
+                    String descripcion = "*" + p1 + "*" + "*" + p4 +"*";
+                    String importe = "*" + p3 + "*" + "*" + p6 +"*" ;
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
+
+
 
 
 
@@ -552,6 +639,43 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+
+
+
+                    String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*";
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
 
 
 
@@ -640,6 +764,47 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+
+
+
+
+
+                    String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*" + "*" + p11 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*";
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
+
+
+
+
 
 
 
@@ -737,6 +902,42 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+
+
+
+                    String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*" + "*" + p11 + "*" + "*" + p14 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*" + "*" + p13 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*" + "*" + p15 + "*";
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar2 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
+
 
 
 
@@ -842,6 +1043,46 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+
+                    String cantidad = "*" + p2 + "*";
+                    String descripcion = "*" + p1 + "*";
+                    String importe = "*" + p3 + "*";
+                    try
+                    {
+                        connection.Open();
+                        OleDbCommand command = new OleDbCommand();
+                        command.Connection = connection;
+                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar3 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
+                        {
+                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar3 + "')";
+                            command.ExecuteNonQuery();
+                        }
+                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Datos Guardados de lo nuevo");
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex);
+                    }
+
+
+
+
+
+
+
+
                 }
 
                 if (dataGridView1.Rows.Count == 2)
@@ -1454,7 +1695,7 @@ namespace pruebafirestore.Cotizacion
         {
             string fecha = DateTime.Now.ToShortDateString();
             string hora = DateTime.Now.ToShortTimeString();
-            label10.Text = fecha + " " + hora;
+            txthorayfecha.Text = fecha + " " + hora;
         }
 
         private void txtimporte_KeyPress(object sender, KeyPressEventArgs e)
@@ -1512,7 +1753,7 @@ namespace pruebafirestore.Cotizacion
                 checkBox2.Visible = true;
                 combodias.Visible = true;
                 checkBox1.Visible = true;
-                combohoras.Visible = true;
+                combohoras.Visible = false;
             }
             else if (checkrespuesta.Checked == false)
             {

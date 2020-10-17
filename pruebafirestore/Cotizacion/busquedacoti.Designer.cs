@@ -35,10 +35,6 @@
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.ORDEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +90,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ORDEN,
-            this.Calle,
-            this.Cantidad,
-            this.Ciudad});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,30 +115,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ORDEN
-            // 
-            this.ORDEN.HeaderText = "Orden";
-            this.ORDEN.Name = "ORDEN";
-            this.ORDEN.ReadOnly = true;
-            // 
-            // Calle
-            // 
-            this.Calle.HeaderText = "Calle";
-            this.Calle.Name = "Calle";
-            this.Calle.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
             // 
             // busquedacoti
             // 
@@ -177,9 +144,5 @@
         private System.Windows.Forms.TextBox txtbusqueda;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
     }
 }

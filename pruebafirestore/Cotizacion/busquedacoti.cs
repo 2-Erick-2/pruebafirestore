@@ -22,7 +22,7 @@ namespace pruebafirestore.Cotizacion
         public busquedacoti()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= \\EBEST-AB78DLU\ebest\Ebest_be.accdb; Persist Security Info=False;";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= \\EBEST-AB78DLU\ebest\Ebest3_be.accdb; Persist Security Info=False;";
 
         }
 
@@ -33,12 +33,12 @@ namespace pruebafirestore.Cotizacion
             database = FirestoreDb.Create("facturasebest2");
             comboBoxbusqueda.Text = "Orden";
 
-           /* try
+            try
             {
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                string query = "select * from revisiones";
+                string query = "SELECT cotizaciones.[id],cotizaciones.[orden], cotizaciones.[tipopedido], cotizaciones.[nombre], cotizaciones.[numero], cotizaciones.[horayfecha], cotizaciones.[modelo], cotizaciones.[espera], cotizaciones.[Cantidad], cotizaciones.[Descripcion], cotizaciones.[Importe],cotizaciones.[Total]FROM cotizaciones ";
                 command.CommandText = query;
 
                 OleDbDataAdapter da = new OleDbDataAdapter(command);
@@ -78,6 +78,14 @@ namespace pruebafirestore.Cotizacion
                 dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.White;
                 dataGridView1.Columns[8].DefaultCellStyle.BackColor = Color.LightBlue;
 
+                dataGridView1.Columns[9].HeaderCell.Style.BackColor = Color.White;
+                dataGridView1.Columns[9].DefaultCellStyle.BackColor = Color.LightBlue;
+
+                dataGridView1.Columns[10].HeaderCell.Style.BackColor = Color.White;
+                dataGridView1.Columns[10].DefaultCellStyle.BackColor = Color.LightBlue;
+
+                dataGridView1.Columns[11].HeaderCell.Style.BackColor = Color.White;
+                dataGridView1.Columns[11].DefaultCellStyle.BackColor = Color.LightBlue;
 
                 dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
                 dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -88,7 +96,7 @@ namespace pruebafirestore.Cotizacion
             catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex);
-            }*/
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
