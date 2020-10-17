@@ -309,8 +309,7 @@ namespace pruebafirestore.Cotizacion
             var random = new Random(seed);
 
             txtpruibea.Text = seed.ToString();
-            
-            txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
+           txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
 
             try
             {
@@ -323,19 +322,14 @@ namespace pruebafirestore.Cotizacion
                 if (reader.Read())
                 {
                     txtrepetidos.Text = Convert.ToString(reader["orden"]);
-
-
                     reader.Close();
-
                 }
                 connection.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex);
             }
-
             Add_Document_with_orden();
 
 
@@ -1577,6 +1571,16 @@ namespace pruebafirestore.Cotizacion
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
             txtnombre2.Text = txtnombre.Text;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked == true)
+            {
+                txtcontracel.Visible = true;
+            }
+            else
+                txtcontracel.Visible = false;
         }
     }
     }

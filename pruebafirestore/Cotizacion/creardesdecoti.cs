@@ -40,12 +40,6 @@ namespace pruebafirestore.Cotizacion
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
                 connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }
-
             dataGridView1.RowHeadersVisible = false;
 
 
@@ -80,6 +74,20 @@ namespace pruebafirestore.Cotizacion
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex);
+            }
+
+            
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

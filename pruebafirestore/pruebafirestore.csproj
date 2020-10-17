@@ -133,6 +133,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientesclase.cs" />
     <Compile Include="Cotizacion\busquedacoti.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +151,12 @@
     </Compile>
     <Compile Include="Cotizacion\crearcoti.Designer.cs">
       <DependentUpon>crearcoti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cotizacion\creardesde2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cotizacion\creardesde2.Designer.cs">
+      <DependentUpon>creardesde2.cs</DependentUpon>
     </Compile>
     <Compile Include="Cotizacion\creardesdecoti.cs">
       <SubType>Form</SubType>
@@ -210,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion\crearcoti.resx">
       <DependentUpon>crearcoti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cotizacion\creardesde2.resx">
+      <DependentUpon>creardesde2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion\creardesdecoti.resx">
       <DependentUpon>creardesdecoti.cs</DependentUpon>

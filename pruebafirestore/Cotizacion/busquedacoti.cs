@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Google.Cloud.Firestore;
+
 
 namespace pruebafirestore.Cotizacion
 {
     public partial class busquedacoti : Form
     {
+        FirestoreDb database;
+
         private OleDbConnection connection = new OleDbConnection();
 
         public busquedacoti()
@@ -24,9 +28,12 @@ namespace pruebafirestore.Cotizacion
 
         private void busquedacoti_Load(object sender, EventArgs e)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            database = FirestoreDb.Create("facturasebest2");
             comboBoxbusqueda.Text = "Orden";
 
-            try
+           /* try
             {
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
@@ -81,6 +88,25 @@ namespace pruebafirestore.Cotizacion
             catch (Exception ex)
             {
                 MessageBox.Show("Error " + ex);
+            }*/
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetAllDocuments("Clientes");
+        }
+        async void GetAllDocuments(String nameOfCollection)
+        {
+            Query Clientes = database.Collection(nameOfCollection);
+            QuerySnapshot snap = await Clientes.GetSnapshotAsync();
+            foreach(DocumentSnapshot docsnap in snap.Documents)
+            {
+                Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
+                if (docsnap.Exists)
+                {
+                    dataGridView1.Rows.Add(docsnap.Id, clientesclase.Calle, clientesclase.Cantidad, clientesclase.Ciudad);
+                }
+
             }
         }
     }
