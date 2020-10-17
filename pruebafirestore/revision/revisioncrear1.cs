@@ -148,7 +148,7 @@ namespace pruebafirestore.formularios
 
 
 
-            Add_Document_with_orden();
+           // Add_Document_with_orden();
         }
 
         private void revisioncrear1_Load(object sender, EventArgs e)
