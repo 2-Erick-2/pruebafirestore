@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
-
+using Google.Cloud.Firestore.V1;
 
 namespace pruebafirestore.formularios
 {
@@ -20,7 +20,7 @@ namespace pruebafirestore.formularios
         String pedido = "";
         String contra = "";
 
-        int id = 0;
+        //int id = 0;
 
         public revisioncrear1()
         {
@@ -162,8 +162,45 @@ namespace pruebafirestore.formularios
             }
             else
             {
-                DocumentReference DOC = database.Collection("Revisiones").Document(txtorden.Text);
+                DocumentReference DOC = database.Collection("Revisiones").Document("contador");
                 Dictionary<String, Object> data1 = new Dictionary<string, object>()
+            {
+                 {"ID", FieldValue.Increment(1)}
+
+
+
+
+            };
+                await DOC.SetAsync(data1, SetOptions.MergeAll);
+                /* WriteBatch batch = database.StartBatch();
+
+
+
+                 DocumentReference DOC3 = database.Collection("Revisiones").Document("contador");
+                 Dictionary<String, Object> data3 = new Dictionary<string, object>()
+                 {
+                    {"ID", FieldValue.Increment(1)}
+
+                 };
+                 batch.Set(DOC3, data3, SetOptions.MergeAll);
+
+                 await batch.CommitAsync();*/
+
+
+                DocumentReference docRef2 = database.Collection("Revisiones").Document("contador");
+                DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
+                if (snapsho2.Exists)
+                {
+                    Dictionary<string, object> counter = snapsho2.ToDictionary();
+                    foreach (var item in counter)
+                        lblcontador.Text = string.Format("{1}", item.Key, item.Value);
+                }
+
+
+                int id = (int)Convert.ToInt64(lblcontador.Text);
+                DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
+
+                Dictionary<String, Object> data2 = new Dictionary<string, object>()
             {
                  {"ID", id},
 
@@ -181,16 +218,15 @@ namespace pruebafirestore.formularios
 
                 {"Fecha y Hora",txthorayfecha.Text},
 
-                {"Contraseña", contra},
+                {"Contraseña", contra}
+
 
             };
-                await DOC.SetAsync(data1, SetOptions.MergeAll);
+                await DOC2.SetAsync(data2, SetOptions.MergeAll);
                 MessageBox.Show("guardado");
             }
-
-
-
-           // Add_Document_with_orden();
+           
+            // Add_Document_with_orden();
         }
 
         private void revisioncrear1_Load(object sender, EventArgs e)
@@ -311,6 +347,87 @@ namespace pruebafirestore.formularios
             {
                 txtcontracel.Visible = false;
             }
+        }
+
+        private async void altoButton2_Click(object sender, EventArgs e)
+        {
+            DocumentReference DOC = database.Collection("Revisiones").Document("contador");
+
+            Dictionary<String, Object> data1 = new Dictionary<string, object>()
+            {
+                 {"ID", FieldValue.Increment(1)}
+
+              
+
+
+            };
+            await DOC.SetAsync(data1, SetOptions.MergeAll);
+
+
+
+
+
+           /* WriteBatch batch = database.StartBatch();
+           
+
+
+            DocumentReference DOC3 = database.Collection("Revisiones").Document("contador");
+            Dictionary<String, Object> data3 = new Dictionary<string, object>()
+            {
+               {"ID", FieldValue.Increment(1)}
+
+            };
+            batch.Set(DOC3, data3, SetOptions.MergeAll);
+       
+            await batch.CommitAsync();*/
+
+
+            DocumentReference docRef = database.Collection("Revisiones").Document("contador");
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+            if (snapshot.Exists)
+            {
+                Dictionary<string, object> counter = snapshot.ToDictionary();
+                foreach (var item in counter)
+                    lblcontador.Text = string.Format("{1}",item.Key, item.Value);
+            }
+
+
+
+            DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
+
+            Dictionary<String, Object> data2 = new Dictionary<string, object>()
+            {
+                 {"ID", lblcontador.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+                {"Descripcion",txtdescripcion.Text} ,
+
+                {"Accesorios",Accesorios} ,
+
+                {"Tiempo de espera",tiemporespuesta} ,
+
+                {"Fecha y Hora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+            };
+            await DOC2.SetAsync(data2, SetOptions.MergeAll);
+            MessageBox.Show("guardado");
+
+
+
+
+
+
+
+
+
         }
     }
 }

@@ -61,6 +61,7 @@
             this.txtpruibea = new System.Windows.Forms.TextBox();
             this.txtcontracel = new System.Windows.Forms.TextBox();
             this.checkcontra = new System.Windows.Forms.CheckBox();
+            this.lblcontador = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -430,12 +431,22 @@
             this.checkcontra.UseVisualStyleBackColor = true;
             this.checkcontra.CheckedChanged += new System.EventHandler(this.checkcontra_CheckedChanged);
             // 
+            // lblcontador
+            // 
+            this.lblcontador.AutoSize = true;
+            this.lblcontador.Location = new System.Drawing.Point(237, 729);
+            this.lblcontador.Name = "lblcontador";
+            this.lblcontador.Size = new System.Drawing.Size(35, 13);
+            this.lblcontador.TabIndex = 138;
+            this.lblcontador.Text = "label9";
+            // 
             // revisioncrear1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1168, 874);
+            this.Controls.Add(this.lblcontador);
             this.Controls.Add(this.txtcontracel);
             this.Controls.Add(this.checkcontra);
             this.Controls.Add(this.txtpruibea);
@@ -469,7 +480,7 @@
             this.Controls.Add(this.txtnombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "revisioncrear1";
-            this.Text = "revisioncrear1";
+            this.Text = "   ";
             this.Load += new System.EventHandler(this.revisioncrear1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -510,5 +521,6 @@
         private System.Windows.Forms.TextBox txtpruibea;
         private System.Windows.Forms.TextBox txtcontracel;
         private System.Windows.Forms.CheckBox checkcontra;
+        private System.Windows.Forms.Label lblcontador;
     }
 }

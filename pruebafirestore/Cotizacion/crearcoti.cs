@@ -24,7 +24,7 @@ namespace pruebafirestore.Cotizacion
 
         private OleDbConnection connection = new OleDbConnection();
 
-        String tipoproducto = "";
+        //String tipoproducto = "";
 
         String contar;
 
