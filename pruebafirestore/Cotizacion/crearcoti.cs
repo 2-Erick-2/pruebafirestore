@@ -55,7 +55,6 @@ namespace pruebafirestore.Cotizacion
             fila.Cells[2].Value = txtimporte.Text;
             fila.Cells[3].Value = preciofinal;
 
-
                 dataGridView1.Rows.Add(fila);
             txtcantidad.Text = "";
             txtdescri.Text = "";
@@ -290,6 +289,7 @@ namespace pruebafirestore.Cotizacion
 
         private void altoButton1_Click(object sender, EventArgs e)
         {
+           
             sincopia:
             string Name = txtnombre2.Text;
             var rand = new Random();

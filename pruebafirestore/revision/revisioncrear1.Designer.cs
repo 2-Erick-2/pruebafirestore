@@ -46,20 +46,21 @@
             this.checkprotctor = new System.Windows.Forms.CheckBox();
             this.checkchip = new System.Windows.Forms.CheckBox();
             this.checkotros = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.txtotros = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.combohoras = new System.Windows.Forms.ComboBox();
             this.combodias = new System.Windows.Forms.ComboBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkrespuesta = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txthorayfecha = new System.Windows.Forms.Label();
-            this.lblhorayfecha = new System.Windows.Forms.Label();
             this.txtorden = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtnombre2 = new System.Windows.Forms.TextBox();
             this.txtorden2 = new System.Windows.Forms.TextBox();
             this.txtpruibea = new System.Windows.Forms.TextBox();
+            this.txtcontracel = new System.Windows.Forms.TextBox();
+            this.checkcontra = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -198,6 +199,8 @@
             // checknoaplica
             // 
             this.checknoaplica.AutoSize = true;
+            this.checknoaplica.Checked = true;
+            this.checknoaplica.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checknoaplica.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checknoaplica.Location = new System.Drawing.Point(184, 417);
             this.checknoaplica.Name = "checknoaplica";
@@ -205,73 +208,83 @@
             this.checknoaplica.TabIndex = 13;
             this.checknoaplica.Text = "No aplica";
             this.checknoaplica.UseVisualStyleBackColor = true;
+            this.checknoaplica.CheckedChanged += new System.EventHandler(this.checknoaplica_CheckedChanged);
             // 
             // checkprotctor
             // 
             this.checkprotctor.AutoSize = true;
             this.checkprotctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkprotctor.Location = new System.Drawing.Point(450, 407);
+            this.checkprotctor.Location = new System.Drawing.Point(450, 417);
             this.checkprotctor.Name = "checkprotctor";
             this.checkprotctor.Size = new System.Drawing.Size(130, 33);
             this.checkprotctor.TabIndex = 15;
             this.checkprotctor.Text = "Protector";
             this.checkprotctor.UseVisualStyleBackColor = true;
+            this.checkprotctor.Visible = false;
             // 
             // checkchip
             // 
             this.checkchip.AutoSize = true;
             this.checkchip.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkchip.Location = new System.Drawing.Point(598, 407);
+            this.checkchip.Location = new System.Drawing.Point(598, 417);
             this.checkchip.Name = "checkchip";
             this.checkchip.Size = new System.Drawing.Size(82, 33);
             this.checkchip.TabIndex = 17;
             this.checkchip.Text = "Chip";
             this.checkchip.UseVisualStyleBackColor = true;
+            this.checkchip.Visible = false;
             // 
             // checkotros
             // 
             this.checkotros.AutoSize = true;
             this.checkotros.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkotros.Location = new System.Drawing.Point(688, 407);
+            this.checkotros.Location = new System.Drawing.Point(688, 417);
             this.checkotros.Name = "checkotros";
             this.checkotros.Size = new System.Drawing.Size(91, 33);
             this.checkotros.TabIndex = 18;
             this.checkotros.Text = "Otros";
             this.checkotros.UseVisualStyleBackColor = true;
+            this.checkotros.Visible = false;
+            this.checkotros.CheckedChanged += new System.EventHandler(this.checkotros_CheckedChanged);
             // 
-            // textBox4
+            // txtotros
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(801, 407);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(230, 35);
-            this.textBox4.TabIndex = 19;
+            this.txtotros.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtotros.Location = new System.Drawing.Point(801, 417);
+            this.txtotros.Name = "txtotros";
+            this.txtotros.Size = new System.Drawing.Size(230, 35);
+            this.txtotros.TabIndex = 19;
+            this.txtotros.Visible = false;
             // 
-            // checkBox7
+            // checkBox1
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.BackColor = System.Drawing.Color.White;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.Location = new System.Drawing.Point(707, 490);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(88, 29);
-            this.checkBox7.TabIndex = 117;
-            this.checkBox7.Text = "Horas";
-            this.checkBox7.UseVisualStyleBackColor = false;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.White;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(707, 490);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(88, 29);
+            this.checkBox1.TabIndex = 117;
+            this.checkBox1.Text = "Horas";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.Visible = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox8
+            // checkBox2
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.BackColor = System.Drawing.Color.White;
-            this.checkBox8.Checked = true;
-            this.checkBox8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.Location = new System.Drawing.Point(449, 491);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(80, 33);
-            this.checkBox8.TabIndex = 116;
-            this.checkBox8.Text = "Dias";
-            this.checkBox8.UseVisualStyleBackColor = false;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.BackColor = System.Drawing.Color.White;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(449, 491);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 33);
+            this.checkBox2.TabIndex = 116;
+            this.checkBox2.Text = "Dias";
+            this.checkBox2.UseVisualStyleBackColor = false;
+            this.checkBox2.Visible = false;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // combohoras
             // 
@@ -317,17 +330,19 @@
             this.combodias.Name = "combodias";
             this.combodias.Size = new System.Drawing.Size(121, 33);
             this.combodias.TabIndex = 114;
+            this.combodias.Visible = false;
             // 
-            // checkBox9
+            // checkrespuesta
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.Location = new System.Drawing.Point(183, 489);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(262, 33);
-            this.checkBox9.TabIndex = 118;
-            this.checkBox9.Text = "Tiempo de respuesta";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkrespuesta.AutoSize = true;
+            this.checkrespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkrespuesta.Location = new System.Drawing.Point(183, 489);
+            this.checkrespuesta.Name = "checkrespuesta";
+            this.checkrespuesta.Size = new System.Drawing.Size(262, 33);
+            this.checkrespuesta.TabIndex = 118;
+            this.checkrespuesta.Text = "Tiempo de respuesta";
+            this.checkrespuesta.UseVisualStyleBackColor = true;
+            this.checkrespuesta.CheckedChanged += new System.EventHandler(this.checkrespuesta_CheckedChanged);
             // 
             // timer1
             // 
@@ -339,29 +354,19 @@
             this.txthorayfecha.AutoSize = true;
             this.txthorayfecha.BackColor = System.Drawing.Color.White;
             this.txthorayfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthorayfecha.Location = new System.Drawing.Point(445, 615);
+            this.txthorayfecha.Location = new System.Drawing.Point(18, 603);
             this.txthorayfecha.Name = "txthorayfecha";
             this.txthorayfecha.Size = new System.Drawing.Size(129, 24);
             this.txthorayfecha.TabIndex = 120;
             this.txthorayfecha.Text = "*****************";
-            // 
-            // lblhorayfecha
-            // 
-            this.lblhorayfecha.AutoSize = true;
-            this.lblhorayfecha.BackColor = System.Drawing.Color.White;
-            this.lblhorayfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhorayfecha.Location = new System.Drawing.Point(179, 615);
-            this.lblhorayfecha.Name = "lblhorayfecha";
-            this.lblhorayfecha.Size = new System.Drawing.Size(155, 29);
-            this.lblhorayfecha.TabIndex = 119;
-            this.lblhorayfecha.Text = "Hora y Fecha";
+            this.txthorayfecha.Visible = false;
             // 
             // txtorden
             // 
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(445, 685);
+            this.txtorden.Location = new System.Drawing.Point(445, 587);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(122, 24);
             this.txtorden.TabIndex = 122;
@@ -372,7 +377,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(178, 685);
+            this.label8.Location = new System.Drawing.Point(178, 587);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(208, 29);
             this.label8.TabIndex = 121;
@@ -390,20 +395,40 @@
             // txtorden2
             // 
             this.txtorden2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden2.Location = new System.Drawing.Point(59, 387);
+            this.txtorden2.Location = new System.Drawing.Point(22, 512);
             this.txtorden2.Name = "txtorden2";
-            this.txtorden2.Size = new System.Drawing.Size(63, 35);
+            this.txtorden2.Size = new System.Drawing.Size(37, 35);
             this.txtorden2.TabIndex = 124;
             this.txtorden2.Visible = false;
             // 
             // txtpruibea
             // 
             this.txtpruibea.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpruibea.Location = new System.Drawing.Point(22, 464);
+            this.txtpruibea.Location = new System.Drawing.Point(22, 553);
             this.txtpruibea.Name = "txtpruibea";
-            this.txtpruibea.Size = new System.Drawing.Size(134, 35);
+            this.txtpruibea.Size = new System.Drawing.Size(37, 35);
             this.txtpruibea.TabIndex = 125;
             this.txtpruibea.Visible = false;
+            // 
+            // txtcontracel
+            // 
+            this.txtcontracel.Location = new System.Drawing.Point(411, 656);
+            this.txtcontracel.Name = "txtcontracel";
+            this.txtcontracel.Size = new System.Drawing.Size(292, 20);
+            this.txtcontracel.TabIndex = 136;
+            this.txtcontracel.Visible = false;
+            // 
+            // checkcontra
+            // 
+            this.checkcontra.AutoSize = true;
+            this.checkcontra.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkcontra.Location = new System.Drawing.Point(193, 645);
+            this.checkcontra.Name = "checkcontra";
+            this.checkcontra.Size = new System.Drawing.Size(173, 35);
+            this.checkcontra.TabIndex = 135;
+            this.checkcontra.Text = "Contraseña";
+            this.checkcontra.UseVisualStyleBackColor = true;
+            this.checkcontra.CheckedChanged += new System.EventHandler(this.checkcontra_CheckedChanged);
             // 
             // revisioncrear1
             // 
@@ -411,19 +436,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1168, 874);
+            this.Controls.Add(this.txtcontracel);
+            this.Controls.Add(this.checkcontra);
             this.Controls.Add(this.txtpruibea);
             this.Controls.Add(this.txtorden2);
             this.Controls.Add(this.txtnombre2);
             this.Controls.Add(this.txtorden);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txthorayfecha);
-            this.Controls.Add(this.lblhorayfecha);
-            this.Controls.Add(this.checkBox9);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox8);
+            this.Controls.Add(this.checkrespuesta);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.combohoras);
             this.Controls.Add(this.combodias);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtotros);
             this.Controls.Add(this.checkotros);
             this.Controls.Add(this.checkchip);
             this.Controls.Add(this.checkprotctor);
@@ -469,19 +495,20 @@
         private System.Windows.Forms.CheckBox checkprotctor;
         private System.Windows.Forms.CheckBox checkchip;
         private System.Windows.Forms.CheckBox checkotros;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.TextBox txtotros;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ComboBox combohoras;
         private System.Windows.Forms.ComboBox combodias;
-        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkrespuesta;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label txthorayfecha;
-        private System.Windows.Forms.Label lblhorayfecha;
         private System.Windows.Forms.Label txtorden;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtnombre2;
         private System.Windows.Forms.TextBox txtorden2;
         private System.Windows.Forms.TextBox txtpruibea;
+        private System.Windows.Forms.TextBox txtcontracel;
+        private System.Windows.Forms.CheckBox checkcontra;
     }
 }

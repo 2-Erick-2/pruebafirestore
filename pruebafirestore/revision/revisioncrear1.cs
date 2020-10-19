@@ -18,6 +18,9 @@ namespace pruebafirestore.formularios
         String Accesorios = "";
         String tiemporespuesta = "";
         String pedido = "";
+        String contra = "";
+
+        int id = 0;
 
         public revisioncrear1()
         {
@@ -93,6 +96,42 @@ namespace pruebafirestore.formularios
 
         private async void altoButton1_Click(object sender, EventArgs e)
         {
+            //id = id +1;
+            if (checkrespuesta.Checked == true && checkBox2.Checked == true)
+            {
+                tiemporespuesta = combodias.Text;
+            }
+            else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
+            {
+                tiemporespuesta = combohoras.Text;
+            }
+
+            if (checknoaplica.Checked == true)
+            {
+                Accesorios = "No aplica";
+            }
+            else if (checkprotctor.Checked && checkchip.Checked == true)
+            {
+                Accesorios = "Protector y Chip";
+            }
+            else if (checkprotctor.Checked == true)
+            {
+                Accesorios = "Protector";
+            }
+            else if (checkchip.Checked == true)
+            {
+                Accesorios = "Accesorios";
+            }
+            else if (checkotros.Checked == true)
+            {
+                Accesorios = txtotros.Text;
+
+            }
+
+            if (checkcontra.Checked == true)
+            {
+                contra = txtcontracel.Text;
+            }
             sincopia:
             string Name = txtnombre2.Text;
             var rand = new Random();
@@ -114,7 +153,6 @@ namespace pruebafirestore.formularios
             txtpruibea.Text = seed.ToString();
             txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
 
-
             DocumentReference docRef = database.Collection("Revisiones").Document(txtorden.Text);
             DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
             if (snapshot.Exists)
@@ -127,9 +165,11 @@ namespace pruebafirestore.formularios
                 DocumentReference DOC = database.Collection("Revisiones").Document(txtorden.Text);
                 Dictionary<String, Object> data1 = new Dictionary<string, object>()
             {
+                 {"ID", id},
+
                 {"Nombre",txtnombre.Text},
 
-                {"Numero",txtnumero.Text}, 
+                {"Numero",txtnumero.Text},
 
                 {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
 
@@ -139,7 +179,9 @@ namespace pruebafirestore.formularios
 
                 {"Tiempo de espera",tiemporespuesta} ,
 
-                {"Fecha y Hora",txthorayfecha.Text}
+                {"Fecha y Hora",txthorayfecha.Text},
+
+                {"Contraseña", contra},
 
             };
                 await DOC.SetAsync(data1, SetOptions.MergeAll);
@@ -162,6 +204,113 @@ namespace pruebafirestore.formularios
         {
             txtnombre2.Text = txtnombre.Text;
 
+        }
+
+        private void checkrespuesta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkrespuesta.Checked == true)
+            {
+                checkBox2.Visible = true;
+                combodias.Visible = true;
+                checkBox1.Visible = true;
+                combohoras.Visible = false;
+            }
+            else if (checkrespuesta.Checked == false)
+            {
+                checkBox2.Visible = false;
+                combodias.Visible = false;
+                checkBox1.Visible = false;
+                combohoras.Visible = false;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked == true)
+            {
+                checkBox1.Checked = false;
+                combodias.Visible = true;
+                combohoras.Visible = false;
+            }
+            else if (checkBox2.Checked == false && checkBox1.Checked == false)
+            {
+                checkBox2.Checked = true;
+                combodias.Visible = true;
+                combohoras.Visible = false;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+                combodias.Visible = false;
+                combohoras.Visible = true;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkBox2.Checked = false;
+                combodias.Visible = false;
+                combohoras.Visible = true;
+            }
+            else if (checkBox2.Checked == false && checkBox1.Checked == false)
+            {
+
+                checkBox2.Checked = true;
+                combodias.Visible = true;
+                combohoras.Visible = false;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+                combodias.Visible = true;
+                combohoras.Visible = false;
+            }
+        }
+
+        private void checknoaplica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checknoaplica.Checked == true)
+            {
+                checkprotctor.Visible = false;
+                checkchip.Visible = false;
+                checkotros.Visible = false;
+                txtotros.Visible = false;
+            }
+            else if (checknoaplica.Checked == false)
+            {
+                checkprotctor.Visible = true;
+                checkchip.Visible = true;
+                checkotros.Visible = true;
+                txtotros.Visible = true;
+            }
+        }
+
+        private void checkotros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkotros.Checked == true)
+            {
+                checkprotctor.Visible = false;
+                checkchip.Visible = false;
+            }
+            else if (checkotros.Checked == false)
+            {
+                checkprotctor.Visible = true;
+                checkchip.Visible = true;
+            }
+        }
+
+        private void checkcontra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkcontra.Checked == true)
+            {
+                txtcontracel.Visible = true;
+            }
+            else if (checkcontra.Checked == false)
+            {
+                txtcontracel.Visible = false;
+            }
         }
     }
 }
