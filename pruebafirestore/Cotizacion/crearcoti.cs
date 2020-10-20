@@ -55,7 +55,7 @@ namespace pruebafirestore.Cotizacion
             fila.Cells[2].Value = txtimporte.Text;
             fila.Cells[3].Value = preciofinal;
 
-                dataGridView1.Rows.Add(fila);
+            dataGridView1.Rows.Add(fila);
             txtcantidad.Text = "";
             txtdescri.Text = "";
             txtimporte.Text = "";
@@ -287,7 +287,7 @@ namespace pruebafirestore.Cotizacion
         }
 
 
-        private void altoButton1_Click(object sender, EventArgs e)
+        private async  void altoButton1_Click(object sender, EventArgs e)
         {
            
             sincopia:
@@ -311,38 +311,44 @@ namespace pruebafirestore.Cotizacion
             txtpruibea.Text = seed.ToString();
            txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
 
-            try
+            DocumentReference docRef = database.Collection("Cotizaciones").Document(txtorden.Text);
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+            if (snapshot.Exists)
             {
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "select * from revisiones Where orden like ('" + txtorden.Text + "')";
-                command.CommandText = query;
-                OleDbDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    txtrepetidos.Text = Convert.ToString(reader["orden"]);
-                    reader.Close();
-                }
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }
-            if (txtorden.Text == txtrepetidos.Text)
-            {
-                MessageBox.Show("Se repitio la orden");
-                //txtorden.Text = "Reer548621579";
+                MessageBox.Show("Repetido");
                 goto sincopia;
-
             }
 
 
             else
             {
-                
-            BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
+
+                DocumentReference DOC = database.Collection("Cotizaciones").Document("contador");
+                Dictionary<String, Object> data1 = new Dictionary<string, object>()
+                {
+                 {"ID", FieldValue.Increment(1)}
+
+
+
+
+                 };
+                await DOC.SetAsync(data1, SetOptions.MergeAll);
+
+                DocumentReference docRef2 = database.Collection("Cotizaciones").Document("contador");
+                DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
+                if (snapsho2.Exists)
+                {
+                    Dictionary<string, object> counter = snapsho2.ToDictionary();
+                    foreach (var item in counter)
+                        lblcontador.Text = string.Format("{1}", item.Key, item.Value);
+                }
+
+
+                int id = (int)Convert.ToInt64(lblcontador.Text);
+
+
+
+                BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
             Codigo.IncludeLabel = true;
             pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 

@@ -18,5 +18,31 @@ namespace pruebafirestore
         [FirestoreProperty]
         public String Ciudad { get; set; }
 
+        [FirestoreProperty]
+        public String Accesorios { get; set; }
+
+        [FirestoreProperty]
+        public String Contraseña { get; set; }
+
+        [FirestoreProperty]
+        public String Descripcion { get; set; }
+
+        [FirestoreProperty]
+        public String Fechayhora { get; set; }
+
+        [FirestoreProperty]
+        public int ID { get; set; }
+
+        [FirestoreProperty]
+        public String Modelo { get; set; }
+
+        [FirestoreProperty]
+        public String Nombre { get; set; }
+
+        [FirestoreProperty]
+        public String Numero { get; set; }
+
+        [FirestoreProperty]
+        public String Tiempodeespera { get; set; }
     }
 }

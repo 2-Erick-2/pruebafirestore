@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,10 @@ namespace pruebafirestore.formularios
             {
                 tiemporespuesta = combohoras.Text;
             }
+            else if (checkrespuesta.Checked == false)
+            {
+                tiemporespuesta = "No aplica";
+            }
 
             if (checknoaplica.Checked == true)
             {
@@ -132,6 +137,10 @@ namespace pruebafirestore.formularios
             {
                 contra = txtcontracel.Text;
             }
+            else if (checkcontra.Checked == false)
+            {
+                contra = "No aplica";
+            }
             sincopia:
             string Name = txtnombre2.Text;
             var rand = new Random();
@@ -152,57 +161,60 @@ namespace pruebafirestore.formularios
 
             txtpruibea.Text = seed.ToString();
             txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
-
-            DocumentReference docRef = database.Collection("Revisiones").Document(txtorden.Text);
-            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
-            if (snapshot.Exists)
+            try
             {
-                MessageBox.Show("Repetido");
-                goto sincopia;
-            }
-            else
-            {
-                DocumentReference DOC = database.Collection("Revisiones").Document("contador");
-                Dictionary<String, Object> data1 = new Dictionary<string, object>()
-            {
+                DocumentReference docRef = database.Collection("Revisiones").Document(txtorden.Text);
+                DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+                if (snapshot.Exists)
+                {
+                    MessageBox.Show("Repetido");
+                    goto sincopia;
+                }
+                else
+                {
+                    DocumentReference DOC = database.Collection("Revisiones").Document("contador");
+                    Dictionary<String, Object> data1 = new Dictionary<string, object>()
+                {
                  {"ID", FieldValue.Increment(1)}
 
 
 
 
-            };
-                await DOC.SetAsync(data1, SetOptions.MergeAll);
-                /* WriteBatch batch = database.StartBatch();
-
-
-
-                 DocumentReference DOC3 = database.Collection("Revisiones").Document("contador");
-                 Dictionary<String, Object> data3 = new Dictionary<string, object>()
-                 {
-                    {"ID", FieldValue.Increment(1)}
-
                  };
-                 batch.Set(DOC3, data3, SetOptions.MergeAll);
-
-                 await batch.CommitAsync();*/
-
-
-                DocumentReference docRef2 = database.Collection("Revisiones").Document("contador");
-                DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
-                if (snapsho2.Exists)
-                {
-                    Dictionary<string, object> counter = snapsho2.ToDictionary();
-                    foreach (var item in counter)
-                        lblcontador.Text = string.Format("{1}", item.Key, item.Value);
-                }
+                    await DOC.SetAsync(data1, SetOptions.MergeAll);
+                    /* WriteBatch batch = database.StartBatch();
 
 
-                int id = (int)Convert.ToInt64(lblcontador.Text);
-                DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
 
-                Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                     DocumentReference DOC3 = database.Collection("Revisiones").Document("contador");
+                     Dictionary<String, Object> data3 = new Dictionary<string, object>()
+                     {
+                        {"ID", FieldValue.Increment(1)}
+
+                     };
+                     batch.Set(DOC3, data3, SetOptions.MergeAll);
+
+                     await batch.CommitAsync();*/
+
+
+                    DocumentReference docRef2 = database.Collection("Revisiones").Document("contador");
+                    DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
+                    if (snapsho2.Exists)
+                    {
+                        Dictionary<string, object> counter = snapsho2.ToDictionary();
+                        foreach (var item in counter)
+                            lblcontador.Text = string.Format("{1}", item.Key, item.Value);
+                    }
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
+
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
             {
                  {"ID", id},
+
+                {"Orden", txtorden.Text},
 
                 {"Nombre",txtnombre.Text},
 
@@ -214,21 +226,83 @@ namespace pruebafirestore.formularios
 
                 {"Accesorios",Accesorios} ,
 
-                {"Tiempo de espera",tiemporespuesta} ,
+                {"Tiempodeespera",tiemporespuesta} ,
 
-                {"Fecha y Hora",txthorayfecha.Text},
+                {"Fechayhora",txthorayfecha.Text},
 
                 {"Contraseña", contra}
 
 
             };
-                await DOC2.SetAsync(data2, SetOptions.MergeAll);
-                MessageBox.Show("guardado");
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+                    BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
+                    Codigo.IncludeLabel = true;
+                    pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 200, 60);
+
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps;
+                    printDocument1.PrintPage += imprimir;
+                    printDocument1.Print();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
             }
            
+
+
+
+
+
+
             // Add_Document_with_orden();
         }
 
+        private void imprimir(object sender, PrintPageEventArgs e )
+        {
+            Image newImage = Image.FromFile(@"D:\TODO\ebestimprimr4.jpg");
+
+
+            printDocument1.PrinterSettings.PrinterName = "TM-T20II";
+
+            // Create rectangle for source image.
+            RectangleF srcRect = new RectangleF(100.0F, 100.0F, 150.0F, 150.0F);
+            e.Graphics.DrawImage(newImage, 30, 2);
+
+            //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
+            e.Graphics.DrawString("   Equipo en  revisión", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
+            e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
+            e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
+            e.Graphics.DrawString("                  Reynosa Tamaulipas", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 220));
+            e.Graphics.DrawString("                             88500", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 240));
+            e.Graphics.DrawString("                  e-best@live.com.mx", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 260));
+            e.Graphics.DrawString("                         8999222312", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 280));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 300));
+            e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 330));
+            e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 350));
+            e.Graphics.DrawString("      Modelo: " + txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 370));
+            if (checkrespuesta.Checked == true && checkBox2.Checked == true)
+            {
+                e.Graphics.DrawString("      Tiempo de espera: " + combodias.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
+
+            }
+            else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
+            {
+                e.Graphics.DrawString("      Tiempo de espera: " + combohoras.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
+
+            }
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 410));
+            e.Graphics.DrawString("               Orden: " + txtorden.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 435));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 450));
+            e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 475));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+            e.Graphics.DrawImage(pictureBox2.Image, 40, 520);
+        }
         private void revisioncrear1_Load(object sender, EventArgs e)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";

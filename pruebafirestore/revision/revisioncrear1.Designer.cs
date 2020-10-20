@@ -62,6 +62,9 @@
             this.txtcontracel = new System.Windows.Forms.TextBox();
             this.checkcontra = new System.Windows.Forms.CheckBox();
             this.lblcontador = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -440,12 +443,22 @@
             this.lblcontador.TabIndex = 138;
             this.lblcontador.Text = "label9";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(22, 656);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 139;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
             // revisioncrear1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1168, 874);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblcontador);
             this.Controls.Add(this.txtcontracel);
             this.Controls.Add(this.checkcontra);
@@ -482,6 +495,7 @@
             this.Name = "revisioncrear1";
             this.Text = "   ";
             this.Load += new System.EventHandler(this.revisioncrear1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -522,5 +536,7 @@
         private System.Windows.Forms.TextBox txtcontracel;
         private System.Windows.Forms.CheckBox checkcontra;
         private System.Windows.Forms.Label lblcontador;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
