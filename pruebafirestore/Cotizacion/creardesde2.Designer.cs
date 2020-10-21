@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(creardesde2));
             this.checkiva = new System.Windows.Forms.CheckBox();
             this.checkrespuesta = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -69,6 +70,7 @@
             this.txthorayfecha = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             this.checkiva.AutoSize = true;
             this.checkiva.BackColor = System.Drawing.Color.White;
             this.checkiva.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkiva.Location = new System.Drawing.Point(12, 565);
+            this.checkiva.Location = new System.Drawing.Point(5, 552);
             this.checkiva.Name = "checkiva";
             this.checkiva.Size = new System.Drawing.Size(67, 35);
             this.checkiva.TabIndex = 149;
@@ -89,25 +91,27 @@
             // 
             this.checkrespuesta.AutoSize = true;
             this.checkrespuesta.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkrespuesta.Location = new System.Drawing.Point(10, 606);
+            this.checkrespuesta.Location = new System.Drawing.Point(3, 593);
             this.checkrespuesta.Name = "checkrespuesta";
             this.checkrespuesta.Size = new System.Drawing.Size(282, 35);
             this.checkrespuesta.TabIndex = 148;
             this.checkrespuesta.Text = "Tiempo de respuesta";
             this.checkrespuesta.UseVisualStyleBackColor = true;
+            this.checkrespuesta.CheckedChanged += new System.EventHandler(this.checkrespuesta_CheckedChanged);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.White;
             this.checkBox1.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(576, 608);
+            this.checkBox1.Location = new System.Drawing.Point(569, 595);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(109, 35);
             this.checkBox1.TabIndex = 147;
             this.checkBox1.Text = "Horas";
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.Visible = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -116,13 +120,14 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(305, 610);
+            this.checkBox2.Location = new System.Drawing.Point(298, 597);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(90, 35);
             this.checkBox2.TabIndex = 146;
             this.checkBox2.Text = "Dias";
             this.checkBox2.UseVisualStyleBackColor = false;
             this.checkBox2.Visible = false;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // combohoras
             // 
@@ -144,7 +149,7 @@
             "10 horas",
             "11 horas",
             "12 horas"});
-            this.combohoras.Location = new System.Drawing.Point(691, 606);
+            this.combohoras.Location = new System.Drawing.Point(684, 593);
             this.combohoras.Name = "combohoras";
             this.combohoras.Size = new System.Drawing.Size(121, 39);
             this.combohoras.TabIndex = 145;
@@ -164,7 +169,7 @@
             "3 días",
             "4 días",
             "5 días"});
-            this.combodias.Location = new System.Drawing.Point(401, 607);
+            this.combodias.Location = new System.Drawing.Point(394, 594);
             this.combodias.Name = "combodias";
             this.combodias.Size = new System.Drawing.Size(121, 39);
             this.combodias.TabIndex = 144;
@@ -178,47 +183,47 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cantidad,
             this.Descripcion,
             this.PU,
             this.Importe});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.NullValue = null;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(93, 391);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(574, 162);
+            this.dataGridView1.Size = new System.Drawing.Size(574, 145);
             this.dataGridView1.TabIndex = 142;
             // 
             // Cantidad
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
             this.Cantidad.HeaderText = "      Cantidad";
             this.Cantidad.Name = "Cantidad";
             // 
             // Descripcion
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
             this.Descripcion.HeaderText = " Descripcion";
             this.Descripcion.Name = "Descripcion";
             // 
@@ -230,10 +235,10 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "C0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
             this.Importe.HeaderText = "         Importe";
             this.Importe.Name = "Importe";
             // 
@@ -255,6 +260,8 @@
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.Size = new System.Drawing.Size(104, 31);
             this.txtimporte.TabIndex = 139;
+            this.txtimporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtimporte_KeyPress);
+            this.txtimporte.Leave += new System.EventHandler(this.txtimporte_Leave);
             // 
             // label7
             // 
@@ -293,13 +300,14 @@
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(104, 31);
             this.txtcantidad.TabIndex = 135;
+            this.txtcantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantidad_KeyPress);
             // 
             // txtorden
             // 
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(291, 721);
+            this.txtorden.Location = new System.Drawing.Point(292, 682);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(206, 31);
             this.txtorden.TabIndex = 154;
@@ -310,7 +318,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(26, 721);
+            this.label11.Location = new System.Drawing.Point(27, 682);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(232, 31);
             this.label11.TabIndex = 153;
@@ -336,6 +344,7 @@
             this.altoButton1.TabIndex = 152;
             this.altoButton1.Text = "CERRAR";
             this.altoButton1.Transparency = false;
+            this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
             // pictureBox2
             // 
@@ -359,6 +368,7 @@
             this.button2.Size = new System.Drawing.Size(40, 31);
             this.button2.TabIndex = 143;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -373,21 +383,23 @@
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 141;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtnombre2
             // 
             this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre2.Location = new System.Drawing.Point(2, 3);
+            this.txtnombre2.Location = new System.Drawing.Point(131, 15);
+            this.txtnombre2.Multiline = true;
             this.txtnombre2.Name = "txtnombre2";
-            this.txtnombre2.Size = new System.Drawing.Size(10, 11);
+            this.txtnombre2.Size = new System.Drawing.Size(94, 35);
             this.txtnombre2.TabIndex = 161;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Elephant", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(309, 3);
+            this.label9.Location = new System.Drawing.Point(303, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(231, 45);
             this.label9.TabIndex = 160;
@@ -397,7 +409,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 151);
+            this.label2.Location = new System.Drawing.Point(15, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 31);
             this.label2.TabIndex = 159;
@@ -406,7 +418,7 @@
             // txtnumero
             // 
             this.txtnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnumero.Location = new System.Drawing.Point(253, 151);
+            this.txtnumero.Location = new System.Drawing.Point(247, 153);
             this.txtnumero.Name = "txtnumero";
             this.txtnumero.Size = new System.Drawing.Size(470, 35);
             this.txtnumero.TabIndex = 158;
@@ -415,7 +427,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 66);
+            this.label1.Location = new System.Drawing.Point(14, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 31);
             this.label1.TabIndex = 157;
@@ -424,7 +436,7 @@
             // txtnombre
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(253, 60);
+            this.txtnombre.Location = new System.Drawing.Point(247, 62);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(470, 35);
             this.txtnombre.TabIndex = 156;
@@ -441,7 +453,7 @@
             // 
             // txtrepetidos
             // 
-            this.txtrepetidos.Location = new System.Drawing.Point(12, 520);
+            this.txtrepetidos.Location = new System.Drawing.Point(23, 504);
             this.txtrepetidos.Name = "txtrepetidos";
             this.txtrepetidos.Size = new System.Drawing.Size(49, 20);
             this.txtrepetidos.TabIndex = 165;
@@ -449,7 +461,7 @@
             // 
             // txtpruibea
             // 
-            this.txtpruibea.Location = new System.Drawing.Point(23, 494);
+            this.txtpruibea.Location = new System.Drawing.Point(23, 478);
             this.txtpruibea.Name = "txtpruibea";
             this.txtpruibea.Size = new System.Drawing.Size(49, 20);
             this.txtpruibea.TabIndex = 164;
@@ -457,7 +469,7 @@
             // 
             // txtorden2
             // 
-            this.txtorden2.Location = new System.Drawing.Point(12, 455);
+            this.txtorden2.Location = new System.Drawing.Point(23, 452);
             this.txtorden2.Name = "txtorden2";
             this.txtorden2.Size = new System.Drawing.Size(62, 20);
             this.txtorden2.TabIndex = 163;
@@ -477,7 +489,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 233);
+            this.label5.Location = new System.Drawing.Point(15, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 31);
             this.label5.TabIndex = 168;
@@ -486,7 +498,7 @@
             // txtmodelo
             // 
             this.txtmodelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmodelo.Location = new System.Drawing.Point(257, 233);
+            this.txtmodelo.Location = new System.Drawing.Point(251, 235);
             this.txtmodelo.Name = "txtmodelo";
             this.txtmodelo.Size = new System.Drawing.Size(466, 31);
             this.txtmodelo.TabIndex = 167;
@@ -496,7 +508,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(826, 845);
+            this.ClientSize = new System.Drawing.Size(817, 845);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtmodelo);
             this.Controls.Add(this.lblcontador);
@@ -529,6 +541,7 @@
             this.Controls.Add(this.txtdescri);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtcantidad);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "creardesde2";
             this.Text = "creardesde2";
             this.Load += new System.EventHandler(this.creardesde2_Load);
@@ -576,5 +589,6 @@
         private System.Windows.Forms.Label txthorayfecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmodelo;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

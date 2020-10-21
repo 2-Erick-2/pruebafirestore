@@ -151,6 +151,7 @@ namespace pruebafirestore.Cotizacion
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             creardesde2 crear = new creardesde2();
+            crear.Orden = Orden;
             crear.Nombre = Nombre;
             crear.Numero = Numero;
             crear.Modelo = Modelo;
