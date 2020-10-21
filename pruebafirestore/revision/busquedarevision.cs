@@ -141,6 +141,8 @@ namespace pruebafirestore.revision
 
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
             dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+           
+            //dataGridView1.Columns[2].Visible = false;
             
 
             dataGridView1.RowHeadersVisible = false;

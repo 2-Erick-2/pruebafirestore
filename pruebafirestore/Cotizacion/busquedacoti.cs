@@ -18,7 +18,8 @@ namespace pruebafirestore.Cotizacion
         FirestoreDb database;
 
         private OleDbConnection connection = new OleDbConnection();
-
+        DataTable directorio = new DataTable();
+        int numero;
         public busquedacoti()
         {
             InitializeComponent();
@@ -33,89 +34,82 @@ namespace pruebafirestore.Cotizacion
             database = FirestoreDb.Create("facturasebest2");
             comboBoxbusqueda.Text = "Orden";
 
-            try
-            {
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "SELECT cotizaciones.[id],cotizaciones.[orden], cotizaciones.[tipopedido], cotizaciones.[nombre], cotizaciones.[numero], cotizaciones.[horayfecha], cotizaciones.[modelo], cotizaciones.[espera], cotizaciones.[Cantidad], cotizaciones.[Descripcion], cotizaciones.[Importe],cotizaciones.[Total]FROM cotizaciones ";
-                command.CommandText = query;
+            GetAllDocuments("Cotizaciones");
 
-                OleDbDataAdapter da = new OleDbDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-
-                connection.Close();
-
-                dataGridView1.RowHeadersVisible = false;
-
-
-                dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
-
-                dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[3].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[3].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[4].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[5].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[6].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[6].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[8].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[9].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[9].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[10].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[10].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[11].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[11].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-                dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GetAllDocuments("Clientes");
         }
         async void GetAllDocuments(String nameOfCollection)
         {
+            directorio.Columns.Add("Orden");
+            directorio.Columns.Add("ID");
+            directorio.Columns.Add("Nombre");
+            directorio.Columns.Add("Numero");
+            directorio.Columns.Add("Modelo");
+           // directorio.Columns.Add("Descripcion");
+           // directorio.Columns.Add("Accesorios");
+            directorio.Columns.Add("Fecha y hora");
+            directorio.Columns.Add("Tiempo de espera");
+            directorio.Columns.Add("contraseña");
+            directorio.Columns.Add("Cantidad");
+            directorio.Columns.Add("Descripcion");
+            directorio.Columns.Add("Importe");
+
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
-            foreach(DocumentSnapshot docsnap in snap.Documents)
+            foreach (DocumentSnapshot docsnap in snap.Documents)
             {
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    dataGridView1.Rows.Add(docsnap.Id, clientesclase.Calle, clientesclase.Cantidad, clientesclase.Ciudad);
+                    
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    dataGridView1.DataSource = directorio;
                 }
 
             }
+            numero = directorio.Rows.Count;
+            // MessageBox.Show(numero.ToString());
+            numero--;
+            directorio.Rows.RemoveAt(numero);
+            //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+            //dataGridView1.Columns[2].Visible = false;
+            dataGridView1.RowHeadersVisible = false;
+
+            dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
+
+            dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[3].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[3].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[4].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[5].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[6].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[6].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetAllDocuments("Cotizaciones");
+        }
+        
     }
 }

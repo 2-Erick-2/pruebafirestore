@@ -113,6 +113,16 @@ namespace pruebafirestore.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ebestimprimr4 {
+            get {
+                object obj = ResourceManager.GetObject("ebestimprimr4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGIN {
             get {
                 object obj = ResourceManager.GetObject("LOGIN", resourceCulture);
