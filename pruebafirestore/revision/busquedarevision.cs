@@ -35,70 +35,10 @@ namespace pruebafirestore.revision
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
-
-            /* try
-             {
-                 connection.Open();
-                 OleDbCommand command = new OleDbCommand();
-                 command.Connection = connection;
-                 string query = "select * from revisiones";
-                 command.CommandText = query;
-
-                 OleDbDataAdapter da = new OleDbDataAdapter(command);
-                 DataTable dt = new DataTable();
-                 da.Fill(dt);
-                 dataGridView1.DataSource = dt;
-
-                 connection.Close();
-
-             dataGridView1.RowHeadersVisible = false;
-
-
-             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
-
-             dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[3].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[3].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[4].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[5].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[6].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[6].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightBlue;
-
-             dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.White;
-             dataGridView1.Columns[8].DefaultCellStyle.BackColor = Color.LightBlue;
-
-
-             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Error " + ex);
-             }*/
            // button1_Click(sender, e);
            GetAllDocuments("Revisiones");
            //numero = dataGridView1.Rows.Count;
             //dataGridView1.Rows.RemoveAt(numero);
-
-
-
         }
 
         async void GetAllDocuments(String nameOfCollection)

@@ -44,5 +44,17 @@ namespace pruebafirestore
 
         [FirestoreProperty]
         public String Tiempodeespera { get; set; }
+
+        [FirestoreProperty]
+        public String Cantidad2 { get; set; }
+
+        [FirestoreProperty]
+        public String Descripcion2 { get; set; }
+
+        [FirestoreProperty]
+        public String Importe { get; set; }
+
+        [FirestoreProperty]
+        public String Importe2 { get; set; }
     }
 }
