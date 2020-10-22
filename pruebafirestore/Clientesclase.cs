@@ -49,12 +49,42 @@ namespace pruebafirestore
         public String Cantidad2 { get; set; }
 
         [FirestoreProperty]
+        public String Cantidad3 { get; set; }
+
+        [FirestoreProperty]
+        public String Cantidad4 { get; set; }
+
+        [FirestoreProperty]
+        public String Cantidad5 { get; set; }
+
+        [FirestoreProperty]
         public String Descripcion2 { get; set; }
+
+        [FirestoreProperty]
+        public String Descripcion3 { get; set; }
+
+        [FirestoreProperty]
+        public String Descripcion4 { get; set; }
+
+        [FirestoreProperty]
+        public String Descripcion5 { get; set; }
 
         [FirestoreProperty]
         public String Importe { get; set; }
 
         [FirestoreProperty]
         public String Importe2 { get; set; }
+
+        [FirestoreProperty]
+        public String Importe3 { get; set; }
+
+        [FirestoreProperty]
+        public String Importe4 { get; set; }
+
+        [FirestoreProperty]
+        public String Importe5 { get; set; }
+
+        [FirestoreProperty]
+        public String Total { get; set; }
     }
 }

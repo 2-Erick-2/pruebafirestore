@@ -365,6 +365,19 @@ namespace pruebafirestore.Cotizacion
             Codigo.IncludeLabel = true;
             pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 
+
+                
+
+                //Create a Bitmap and draw the DataGridView on it.
+                Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
+                dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+
+                //Resize DataGridView back to original height.
+                //dataGridView1.Height = height;
+
+                //Save the Bitmap to folder.
+                bitmap.Save(@"D:\DataGridView.png");
+
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 printDocument1.PrinterSettings = ps;
@@ -384,7 +397,7 @@ namespace pruebafirestore.Cotizacion
 
         private async void imprimir(object sender, PrintPageEventArgs e)
         {
-            Image newImage2 = Image.FromFile(@"\\EBEST-AB78DLU\ebest\ebestimprimr4.jpg");
+           // Image newImage2 = Image.FromFile(@"\\EBEST-AB78DLU\ebest\ebestimprimr4.jpg");
             Image newImage = Properties.Resources.ebestimprimr4;
 
 

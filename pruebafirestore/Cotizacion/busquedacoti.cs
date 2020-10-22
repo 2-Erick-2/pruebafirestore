@@ -20,6 +20,29 @@ namespace pruebafirestore.Cotizacion
         private OleDbConnection connection = new OleDbConnection();
         DataTable directorio = new DataTable();
         int numero;
+
+
+
+        String cant = "";
+        String cant2 = "";
+        String cant3 = "";
+        String cant4 = "";
+        String cant5 = "";
+
+        String descri = "";
+        String descri2 = "";
+        String descri3 = "";
+        String descri4 = "";
+        String descri5 = "";
+
+        String impor = "";
+        String impor2 = "";
+        String impor3 = "";
+        String impor4 = "";
+        String impor5 = "";
+
+        String total = "";
+
         public busquedacoti()
         {
             InitializeComponent();
@@ -50,8 +73,27 @@ namespace pruebafirestore.Cotizacion
             directorio.Columns.Add("Tiempo de espera");
             directorio.Columns.Add("contraseña");
             directorio.Columns.Add("Cantidad");
+            directorio.Columns.Add("Cantidad2");
+            directorio.Columns.Add("Cantidad3");
+            directorio.Columns.Add("Cantidad4");
+            directorio.Columns.Add("Cantidad5");
+
             directorio.Columns.Add("Descripcion");
+            directorio.Columns.Add("Descripcion2");
+            directorio.Columns.Add("Descripcion3");
+            directorio.Columns.Add("Descripcion4");
+            directorio.Columns.Add("Descripcion5");
+
             directorio.Columns.Add("Importe");
+            directorio.Columns.Add("Importe2");
+            directorio.Columns.Add("Importe3");
+            directorio.Columns.Add("Importe4");
+            directorio.Columns.Add("Importe5");
+            directorio.Columns.Add("Total");
+            
+            
+
+
 
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
@@ -60,8 +102,7 @@ namespace pruebafirestore.Cotizacion
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña,clientesclase.Cantidad,clientesclase.Cantidad2,clientesclase.Cantidad3,clientesclase.Cantidad4,clientesclase.Cantidad5,clientesclase.Descripcion,clientesclase.Descripcion2,clientesclase.Descripcion3,clientesclase.Descripcion4,clientesclase.Descripcion5,clientesclase.Importe,clientesclase.Importe2,clientesclase.Importe3,clientesclase.Importe4,clientesclase.Importe5,clientesclase.Total);
                     dataGridView1.DataSource = directorio;
                 }
 
@@ -72,7 +113,25 @@ namespace pruebafirestore.Cotizacion
             directorio.Rows.RemoveAt(numero);
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
             dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
-            //dataGridView1.Columns[2].Visible = false;
+
+           dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[15].Visible = false;
+            dataGridView1.Columns[16].Visible = false;
+            dataGridView1.Columns[17].Visible = false;
+            dataGridView1.Columns[18].Visible = false;
+            dataGridView1.Columns[19].Visible = false;
+            dataGridView1.Columns[20].Visible = false;
+            dataGridView1.Columns[21].Visible = false;
+            dataGridView1.Columns[22].Visible = false;
+            dataGridView1.Columns[23].Visible = false;
+            
+
             dataGridView1.RowHeadersVisible = false;
 
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
@@ -110,6 +169,159 @@ namespace pruebafirestore.Cotizacion
         {
             GetAllDocuments("Cotizaciones");
         }
-        
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                cant = row.Cells["Cantidad"].Value.ToString();
+                cant2 = row.Cells["Cantidad2"].Value.ToString();
+                cant3 = row.Cells["Cantidad3"].Value.ToString();
+                cant4 = row.Cells["Cantidad4"].Value.ToString();
+                cant5 = row.Cells["Cantidad5"].Value.ToString();
+                descri = row.Cells["Descripcion"].Value.ToString();
+                descri2 = row.Cells["Descripcion2"].Value.ToString();
+                descri3 = row.Cells["Descripcion3"].Value.ToString();
+                descri4 = row.Cells["Descripcion4"].Value.ToString();
+                descri5 = row.Cells["Descripcion5"].Value.ToString();
+
+                impor = row.Cells["Importe"].Value.ToString();
+                impor2 = row.Cells["Importe2"].Value.ToString();
+                impor3 = row.Cells["Importe3"].Value.ToString();
+                impor4 = row.Cells["Importe4"].Value.ToString();
+                impor5 = row.Cells["Importe5"].Value.ToString();
+                total = row.Cells["Total"].Value.ToString();
+
+            }
+
+            if (cant != "" && cant2 == "" && cant3 == "" && cant4 == "" && cant5 == "")
+            {
+                mirarpartescoti mirar = new mirarpartescoti();
+                mirar.cant = cant;
+                mirar.descri = descri;
+                mirar.impor = impor;
+                mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
+                mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
+                mirar.dataGridView1.Columns.Add("Importe", "Importe");
+                mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
+                mirar.Show();
+            }
+            else if(cant != "" && cant2 != "" && cant3 == "" && cant4 == "" && cant5 == "")
+            {
+                mirarpartescoti mirar = new mirarpartescoti();
+                mirar.cant = cant;
+                mirar.cant2 = cant2;
+                mirar.descri = descri;
+                mirar.descri2 = descri2;
+                mirar.impor = impor;
+                mirar.impor2 = impor2;
+
+                mirar.total = total ;
+                mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
+                mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
+                mirar.dataGridView1.Columns.Add("Importe", "Importe");
+                mirar.dataGridView1.Rows.Insert(0, cant, descri, impor );
+                mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
+                mirar.dataGridView1.Rows.Insert(2, "", " Total", total);
+
+                mirar.Show();
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 == "" && cant5 == "")
+            {
+                mirarpartescoti mirar = new mirarpartescoti();
+                mirar.cant = cant;
+                mirar.cant2 = cant2;
+                mirar.cant3 = cant3;
+
+                mirar.descri = descri;
+                mirar.descri2 = descri2;
+                mirar.descri3 = descri3;
+
+                mirar.impor = impor;
+                mirar.impor2 = impor2;
+                mirar.impor3 = impor3;
+
+                mirar.total = total;
+                mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
+                mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
+                mirar.dataGridView1.Columns.Add("Importe", "Importe");
+                mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
+                mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
+                mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
+
+                mirar.dataGridView1.Rows.Insert(3, "", " Total", total);
+
+                mirar.Show();
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 == "")
+            {
+                mirarpartescoti mirar = new mirarpartescoti();
+                mirar.cant = cant;
+                mirar.cant2 = cant2;
+                mirar.cant3 = cant3;
+                mirar.cant4 = cant4;
+
+                mirar.descri = descri;
+                mirar.descri2 = descri2;
+                mirar.descri3 = descri3;
+                mirar.descri4 = descri4;
+
+                mirar.impor = impor;
+                mirar.impor2 = impor2;
+                mirar.impor3 = impor3;
+                mirar.impor4 = impor4;
+
+                mirar.total = total;
+                mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
+                mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
+                mirar.dataGridView1.Columns.Add("Importe", "Importe");
+                mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
+                mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
+                mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
+                mirar.dataGridView1.Rows.Insert(3, cant4, descri4, impor4);
+
+                mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
+
+                mirar.Show();
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != ""  && cant5 != "")
+            {
+                mirarpartescoti mirar = new mirarpartescoti();
+                mirar.cant = cant;
+                mirar.cant2 = cant2;
+                mirar.cant3 = cant3;
+                mirar.cant4 = cant4;
+                mirar.cant5 = cant5;
+
+                mirar.descri = descri;
+                mirar.descri2 = descri2;
+                mirar.descri3 = descri3;
+                mirar.descri4 = descri4;
+                mirar.descri5 = descri5;
+
+                mirar.impor = impor;
+                mirar.impor2 = impor2;
+                mirar.impor3 = impor3;
+                mirar.impor4 = impor4;
+                mirar.impor5 = impor5;
+
+                mirar.total = total;
+                mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
+                mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
+                mirar.dataGridView1.Columns.Add("Importe", "Importe");
+                mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
+                mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
+                mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
+                mirar.dataGridView1.Rows.Insert(3, cant4, descri4, impor4);
+                mirar.dataGridView1.Rows.Insert(5, cant5, descri5, impor5);
+
+                mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
+
+                mirar.Show();
+            }
+
+
+        }
     }
 }
