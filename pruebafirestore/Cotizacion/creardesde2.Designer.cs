@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -71,6 +72,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -392,7 +394,7 @@
             this.txtnombre2.Location = new System.Drawing.Point(131, 15);
             this.txtnombre2.Multiline = true;
             this.txtnombre2.Name = "txtnombre2";
-            this.txtnombre2.Size = new System.Drawing.Size(94, 35);
+            this.txtnombre2.Size = new System.Drawing.Size(18, 10);
             this.txtnombre2.TabIndex = 161;
             // 
             // label9
@@ -503,6 +505,15 @@
             this.txtmodelo.Size = new System.Drawing.Size(466, 31);
             this.txtmodelo.TabIndex = 167;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimir);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // creardesde2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +601,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmodelo;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

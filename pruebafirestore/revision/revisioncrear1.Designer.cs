@@ -443,6 +443,10 @@
             this.lblcontador.TabIndex = 138;
             this.lblcontador.Text = "label9";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimir);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(22, 656);

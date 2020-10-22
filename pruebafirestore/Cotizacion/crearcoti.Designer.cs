@@ -73,7 +73,7 @@
             this.txtrepetidos = new System.Windows.Forms.TextBox();
             this.checkiva = new System.Windows.Forms.CheckBox();
             this.txtnombre2 = new System.Windows.Forms.TextBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkcontra = new System.Windows.Forms.CheckBox();
             this.txtcontracel = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -507,23 +507,23 @@
             // txtnombre2
             // 
             this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre2.Location = new System.Drawing.Point(966, 67);
+            this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombre2.Location = new System.Drawing.Point(1070, 12);
             this.txtnombre2.Name = "txtnombre2";
-            this.txtnombre2.Size = new System.Drawing.Size(86, 35);
+            this.txtnombre2.Size = new System.Drawing.Size(86, 11);
             this.txtnombre2.TabIndex = 132;
             // 
-            // checkBox3
+            // checkcontra
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(206, 669);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(173, 35);
-            this.checkBox3.TabIndex = 133;
-            this.checkBox3.Text = "Contraseña";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.checkcontra.AutoSize = true;
+            this.checkcontra.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkcontra.Location = new System.Drawing.Point(206, 669);
+            this.checkcontra.Name = "checkcontra";
+            this.checkcontra.Size = new System.Drawing.Size(173, 35);
+            this.checkcontra.TabIndex = 133;
+            this.checkcontra.Text = "Contraseña";
+            this.checkcontra.UseVisualStyleBackColor = true;
+            this.checkcontra.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // txtcontracel
             // 
@@ -579,6 +579,7 @@
             this.lblcontador.Size = new System.Drawing.Size(41, 13);
             this.lblcontador.TabIndex = 135;
             this.lblcontador.Text = "label10";
+            this.lblcontador.Visible = false;
             // 
             // crearcoti
             // 
@@ -588,7 +589,7 @@
             this.ClientSize = new System.Drawing.Size(1168, 874);
             this.Controls.Add(this.lblcontador);
             this.Controls.Add(this.txtcontracel);
-            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkcontra);
             this.Controls.Add(this.txtnombre2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.checkiva);
@@ -677,7 +678,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.TextBox txtnombre2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkcontra;
         private System.Windows.Forms.TextBox txtcontracel;
         private System.Windows.Forms.Label lblcontador;
     }

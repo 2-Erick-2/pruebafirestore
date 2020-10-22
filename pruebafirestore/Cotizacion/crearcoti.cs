@@ -298,6 +298,14 @@ namespace pruebafirestore.Cotizacion
             {
                 tiemporespuesta = "No aplica";
             }
+            if (checkcontra.Checked == true)
+            {
+                contra = txtcontracel.Text;
+            }
+            else if (checkcontra.Checked == false)
+            {
+                contra = "No aplica";
+            }
             sincopia:
             string Name = txtnombre2.Text;
             var rand = new Random();
@@ -388,7 +396,7 @@ namespace pruebafirestore.Cotizacion
 
             //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
             e.Graphics.DrawString("  Equipo en  cotización", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
-            e.Graphics.DrawString("                                                 id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
+            e.Graphics.DrawString("                                       id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
             e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
             e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
@@ -597,6 +605,7 @@ namespace pruebafirestore.Cotizacion
                 {"Importe",p3},
                 {"Importe2",p6},
 
+                {"Total", contar2},
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -747,7 +756,7 @@ namespace pruebafirestore.Cotizacion
 
                 {"Importe3",p9},
 
-
+                {"Total", contar2},
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -894,7 +903,7 @@ namespace pruebafirestore.Cotizacion
 
                 {"Importe4",p12},
 
-
+                {"Total", contar2},
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -1016,32 +1025,68 @@ namespace pruebafirestore.Cotizacion
                     String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*" + "*" + p11 + "*" + "*" + p14 + "*";
                     String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*" + "*" + p13 + "*";
                     String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*" + "*" + p15 + "*";
-                    try
-                    {
-                        connection.Open();
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
-                        {
-                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar2 + "')";
-                            command.ExecuteNonQuery();
-                        }
-                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
-                        {
-                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar2 + "')";
-                            command.ExecuteNonQuery();
-                        }
-                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
-                        command.ExecuteNonQuery();
-                        connection.Close();
-                        MessageBox.Show("Datos Guardados de lo nuevo");
 
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error " + ex);
-                    }
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+                {"Cantidad4",p11} ,
+
+                {"Cantidad5",p14} ,
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                {"Descripcion4",p10},
+
+                {"Descripcion5",p13},
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Importe4",p12},
+
+                {"Importe5",p15},
+
+                {"Total", contar2},
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
 
 
 
@@ -1157,32 +1202,53 @@ namespace pruebafirestore.Cotizacion
                     String cantidad = "*" + p2 + "*";
                     String descripcion = "*" + p1 + "*";
                     String importe = "*" + p3 + "*";
-                    try
-                    {
-                        connection.Open();
-                        OleDbCommand command = new OleDbCommand();
-                        command.Connection = connection;
-                        if (checkBox2.Checked == true && checkrespuesta.Checked == true)
-                        {
-                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + cantidad + "','" + descripcion + "','" + importe + "','" + combodias.Text + "','" + contar3 + "')";
-                            command.ExecuteNonQuery();
-                        }
-                        else if (checkBox1.Checked == true && checkrespuesta.Checked == true)
-                        {
-                            command.CommandText = "insert into cotizaciones (orden,tipopedido,nombre,numero,horayfecha,modelo,Cantidad,Descripcion,Importe,espera,Total) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "','" + p2 + "','" + p1 + "','" + p3 + "','" + combohoras.Text + "','" + contar3 + "')";
-                            command.ExecuteNonQuery();
-                        }
-                        command.CommandText = "insert into clientes (orden,tipopedido,nombre,numero,horayfecha,modelo) values ('" + txtorden.Text + "','" + pedido + "','" + txtnombre.Text + "','" + txtnumero.Text + "','" + txthorayfecha.Text + "','" + txtmodelo.Text + "')";
-                        command.ExecuteNonQuery();
-                        connection.Close();
-                        MessageBox.Show("Datos Guardados de lo nuevo");
 
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error " + ex);
-                    }
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                
+
+
+                {"Descripcion",p1},
+
+               
+
+
+                {"Importe",p3},
+
+              
+
+
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+
+
+
 
 
 
@@ -1319,6 +1385,64 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+
+
+
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+               
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+               
+
+                {"Total", contar4},
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+
+
+
+
 
 
 
@@ -1468,6 +1592,68 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+
+
+
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+               
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                
+
+                {"Total", contar4},
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+
+
 
 
 
@@ -1625,6 +1811,70 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 645));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 665));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 695);
+
+
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+                {"Cantidad4",p11} ,
+
+               
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                {"Descripcion4",p10},
+
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Importe4",p12},
+
+
+                {"Total", contar4},
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+
 
 
 
@@ -1791,6 +2041,65 @@ namespace pruebafirestore.Cotizacion
 
 
 
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",txtnombre.Text},
+
+                {"Numero",txtnumero.Text},
+
+                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+                {"Cantidad4",p11} ,
+
+                {"Cantidad5",p14} ,
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                {"Descripcion4",p10},
+
+                {"Descripcion5",p13},
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Importe4",p12},
+
+                {"Importe5",p15},
+
+                {"Total", contar4},
+
+                {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text},
+
+                {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
                 }
             }
 
@@ -1801,7 +2110,7 @@ namespace pruebafirestore.Cotizacion
 
 
 
-        private async void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
         }
@@ -1931,7 +2240,7 @@ namespace pruebafirestore.Cotizacion
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked == true)
+            if (checkcontra.Checked == true)
             {
                 txtcontracel.Visible = true;
             }

@@ -37,9 +37,6 @@ namespace pruebafirestore.formularios
         {
             string fecha = DateTime.Now.ToShortDateString();
             string hora = DateTime.Now.ToShortTimeString();
-
-
-
             txthorayfecha.Text = fecha + "  " + hora;
         }
 
@@ -78,21 +75,7 @@ namespace pruebafirestore.formularios
             };
                 await DOC.SetAsync(data1, SetOptions.MergeAll);
             MessageBox.Show("guardado");
-
-
             }
-
-
-
-
-
-
-
-
-
-
-
-           
         }
 
         private async void altoButton1_Click(object sender, EventArgs e)
@@ -182,21 +165,6 @@ namespace pruebafirestore.formularios
 
                  };
                     await DOC.SetAsync(data1, SetOptions.MergeAll);
-                    /* WriteBatch batch = database.StartBatch();
-
-
-
-                     DocumentReference DOC3 = database.Collection("Revisiones").Document("contador");
-                     Dictionary<String, Object> data3 = new Dictionary<string, object>()
-                     {
-                        {"ID", FieldValue.Increment(1)}
-
-                     };
-                     batch.Set(DOC3, data3, SetOptions.MergeAll);
-
-                     await batch.CommitAsync();*/
-
-
                     DocumentReference docRef2 = database.Collection("Revisiones").Document("contador");
                     DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
                     if (snapsho2.Exists)
@@ -205,13 +173,11 @@ namespace pruebafirestore.formularios
                         foreach (var item in counter)
                             lblcontador.Text = string.Format("{1}", item.Key, item.Value);
                     }
-
-
                     int id = (int)Convert.ToInt64(lblcontador.Text);
                     DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
 
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
-            {
+                {
                  {"ID", id},
 
                 {"Orden", txtorden.Text},
@@ -231,9 +197,7 @@ namespace pruebafirestore.formularios
                 {"Fechayhora",txthorayfecha.Text},
 
                 {"Contraseña", contra}
-
-
-            };
+             };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
 
@@ -252,14 +216,6 @@ namespace pruebafirestore.formularios
             {
                 MessageBox.Show("Error: " + ex);
             }
-           
-
-
-
-
-
-
-            // Add_Document_with_orden();
         }
 
         private void imprimir(object sender, PrintPageEventArgs e )
@@ -276,6 +232,8 @@ namespace pruebafirestore.formularios
 
             //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
             e.Graphics.DrawString("   Equipo en  revisión", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
+            e.Graphics.DrawString("                                       id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
+
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
             e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
             e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
