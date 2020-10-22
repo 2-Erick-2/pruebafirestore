@@ -485,7 +485,7 @@ namespace pruebafirestore.Cotizacion
                     }
                     else if (contar2.Length == 3)
                     {
-                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);  
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
                     else if (contar2.Length == 2)

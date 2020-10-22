@@ -20,6 +20,19 @@ namespace pruebafirestore.Cotizacion
         private void altoButton4_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new creardesdecoti());
+
+            altoButton4.Inactive1 = Color.RoyalBlue;
+            altoButton4.Inactive2 = Color.White;
+
+
+
+            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            btncrear.Inactive1 = Color.FromArgb(37, 108, 180);
+            btncrear.Inactive2 = Color.FromArgb(66, 96, 159);
+
+
         }
         private void AbrirFormEnPanel2(object formhija2)
         {
@@ -37,11 +50,40 @@ namespace pruebafirestore.Cotizacion
         private void altoButton3_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new busquedacoti());
+
+            altoButton3.Inactive1 = Color.RoyalBlue;
+            altoButton3.Inactive2 = Color.White;
+
+            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            btncrear.Inactive1 = Color.FromArgb(37, 108, 180);
+            btncrear.Inactive2 = Color.FromArgb(66, 96, 159);
+
         }
 
         private void btncrear_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new crearcoti());
+
+
+
+            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+
+
+
+            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
+            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+
+            btncrear.Inactive1 = Color.RoyalBlue;
+            btncrear.Inactive2 = Color.White;
+
+
+
+
+
+
         }
     }
 }

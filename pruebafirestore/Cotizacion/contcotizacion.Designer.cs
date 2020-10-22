@@ -85,7 +85,7 @@
             // 
             // altoButton4
             // 
-            this.altoButton4.Active1 = System.Drawing.Color.White;
+            this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
             this.altoButton4.Active2 = System.Drawing.Color.White;
             this.altoButton4.BackColor = System.Drawing.Color.Transparent;
             this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
