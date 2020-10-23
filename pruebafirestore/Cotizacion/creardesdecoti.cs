@@ -79,16 +79,9 @@ namespace pruebafirestore.Cotizacion
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-
-
-
-
-
-
                     directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
                     dataGridView1.DataSource = directorio;
                 }
-
             }
             numero = directorio.Rows.Count;
             // MessageBox.Show(numero.ToString());
@@ -102,8 +95,6 @@ namespace pruebafirestore.Cotizacion
 
 
             dataGridView1.RowHeadersVisible = false;
-
-
 
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
