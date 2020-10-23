@@ -91,10 +91,6 @@ namespace pruebafirestore.Cotizacion
             directorio.Columns.Add("Importe5");
             directorio.Columns.Add("Total");
             
-            
-
-
-
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
             foreach (DocumentSnapshot docsnap in snap.Documents)
@@ -320,6 +316,40 @@ namespace pruebafirestore.Cotizacion
 
                 mirar.Show();
             }
+
+
+        }
+
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxbusqueda.Text == "Orden")
+            {
+                directorio.DefaultView.RowFilter = $"Orden LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Numero")
+            {
+                directorio.DefaultView.RowFilter = $"Numero LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Nombre")
+            {
+                directorio.DefaultView.RowFilter = $"Nombre LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Fecha")
+            {
+                directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
+
+            }
+
+
+
+
+
+
+
+
 
 
         }

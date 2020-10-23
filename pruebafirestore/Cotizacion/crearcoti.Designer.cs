@@ -86,17 +86,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(731, 215);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(509, 231);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 31);
+            this.label5.Size = new System.Drawing.Size(95, 29);
             this.label5.TabIndex = 17;
             this.label5.Text = "Modelo";
             // 
             // txtmodelo
             // 
             this.txtmodelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmodelo.Location = new System.Drawing.Point(662, 247);
+            this.txtmodelo.Location = new System.Drawing.Point(433, 271);
             this.txtmodelo.Name = "txtmodelo";
             this.txtmodelo.Size = new System.Drawing.Size(240, 31);
             this.txtmodelo.TabIndex = 16;
@@ -104,17 +104,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(273, 215);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(236, 228);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 31);
+            this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 15;
             this.label4.Text = "Marca";
             // 
             // txtmarca
             // 
             this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(204, 247);
+            this.txtmarca.Location = new System.Drawing.Point(138, 271);
             this.txtmarca.Name = "txtmarca";
             this.txtmarca.Size = new System.Drawing.Size(230, 31);
             this.txtmarca.TabIndex = 14;
@@ -122,55 +122,56 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Elephant", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(494, 179);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(500, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 45);
+            this.label3.Size = new System.Drawing.Size(104, 31);
             this.label3.TabIndex = 13;
             this.label3.Text = "Equipo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(200, 124);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(751, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 31);
+            this.label2.Size = new System.Drawing.Size(100, 29);
             this.label2.TabIndex = 12;
             this.label2.Text = "Numero";
             // 
             // txtnumero
             // 
             this.txtnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnumero.Location = new System.Drawing.Point(432, 124);
+            this.txtnumero.Location = new System.Drawing.Point(613, 111);
             this.txtnumero.Name = "txtnumero";
-            this.txtnumero.Size = new System.Drawing.Size(470, 35);
+            this.txtnumero.Size = new System.Drawing.Size(365, 35);
             this.txtnumero.TabIndex = 11;
             this.txtnumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnumero_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(199, 73);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(276, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 31);
+            this.label1.Size = new System.Drawing.Size(101, 29);
             this.label1.TabIndex = 10;
             this.label1.Text = "Nombre";
             // 
             // txtnombre
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(432, 67);
+            this.txtnombre.Location = new System.Drawing.Point(137, 111);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(470, 35);
+            this.txtnombre.Size = new System.Drawing.Size(357, 35);
             this.txtnombre.TabIndex = 9;
             this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // txtcantidad
             // 
             this.txtcantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcantidad.Location = new System.Drawing.Point(277, 328);
+            this.txtcantidad.Location = new System.Drawing.Point(293, 384);
             this.txtcantidad.MaxLength = 1;
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(104, 31);
@@ -181,27 +182,27 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(272, 296);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(288, 345);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 31);
+            this.label6.Size = new System.Drawing.Size(109, 29);
             this.label6.TabIndex = 19;
             this.label6.Text = "Cantidad";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(510, 296);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(475, 345);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 31);
+            this.label7.Size = new System.Drawing.Size(141, 29);
             this.label7.TabIndex = 21;
             this.label7.Text = "Descripcion";
             // 
             // txtdescri
             // 
             this.txtdescri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescri.Location = new System.Drawing.Point(432, 328);
+            this.txtdescri.Location = new System.Drawing.Point(397, 384);
             this.txtdescri.MaxLength = 12;
             this.txtdescri.Name = "txtdescri";
             this.txtdescri.Size = new System.Drawing.Size(284, 31);
@@ -210,20 +211,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(777, 296);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(708, 345);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 31);
+            this.label8.Size = new System.Drawing.Size(95, 29);
             this.label8.TabIndex = 23;
             this.label8.Text = "Importe";
             // 
             // txtimporte
             // 
             this.txtimporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtimporte.Location = new System.Drawing.Point(782, 328);
+            this.txtimporte.Location = new System.Drawing.Point(681, 384);
             this.txtimporte.MaxLength = 4;
             this.txtimporte.Name = "txtimporte";
-            this.txtimporte.Size = new System.Drawing.Size(104, 31);
+            this.txtimporte.Size = new System.Drawing.Size(148, 31);
             this.txtimporte.TabIndex = 22;
             this.txtimporte.TextChanged += new System.EventHandler(this.txtimporte_TextChanged);
             this.txtimporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtimporte_KeyPress);
@@ -238,11 +239,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -260,10 +261,10 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Location = new System.Drawing.Point(305, 394);
+            this.dataGridView1.Location = new System.Drawing.Point(137, 442);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(574, 162);
+            this.dataGridView1.Size = new System.Drawing.Size(841, 162);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -299,23 +300,23 @@
             // 
             // altoButton1
             // 
-            this.altoButton1.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton1.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton1.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton1.Active2 = System.Drawing.Color.RoyalBlue;
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
-            this.altoButton1.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.altoButton1.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(167)))), ((int)(((byte)(188)))));
-            this.altoButton1.Location = new System.Drawing.Point(349, 810);
+            this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton1.Location = new System.Drawing.Point(269, 807);
             this.altoButton1.Name = "altoButton1";
             this.altoButton1.Radius = 10;
             this.altoButton1.Size = new System.Drawing.Size(397, 52);
             this.altoButton1.Stroke = false;
             this.altoButton1.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton1.TabIndex = 33;
-            this.altoButton1.Text = "CERRAR";
+            this.altoButton1.Text = "Cerrar";
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
@@ -351,10 +352,10 @@
             // checkrespuesta
             // 
             this.checkrespuesta.AutoSize = true;
-            this.checkrespuesta.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkrespuesta.Location = new System.Drawing.Point(204, 607);
+            this.checkrespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkrespuesta.Location = new System.Drawing.Point(145, 690);
             this.checkrespuesta.Name = "checkrespuesta";
-            this.checkrespuesta.Size = new System.Drawing.Size(282, 35);
+            this.checkrespuesta.Size = new System.Drawing.Size(262, 33);
             this.checkrespuesta.TabIndex = 123;
             this.checkrespuesta.Text = "Tiempo de respuesta";
             this.checkrespuesta.UseVisualStyleBackColor = true;
@@ -364,10 +365,10 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(770, 609);
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(737, 692);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(109, 35);
+            this.checkBox1.Size = new System.Drawing.Size(96, 33);
             this.checkBox1.TabIndex = 122;
             this.checkBox1.Text = "Horas";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -380,10 +381,10 @@
             this.checkBox2.BackColor = System.Drawing.Color.White;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(499, 611);
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(449, 693);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(90, 35);
+            this.checkBox2.Size = new System.Drawing.Size(80, 33);
             this.checkBox2.TabIndex = 121;
             this.checkBox2.Text = "Dias";
             this.checkBox2.UseVisualStyleBackColor = false;
@@ -392,10 +393,10 @@
             // 
             // combohoras
             // 
-            this.combohoras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.combohoras.BackColor = System.Drawing.Color.DodgerBlue;
             this.combohoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combohoras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.combohoras.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combohoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combohoras.ForeColor = System.Drawing.Color.White;
             this.combohoras.FormattingEnabled = true;
             this.combohoras.Items.AddRange(new object[] {
@@ -410,18 +411,18 @@
             "10 horas",
             "11 horas",
             "12 horas"});
-            this.combohoras.Location = new System.Drawing.Point(885, 607);
+            this.combohoras.Location = new System.Drawing.Point(852, 690);
             this.combohoras.Name = "combohoras";
-            this.combohoras.Size = new System.Drawing.Size(121, 39);
+            this.combohoras.Size = new System.Drawing.Size(121, 37);
             this.combohoras.TabIndex = 120;
             this.combohoras.Visible = false;
             // 
             // combodias
             // 
-            this.combodias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.combodias.BackColor = System.Drawing.Color.DodgerBlue;
             this.combodias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combodias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.combodias.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combodias.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.combodias.ForeColor = System.Drawing.Color.White;
             this.combodias.FormattingEnabled = true;
             this.combodias.Items.AddRange(new object[] {
@@ -430,9 +431,9 @@
             "3 días",
             "4 días",
             "5 días"});
-            this.combodias.Location = new System.Drawing.Point(595, 608);
+            this.combodias.Location = new System.Drawing.Point(562, 691);
             this.combodias.Name = "combodias";
-            this.combodias.Size = new System.Drawing.Size(121, 39);
+            this.combodias.Size = new System.Drawing.Size(121, 37);
             this.combodias.TabIndex = 119;
             this.combodias.Visible = false;
             // 
@@ -440,10 +441,10 @@
             // 
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
-            this.txtorden.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(465, 746);
+            this.txtorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtorden.Location = new System.Drawing.Point(526, 759);
             this.txtorden.Name = "txtorden";
-            this.txtorden.Size = new System.Drawing.Size(206, 31);
+            this.txtorden.Size = new System.Drawing.Size(173, 29);
             this.txtorden.TabIndex = 125;
             this.txtorden.Text = "****************";
             // 
@@ -451,22 +452,22 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(200, 746);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(252, 759);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(232, 31);
+            this.label11.Size = new System.Drawing.Size(208, 29);
             this.label11.TabIndex = 124;
             this.label11.Text = "Número de Orden";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Elephant", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(507, 9);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(434, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 45);
+            this.label9.Size = new System.Drawing.Size(232, 31);
             this.label9.TabIndex = 126;
-            this.label9.Text = "Crear";
+            this.label9.Text = "Datos del cliente";
             // 
             // txtorden2
             // 
@@ -496,13 +497,14 @@
             // 
             this.checkiva.AutoSize = true;
             this.checkiva.BackColor = System.Drawing.Color.White;
-            this.checkiva.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkiva.Location = new System.Drawing.Point(206, 566);
+            this.checkiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkiva.Location = new System.Drawing.Point(147, 649);
             this.checkiva.Name = "checkiva";
-            this.checkiva.Size = new System.Drawing.Size(67, 35);
+            this.checkiva.Size = new System.Drawing.Size(68, 33);
             this.checkiva.TabIndex = 130;
-            this.checkiva.Text = "iva";
+            this.checkiva.Text = "IVA";
             this.checkiva.UseVisualStyleBackColor = false;
+            this.checkiva.CheckedChanged += new System.EventHandler(this.checkiva_CheckedChanged);
             // 
             // txtnombre2
             // 
@@ -516,10 +518,10 @@
             // checkcontra
             // 
             this.checkcontra.AutoSize = true;
-            this.checkcontra.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkcontra.Location = new System.Drawing.Point(206, 669);
+            this.checkcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkcontra.Location = new System.Drawing.Point(770, 227);
             this.checkcontra.Name = "checkcontra";
-            this.checkcontra.Size = new System.Drawing.Size(173, 35);
+            this.checkcontra.Size = new System.Drawing.Size(155, 33);
             this.checkcontra.TabIndex = 133;
             this.checkcontra.Text = "Contraseña";
             this.checkcontra.UseVisualStyleBackColor = true;
@@ -527,9 +529,10 @@
             // 
             // txtcontracel
             // 
-            this.txtcontracel.Location = new System.Drawing.Point(424, 680);
+            this.txtcontracel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcontracel.Location = new System.Drawing.Point(712, 271);
             this.txtcontracel.Name = "txtcontracel";
-            this.txtcontracel.Size = new System.Drawing.Size(292, 20);
+            this.txtcontracel.Size = new System.Drawing.Size(266, 35);
             this.txtcontracel.TabIndex = 134;
             this.txtcontracel.Visible = false;
             // 
@@ -549,7 +552,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::pruebafirestore.Properties.Resources.minus;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(966, 328);
+            this.button2.Location = new System.Drawing.Point(938, 384);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 31);
             this.button2.TabIndex = 38;
@@ -564,7 +567,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::pruebafirestore.Properties.Resources.anadir;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(910, 328);
+            this.button1.Location = new System.Drawing.Point(877, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 31);
             this.button1.TabIndex = 24;

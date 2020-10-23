@@ -462,5 +462,10 @@ namespace pruebafirestore.formularios
 
 
         }
+
+        private void txtdescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

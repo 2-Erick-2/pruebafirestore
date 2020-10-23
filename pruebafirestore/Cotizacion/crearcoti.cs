@@ -2265,6 +2265,11 @@ namespace pruebafirestore.Cotizacion
         {
 
         }
+
+        private void checkiva_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

@@ -2065,5 +2065,10 @@ namespace pruebafirestore.Cotizacion
             string hora = DateTime.Now.ToShortTimeString();
             txthorayfecha.Text = fecha + " " + hora;
         }
+
+        private void checkiva_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

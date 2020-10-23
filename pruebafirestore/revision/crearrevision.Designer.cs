@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.altoButton4 = new AltoControls.AltoButton();
             this.altoButton3 = new AltoControls.AltoButton();
             this.pContainer = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,16 @@
             this.panel1.Size = new System.Drawing.Size(174, 874);
             this.panel1.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 35);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Revision";
+            // 
             // altoButton4
             // 
             this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
@@ -55,7 +65,7 @@
             this.altoButton4.BackColor = System.Drawing.Color.Transparent;
             this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton4.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton4.ForeColor = System.Drawing.Color.Black;
             this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton4.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
@@ -78,7 +88,7 @@
             this.altoButton3.BackColor = System.Drawing.Color.Transparent;
             this.altoButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton3.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton3.ForeColor = System.Drawing.Color.Black;
             this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton3.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
@@ -102,16 +112,6 @@
             this.pContainer.Size = new System.Drawing.Size(1168, 874);
             this.pContainer.TabIndex = 4;
             this.pContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pContenedor_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 35);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Revision";
             // 
             // crearrevision
             // 

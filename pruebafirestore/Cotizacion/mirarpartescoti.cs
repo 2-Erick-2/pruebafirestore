@@ -12,8 +12,6 @@ namespace pruebafirestore.Cotizacion
 {
     public partial class mirarpartescoti : Form
     {
-
-
         public String cant = "";
         public String cant2 = "";
        public  String cant3 = "";
@@ -37,9 +35,6 @@ namespace pruebafirestore.Cotizacion
         {
             InitializeComponent();
         }
-
-       
-
         private void mirarpartescoti_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
