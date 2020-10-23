@@ -38,15 +38,7 @@ namespace pruebafirestore.Cotizacion
             InitializeComponent();
         }
 
-        public mirarpartescoti(DataGridView dataGridView1)
-        {
-           // this.dataGridView1 = dataGridView1;
-
-            InitializeComponent();
-            dataGridView1.DataSource = dataGridView1.DataSource;
-
-
-        }
+       
 
         private void mirarpartescoti_Load(object sender, EventArgs e)
         {
