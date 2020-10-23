@@ -220,7 +220,7 @@ namespace pruebafirestore.formularios
 
         private void imprimir(object sender, PrintPageEventArgs e )
         {
-            Image newImage3 = Image.FromFile(@"D:\TODO\ebestimprimr4.jpg");
+            //Image newImage3 = Image.FromFile(@"D:\TODO\ebestimprimr4.jpg");
             Image newImage = Properties.Resources.ebestimprimr4;
 
 
