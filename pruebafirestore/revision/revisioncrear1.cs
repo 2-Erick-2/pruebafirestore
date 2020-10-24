@@ -467,5 +467,10 @@ namespace pruebafirestore.formularios
         {
 
         }
+
+        private void checkprotctor_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

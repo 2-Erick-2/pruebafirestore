@@ -18,7 +18,6 @@ namespace pruebafirestore.Pedidos
     {
         FirestoreDb database;
 
-
         String contar;
 
         String pedido = "";
@@ -31,8 +30,6 @@ namespace pruebafirestore.Pedidos
         Double precio3;
         Double precio4;
         Double precio5;
-
-
 
         public crearpedido()
         {
@@ -52,9 +49,11 @@ namespace pruebafirestore.Pedidos
                 fila.Cells[2].Value = txtimporte.Text;
                 fila.Cells[3].Value = preciofinal;
                 dataGridView1.Rows.Add(fila);
-                //dataGridView1.Rows.Add("","","     Total: ", precio1);
-               //txttotal.Text = preciofinal;
-                txttotal.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
+                    //dataGridView1.Rows.Add("","","     Total: ", precio1);
+                    //txttotal.Text = preciofinal;
+                double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+
+                txttotal.Text = p1.ToString();
                 txtcantidad.Text = "";
                 txtdescri.Text = "";
                 txtimporte.Text = "";
@@ -70,14 +69,90 @@ namespace pruebafirestore.Pedidos
                     dataGridView1.Rows.Add(fila);
                     //dataGridView1.Rows.Add("","","     Total: ", precio1);
                     //txttotal.Text = preciofinal;
-                    txttotal.Text = dataGridView1.Rows[0].Cells[3].Value.ToString() + dataGridView1.Rows[1].Cells[3].Value.ToString();
+                    //Convert.ToDouble
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2;
+                    txttotal.Text = precio.ToString();
                     txtcantidad.Text = "";
                     txtdescri.Text = "";
                     txtimporte.Text = "";
                 }
-               
-                
-               
+                else if (dataGridView1.Rows.Count == 2)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[1].Value = txtdescri.Text;
+                    fila.Cells[2].Value = txtimporte.Text;
+                    fila.Cells[3].Value = preciofinal;
+                    dataGridView1.Rows.Add(fila);
+                    //dataGridView1.Rows.Add("","","     Total: ", precio1);
+                    //txttotal.Text = preciofinal;
+                    //Convert.ToDouble
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3;
+                    txttotal.Text = precio.ToString();
+                    txtcantidad.Text = "";
+                    txtdescri.Text = "";
+                    txtimporte.Text = "";
+                }
+                else if (dataGridView1.Rows.Count == 3)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[1].Value = txtdescri.Text;
+                    fila.Cells[2].Value = txtimporte.Text;
+                    fila.Cells[3].Value = preciofinal;
+                    dataGridView1.Rows.Add(fila);
+                    //dataGridView1.Rows.Add("","","     Total: ", precio1);
+                    //txttotal.Text = preciofinal;
+                    //Convert.ToDouble
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3 + p4;
+                    txttotal.Text = precio.ToString();
+                    txtcantidad.Text = "";
+                    txtdescri.Text = "";
+                    txtimporte.Text = "";
+                }
+                else if (dataGridView1.Rows.Count == 4)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[1].Value = txtdescri.Text;
+                    fila.Cells[2].Value = txtimporte.Text;
+                    fila.Cells[3].Value = preciofinal;
+                    dataGridView1.Rows.Add(fila);
+                    //dataGridView1.Rows.Add("","","     Total: ", precio1);
+                    //txttotal.Text = preciofinal;
+                    //Convert.ToDouble
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+                    double p5 = Convert.ToDouble(dataGridView1.Rows[4].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3 + p4 + p5;
+                    txttotal.Text = precio.ToString();
+                    txtcantidad.Text = "";
+                    txtdescri.Text = "";
+                    txtimporte.Text = "";
+                }
+
+
+
+
+
             }
             else
             {
@@ -91,6 +166,59 @@ namespace pruebafirestore.Pedidos
             {
                 dataGridView1.Rows.RemoveAt(item.Index);
             }
+            if(dataGridView1.Rows.Count == 0)
+            {
+                txttotal.Text = "";
+            }
+            
+            else  if (dataGridView1.Rows.Count == 1)
+            {
+               
+                double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                //double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+
+                double precio = p1;
+                txttotal.Text = precio.ToString();
+              
+            }
+            else if (dataGridView1.Rows.Count == 2)
+            {
+                
+                double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+               // double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+
+                double precio = p1 + p2;
+                txttotal.Text = precio.ToString();
+              
+            }
+            else if (dataGridView1.Rows.Count == 3)
+            {
+               
+                double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+               // double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+
+                double precio = p1 + p2 + p3;
+                txttotal.Text = precio.ToString();
+              
+            }
+            else if (dataGridView1.Rows.Count == 4)
+            {
+               
+                double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+               // double p5 = Convert.ToDouble(dataGridView1.Rows[4].Cells[3].Value.ToString().Replace("$", ""));
+
+                double precio = p1 + p2 + p3 + p4;
+                txttotal.Text = precio.ToString();
+            
+            }
+
+
         }
 
         private void checkrespuesta_CheckedChanged(object sender, EventArgs e)
@@ -170,29 +298,7 @@ namespace pruebafirestore.Pedidos
 
         private void txtimporte_Leave(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                precio1 = Convert.ToDouble(txtimporte.Text);
-            }
-            else if (dataGridView1.Rows.Count == 1)
-            {
-                precio2 = Convert.ToDouble(txtimporte.Text);
-            }
-            else if (dataGridView1.Rows.Count == 2)
-            {
-                precio3 = Convert.ToDouble(txtimporte.Text);
-
-            }
-            else if (dataGridView1.Rows.Count == 3)
-            {
-                precio4 = Convert.ToDouble(txtimporte.Text);
-
-            }
-            else if (dataGridView1.Rows.Count == 5)
-            {
-                precio5 = Convert.ToDouble(txtimporte.Text);
-
-            }
+            
 
             try
             {
@@ -276,6 +382,218 @@ namespace pruebafirestore.Pedidos
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtabono_TextChanged(object sender, EventArgs e)
+        {
+            if(txtabono.Text != "")
+            {          
+                double p1 = Convert.ToDouble(txttotal.Text);
+
+                double p2 = Convert.ToDouble(txtabono.Text);
+                double restante = p1 - p2;
+
+                txtrestante.Text = restante.ToString();
+            }
+            else if (txtabono.Text == "")
+            {
+                txtrestante.Text = txttotal.Text;
+            }
+        }
+
+        private void checkiva_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkiva.Checked == true )
+            {
+                if(txtabono.Text != "")
+                {
+                    double p1 = Convert.ToDouble(txttotal.Text);
+                    double precio = (p1 * .08) + p1;
+                    txttotal.Text = precio.ToString();
+                    double p2 = Convert.ToDouble(txtabono.Text);
+                    double res = precio - p2;
+
+                    txtrestante.Text = res.ToString();
+                }
+                else
+                {
+                    double p1 = Convert.ToDouble(txttotal.Text);
+                    double precio = (p1 * .08) + p1;
+                    txttotal.Text = precio.ToString();
+                }
+               
+                
+            }
+            else if (checkiva.Checked == false)
+            {
+
+
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    txttotal.Text = "0";
+                }
+
+                else if (dataGridView1.Rows.Count == 1)
+                {
+
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    //double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1;
+                    txttotal.Text = precio.ToString();
+                    if (txtabono.Text != "")
+                    {
+                    double p2 = Convert.ToDouble(txtabono.Text);
+                    double res = precio - p2;
+
+                    txtrestante.Text = res.ToString();
+                    }
+                    
+
+                }
+                else if (dataGridView1.Rows.Count == 2)
+                {
+
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    // double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2;
+                    txttotal.Text = precio.ToString();
+                    if (txtabono.Text != "")
+                    {
+                        double abono = Convert.ToDouble(txtabono.Text);
+                        double res = precio - abono;
+
+                        txtrestante.Text = res.ToString();
+                    }
+
+                }
+                else if (dataGridView1.Rows.Count == 3)
+                {
+
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                    // double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3;
+                    txttotal.Text = precio.ToString();
+                    if (txtabono.Text != "")
+                    {
+                        double abono = Convert.ToDouble(txtabono.Text);
+                        double res = precio - abono;
+
+                        txtrestante.Text = res.ToString();
+                    }
+
+
+                }
+                else if (dataGridView1.Rows.Count == 4)
+                {
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+                    // double p5 = Convert.ToDouble(dataGridView1.Rows[4].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3 + p4;
+                    txttotal.Text = precio.ToString();
+                    if (txtabono.Text != "")
+                    {
+                        double abono = Convert.ToDouble(txtabono.Text);
+                        double res = precio - abono;
+
+                        txtrestante.Text = res.ToString();
+                    }
+                }
+                else if (dataGridView1.Rows.Count == 5)
+                {
+                    double p1 = Convert.ToDouble(dataGridView1.Rows[0].Cells[3].Value.ToString().Replace("$", ""));
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[1].Cells[3].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[2].Cells[3].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[3].Cells[3].Value.ToString().Replace("$", ""));
+                    double p5 = Convert.ToDouble(dataGridView1.Rows[4].Cells[3].Value.ToString().Replace("$", ""));
+
+                    // double p5 = Convert.ToDouble(dataGridView1.Rows[4].Cells[3].Value.ToString().Replace("$", ""));
+
+                    double precio = p1 + p2 + p3 + p4 + p5;
+                    txttotal.Text = precio.ToString();
+                    if (txtabono.Text != "")
+                    {
+                        double abono = Convert.ToDouble(txtabono.Text);
+                        double res = precio - abono;
+
+                        txtrestante.Text = res.ToString();
+                    }
+
+                }
+            }
+           
+        }
+
+        private void txtabono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkcontra_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkcontra.Checked == true)
+            {
+                txtcontracel.Visible = true;
+            }
+            else
+                txtcontracel.Visible = false;
+        }
+
+        private void checknoaplica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checknoaplica.Checked == true)
+            {
+                checkprotctor.Visible = false;
+                checkchip.Visible = false;
+                checkotros.Visible = false;
+                txtotros.Visible = false;
+            }
+            else if (checknoaplica.Checked == false)
+            {
+                checkprotctor.Visible = true;
+                checkchip.Visible = true;
+                checkotros.Visible = true;
+                txtotros.Visible = true;
+            }
+        }
+
+        private void checkotros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkotros.Checked == true)
+            {
+                checkprotctor.Visible = false;
+                checkchip.Visible = false;
+            }
+            else if (checkotros.Checked == false)
+            {
+                checkprotctor.Visible = true;
+                checkchip.Visible = true;
             }
         }
     }

@@ -376,7 +376,7 @@ namespace pruebafirestore.Cotizacion
                 //dataGridView1.Height = height;
 
                 //Save the Bitmap to folder.
-                bitmap.Save(@"D:\DataGridView.png");
+                //bitmap.Save(@"D:\DataGridView.png");
 
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
@@ -399,7 +399,6 @@ namespace pruebafirestore.Cotizacion
         {
            // Image newImage2 = Image.FromFile(@"\\EBEST-AB78DLU\ebest\ebestimprimr4.jpg");
             Image newImage = Properties.Resources.ebestimprimr4;
-
 
             printDocument1.PrinterSettings.PrinterName = "TM-T20II";
 
@@ -460,11 +459,6 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 565));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 595);
 
-
-
-
-
-
                     int id = (int)Convert.ToInt64(lblcontador.Text);
                     DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
 
@@ -497,23 +491,6 @@ namespace pruebafirestore.Cotizacion
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-
-
-
-                   
-
-
-
-
 
                 }
 

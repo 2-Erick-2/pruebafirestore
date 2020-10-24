@@ -227,6 +227,7 @@
             this.checkprotctor.Text = "Protector";
             this.checkprotctor.UseVisualStyleBackColor = true;
             this.checkprotctor.Visible = false;
+            this.checkprotctor.CheckedChanged += new System.EventHandler(this.checkprotctor_CheckedChanged);
             // 
             // checkchip
             // 
