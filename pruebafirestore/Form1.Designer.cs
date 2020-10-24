@@ -97,6 +97,7 @@
             this.altoButton3.TabIndex = 3;
             this.altoButton3.Text = "Pedido";
             this.altoButton3.Transparency = false;
+            this.altoButton3.Click += new System.EventHandler(this.altoButton3_Click);
             // 
             // altoButton2
             // 

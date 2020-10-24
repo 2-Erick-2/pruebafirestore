@@ -53,10 +53,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 35);
+            this.label1.Size = new System.Drawing.Size(135, 29);
             this.label1.TabIndex = 8;
             this.label1.Text = "Cotizacion";
             // 
@@ -72,10 +72,10 @@
             this.btncrear.ImeMode = System.Windows.Forms.ImeMode.On;
             this.btncrear.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.btncrear.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.btncrear.Location = new System.Drawing.Point(0, 311);
+            this.btncrear.Location = new System.Drawing.Point(0, 303);
             this.btncrear.Name = "btncrear";
             this.btncrear.Radius = 10;
-            this.btncrear.Size = new System.Drawing.Size(174, 101);
+            this.btncrear.Size = new System.Drawing.Size(174, 145);
             this.btncrear.Stroke = false;
             this.btncrear.StrokeColor = System.Drawing.Color.Gray;
             this.btncrear.TabIndex = 7;
@@ -95,10 +95,10 @@
             this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton4.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton4.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton4.Location = new System.Drawing.Point(0, 176);
+            this.altoButton4.Location = new System.Drawing.Point(0, 149);
             this.altoButton4.Name = "altoButton4";
             this.altoButton4.Radius = 10;
-            this.altoButton4.Size = new System.Drawing.Size(174, 101);
+            this.altoButton4.Size = new System.Drawing.Size(174, 145);
             this.altoButton4.Stroke = false;
             this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton4.TabIndex = 5;
@@ -118,10 +118,10 @@
             this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton3.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton3.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton3.Location = new System.Drawing.Point(0, 462);
+            this.altoButton3.Location = new System.Drawing.Point(0, 455);
             this.altoButton3.Name = "altoButton3";
             this.altoButton3.Radius = 10;
-            this.altoButton3.Size = new System.Drawing.Size(174, 101);
+            this.altoButton3.Size = new System.Drawing.Size(174, 145);
             this.altoButton3.Stroke = false;
             this.altoButton3.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton3.TabIndex = 6;

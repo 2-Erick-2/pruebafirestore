@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
 using pruebafirestore.Cotizacion;
+using pruebafirestore.Pedidos;
 
 namespace pruebafirestore
 {
@@ -96,16 +97,17 @@ namespace pruebafirestore
 
 
             altoButton1.Inactive1 = Color.RoyalBlue;
-            altoButton1.Inactive2 = Color.White;
+            altoButton1.Inactive2 = Color.RoyalBlue;
 
-            altoButton2.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton2.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton2.Inactive1 = Color.DodgerBlue;
+            altoButton2.Inactive2 = Color.DodgerBlue;
 
-            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton3.Inactive1 = Color.DodgerBlue;
+            altoButton3.Inactive2 = Color.DodgerBlue;
 
-            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton4.Inactive1 = Color.DodgerBlue;
+            altoButton4.Inactive2 = Color.DodgerBlue;
+
 
         }
 
@@ -114,17 +116,36 @@ namespace pruebafirestore
             AbrirFormEnPanel2(new contcotizacion());
 
             altoButton2.Inactive1 = Color.RoyalBlue;
-            altoButton2.Inactive2 = Color.White;
+            altoButton2.Inactive2 = Color.RoyalBlue;
 
-            altoButton1.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton1.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton1.Inactive1 = Color.DodgerBlue;
+            altoButton1.Inactive2 = Color.DodgerBlue;
 
-            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton3.Inactive1 = Color.DodgerBlue;
+            altoButton3.Inactive2 = Color.DodgerBlue;
 
-            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+            altoButton4.Inactive1 = Color.DodgerBlue;
+            altoButton4.Inactive2 = Color.DodgerBlue;
 
+
+
+        }
+
+        private void altoButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new Contenedorpedidos());
+
+            altoButton3.Inactive1 = Color.RoyalBlue;
+            altoButton3.Inactive2 = Color.RoyalBlue;
+
+            altoButton4.Inactive1 = Color.DodgerBlue;
+            altoButton4.Inactive2 = Color.DodgerBlue;
+
+            altoButton1.Inactive1 = Color.DodgerBlue;
+            altoButton1.Inactive2 = Color.DodgerBlue;
+
+            altoButton2.Inactive1 = Color.DodgerBlue;
+            altoButton2.Inactive2 = Color.DodgerBlue;
         }
     }
 }

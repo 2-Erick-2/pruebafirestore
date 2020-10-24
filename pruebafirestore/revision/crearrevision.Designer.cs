@@ -51,29 +51,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 35);
+            this.label1.Size = new System.Drawing.Size(114, 29);
             this.label1.TabIndex = 9;
             this.label1.Text = "Revision";
             // 
             // altoButton4
             // 
-            this.altoButton4.Active1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(168)))), ((int)(((byte)(183)))));
-            this.altoButton4.Active2 = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(164)))), ((int)(((byte)(183)))));
+            this.altoButton4.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton4.Active2 = System.Drawing.Color.RoyalBlue;
             this.altoButton4.BackColor = System.Drawing.Color.Transparent;
             this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton4.ForeColor = System.Drawing.Color.Black;
             this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton4.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
-            this.altoButton4.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
-            this.altoButton4.Location = new System.Drawing.Point(0, 174);
+            this.altoButton4.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton4.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton4.Location = new System.Drawing.Point(0, 149);
             this.altoButton4.Name = "altoButton4";
             this.altoButton4.Radius = 10;
-            this.altoButton4.Size = new System.Drawing.Size(172, 101);
+            this.altoButton4.Size = new System.Drawing.Size(174, 145);
             this.altoButton4.Stroke = false;
             this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton4.TabIndex = 3;
@@ -91,12 +91,12 @@
             this.altoButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton3.ForeColor = System.Drawing.Color.Black;
             this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton3.Inactive1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(108)))), ((int)(((byte)(180)))));
-            this.altoButton3.Inactive2 = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(96)))), ((int)(((byte)(159)))));
-            this.altoButton3.Location = new System.Drawing.Point(0, 306);
+            this.altoButton3.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton3.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton3.Location = new System.Drawing.Point(0, 303);
             this.altoButton3.Name = "altoButton3";
             this.altoButton3.Radius = 10;
-            this.altoButton3.Size = new System.Drawing.Size(172, 101);
+            this.altoButton3.Size = new System.Drawing.Size(174, 145);
             this.altoButton3.Stroke = false;
             this.altoButton3.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton3.TabIndex = 4;
