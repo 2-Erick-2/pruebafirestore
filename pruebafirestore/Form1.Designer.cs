@@ -118,7 +118,7 @@
             this.altoButton2.Stroke = false;
             this.altoButton2.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton2.TabIndex = 1;
-            this.altoButton2.Text = "Cotizacion";
+            this.altoButton2.Text = "Cotización";
             this.altoButton2.Transparency = false;
             this.altoButton2.Click += new System.EventHandler(this.altoButton2_Click);
             // 
@@ -141,7 +141,7 @@
             this.altoButton1.Stroke = false;
             this.altoButton1.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton1.TabIndex = 0;
-            this.altoButton1.Text = "Revision";
+            this.altoButton1.Text = "Revisión";
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 

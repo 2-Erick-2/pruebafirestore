@@ -87,7 +87,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(509, 231);
+            this.label5.Location = new System.Drawing.Point(276, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 29);
             this.label5.TabIndex = 17;
@@ -95,29 +95,31 @@
             // 
             // txtmodelo
             // 
-            this.txtmodelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmodelo.Location = new System.Drawing.Point(433, 271);
+            this.txtmodelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmodelo.Location = new System.Drawing.Point(137, 261);
             this.txtmodelo.Name = "txtmodelo";
-            this.txtmodelo.Size = new System.Drawing.Size(240, 31);
+            this.txtmodelo.Size = new System.Drawing.Size(357, 35);
             this.txtmodelo.TabIndex = 16;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(236, 228);
+            this.label4.Location = new System.Drawing.Point(12, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 15;
             this.label4.Text = "Marca";
+            this.label4.Visible = false;
             // 
             // txtmarca
             // 
             this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(138, 271);
+            this.txtmarca.Location = new System.Drawing.Point(15, 384);
             this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(230, 31);
+            this.txtmarca.Size = new System.Drawing.Size(74, 31);
             this.txtmarca.TabIndex = 14;
+            this.txtmarca.Visible = false;
             // 
             // label3
             // 
@@ -518,8 +520,9 @@
             // checkcontra
             // 
             this.checkcontra.AutoSize = true;
+            this.checkcontra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkcontra.Location = new System.Drawing.Point(770, 227);
+            this.checkcontra.Location = new System.Drawing.Point(737, 223);
             this.checkcontra.Name = "checkcontra";
             this.checkcontra.Size = new System.Drawing.Size(155, 33);
             this.checkcontra.TabIndex = 133;
@@ -530,9 +533,9 @@
             // txtcontracel
             // 
             this.txtcontracel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontracel.Location = new System.Drawing.Point(712, 271);
+            this.txtcontracel.Location = new System.Drawing.Point(613, 262);
             this.txtcontracel.Name = "txtcontracel";
-            this.txtcontracel.Size = new System.Drawing.Size(266, 35);
+            this.txtcontracel.Size = new System.Drawing.Size(365, 35);
             this.txtcontracel.TabIndex = 134;
             this.txtcontracel.Visible = false;
             // 

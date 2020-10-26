@@ -94,23 +94,23 @@ namespace pruebafirestore.formularios
                 tiemporespuesta = "No aplica";
             }
 
-            if (checknoaplica.Checked == true)
+            if (checknoaplica.Checked == false)
             {
                 Accesorios = "No aplica";
             }
-            else if (checkprotctor.Checked && checkchip.Checked == true)
+            else if (checknoaplica.Checked == true && checkprotctor.Checked && checkchip.Checked == true)
             {
                 Accesorios = "Protector y Chip";
             }
-            else if (checkprotctor.Checked == true)
+            else if (checknoaplica.Checked == true && checkprotctor.Checked == true)
             {
                 Accesorios = "Protector";
             }
-            else if (checkchip.Checked == true)
+            else if (checknoaplica.Checked == true && checkchip.Checked == true)
             {
-                Accesorios = "Accesorios";
+                Accesorios = "Chip";
             }
-            else if (checkotros.Checked == true)
+            else if (checknoaplica.Checked == true && checkotros.Checked == true)
             {
                 Accesorios = txtotros.Text;
 
@@ -342,17 +342,22 @@ namespace pruebafirestore.formularios
         {
             if (checknoaplica.Checked == true)
             {
-                checkprotctor.Visible = false;
-                checkchip.Visible = false;
-                checkotros.Visible = false;
-                txtotros.Visible = false;
-            }
-            else if (checknoaplica.Checked == false)
-            {
-                checkprotctor.Visible = true;
+                 checkprotctor.Visible = true;
                 checkchip.Visible = true;
                 checkotros.Visible = true;
                 txtotros.Visible = true;
+            }
+            else if (checknoaplica.Checked == false)
+            {
+               
+
+
+checkprotctor.Visible = false;
+                checkchip.Visible = false;
+                checkotros.Visible = false;
+                txtotros.Visible = false;
+
+
             }
         }
 

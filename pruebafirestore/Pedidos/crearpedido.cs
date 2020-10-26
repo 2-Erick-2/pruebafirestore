@@ -225,16 +225,16 @@ namespace pruebafirestore.Pedidos
         {
             if (checkrespuesta.Checked == true)
             {
-                checkBox2.Visible = true;
+               /* checkBox2.Visible = true;
                 combodias.Visible = true;
-                checkBox1.Visible = true;
-                combohoras.Visible = false;
+                checkBox1.Visible = true;*/
+                combohoras.Visible = true;
             }
             else if (checkrespuesta.Checked == false)
             {
-                checkBox2.Visible = false;
+               /* checkBox2.Visible = false;
                 combodias.Visible = false;
-                checkBox1.Visible = false;
+                checkBox1.Visible = false;*/
                 combohoras.Visible = false;
             }
         }
@@ -287,7 +287,7 @@ namespace pruebafirestore.Pedidos
         private void crearpedido_Load(object sender, EventArgs e)
         {
             combodias.Text = "1 día";
-            combohoras.Text = "1 hora";
+            combohoras.Text = "3 - 4 dias";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
@@ -522,7 +522,7 @@ namespace pruebafirestore.Pedidos
                     txttotal.Text = precio.ToString();
                     if (txtabono.Text != "")
                     {
-                        double abono = Convert.ToDouble(txtabono.Text);
+                        double abono = Convert.ToDouble(txtabono.Text);         
                         double res = precio - abono;
 
                         txtrestante.Text = res.ToString();

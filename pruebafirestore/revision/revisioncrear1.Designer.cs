@@ -118,26 +118,28 @@
             // txtmarca
             // 
             this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(199, 301);
+            this.txtmarca.Location = new System.Drawing.Point(12, 360);
             this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(324, 31);
+            this.txtmarca.Size = new System.Drawing.Size(124, 31);
             this.txtmarca.TabIndex = 5;
+            this.txtmarca.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(301, 251);
+            this.label4.Location = new System.Drawing.Point(25, 301);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 6;
             this.label4.Text = "Marca";
+            this.label4.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(790, 265);
+            this.label5.Location = new System.Drawing.Point(307, 263);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 29);
             this.label5.TabIndex = 8;
@@ -146,7 +148,7 @@
             // txtmodelo
             // 
             this.txtmodelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmodelo.Location = new System.Drawing.Point(682, 301);
+            this.txtmodelo.Location = new System.Drawing.Point(199, 299);
             this.txtmodelo.Name = "txtmodelo";
             this.txtmodelo.Size = new System.Drawing.Size(334, 31);
             this.txtmodelo.TabIndex = 7;
@@ -177,16 +179,16 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(194, 579);
+            this.label6.Location = new System.Drawing.Point(194, 505);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 29);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Descripcion";
+            this.label6.Text = "Descripción";
             // 
             // txtdescripcion
             // 
             this.txtdescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescripcion.Location = new System.Drawing.Point(361, 576);
+            this.txtdescripcion.Location = new System.Drawing.Point(361, 502);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(655, 35);
             this.txtdescripcion.TabIndex = 8;
@@ -196,23 +198,22 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(758, 366);
+            this.label7.Location = new System.Drawing.Point(12, 427);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 29);
             this.label7.TabIndex = 12;
             this.label7.Text = "Accesorios";
+            this.label7.Visible = false;
             // 
             // checknoaplica
             // 
             this.checknoaplica.AutoSize = true;
-            this.checknoaplica.Checked = true;
-            this.checknoaplica.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checknoaplica.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checknoaplica.Location = new System.Drawing.Point(639, 418);
+            this.checknoaplica.Location = new System.Drawing.Point(199, 391);
             this.checknoaplica.Name = "checknoaplica";
-            this.checknoaplica.Size = new System.Drawing.Size(134, 33);
+            this.checknoaplica.Size = new System.Drawing.Size(163, 33);
             this.checknoaplica.TabIndex = 13;
-            this.checknoaplica.Text = "No aplica";
+            this.checknoaplica.Text = "Acccesorios";
             this.checknoaplica.UseVisualStyleBackColor = true;
             this.checknoaplica.CheckedChanged += new System.EventHandler(this.checknoaplica_CheckedChanged);
             // 
@@ -220,7 +221,7 @@
             // 
             this.checkprotctor.AutoSize = true;
             this.checkprotctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkprotctor.Location = new System.Drawing.Point(795, 418);
+            this.checkprotctor.Location = new System.Drawing.Point(393, 391);
             this.checkprotctor.Name = "checkprotctor";
             this.checkprotctor.Size = new System.Drawing.Size(130, 33);
             this.checkprotctor.TabIndex = 15;
@@ -233,7 +234,7 @@
             // 
             this.checkchip.AutoSize = true;
             this.checkchip.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkchip.Location = new System.Drawing.Point(943, 418);
+            this.checkchip.Location = new System.Drawing.Point(544, 391);
             this.checkchip.Name = "checkchip";
             this.checkchip.Size = new System.Drawing.Size(82, 33);
             this.checkchip.TabIndex = 17;
@@ -245,7 +246,7 @@
             // 
             this.checkotros.AutoSize = true;
             this.checkotros.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkotros.Location = new System.Drawing.Point(639, 474);
+            this.checkotros.Location = new System.Drawing.Point(656, 391);
             this.checkotros.Name = "checkotros";
             this.checkotros.Size = new System.Drawing.Size(91, 33);
             this.checkotros.TabIndex = 18;
@@ -257,9 +258,9 @@
             // txtotros
             // 
             this.txtotros.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtotros.Location = new System.Drawing.Point(751, 474);
+            this.txtotros.Location = new System.Drawing.Point(783, 389);
             this.txtotros.Name = "txtotros";
-            this.txtotros.Size = new System.Drawing.Size(265, 35);
+            this.txtotros.Size = new System.Drawing.Size(233, 35);
             this.txtotros.TabIndex = 19;
             this.txtotros.Visible = false;
             // 
@@ -268,7 +269,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.White;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(801, 674);
+            this.checkBox1.Location = new System.Drawing.Point(801, 614);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(88, 29);
             this.checkBox1.TabIndex = 117;
@@ -284,7 +285,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(523, 670);
+            this.checkBox2.Location = new System.Drawing.Point(523, 610);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(80, 33);
             this.checkBox2.TabIndex = 116;
@@ -313,7 +314,7 @@
             "10 horas",
             "11 horas",
             "12 horas"});
-            this.combohoras.Location = new System.Drawing.Point(895, 673);
+            this.combohoras.Location = new System.Drawing.Point(895, 613);
             this.combohoras.Name = "combohoras";
             this.combohoras.Size = new System.Drawing.Size(121, 33);
             this.combohoras.TabIndex = 115;
@@ -333,7 +334,7 @@
             "3 días",
             "4 días",
             "5 días"});
-            this.combodias.Location = new System.Drawing.Point(609, 670);
+            this.combodias.Location = new System.Drawing.Point(609, 610);
             this.combodias.Name = "combodias";
             this.combodias.Size = new System.Drawing.Size(121, 33);
             this.combodias.TabIndex = 114;
@@ -343,7 +344,7 @@
             // 
             this.checkrespuesta.AutoSize = true;
             this.checkrespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkrespuesta.Location = new System.Drawing.Point(201, 670);
+            this.checkrespuesta.Location = new System.Drawing.Point(201, 610);
             this.checkrespuesta.Name = "checkrespuesta";
             this.checkrespuesta.Size = new System.Drawing.Size(262, 33);
             this.checkrespuesta.TabIndex = 118;
@@ -373,7 +374,7 @@
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(692, 749);
+            this.txtorden.Location = new System.Drawing.Point(688, 722);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(122, 24);
             this.txtorden.TabIndex = 122;
@@ -384,7 +385,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(425, 744);
+            this.label8.Location = new System.Drawing.Point(421, 717);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(208, 29);
             this.label8.TabIndex = 121;
@@ -420,7 +421,7 @@
             // txtcontracel
             // 
             this.txtcontracel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontracel.Location = new System.Drawing.Point(199, 418);
+            this.txtcontracel.Location = new System.Drawing.Point(692, 301);
             this.txtcontracel.Name = "txtcontracel";
             this.txtcontracel.Size = new System.Drawing.Size(324, 35);
             this.txtcontracel.TabIndex = 136;
@@ -430,7 +431,7 @@
             // 
             this.checkcontra.AutoSize = true;
             this.checkcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkcontra.Location = new System.Drawing.Point(266, 360);
+            this.checkcontra.Location = new System.Drawing.Point(759, 243);
             this.checkcontra.Name = "checkcontra";
             this.checkcontra.Size = new System.Drawing.Size(155, 33);
             this.checkcontra.TabIndex = 135;
