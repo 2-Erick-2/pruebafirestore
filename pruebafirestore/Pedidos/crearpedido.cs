@@ -596,5 +596,10 @@ namespace pruebafirestore.Pedidos
                 checkchip.Visible = true;
             }
         }
+
+        private void altoButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

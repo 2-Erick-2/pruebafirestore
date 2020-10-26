@@ -1,15 +1,11 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Google.Cloud.Firestore;
-using Google.Cloud.Firestore.V1;
 
 namespace pruebafirestore.formularios
 {
@@ -84,19 +80,23 @@ namespace pruebafirestore.formularios
             if (checkrespuesta.Checked == true && checkBox2.Checked == true)
             {
                 tiemporespuesta = combodias.Text;
+
             }
             else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
             {
                 tiemporespuesta = combohoras.Text;
+
             }
             else if (checkrespuesta.Checked == false)
             {
                 tiemporespuesta = "No aplica";
+
             }
 
             if (checknoaplica.Checked == false)
             {
                 Accesorios = "No aplica";
+
             }
             else if (checknoaplica.Checked == true && checkprotctor.Checked && checkchip.Checked == true)
             {
@@ -110,7 +110,7 @@ namespace pruebafirestore.formularios
             {
                 Accesorios = "Chip";
             }
-            else if (checknoaplica.Checked == true && checkotros.Checked == true)
+            else if (checknoaplica.Checked == true &&    checkotros.Checked == true)
             {
                 Accesorios = txtotros.Text;
 
@@ -151,16 +151,15 @@ namespace pruebafirestore.formularios
                 if (snapshot.Exists)
                 {
                     MessageBox.Show("Repetido");
+                       
                     goto sincopia;
                 }
                 else
                 {
-                    DocumentReference DOC = database.Collection("Revisiones").Document("contador");
+                    DocumentReference DOC = database.Collection("Revisiones").Document ("contador");
                     Dictionary<String, Object> data1 = new Dictionary<string, object>()
                 {
                  {"ID", FieldValue.Increment(1)}
-
-
 
 
                  };
