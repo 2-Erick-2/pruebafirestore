@@ -284,7 +284,7 @@ namespace pruebafirestore.Cotizacion
         }
 
 
-        private async  void altoButton1_Click(object sender, EventArgs e)
+        private async void altoButton1_Click(object sender, EventArgs e)
         {
             if (checkrespuesta.Checked == true && checkBox2.Checked == true)
             {
@@ -320,12 +320,12 @@ namespace pruebafirestore.Cotizacion
 
             //generacion  de numero aleatorio de orden
             var guid = Guid.NewGuid();
-            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray()); 
+            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray());
             var seed = int.Parse(justNumbers.Substring(0, 9));
             var random = new Random(seed);
-                                                                                 
+
             txtpruibea.Text = seed.ToString();
-           txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
+            txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
 
             DocumentReference docRef = database.Collection("Cotizaciones").Document(txtorden.Text);
             DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
@@ -338,7 +338,7 @@ namespace pruebafirestore.Cotizacion
 
             else
             {
-                
+
 
 
                 DocumentReference DOC = database.Collection("Cotizaciones").Document("contador");
@@ -360,13 +360,13 @@ namespace pruebafirestore.Cotizacion
                     foreach (var item in counter)
                         lblcontador.Text = string.Format("{1}", item.Key, item.Value);
                 }
-               // int id = (int)Convert.ToInt64(lblcontador.Text);
+                // int id = (int)Convert.ToInt64(lblcontador.Text);
                 BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
-            Codigo.IncludeLabel = true;
-            pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
+                Codigo.IncludeLabel = true;
+                pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 
 
-                
+
 
                 //Create a Bitmap and draw the DataGridView on it.
                 Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
@@ -386,9 +386,10 @@ namespace pruebafirestore.Cotizacion
                 //printPreviewDialog1.Document = printDocument1;
                 //printDocument1.Print();
                 //printDocument1.Print();
-           // printPreviewDialog1.Show();
+                // printPreviewDialog1.Show();
                 //Add_Document_with_orden();
             }
+        
 
 
            
