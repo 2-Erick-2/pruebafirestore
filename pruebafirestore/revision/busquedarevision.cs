@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using Google.Cloud.Firestore;
 using System.Runtime.Remoting.Messaging;
+using System.Globalization;
 
 namespace pruebafirestore.revision
 {
@@ -31,14 +32,30 @@ namespace pruebafirestore.revision
 
         private void busquedarevision_Load(object sender, EventArgs e)
         {
+            int numdias = 0;
             comboBoxbusqueda.Text = "Orden";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
            // button1_Click(sender, e);
            GetAllDocuments("Revisiones");
-           //numero = dataGridView1.Rows.Count;
+            //numero = dataGridView1.Rows.Count;
             //dataGridView1.Rows.RemoveAt(numero);
+
+
+            //directorio.DefaultView.RowFilter = $"timespan";
+
+            
+
+
+
+            //goto 30dias;
+
+
+
+
+
+
         }
 
         async void GetAllDocuments(String nameOfCollection)
@@ -130,6 +147,7 @@ namespace pruebafirestore.revision
 
         private  void txtbusqueda_TextChanged(object sender, EventArgs e)
         {
+
             if(comboBoxbusqueda.Text == "Orden")
             {
                 directorio.DefaultView.RowFilter = $"Orden LIKE '{txtbusqueda.Text}%'";
@@ -333,6 +351,50 @@ namespace pruebafirestore.revision
                   }
 
               }*/
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+
+            string fecha = "10/10/2009";
+
+            DateTime fecha2 = Convert.ToDateTime(fecha, new CultureInfo("es-ES"));
+
+            //int  fecha3 = fecha2.AddDays(30);
+
+            DateTime fecha3 = fecha2.AddDays(30);
+
+
+            string resultado = fecha3.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            MessageBox.Show(resultado);
+
+
+           /* int numdias = 0;
+            dias:
+            DateTime fechainicio = Convert.ToDateTime("10/10/2020");
+
+            DateTime fechafinal = Convert.ToDateTime("28/10/2020");
+
+            TimeSpan tspan = fechafinal - fechainicio;
+
+            numdias = tspan.Days;
+            // MessageBox.Show(fechafinal.ToString());
+            MessageBox.Show(numdias.ToString());
+
+            if (numdias < 30)
+            {
+                MessageBox.Show(fechafinal.ToShortDateString());
+
+                fechafinal.AddDays(1);
+                goto dias;
+            }
+            else if (numdias == 18)
+            {
+                MessageBox.Show(fechafinal.ToShortDateString());
+
+            }*/
         }
     }
 }
