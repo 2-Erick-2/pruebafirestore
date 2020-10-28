@@ -392,8 +392,7 @@ namespace pruebafirestore.Cotizacion
         
 
 
-           
-
+          
         }
 
         private async void imprimir(object sender, PrintPageEventArgs e)

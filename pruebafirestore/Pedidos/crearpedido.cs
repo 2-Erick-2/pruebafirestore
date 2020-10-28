@@ -31,6 +31,9 @@ namespace pruebafirestore.Pedidos
         Double precio4;
         Double precio5;
 
+        double IVA = 0;
+        double totalsiniva = 0;
+
         public crearpedido()
         {
             InitializeComponent();
@@ -387,21 +390,32 @@ namespace pruebafirestore.Pedidos
 
         private void txtabono_TextChanged(object sender, EventArgs e)
         {
-            string firstfour = txtabono.Text.Substring(0, 1);
+            string firstfour = "";
+            try
+            {
+                firstfour = txtabono.Text.Substring(0, 1);
 
+            }
+            catch(Exception EX)
+            {
+                //MessageBox.Show("Error: " + EX);
+            }
 
             if (txtabono.Text != "" && firstfour != "$")
             {          
+
                 double p1 = Convert.ToDouble(txttotal.Text);
 
                 double p2 = Convert.ToDouble(txtabono.Text);
                 double restante = p1 - p2;
 
                 txtrestante.Text = restante.ToString();
+                checkiva.Enabled = true;
             }
             else if (txtabono.Text == "")
             {
                 txtrestante.Text = txttotal.Text;
+                checkiva.Enabled = false;
             }
         }
 
@@ -412,8 +426,15 @@ namespace pruebafirestore.Pedidos
                 if(txtabono.Text != "")
                 {
                     double p1 = Convert.ToDouble(txttotal.Text);
+                    IVA = p1 * .08;
+                    txtIVA.Text = IVA.ToString();
+
                     double precio = (p1 * .08) + p1;
+
                     txttotal.Text = precio.ToString();
+                    totalsiniva = precio - IVA;
+                    txttotalsiniva.Text = totalsiniva.ToString();
+
                     double p2 = Convert.ToDouble(txtabono.Text);
                     double res = precio - p2;
 
@@ -421,9 +442,25 @@ namespace pruebafirestore.Pedidos
                 }
                 else
                 {
+
                     double p1 = Convert.ToDouble(txttotal.Text);
+                    IVA = p1 * .08;
+                    txtIVA.Text = IVA.ToString();
                     double precio = (p1 * .08) + p1;
+
                     txttotal.Text = precio.ToString();
+                    totalsiniva = precio - IVA;
+                    txttotalsiniva.Text = totalsiniva.ToString();
+                    double p2 = Convert.ToDouble(txtabono.Text);
+                    double res = precio - p2;
+
+                    txtrestante.Text = res.ToString();
+
+
+
+                    /* double p1 = Convert.ToDouble(txttotal.Text);
+                     double precio = (p1 * .08) + p1;
+                     txttotal.Text = precio.ToString();*/
                 }
                
                 
@@ -660,7 +697,6 @@ namespace pruebafirestore.Pedidos
                 }
 
 
-
                 contar = txttotal.Text;
                 if (contar.Length == 4)
                 {
@@ -687,6 +723,64 @@ namespace pruebafirestore.Pedidos
                     double d = Convert.ToDouble(txttotal.Text, CultureInfo.InvariantCulture);
                     txttotal.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                 }
+
+
+
+                contar = txttotalsiniva.Text;
+                if (contar.Length == 4)
+                {
+                    double d = Convert.ToDouble(txttotalsiniva.Text, CultureInfo.InvariantCulture);
+                    txttotalsiniva.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 3)
+                {
+                    double d = Convert.ToDouble(txttotalsiniva.Text, CultureInfo.InvariantCulture);
+                    txttotalsiniva.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 2)
+                {
+                    double d = Convert.ToDouble(txttotalsiniva.Text, CultureInfo.InvariantCulture);
+                    txttotalsiniva.Text = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 6)
+                {
+                    double d = Convert.ToDouble(txttotalsiniva.Text, CultureInfo.InvariantCulture);
+                    txttotalsiniva.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 5)
+                {
+                    double d = Convert.ToDouble(txttotalsiniva.Text, CultureInfo.InvariantCulture);
+                    txttotalsiniva.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+
+                contar = txtIVA.Text;
+                if (contar.Length == 4)
+                {
+                    double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
+                    txtIVA.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 3)
+                {
+                    double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
+                    txtIVA.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 2)
+                {
+                    double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
+                    txtIVA.Text = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 6)
+                {
+                    double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
+                    txtIVA.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                }
+                else if (contar.Length == 5)
+                {
+                    double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
+                    txtIVA.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                }
+
+
 
 
 
@@ -831,8 +925,6 @@ namespace pruebafirestore.Pedidos
             }
 
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 405));
-
-
 
             if (checkiva.Checked == false)
             {
@@ -996,7 +1088,11 @@ namespace pruebafirestore.Pedidos
                 {"Importe",p3},
                 {"Importe2",p6},
 
-                {"Total", contar2},
+                {"Total", txttotal.Text},
+
+                 {"Abono",txtabono.Text},
+
+                {"Restante",txtrestante.Text },
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -1008,23 +1104,6 @@ namespace pruebafirestore.Pedidos
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 }
 
@@ -1096,13 +1175,20 @@ namespace pruebafirestore.Pedidos
 
 
 
+                    e.Graphics.DrawString("                                           Total: " + txttotal.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+                    e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+                    
+                    //e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
 
 
 
@@ -1147,7 +1233,11 @@ namespace pruebafirestore.Pedidos
 
                 {"Importe3",p9},
 
-                {"Total", contar2},
+                {"Total", txttotal.Text},
+
+                 {"Abono",txtabono.Text},
+
+                {"Restante",txtrestante.Text },
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -1237,13 +1327,18 @@ namespace pruebafirestore.Pedidos
 
 
 
+                    e.Graphics.DrawString("                                           Total: " + txttotal.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+                    e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+
+                    //e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+                   
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 645));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 665));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 695);
 
 
 
@@ -1294,7 +1389,14 @@ namespace pruebafirestore.Pedidos
 
                 {"Importe4",p12},
 
-                {"Total", contar2},
+
+                {"Total", txttotal.Text},
+
+                {"Abono",txtabono.Text},
+
+                {"Restante",txtrestante.Text },
+
+
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -1401,15 +1503,18 @@ namespace pruebafirestore.Pedidos
 
 
 
+                    e.Graphics.DrawString("                                           Total: " + txttotal.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 620));
 
 
 
-
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+                    //e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 665));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 685));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 715);
 
 
 
@@ -1466,7 +1571,12 @@ namespace pruebafirestore.Pedidos
 
                 {"Importe5",p15},
 
-                {"Total", contar2},
+                {"Total", txttotal.Text},
+
+                {"Abono",txtabono.Text},
+
+                {"Restante",txtrestante.Text },
+
 
                 {"Tiempodeespera",tiemporespuesta} ,
 
@@ -1511,7 +1621,7 @@ namespace pruebafirestore.Pedidos
 
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                     SubTotal: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                    //e.Graphics.DrawString("                                     SubTotal: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
 
                     p3 = p3.Replace("$", "");
 
@@ -1578,15 +1688,32 @@ namespace pruebafirestore.Pedidos
 
 
 
-                    e.Graphics.DrawString("                                              IVA: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+
+                    e.Graphics.DrawString("                                      Subtotal: " + txttotalsiniva.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                    e.Graphics.DrawString("                                              IVA: " + txtIVA.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                    e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+
+
+
+
+
+
+                    //e.Graphics.DrawString("                                              IVA: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+
+
+
+                    //e.Graphics.DrawString("                                            Total: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
+                    
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
 
 
 
@@ -1596,7 +1723,7 @@ namespace pruebafirestore.Pedidos
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
