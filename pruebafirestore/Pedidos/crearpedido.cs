@@ -627,7 +627,7 @@ namespace pruebafirestore.Pedidos
         {
             if (checkotros.Checked == true)
             {
-                checkprotctor.Visible = false;
+                checkprotctor.Visible = false; 
                 checkchip.Visible = false;
             }
             else if (checkotros.Checked == false)
@@ -639,8 +639,6 @@ namespace pruebafirestore.Pedidos
 
         private  async void altoButton1_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 contar = txtabono.Text;
