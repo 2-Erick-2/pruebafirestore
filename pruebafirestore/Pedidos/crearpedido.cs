@@ -25,6 +25,8 @@ namespace pruebafirestore.Pedidos
         String tiemporespuesta = "";
         String contra = "";
 
+        String Accesorios = "";
+
         Double precio1;
         Double precio2;
         Double precio3;
@@ -609,17 +611,17 @@ namespace pruebafirestore.Pedidos
         {
             if (checknoaplica.Checked == true)
             {
+                checkprotctor.Visible = true;
+                checkchip.Visible = true;
+                checkotros.Visible = true;
+                txtotros.Visible = true;   
+            }
+            else if (checknoaplica.Checked == false)
+            {
                 checkprotctor.Visible = false;
                 checkchip.Visible = false;
                 checkotros.Visible = false;
                 txtotros.Visible = false;
-            }
-            else if (checknoaplica.Checked == false)
-            {
-                checkprotctor.Visible = true;
-                checkchip.Visible = true;
-                checkotros.Visible = true;
-                txtotros.Visible = true;
             }
         }
 
@@ -777,19 +779,37 @@ namespace pruebafirestore.Pedidos
                     double d = Convert.ToDouble(txtIVA.Text, CultureInfo.InvariantCulture);
                     txtIVA.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                 }
-
-
-
-
-
-
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex);
             }
+
+
+
+            if (checknoaplica.Checked == false)
+            {
+                Accesorios = "No aplica";
+
+            }
+            else if (checknoaplica.Checked == true && checkprotctor.Checked && checkchip.Checked == true)
+            {
+                Accesorios = "Protector y Chip";
+            }
+            else if (checknoaplica.Checked == true && checkprotctor.Checked == true)
+            {
+                Accesorios = "Protector";
+            }
+            else if (checknoaplica.Checked == true && checkchip.Checked == true)
+            {
+                Accesorios = "Chip";
+            }
+            else if (checknoaplica.Checked == true && checkotros.Checked == true)
+            {
+                Accesorios = txtotros.Text;
+
+            }
+
 
 
 
@@ -2648,6 +2668,13 @@ namespace pruebafirestore.Pedidos
         private void altoButton2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string fecha = DateTime.Now.ToShortDateString();
+            string hora = DateTime.Now.ToShortTimeString();
+            txthorayfecha.Text = fecha + " " + hora;
         }
     }
 }

@@ -86,5 +86,11 @@ namespace pruebafirestore
 
         [FirestoreProperty]
         public String Total { get; set; }
+
+        [FirestoreProperty]
+        public String Abono { get; set; }
+
+        [FirestoreProperty]
+        public String Restante { get; set; }
     }
 }

@@ -210,6 +210,12 @@
     <Compile Include="Cotizacion\mirarpartescoti.Designer.cs">
       <DependentUpon>mirarpartescoti.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\busquedapedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\busquedapedidos.Designer.cs">
+      <DependentUpon>busquedapedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\Contenedorpedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion\mirarpartescoti.resx">
       <DependentUpon>mirarpartescoti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\busquedapedidos.resx">
+      <DependentUpon>busquedapedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\Contenedorpedidos.resx">
       <DependentUpon>Contenedorpedidos.cs</DependentUpon>
