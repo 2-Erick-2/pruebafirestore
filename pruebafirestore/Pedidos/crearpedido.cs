@@ -68,7 +68,7 @@ namespace pruebafirestore.Pedidos
                     DataGridViewRow fila = new DataGridViewRow();
                     fila.CreateCells(dataGridView1);
                     fila.Cells[0].Value = txtcantidad.Text;
-                    fila.Cells[1].Value = txtdescri.Text;
+                    fila.Cells[1].Value = txtdescri.Text;    
                     fila.Cells[2].Value = txtimporte.Text;
                     fila.Cells[3].Value = preciofinal;
                     dataGridView1.Rows.Add(fila);
@@ -1079,7 +1079,7 @@ namespace pruebafirestore.Pedidos
                     String importe = "*" + p3 + "*" + "*" + p6 + "*";
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
 
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
@@ -1217,7 +1217,7 @@ namespace pruebafirestore.Pedidos
                     String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*";
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1366,7 +1366,7 @@ namespace pruebafirestore.Pedidos
                     String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*";
                     String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*";
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1426,15 +1426,6 @@ namespace pruebafirestore.Pedidos
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
 
                 }
 
@@ -1542,7 +1533,7 @@ namespace pruebafirestore.Pedidos
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1606,16 +1597,7 @@ namespace pruebafirestore.Pedidos
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
                 }
-
-
             }
             else if (checkiva.Checked == true)
 
@@ -2119,7 +2101,7 @@ namespace pruebafirestore.Pedidos
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -2343,7 +2325,7 @@ namespace pruebafirestore.Pedidos
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -2587,7 +2569,7 @@ namespace pruebafirestore.Pedidos
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -2600,7 +2582,6 @@ namespace pruebafirestore.Pedidos
 
                 {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
 
-
                 {"Cantidad",p2} ,
 
                 {"Cantidad2",p5} ,
@@ -2610,7 +2591,6 @@ namespace pruebafirestore.Pedidos
                 {"Cantidad4",p11} ,
 
                 {"Cantidad5",p14} ,
-
 
                 {"Descripcion",p1},
 
@@ -2646,18 +2626,16 @@ namespace pruebafirestore.Pedidos
 
                 {"Contraseña", contra}
 
-
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
                 }
             }
-
         }
 
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
-            txtnombre2.Text = txtnombre.Text;
+            txtnombre2.Text = txtnombre.Text;        
         }
 
         private void txtabono_Leave(object sender, EventArgs e)
