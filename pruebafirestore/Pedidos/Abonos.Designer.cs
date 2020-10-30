@@ -73,7 +73,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 199);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 189);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -83,7 +83,7 @@
             // txtabono
             // 
             this.txtabono.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtabono.Location = new System.Drawing.Point(92, 129);
+            this.txtabono.Location = new System.Drawing.Point(96, 119);
             this.txtabono.Name = "txtabono";
             this.txtabono.Size = new System.Drawing.Size(168, 29);
             this.txtabono.TabIndex = 1;
@@ -99,11 +99,12 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::pruebafirestore.Properties.Resources.minus;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(310, 127);
+            this.button2.Location = new System.Drawing.Point(314, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(38, 31);
             this.button2.TabIndex = 40;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             // 
             // button1
             // 
@@ -113,7 +114,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::pruebafirestore.Properties.Resources.anadir;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(266, 127);
+            this.button1.Location = new System.Drawing.Point(270, 117);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 31);
             this.button1.TabIndex = 39;
@@ -124,7 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(138, 101);
+            this.label1.Location = new System.Drawing.Point(142, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 41;
@@ -132,19 +133,20 @@
             // 
             // txttotal
             // 
+            this.txttotal.BackColor = System.Drawing.Color.White;
             this.txttotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttotal.Enabled = false;
-            this.txttotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttotal.Location = new System.Drawing.Point(266, 38);
+            this.txttotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotal.Location = new System.Drawing.Point(268, 35);
             this.txttotal.Name = "txttotal";
-            this.txttotal.Size = new System.Drawing.Size(103, 22);
+            this.txttotal.Size = new System.Drawing.Size(170, 28);
             this.txttotal.TabIndex = 42;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(90, 38);
+            this.label2.Location = new System.Drawing.Point(18, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 25);
             this.label2.TabIndex = 43;
@@ -154,7 +156,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(68, 508);
+            this.label3.Location = new System.Drawing.Point(53, 497);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 45;
@@ -162,11 +164,13 @@
             // 
             // txtrestante
             // 
+            this.txtrestante.BackColor = System.Drawing.Color.White;
+            this.txtrestante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrestante.Enabled = false;
-            this.txtrestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrestante.Location = new System.Drawing.Point(251, 504);
+            this.txtrestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrestante.Location = new System.Drawing.Point(247, 497);
             this.txtrestante.Name = "txtrestante";
-            this.txtrestante.Size = new System.Drawing.Size(113, 29);
+            this.txtrestante.Size = new System.Drawing.Size(113, 28);
             this.txtrestante.TabIndex = 44;
             this.txtrestante.TextChanged += new System.EventHandler(this.txtrestante_TextChanged);
             // 
@@ -181,7 +185,7 @@
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton1.Location = new System.Drawing.Point(85, 570);
+            this.altoButton1.Location = new System.Drawing.Point(89, 560);
             this.altoButton1.Name = "altoButton1";
             this.altoButton1.Radius = 10;
             this.altoButton1.Size = new System.Drawing.Size(271, 52);
@@ -199,11 +203,12 @@
             // txthorayfecha
             // 
             this.txthorayfecha.AutoSize = true;
-            this.txthorayfecha.Location = new System.Drawing.Point(23, 13);
+            this.txthorayfecha.Location = new System.Drawing.Point(12, 9);
             this.txthorayfecha.Name = "txthorayfecha";
             this.txthorayfecha.Size = new System.Drawing.Size(35, 13);
             this.txthorayfecha.TabIndex = 155;
             this.txthorayfecha.Text = "label4";
+            this.txthorayfecha.Visible = false;
             // 
             // Abonos
             // 
@@ -224,6 +229,7 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Abonos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abonos";

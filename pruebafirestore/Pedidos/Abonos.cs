@@ -58,6 +58,7 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
 
+
             dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
 
