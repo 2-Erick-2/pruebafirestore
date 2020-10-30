@@ -40,5 +40,15 @@ namespace pruebafirestore.Pedidos
         {
             AbrirFormEnPanel2(new busquedapedidos());
         }
+
+        private void altoButton4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void altoButton4_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new Movimientospedidos());
+
+        }
     }
 }

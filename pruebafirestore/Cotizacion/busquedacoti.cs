@@ -59,7 +59,7 @@ namespace pruebafirestore.Cotizacion
 
             GetAllDocuments("Cotizaciones");
 
-            directorio.DefaultView.RowFilter = $"[Fecha y hora] NOT = 'label10'";
+           // directorio.DefaultView.RowFilter = $"[Fecha y hora] NOT = 'label10'";
 
         }
         async void GetAllDocuments(String nameOfCollection)

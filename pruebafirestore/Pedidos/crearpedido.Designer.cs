@@ -116,6 +116,7 @@
             // checkcontra
             // 
             this.checkcontra.AutoSize = true;
+            this.checkcontra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkcontra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkcontra.Location = new System.Drawing.Point(727, 164);
             this.checkcontra.Name = "checkcontra";

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.altoButton4 = new AltoControls.AltoButton();
             this.label1 = new System.Windows.Forms.Label();
             this.altoButton3 = new AltoControls.AltoButton();
             this.altoButton2 = new AltoControls.AltoButton();
@@ -40,6 +41,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.altoButton4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.altoButton3);
             this.panel1.Controls.Add(this.altoButton2);
@@ -49,6 +51,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(174, 837);
             this.panel1.TabIndex = 0;
+            // 
+            // altoButton4
+            // 
+            this.altoButton4.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton4.Active2 = System.Drawing.Color.RoyalBlue;
+            this.altoButton4.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton4.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton4.ForeColor = System.Drawing.Color.Black;
+            this.altoButton4.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton4.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton4.Location = new System.Drawing.Point(0, 609);
+            this.altoButton4.Name = "altoButton4";
+            this.altoButton4.Radius = 10;
+            this.altoButton4.Size = new System.Drawing.Size(174, 145);
+            this.altoButton4.Stroke = false;
+            this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton4.TabIndex = 4;
+            this.altoButton4.Text = "Movimientos";
+            this.altoButton4.Transparency = false;
+            this.altoButton4.Click += new System.EventHandler(this.altoButton4_Click_1);
             // 
             // label1
             // 
@@ -65,6 +89,7 @@
             this.altoButton3.Active1 = System.Drawing.Color.RoyalBlue;
             this.altoButton3.Active2 = System.Drawing.Color.RoyalBlue;
             this.altoButton3.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton3.ForeColor = System.Drawing.Color.Black;
@@ -86,6 +111,7 @@
             this.altoButton2.Active1 = System.Drawing.Color.RoyalBlue;
             this.altoButton2.Active2 = System.Drawing.Color.RoyalBlue;
             this.altoButton2.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton2.ForeColor = System.Drawing.Color.Black;
@@ -107,6 +133,7 @@
             this.altoButton1.Active1 = System.Drawing.Color.RoyalBlue;
             this.altoButton1.Active2 = System.Drawing.Color.RoyalBlue;
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
@@ -155,5 +182,6 @@
         private AltoControls.AltoButton altoButton3;
         private AltoControls.AltoButton altoButton2;
         private System.Windows.Forms.Label label1;
+        private AltoControls.AltoButton altoButton4;
     }
 }

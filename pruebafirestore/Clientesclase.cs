@@ -31,6 +31,19 @@ namespace pruebafirestore
         public String Fechayhora { get; set; }
 
         [FirestoreProperty]
+        public String Fechayhora2 { get; set; }
+
+        [FirestoreProperty]
+        public String Fechayhora3 { get; set; }
+
+        [FirestoreProperty]
+        public String Fechayhora4 { get; set; }
+
+        [FirestoreProperty]
+        public String Fechayhora5 { get; set; }
+
+
+        [FirestoreProperty]
         public int ID { get; set; }
 
         [FirestoreProperty]
@@ -89,6 +102,18 @@ namespace pruebafirestore
 
         [FirestoreProperty]
         public String Abono { get; set; }
+
+        [FirestoreProperty]
+        public String Abono2 { get; set; }
+
+        [FirestoreProperty]
+        public String Abono3 { get; set; }
+
+        [FirestoreProperty]
+        public String Abono4 { get; set; }
+
+        [FirestoreProperty]
+        public String Abono5 { get; set; }
 
         [FirestoreProperty]
         public String Restante { get; set; }

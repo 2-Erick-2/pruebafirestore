@@ -2543,34 +2543,21 @@ namespace pruebafirestore.Pedidos
                     }
 
 
-
-
                     e.Graphics.DrawString("                                      Subtotal: " + txttotalsiniva.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 570));
                     e.Graphics.DrawString("                                              IVA: " + txtIVA.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 590));
                     e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 610));
                     e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 630));
-
-
-
-
-
                     //e.Graphics.DrawString("                                     SubTotal: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
-
                     //e.Graphics.DrawString("                                              IVA: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
-
-
                     //e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 620));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 650));
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 675));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 695));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 725);
 
-
-
-
                     int id = (int)Convert.ToInt64(lblcontador.Text);
                     DocumentReference DOC2 = database.Collection("Pedidos").Document(txtorden.Text);
-                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>() 
                 {
                  {"ID", id},
 
