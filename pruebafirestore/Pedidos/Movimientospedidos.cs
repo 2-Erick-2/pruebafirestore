@@ -51,6 +51,10 @@ namespace pruebafirestore.Pedidos
         String Restante = "";
         String fechayhora = "";
 
+        String Nombre = "";
+        String Modelo = "";
+        String Orden = "";
+
 
 
         public Movimientospedidos()
@@ -227,6 +231,10 @@ namespace pruebafirestore.Pedidos
                 total = row.Cells["Total"].Value.ToString();
                 Restante = row.Cells["Restante"].Value.ToString();
 
+                Nombre = row.Cells["Nombre"].Value.ToString();
+                Modelo = row.Cells["Modelo"].Value.ToString();
+                Orden = row.Cells["Orden"].Value.ToString();
+
             }
 
             if (Abono != "" && Abono2 == "" && Abono3 == "" && Abono4 == "" && Abono5 == "")
@@ -239,6 +247,11 @@ namespace pruebafirestore.Pedidos
                 Abonos.total = total;
                 Abonos.Restante = Restante;
                 Abonos.fechayhora = fechayhora;
+
+                Abonos.Nombre = Nombre;
+                Abonos.Modelo = Modelo;
+                Abonos.Orden = Orden;
+                Abonos.txtabonos.Text = Abono;
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
                 

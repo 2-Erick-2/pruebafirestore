@@ -119,10 +119,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 235);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 181);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1156, 605);
+            this.dataGridView1.Size = new System.Drawing.Size(1168, 681);
             this.dataGridView1.TabIndex = 143;
+            this.dataGridView1.VirtualMode = true;
             // 
             // button1
             // 

@@ -50,12 +50,6 @@ namespace pruebafirestore.revision
 
 
             //goto 30dias;
-
-
-
-
-
-
         }
 
         async void GetAllDocuments(String nameOfCollection)
@@ -80,12 +74,6 @@ namespace pruebafirestore.revision
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-
-                    
-
-
-
-
                     directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
                     dataGridView1.DataSource = directorio;
                 }
@@ -97,7 +85,7 @@ namespace pruebafirestore.revision
             directorio.Rows.RemoveAt(numero);
 
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
            
             //dataGridView1.Columns[2].Visible = false;
             

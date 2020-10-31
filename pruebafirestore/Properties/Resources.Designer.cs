@@ -81,6 +81,26 @@ namespace pruebafirestore.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] cartaebest {
+            get {
+                object obj = ResourceManager.GetObject("cartaebest", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] cartaebest2 {
+            get {
+                object obj = ResourceManager.GetObject("cartaebest2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap crearcotizacionversion2 {

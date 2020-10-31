@@ -160,4 +160,10 @@
   <data name="ebestimprimr4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ebestimprimr4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cartaebest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartaebest.lbx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cartaebest2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cartaebest2.lbx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

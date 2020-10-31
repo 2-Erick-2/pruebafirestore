@@ -44,6 +44,8 @@
             this.altoButton1 = new AltoControls.AltoButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txthorayfecha = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.txtabonos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +75,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 189);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 165);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -156,7 +158,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 497);
+            this.label3.Location = new System.Drawing.Point(52, 513);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 45;
@@ -168,7 +170,7 @@
             this.txtrestante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrestante.Enabled = false;
             this.txtrestante.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrestante.Location = new System.Drawing.Point(247, 497);
+            this.txtrestante.Location = new System.Drawing.Point(247, 510);
             this.txtrestante.Name = "txtrestante";
             this.txtrestante.Size = new System.Drawing.Size(113, 28);
             this.txtrestante.TabIndex = 44;
@@ -194,6 +196,7 @@
             this.altoButton1.TabIndex = 154;
             this.altoButton1.Text = "Cerrar";
             this.altoButton1.Transparency = false;
+            this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
             // timer1
             // 
@@ -210,12 +213,29 @@
             this.txthorayfecha.Text = "label4";
             this.txthorayfecha.Visible = false;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // txtabonos
+            // 
+            this.txtabonos.BackColor = System.Drawing.Color.White;
+            this.txtabonos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtabonos.Enabled = false;
+            this.txtabonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtabonos.Location = new System.Drawing.Point(247, 476);
+            this.txtabonos.Name = "txtabonos";
+            this.txtabonos.Size = new System.Drawing.Size(113, 28);
+            this.txtabonos.TabIndex = 156;
+            this.txtabonos.TextChanged += new System.EventHandler(this.txtabonos_TextChanged);
+            // 
             // Abonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(450, 634);
+            this.Controls.Add(this.txtabonos);
             this.Controls.Add(this.txthorayfecha);
             this.Controls.Add(this.altoButton1);
             this.Controls.Add(this.label3);
@@ -254,5 +274,7 @@
         private AltoControls.AltoButton altoButton1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label txthorayfecha;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        public System.Windows.Forms.TextBox txtabonos;
     }
 }
