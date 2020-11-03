@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Drawing.Printing;
+using Google.Cloud.Firestore;
+
 
 namespace pruebafirestore.Pedidos
 {
     public partial class Abonos : Form
     {
+        FirestoreDb database;
+
+
         String contar;
 
         public String cant = "";
@@ -28,7 +33,6 @@ namespace pruebafirestore.Pedidos
         public String descri4 = "";
         public String descri5 = "";
 
-        public String fechayhora = "";
 
         public String impor = "";
         public String impor2 = "";
@@ -43,16 +47,21 @@ namespace pruebafirestore.Pedidos
         public String Abono5 = "";
 
 
+        public String fechayhora = "";
 
+        public String fechayhora2 = "";
+        public String fechayhora3 = "";
+        public String fechayhora4 = "";
+        public String fechayhora5 = "";
+        //public String Abono5 = "";
         public String total = "";
         public String Restante = "";
-
-
-
 
         public String Nombre = "";
         public String Modelo = "";
         public String Orden = "";
+
+
 
 
         public Abonos()
@@ -62,6 +71,11 @@ namespace pruebafirestore.Pedidos
 
         private void Abonos_Load(object sender, EventArgs e)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            database = FirestoreDb.Create("facturasebest2");
+
+
             txttotal.Text = total;
             txtrestante.Text = Restante;
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
@@ -85,27 +99,36 @@ namespace pruebafirestore.Pedidos
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (txtabono.Text != "" && dataGridView1.Rows.Count <= 4)
             {
                 if (dataGridView1.Rows.Count == 1)
                 {
                     DataGridViewRow fila = new DataGridViewRow();
                     fila.CreateCells(dataGridView1);
-                    //fila.Cells[0].Value = txtcantidad.Text;
+ 
                     fila.Cells[0].Value = txtabono.Text;
                     fila.Cells[1].Value = txthorayfecha.Text;
-                        
-                    //fila.Cells[2].Value = txtimporte.Text;
-                    //fila.Cells[3].Value = preciofinal;
+                    Abono2 = txtabono.Text;
+                    fechayhora2 = txthorayfecha.Text;
+
                     dataGridView1.Rows.Add(fila);
-                    //dataGridView1.Rows.Add("","","     Total: ", precio1);
-                    //txttotal.Text = preciofinal;
+
                     double p1 = Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value.ToString().Replace("$", ""));
 
-                    double restantedesdemov = Convert.ToDouble(Restante.Replace("$", ""));
+                    double restantedesdemov = Convert.ToDouble(txtrestante.Text.Replace("$", ""));
 
                     Double resultado = restantedesdemov - p1;
+                    if (resultado == 0)
+                    {
+                        altoButton1.Text = "Generar Garantia";
+                        altoButton1.Enabled = true;
+                    }
+                    else if(resultado > 0)
+                    {
+                        altoButton1.Text = "Generar Abono";
+                        altoButton1.Enabled = true;
+
+                    }
 
                     txtrestante.Text = resultado.ToString();
 
@@ -115,11 +138,141 @@ namespace pruebafirestore.Pedidos
                     Double suma = p2 + p3;
                     txtabonos.Text = suma.ToString();
 
+                    txtabono.Text = "";
+                }
+                else if (dataGridView1.Rows.Count == 2)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    //fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[0].Value = txtabono.Text;
+                    fila.Cells[1].Value = txthorayfecha.Text;
+                    Abono3 = txtabono.Text;
+                    fechayhora3 = txthorayfecha.Text;
+
+                    dataGridView1.Rows.Add(fila);
+
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[2].Cells[0].Value.ToString().Replace("$", ""));
+
+                    Double suma = p2 + p3 + p4;
+                    Double sumasinp2 = p3 + p4;
+                    txtabonos.Text = suma.ToString();
+
+                    double restantedesdemov = Convert.ToDouble(txtrestante.Text.Replace("$", ""));
+
+                    Double resultado = restantedesdemov - p4;
+                    if (resultado == 0)
+                    {
+                        altoButton1.Text = "Generar Garantia";
+                        altoButton1.Enabled = true;
+                    }
+                    else if (resultado > 0)
+                    {
+                        altoButton1.Text = "Generar Abono";
+                        altoButton1.Enabled = true;
+
+                    }
+
+                    txtrestante.Text = resultado.ToString();
 
                     txtabono.Text = "";
-
-                   
                 }
+
+                else if (dataGridView1.Rows.Count == 3)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    //fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[0].Value = txtabono.Text;
+                    fila.Cells[1].Value = txthorayfecha.Text;
+                    Abono4 = txtabono.Text;
+                    fechayhora4 = txthorayfecha.Text;
+
+                    dataGridView1.Rows.Add(fila);
+
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[2].Cells[0].Value.ToString().Replace("$", ""));
+                    double p5 = Convert.ToDouble(dataGridView1.Rows[3].Cells[0].Value.ToString().Replace("$", ""));
+
+
+                    Double suma = p2 + p3 + p4 + p5;
+                    Double sumasinp2 = p3 + p4 + p5;
+
+                    txtabonos.Text = suma.ToString();
+
+                    double restantedesdemov = Convert.ToDouble(txtrestante.Text.Replace("$", ""));
+                   // MessageBox.Show(restantedesdemov.ToString());
+
+                    Double resultado = restantedesdemov - p5;
+                    if (resultado == 0)
+                    {
+                        altoButton1.Text = "Generar Garantia";
+                        altoButton1.Enabled = true;
+                    }
+                    else if (resultado > 0)
+                    {
+                        altoButton1.Text = "Generar Abono";
+                        altoButton1.Enabled = true;
+
+                    }
+
+                    txtrestante.Text = resultado.ToString();
+
+                    txtabono.Text = "";
+                }
+
+
+
+                else if (dataGridView1.Rows.Count == 4)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView1);
+                    //fila.Cells[0].Value = txtcantidad.Text;
+                    fila.Cells[0].Value = txtabono.Text;
+                    fila.Cells[1].Value = txthorayfecha.Text;
+                    Abono5 = txtabono.Text;
+                    fechayhora5 = txthorayfecha.Text;
+
+                    dataGridView1.Rows.Add(fila);
+
+                    double p2 = Convert.ToDouble(dataGridView1.Rows[0].Cells[0].Value.ToString().Replace("$", ""));
+                    double p3 = Convert.ToDouble(dataGridView1.Rows[1].Cells[0].Value.ToString().Replace("$", ""));
+                    double p4 = Convert.ToDouble(dataGridView1.Rows[2].Cells[0].Value.ToString().Replace("$", ""));
+                    double p5 = Convert.ToDouble(dataGridView1.Rows[3].Cells[0].Value.ToString().Replace("$", ""));
+                    double p6 = Convert.ToDouble(dataGridView1.Rows[4].Cells[0].Value.ToString().Replace("$", ""));
+
+
+                    Double suma = p2 + p3 + p4 + p5 + p6;
+                    Double sumasinp2 = p3 + p4 + p5 + p6;
+                    txtabonos.Text = suma.ToString();
+
+                    double restantedesdemov = Convert.ToDouble(txtrestante.Text.Replace("$", ""));
+
+                    Double resultado = restantedesdemov - p6;
+                    if (resultado == 0)
+                    {
+                        altoButton1.Text = "Generar Garantia";
+                        altoButton1.Enabled = true;
+                    }
+                    else if (resultado > 0)
+                    {
+                        altoButton1.Text = "Generar Abono";
+                        altoButton1.Enabled = true;
+
+                    }
+
+                    txtrestante.Text = resultado.ToString();
+
+                    txtabono.Text = "";
+                }
+
+
+
+
+
 
             }
             else
@@ -228,18 +381,60 @@ namespace pruebafirestore.Pedidos
 
         private void altoButton1_Click(object sender, EventArgs e)
         {
+
+            guardarabono();
             printDocument1 = new PrintDocument();
+
             PrinterSettings ps = new PrinterSettings();
+
             printDocument1.PrinterSettings = ps;
             printDocument1.PrintPage += imprimir;
-
-            //printDocument1.PrinterSettings.PrinterName = "Brother QL-800";
-            //ps.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 1, 3) ;
-           // PrintDocument pd = new PrintDocument(); pd.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 29, 90); pd.Print();
-
-
             printDocument1.Print();
+
+
         }
+
+
+
+        private async void guardarabono()
+        {
+            WriteBatch batch = database.StartBatch();
+
+
+            DocumentReference DOC2 = database.Collection("Pedidos").Document(Orden);
+            Dictionary<String, Object> data2 = new Dictionary<string, object>()
+            {
+                 {"Abono2",Abono2},
+                 {"Fechayhora2",fechayhora2},
+
+                 {"Abono3",Abono3},
+                 {"Fechayhora3",fechayhora3},
+
+                 {"Abono4",Abono4},
+                 {"Fechayhora4",fechayhora4},
+
+                 {"Abono5",Abono5},
+                 {"Fechayhora5",fechayhora5}
+             };
+            batch.Set(DOC2,data2, SetOptions.MergeAll);
+
+
+            DocumentReference sfRef = database.Collection("Pedidos").Document(Orden);
+            Dictionary<string, object> updates = new Dictionary<string, object>
+            {
+                { "Restante", txtrestante.Text}
+            };
+            batch.Update(sfRef, updates);
+
+            await batch.CommitAsync();
+
+
+
+            //await DOC2.SetAsync(data2, SetOptions.MergeAll);
+            MessageBox.Show("guardado");
+        }
+
+
 
 
 
@@ -336,6 +531,11 @@ namespace pruebafirestore.Pedidos
             {
                 MessageBox.Show("Error: " + ex);
             }
+        }
+
+        private void txttotal_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

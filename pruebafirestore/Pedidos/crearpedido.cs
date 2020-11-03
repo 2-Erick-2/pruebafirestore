@@ -812,8 +812,6 @@ namespace pruebafirestore.Pedidos
 
 
 
-
-
             if (checkrespuesta.Checked == true && checkBox2.Checked == true)
             {
                 tiemporespuesta = combodias.Text;
@@ -892,6 +890,9 @@ namespace pruebafirestore.Pedidos
                 //dataGridView1.Height = height;
                 //Save the Bitmap to folder.
                 //bitmap.Save(@"D:\DataGridView.png");
+
+                BrotherPrintThis();
+
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 printDocument1.PrinterSettings = ps;
@@ -904,6 +905,48 @@ namespace pruebafirestore.Pedidos
                 //Add_Document_with_orden();
             }
         }
+
+
+
+
+
+
+        public void BrotherPrintThis()
+        {
+            try
+            {
+                string path = @"C:\cartaebest3.lbx";
+                bpac.Document doc = new bpac.Document();
+                doc.Open(path);
+                bool test = doc.SetPrinter("Brother QL-800", true);
+                string pedido2 = "Tipo pedido: " + pedido;
+                string nombre = "Nombre: " + txtnombre.Text;
+                string numero = "Numero: " + txtnumero.Text;
+                string obser = " ";
+                string orden = "Numero orden: " + txtorden.Text;
+                string orden2 = txtorden.Text;
+                doc.GetObject("pedido").Text = pedido2;
+                doc.GetObject("nombre").Text = nombre;
+                doc.GetObject("numero").Text = numero;
+                doc.GetObject("modelo").Text = "Modelo: " + txtmodelo.Text;
+                doc.GetObject("fecha").Text = txthorayfecha.Text;
+                doc.GetObject("obser").Text = obser;
+                //doc.GetObject("orden").Text = orden;
+                doc.GetObject("codigo").Text = orden2;
+                //doc.GetObject("tiempo").Text = espera;
+                doc.StartPrint("", bpac.PrintOptionConstants.bpoDefault);
+                doc.PrintOut(1, bpac.PrintOptionConstants.bpoDefault);
+                doc.EndPrint();
+                doc.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+
 
         private async void imprimir(object sender, PrintPageEventArgs e)
         {

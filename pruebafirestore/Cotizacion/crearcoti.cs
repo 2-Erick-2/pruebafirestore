@@ -461,15 +461,15 @@ namespace pruebafirestore.Cotizacion
 
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 405));
 
-
-
             if (checkiva.Checked == false)
             {
-
                 if (dataGridView1.Rows.Count == 1)
                 {
+
                     String p1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+
                     String p2 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+
                     String p3 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString();
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
@@ -572,26 +572,15 @@ namespace pruebafirestore.Cotizacion
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
 
-
-
-
-
-
-
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 585));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 615);
 
-
-
-
                     String cantidad = "*" + p2 + "*" + "*" + p5 + "*";
                     String descripcion = "*" + p1 + "*" + "*" + p4 + "*";
                     String importe = "*" + p3 + "*" + "*" + p6 + "*";
-
-
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
@@ -599,59 +588,39 @@ namespace pruebafirestore.Cotizacion
 
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
-                 {"ID", id},
+                    {"ID", id},
 
-                {"Orden", txtorden.Text},
+                    {"Orden", txtorden.Text},
 
-                {"Nombre",txtnombre.Text},
+                    {"Nombre",txtnombre.Text},
 
-                {"Numero",txtnumero.Text},
+                    {"Numero",txtnumero.Text},
 
-                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+                    {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
 
-                {"Cantidad",p2} ,
+                    {"Cantidad",p2},
 
-                {"Cantidad2",p5} ,
+                    {"Cantidad2",p5},
 
+                    {"Descripcion",p1},
 
-                {"Descripcion",p1} ,
+                    {"Descripcion2",p4},
 
-                {"Descripcion2",p4} ,
+                    {"Importe",p3},
 
+                    {"Importe2",p6},
 
-                {"Importe",p3},
-                {"Importe2",p6},
+                    {"Total", contar2},
 
-                {"Total", contar2},
+                    {"Tiempodeespera",tiemporespuesta},   
 
-                {"Tiempodeespera",tiemporespuesta} ,
+                    {"Fechayhora",txthorayfecha.Text},
 
-                {"Fechayhora",txthorayfecha.Text},
-
-                {"Contraseña", contra}
-
+                    {"Contraseña", contra}
 
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-                   
-
-
-
-
-
-
-
-
                 }
 
                 if (dataGridView1.Rows.Count == 3)
@@ -682,8 +651,6 @@ namespace pruebafirestore.Cotizacion
                     e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
                     e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
                     e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
-
-
 
 
                     p3 = p3.Replace("$", "");
@@ -718,20 +685,12 @@ namespace pruebafirestore.Cotizacion
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
 
-
-
-
-
-
-
+                     
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
                     e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
-
-
-
 
 
                     String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*";

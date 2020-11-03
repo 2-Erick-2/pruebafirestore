@@ -41,7 +41,6 @@
             this.altoButton1 = new AltoControls.AltoButton();
             this.label6 = new System.Windows.Forms.Label();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.checknoaplica = new System.Windows.Forms.CheckBox();
             this.checkprotctor = new System.Windows.Forms.CheckBox();
             this.checkchip = new System.Windows.Forms.CheckBox();
@@ -118,9 +117,9 @@
             // txtmarca
             // 
             this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(12, 360);
+            this.txtmarca.Location = new System.Drawing.Point(12, 200);
             this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(124, 31);
+            this.txtmarca.Size = new System.Drawing.Size(59, 31);
             this.txtmarca.TabIndex = 5;
             this.txtmarca.Visible = false;
             // 
@@ -128,7 +127,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 301);
+            this.label4.Location = new System.Drawing.Point(7, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 6;
@@ -193,17 +192,6 @@
             this.txtdescripcion.Size = new System.Drawing.Size(655, 35);
             this.txtdescripcion.TabIndex = 8;
             this.txtdescripcion.TextChanged += new System.EventHandler(this.txtdescripcion_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 427);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 29);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Accesorios";
-            this.label7.Visible = false;
             // 
             // checknoaplica
             // 
@@ -403,7 +391,7 @@
             // txtorden2
             // 
             this.txtorden2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden2.Location = new System.Drawing.Point(12, 670);
+            this.txtorden2.Location = new System.Drawing.Point(17, 355);
             this.txtorden2.Name = "txtorden2";
             this.txtorden2.Size = new System.Drawing.Size(37, 35);
             this.txtorden2.TabIndex = 124;
@@ -412,7 +400,7 @@
             // txtpruibea
             // 
             this.txtpruibea.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpruibea.Location = new System.Drawing.Point(12, 711);
+            this.txtpruibea.Location = new System.Drawing.Point(12, 429);
             this.txtpruibea.Name = "txtpruibea";
             this.txtpruibea.Size = new System.Drawing.Size(37, 35);
             this.txtpruibea.TabIndex = 125;
@@ -442,7 +430,7 @@
             // lblcontador
             // 
             this.lblcontador.AutoSize = true;
-            this.lblcontador.Location = new System.Drawing.Point(27, 591);
+            this.lblcontador.Location = new System.Drawing.Point(14, 256);
             this.lblcontador.Name = "lblcontador";
             this.lblcontador.Size = new System.Drawing.Size(35, 13);
             this.lblcontador.TabIndex = 138;
@@ -498,7 +486,6 @@
             this.Controls.Add(this.checkchip);
             this.Controls.Add(this.checkprotctor);
             this.Controls.Add(this.checknoaplica);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.altoButton1);
@@ -535,7 +522,6 @@
         private AltoControls.AltoButton altoButton1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtdescripcion;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checknoaplica;
         private System.Windows.Forms.CheckBox checkprotctor;
         private System.Windows.Forms.CheckBox checkchip;

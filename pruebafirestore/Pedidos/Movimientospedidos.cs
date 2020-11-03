@@ -56,7 +56,12 @@ namespace pruebafirestore.Pedidos
         String Orden = "";
 
 
+        // String fechayhora = "";
 
+         String fechayhora2 = "";
+         String fechayhora3 = "";
+         String fechayhora4 = "";
+        String fechayhora5 = "";
         public Movimientospedidos()
         {
             InitializeComponent();
@@ -215,6 +220,14 @@ namespace pruebafirestore.Pedidos
 
 
                 fechayhora = row.Cells["Fecha y hora"].Value.ToString();
+                fechayhora2 = row.Cells["Fecha y hora2"].Value.ToString();
+
+                fechayhora3 = row.Cells["Fecha y hora3"].Value.ToString();
+
+                fechayhora4 = row.Cells["Fecha y hora4"].Value.ToString();
+
+                fechayhora5 = row.Cells["Fecha y hora5"].Value.ToString();
+
 
                 impor = row.Cells["Importe"].Value.ToString();
                 impor2 = row.Cells["Importe2"].Value.ToString();
@@ -259,6 +272,151 @@ namespace pruebafirestore.Pedidos
                 
                 Abonos.Show();
             }
+
+            else if (Abono != "" && Abono2 != "" && Abono3 == "" && Abono4 == "" && Abono5 == "")
+            {
+                Abonos Abonos = new Abonos();
+                /* Abonos.cant = cant;
+                 Abonos.descri = descri;
+                 Abonos.impor = impor;*/
+                Abonos.Abono = Abono;
+                Abonos.fechayhora = fechayhora;
+
+                Abonos.Abono2 = Abono2;
+                Abonos.fechayhora2 = fechayhora2;
+
+                Abonos.total = total;
+                Abonos.Restante = Restante;
+
+                Abonos.Nombre = Nombre;
+                Abonos.Modelo = Modelo;
+                Abonos.Orden = Orden;
+                Abonos.txtabonos.Text = Abono;
+                Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
+                Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
+
+                Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
+                Abonos.dataGridView1.Rows.Insert(1, Abono2, fechayhora2);
+
+
+                Abonos.Show();
+            }
+
+            else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 == "" && Abono5 == "")
+            {
+                Abonos Abonos = new Abonos();
+                /* Abonos.cant = cant;
+                 Abonos.descri = descri;
+                 Abonos.impor = impor;*/
+                Abonos.Abono = Abono;
+                Abonos.fechayhora = fechayhora;
+
+                Abonos.Abono2 = Abono2;
+                Abonos.fechayhora2 = fechayhora2;
+
+                Abonos.Abono3 = Abono3;
+                Abonos.fechayhora3 = fechayhora3;
+
+                Abonos.total = total;
+                Abonos.Restante = Restante;
+
+                Abonos.Nombre = Nombre;
+                Abonos.Modelo = Modelo;
+                Abonos.Orden = Orden;
+                Abonos.txtabonos.Text = Abono;
+                Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
+                Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
+
+                Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
+                Abonos.dataGridView1.Rows.Insert(1, Abono2, fechayhora2);
+                Abonos.dataGridView1.Rows.Insert(2, Abono3, fechayhora3);
+
+
+                Abonos.Show();
+            }
+
+            else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 != "" && Abono5 == "")
+            {
+                Abonos Abonos = new Abonos();
+                /* Abonos.cant = cant;
+                 Abonos.descri = descri;
+                 Abonos.impor = impor;*/
+                Abonos.Abono = Abono;
+                Abonos.fechayhora = fechayhora;
+
+                Abonos.Abono2 = Abono2;
+                Abonos.fechayhora2 = fechayhora2;
+
+                Abonos.Abono3 = Abono3;
+                Abonos.fechayhora3 = fechayhora3;
+
+                Abonos.Abono4 = Abono4;
+                Abonos.fechayhora4 = fechayhora4;
+
+
+                Abonos.total = total;
+                Abonos.Restante = Restante;
+
+                Abonos.Nombre = Nombre;
+                Abonos.Modelo = Modelo;
+                Abonos.Orden = Orden;
+                Abonos.txtabonos.Text = Abono;
+                Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
+                Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
+
+                Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
+                Abonos.dataGridView1.Rows.Insert(1, Abono2, fechayhora2);
+                Abonos.dataGridView1.Rows.Insert(2, Abono3, fechayhora3);
+                Abonos.dataGridView1.Rows.Insert(3, Abono4, fechayhora4);
+
+
+                Abonos.Show();
+            }
+
+
+            else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 != "" && Abono5 != "")
+            {
+                Abonos Abonos = new Abonos();
+                /* Abonos.cant = cant;
+                 Abonos.descri = descri;
+                 Abonos.impor = impor;*/
+                Abonos.Abono = Abono;
+                Abonos.fechayhora = fechayhora;
+
+                Abonos.Abono2 = Abono2;
+                Abonos.fechayhora2 = fechayhora2;
+
+                Abonos.Abono3 = Abono3;
+                Abonos.fechayhora3 = fechayhora3;
+
+                Abonos.Abono4 = Abono4;
+                Abonos.fechayhora4 = fechayhora4;
+
+                Abonos.Abono5 = Abono5;
+                Abonos.fechayhora5 = fechayhora5;
+
+
+                Abonos.total = total;
+                Abonos.Restante = Restante;
+
+                Abonos.Nombre = Nombre;
+                Abonos.Modelo = Modelo;
+                Abonos.Orden = Orden;
+                Abonos.txtabonos.Text = Abono;
+                Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
+                Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
+
+                Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
+                Abonos.dataGridView1.Rows.Insert(1, Abono2, fechayhora2);
+                Abonos.dataGridView1.Rows.Insert(2, Abono3, fechayhora3);
+                Abonos.dataGridView1.Rows.Insert(3, Abono4, fechayhora4);
+                Abonos.dataGridView1.Rows.Insert(4, Abono5, fechayhora5);
+
+
+                Abonos.Show();
+            }
+
+
         }
     }
 }

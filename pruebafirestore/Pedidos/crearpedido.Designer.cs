@@ -45,7 +45,6 @@
             this.txtorden2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtorden = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.checkrespuesta = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -201,18 +200,6 @@
             this.txtorden.Size = new System.Drawing.Size(173, 29);
             this.txtorden.TabIndex = 162;
             this.txtorden.Text = "****************";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 464);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(132, 29);
-            this.label11.TabIndex = 161;
-            this.label11.Text = "Accesorios";
-            this.label11.Visible = false;
             // 
             // checkrespuesta
             // 
@@ -747,7 +734,6 @@
             this.Controls.Add(this.txtorden2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtorden);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.checkrespuesta);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.checkBox2);
@@ -797,7 +783,6 @@
         private System.Windows.Forms.TextBox txtorden2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label txtorden;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkrespuesta;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;

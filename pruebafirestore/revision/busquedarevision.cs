@@ -44,17 +44,11 @@ namespace pruebafirestore.revision
 
 
             //directorio.DefaultView.RowFilter = $"timespan";
-
-            
-
-
-
             //goto 30dias;
         }
 
         async void GetAllDocuments(String nameOfCollection)
         {
-
                     directorio.Columns.Add("Orden");
                     directorio.Columns.Add("ID");
                     directorio.Columns.Add("Nombre");
@@ -65,6 +59,9 @@ namespace pruebafirestore.revision
                     directorio.Columns.Add("Fecha y hora");
                     directorio.Columns.Add("Tiempo de espera");
                     directorio.Columns.Add("contraseña");
+                    directorio.Columns.Add("fechaprueba");
+            directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
+
 
 
             Query Clientes = database.Collection(nameOfCollection);
@@ -74,28 +71,34 @@ namespace pruebafirestore.revision
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
+
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña,oDate);
                     dataGridView1.DataSource = directorio;
                 }
-
             }
-                numero = directorio.Rows.Count;
+            numero = directorio.Rows.Count;
                // MessageBox.Show(numero.ToString());
             numero--;
             directorio.Rows.RemoveAt(numero);
 
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
-           
+
+              
+            // DataGridView1.Item("Salida", cont).Value = CDate(Format(DateTime.Parse(dt_fechas.Rows(fila).Item(2).ToString()), "dd/MM/yyyy  HH:mm"))
+
+           // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
+
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
+
+            // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
+
             //dataGridView1.Columns[2].Visible = false;
-            
+
 
             dataGridView1.RowHeadersVisible = false;
 
-
-
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
-            dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
 
             dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
@@ -345,7 +348,7 @@ namespace pruebafirestore.revision
         {
 
 
-            string fecha = "10/10/2009";
+            /*string fecha = "10/10/2009";
 
             DateTime fecha2 = Convert.ToDateTime(fecha, new CultureInfo("es-ES"));
 
@@ -356,33 +359,39 @@ namespace pruebafirestore.revision
 
             string resultado = fecha3.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
-            MessageBox.Show(resultado);
+            MessageBox.Show(resultado);*/
 
 
-           /* int numdias = 0;
-            dias:
-            DateTime fechainicio = Convert.ToDateTime("10/10/2020");
+            
+                DateTime foo = DateTime.UtcNow;
+            long unixTime = ((DateTimeOffset)foo).ToUnixTimeSeconds();
+            MessageBox.Show(unixTime.ToString());
 
-            DateTime fechafinal = Convert.ToDateTime("28/10/2020");
 
-            TimeSpan tspan = fechafinal - fechainicio;
+            /* int numdias = 0;
+             dias:
+             DateTime fechainicio = Convert.ToDateTime("10/10/2020");
 
-            numdias = tspan.Days;
-            // MessageBox.Show(fechafinal.ToString());
-            MessageBox.Show(numdias.ToString());
+             DateTime fechafinal = Convert.ToDateTime("28/10/2020");
 
-            if (numdias < 30)
-            {
-                MessageBox.Show(fechafinal.ToShortDateString());
+             TimeSpan tspan = fechafinal - fechainicio;
 
-                fechafinal.AddDays(1);
-                goto dias;
-            }
-            else if (numdias == 18)
-            {
-                MessageBox.Show(fechafinal.ToShortDateString());
+             numdias = tspan.Days;
+             // MessageBox.Show(fechafinal.ToString());
+             MessageBox.Show(numdias.ToString());
 
-            }*/
+             if (numdias < 30)
+             {
+                 MessageBox.Show(fechafinal.ToShortDateString());
+
+                 fechafinal.AddDays(1);
+                 goto dias;
+             }
+             else if (numdias == 18)
+             {
+                 MessageBox.Show(fechafinal.ToShortDateString());
+
+             }*/
         }
     }
 }

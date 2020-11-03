@@ -169,6 +169,7 @@ namespace pruebafirestore.formularios
 
                  };
                     await DOC.SetAsync(data1, SetOptions.MergeAll);
+
                     DocumentReference docRef2 = database.Collection("Revisiones").Document("contador");
                     DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
                     if (snapsho2.Exists)
@@ -178,6 +179,7 @@ namespace pruebafirestore.formularios
                             lblcontador.Text = string.Format("{1}", item.Key, item.Value);
                     }
                     int id = (int)Convert.ToInt64(lblcontador.Text);
+
                     DocumentReference DOC2 = database.Collection("Revisiones").Document(txtorden.Text);
 
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()

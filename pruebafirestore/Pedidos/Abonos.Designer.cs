@@ -139,10 +139,11 @@
             this.txttotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttotal.Enabled = false;
             this.txttotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttotal.Location = new System.Drawing.Point(268, 35);
+            this.txttotal.Location = new System.Drawing.Point(268, 38);
             this.txttotal.Name = "txttotal";
             this.txttotal.Size = new System.Drawing.Size(170, 28);
             this.txttotal.TabIndex = 42;
+            this.txttotal.TextChanged += new System.EventHandler(this.txttotal_TextChanged);
             // 
             // label2
             // 
@@ -183,6 +184,7 @@
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton1.Enabled = false;
             this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
@@ -194,7 +196,7 @@
             this.altoButton1.Stroke = false;
             this.altoButton1.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton1.TabIndex = 154;
-            this.altoButton1.Text = "Cerrar";
+            this.altoButton1.Text = "Generar Abono";
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 

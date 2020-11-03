@@ -36,6 +36,7 @@
             this.altoButton1 = new AltoControls.AltoButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContainer = new System.Windows.Forms.Panel();
+            this.altoButton5 = new AltoControls.AltoButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.altoButton5);
             this.panel1.Controls.Add(this.altoButton4);
             this.panel1.Controls.Add(this.altoButton3);
             this.panel1.Controls.Add(this.altoButton2);
@@ -66,7 +68,7 @@
             this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton4.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton4.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton4.Location = new System.Drawing.Point(988, -1);
+            this.altoButton4.Location = new System.Drawing.Point(1129, 3);
             this.altoButton4.Name = "altoButton4";
             this.altoButton4.Radius = 10;
             this.altoButton4.Size = new System.Drawing.Size(203, 101);
@@ -88,7 +90,7 @@
             this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton3.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton3.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton3.Location = new System.Drawing.Point(770, -1);
+            this.altoButton3.Location = new System.Drawing.Point(719, -1);
             this.altoButton3.Name = "altoButton3";
             this.altoButton3.Radius = 10;
             this.altoButton3.Size = new System.Drawing.Size(165, 101);
@@ -111,7 +113,7 @@
             this.altoButton2.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton2.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton2.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton2.Location = new System.Drawing.Point(534, 0);
+            this.altoButton2.Location = new System.Drawing.Point(498, 0);
             this.altoButton2.Name = "altoButton2";
             this.altoButton2.Radius = 10;
             this.altoButton2.Size = new System.Drawing.Size(165, 101);
@@ -134,7 +136,7 @@
             this.altoButton1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton1.Location = new System.Drawing.Point(314, -1);
+            this.altoButton1.Location = new System.Drawing.Point(296, -1);
             this.altoButton1.Name = "altoButton1";
             this.altoButton1.Radius = 10;
             this.altoButton1.Size = new System.Drawing.Size(165, 101);
@@ -162,6 +164,28 @@
             this.pContainer.Name = "pContainer";
             this.pContainer.Size = new System.Drawing.Size(1344, 876);
             this.pContainer.TabIndex = 7;
+            // 
+            // altoButton5
+            // 
+            this.altoButton5.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton5.Active2 = System.Drawing.Color.RoyalBlue;
+            this.altoButton5.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton5.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton5.ForeColor = System.Drawing.Color.White;
+            this.altoButton5.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton5.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton5.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton5.Location = new System.Drawing.Point(924, 0);
+            this.altoButton5.Name = "altoButton5";
+            this.altoButton5.Radius = 10;
+            this.altoButton5.Size = new System.Drawing.Size(165, 101);
+            this.altoButton5.Stroke = false;
+            this.altoButton5.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton5.TabIndex = 5;
+            this.altoButton5.Text = "Garantias";
+            this.altoButton5.Transparency = false;
             // 
             // Form1
             // 
@@ -193,6 +217,7 @@
         private AltoControls.AltoButton altoButton3;
         private AltoControls.AltoButton altoButton2;
         private AltoControls.AltoButton altoButton1;
+        private AltoControls.AltoButton altoButton5;
     }
 }
 
