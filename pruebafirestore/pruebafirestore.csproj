@@ -216,6 +216,12 @@
     <Compile Include="Pedidos\Abonos.Designer.cs">
       <DependentUpon>Abonos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\Añadirdesdecoti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\Añadirdesdecoti.Designer.cs">
+      <DependentUpon>Añadirdesdecoti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\busquedapedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +279,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
+    <EmbeddedResource Include="Pedidos\Añadirdesdecoti.resx">
+      <DependentUpon>Añadirdesdecoti.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\cartaebest.lbx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

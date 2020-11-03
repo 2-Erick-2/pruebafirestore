@@ -50,5 +50,10 @@ namespace pruebafirestore.Pedidos
             AbrirFormEnPanel2(new Movimientospedidos());
 
         }
+
+        private void altoButton1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new Añadirdesdecoti());
+        }
     }
 }

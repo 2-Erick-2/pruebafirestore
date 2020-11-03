@@ -129,7 +129,7 @@
             // 
             this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre2.Location = new System.Drawing.Point(880, 14);
+            this.txtnombre2.Location = new System.Drawing.Point(1056, 9);
             this.txtnombre2.Name = "txtnombre2";
             this.txtnombre2.Size = new System.Drawing.Size(86, 11);
             this.txtnombre2.TabIndex = 169;
@@ -688,6 +688,7 @@
             this.txttotalsiniva.Size = new System.Drawing.Size(100, 31);
             this.txttotalsiniva.TabIndex = 187;
             this.txttotalsiniva.Text = "0";
+            this.txttotalsiniva.Visible = false;
             // 
             // txtIVA
             // 
@@ -698,6 +699,7 @@
             this.txtIVA.Size = new System.Drawing.Size(100, 31);
             this.txtIVA.TabIndex = 188;
             this.txtIVA.Text = " ";
+            this.txtIVA.Visible = false;
             // 
             // timer1
             // 
@@ -761,6 +763,7 @@
             this.Controls.Add(this.txtnombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "crearpedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "   ";
             this.Load += new System.EventHandler(this.crearpedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -791,7 +794,6 @@
         private System.Windows.Forms.Label txthorayfecha;
         private System.Windows.Forms.Button button2;
         private AltoControls.AltoButton altoButton1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
@@ -804,17 +806,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtmodelo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtmarca;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtnumero;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtabono;
-        private System.Windows.Forms.TextBox txttotal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtrestante;
@@ -827,5 +825,10 @@
         private System.Windows.Forms.TextBox txttotalsiniva;
         private System.Windows.Forms.TextBox txtIVA;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.TextBox txttotal;
+        public System.Windows.Forms.TextBox txtmodelo;
+        public System.Windows.Forms.TextBox txtnumero;
+        public System.Windows.Forms.TextBox txtnombre;
     }
 }

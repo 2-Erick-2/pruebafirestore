@@ -46,6 +46,7 @@
             this.txthorayfecha = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.txtabonos = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,12 +232,23 @@
             this.txtabonos.TabIndex = 156;
             this.txtabonos.TextChanged += new System.EventHandler(this.txtabonos_TextChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(52, 467);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 25);
+            this.label4.TabIndex = 157;
+            this.label4.Text = "Total abonado";
+            // 
             // Abonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(450, 634);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtabonos);
             this.Controls.Add(this.txthorayfecha);
             this.Controls.Add(this.altoButton1);
@@ -278,5 +290,6 @@
         private System.Windows.Forms.Label txthorayfecha;
         private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.TextBox txtabonos;
+        private System.Windows.Forms.Label label4;
     }
 }

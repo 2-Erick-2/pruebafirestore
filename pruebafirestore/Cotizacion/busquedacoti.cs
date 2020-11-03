@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using Google.Cloud.Firestore;
-
+using pruebafirestore.Pedidos;
 
 namespace pruebafirestore.Cotizacion
 {
@@ -204,6 +204,10 @@ namespace pruebafirestore.Cotizacion
                 mirar.dataGridView1.Columns.Add("Importe", "Importe");
                 mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
                 mirar.Show();
+
+                
+
+
             }
             else if(cant != "" && cant2 != "" && cant3 == "" && cant4 == "" && cant5 == "")
             {
@@ -224,6 +228,8 @@ namespace pruebafirestore.Cotizacion
                 mirar.dataGridView1.Rows.Insert(2, "", " Total", total);
 
                 mirar.Show();
+
+                
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 == "" && cant5 == "")
             {
@@ -251,6 +257,8 @@ namespace pruebafirestore.Cotizacion
                 mirar.dataGridView1.Rows.Insert(3, "", " Total", total);
 
                 mirar.Show();
+
+                
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 == "")
             {
@@ -282,6 +290,8 @@ namespace pruebafirestore.Cotizacion
                 mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
 
                 mirar.Show();
+
+                
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != ""  && cant5 != "")
             {
@@ -317,6 +327,7 @@ namespace pruebafirestore.Cotizacion
                 mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
 
                 mirar.Show();
+
             }
 
 

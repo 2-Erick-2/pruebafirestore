@@ -148,6 +148,7 @@
             this.altoButton1.TabIndex = 0;
             this.altoButton1.Text = "Añadir";
             this.altoButton1.Transparency = false;
+            this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 
             // pContainer
             // 

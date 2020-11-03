@@ -291,7 +291,22 @@ namespace pruebafirestore.Pedidos
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
-                Abonos.txtabonos.Text = Abono;
+
+ 
+                String Abonosin = Abono.Replace("$", "");
+                String Abonosin2 = Abono2.Replace("$", "");
+               // String Abonosin3 = Abono3.Replace("$", "");
+                //String Abonosin4 = Abono4.Replace("$", "");
+
+
+
+
+                double abonos = Convert.ToDouble(Abonosin) + Convert.ToDouble(Abonosin2);
+
+                Abonos.txtabonos.Text = abonos.ToString();
+
+
+
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
 
@@ -323,7 +338,24 @@ namespace pruebafirestore.Pedidos
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
-                Abonos.txtabonos.Text = Abono;
+
+                String Abonosin = Abono.Replace("$", "");
+                String Abonosin2 = Abono2.Replace("$", "");
+                String Abonosin3 = Abono3.Replace("$", "");
+                //String Abonosin4 = Abono4.Replace("$", "");
+
+
+
+
+                double abonos = Convert.ToDouble(Abonosin) + Convert.ToDouble(Abonosin2) + Convert.ToDouble(Abonosin3);
+
+                Abonos.txtabonos.Text = abonos.ToString();
+
+               // Abonos.txtabonos.Text = Abono;
+
+
+
+
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
 
@@ -360,7 +392,22 @@ namespace pruebafirestore.Pedidos
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
-                Abonos.txtabonos.Text = Abono;
+
+
+                String Abonosin = Abono.Replace("$", "");
+                String Abonosin2 = Abono2.Replace("$", "");
+                String Abonosin3 = Abono3.Replace("$", "");
+                String Abonosin4 = Abono4.Replace("$", "");
+
+
+
+
+                double abonos = Convert.ToDouble(Abonosin) + Convert.ToDouble(Abonosin2) + Convert.ToDouble(Abonosin3) + Convert.ToDouble(Abonosin4);
+                
+
+                Abonos.txtabonos.Text = abonos.ToString();
+
+                //Abonos.txtabonos.Text = Abono;
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
 
@@ -402,6 +449,21 @@ namespace pruebafirestore.Pedidos
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
+
+                String Abonosin = Abono.Replace("$", "");
+                String Abonosin2 = Abono2.Replace("$", "");
+                String Abonosin3 = Abono3.Replace("$", "");
+                String Abonosin4 = Abono4.Replace("$", "");
+                String Abonosin5 = Abono5.Replace("$", "");
+
+
+
+
+                double abonos = Convert.ToDouble(Abonosin) + Convert.ToDouble(Abonosin2) + Convert.ToDouble(Abonosin3) + Convert.ToDouble(Abonosin4) + Convert.ToDouble(Abonosin5);
+
+                Abonos.txtabonos.Text = abonos.ToString();
+
+
                 Abonos.txtabonos.Text = Abono;
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
