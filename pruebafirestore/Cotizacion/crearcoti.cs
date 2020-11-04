@@ -298,6 +298,7 @@ namespace pruebafirestore.Cotizacion
             {
                 tiemporespuesta = "No aplica";
             }
+
             if (checkcontra.Checked == true)
             {
                 contra = txtcontracel.Text;
