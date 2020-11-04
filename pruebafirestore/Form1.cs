@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
+using pruebafirestore.ABONOS;
 using pruebafirestore.Cotizacion;
 using pruebafirestore.Pedidos;
 
@@ -146,6 +147,11 @@ namespace pruebafirestore
 
             altoButton2.Inactive1 = Color.DodgerBlue;
             altoButton2.Inactive2 = Color.DodgerBlue;
+        }
+
+        private void altoButton5_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new contenedorabonos());
         }
     }
 }

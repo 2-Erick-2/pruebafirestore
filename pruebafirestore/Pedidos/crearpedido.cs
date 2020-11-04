@@ -1586,6 +1586,7 @@ namespace pruebafirestore.Pedidos
                     {
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
                         contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+
                     }
                     else if (contar2.Length == 3)
                     {

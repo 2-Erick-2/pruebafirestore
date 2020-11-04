@@ -173,6 +173,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABONOS\contenedorabonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABONOS\contenedorabonos.Designer.cs">
+      <DependentUpon>contenedorabonos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABONOS\creargarantia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABONOS\creargarantia.Designer.cs">
+      <DependentUpon>creargarantia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientesclase.cs" />
     <Compile Include="Cotizacion\busquedacoti.cs">
       <SubType>Form</SubType>
@@ -279,6 +291,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
+    <EmbeddedResource Include="ABONOS\contenedorabonos.resx">
+      <DependentUpon>contenedorabonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABONOS\creargarantia.resx">
+      <DependentUpon>creargarantia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\Añadirdesdecoti.resx">
       <DependentUpon>Añadirdesdecoti.cs</DependentUpon>
     </EmbeddedResource>

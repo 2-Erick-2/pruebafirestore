@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.altoButton5 = new AltoControls.AltoButton();
             this.altoButton4 = new AltoControls.AltoButton();
             this.altoButton3 = new AltoControls.AltoButton();
             this.altoButton2 = new AltoControls.AltoButton();
             this.altoButton1 = new AltoControls.AltoButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContainer = new System.Windows.Forms.Panel();
-            this.altoButton5 = new AltoControls.AltoButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1344, 100);
             this.panel1.TabIndex = 6;
+            // 
+            // altoButton5
+            // 
+            this.altoButton5.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton5.Active2 = System.Drawing.Color.RoyalBlue;
+            this.altoButton5.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton5.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton5.ForeColor = System.Drawing.Color.White;
+            this.altoButton5.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton5.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton5.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton5.Location = new System.Drawing.Point(924, 0);
+            this.altoButton5.Name = "altoButton5";
+            this.altoButton5.Radius = 10;
+            this.altoButton5.Size = new System.Drawing.Size(165, 101);
+            this.altoButton5.Stroke = false;
+            this.altoButton5.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton5.TabIndex = 5;
+            this.altoButton5.Text = "Garantias";
+            this.altoButton5.Transparency = false;
+            this.altoButton5.Click += new System.EventHandler(this.altoButton5_Click);
             // 
             // altoButton4
             // 
@@ -164,28 +187,6 @@
             this.pContainer.Name = "pContainer";
             this.pContainer.Size = new System.Drawing.Size(1344, 876);
             this.pContainer.TabIndex = 7;
-            // 
-            // altoButton5
-            // 
-            this.altoButton5.Active1 = System.Drawing.Color.RoyalBlue;
-            this.altoButton5.Active2 = System.Drawing.Color.RoyalBlue;
-            this.altoButton5.BackColor = System.Drawing.Color.Transparent;
-            this.altoButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.altoButton5.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.altoButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton5.ForeColor = System.Drawing.Color.White;
-            this.altoButton5.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.altoButton5.Inactive1 = System.Drawing.Color.DodgerBlue;
-            this.altoButton5.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton5.Location = new System.Drawing.Point(924, 0);
-            this.altoButton5.Name = "altoButton5";
-            this.altoButton5.Radius = 10;
-            this.altoButton5.Size = new System.Drawing.Size(165, 101);
-            this.altoButton5.Stroke = false;
-            this.altoButton5.StrokeColor = System.Drawing.Color.Gray;
-            this.altoButton5.TabIndex = 5;
-            this.altoButton5.Text = "Garantias";
-            this.altoButton5.Transparency = false;
             // 
             // Form1
             // 
