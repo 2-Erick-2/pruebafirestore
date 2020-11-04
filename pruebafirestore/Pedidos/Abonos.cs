@@ -17,7 +17,7 @@ namespace pruebafirestore.Pedidos
     public partial class Abonos : Form
     {
         FirestoreDb database;
-
+        String pedido = "";
 
         String contar;
 
@@ -57,13 +57,13 @@ namespace pruebafirestore.Pedidos
         public String total = "";
         public String Restante = "";
 
+
+
+
         public String Nombre = "";
         public String Modelo = "";
         public String Orden = "";
-
-
-
-
+        public String Numero = "";
         public Abonos()
         {
             InitializeComponent();
@@ -76,7 +76,63 @@ namespace pruebafirestore.Pedidos
             database = FirestoreDb.Create("facturasebest2");
 
 
-            txttotal.Text = total;
+            if (cant != "" && cant2 == "" && cant3 == "" && cant4 == "" && cant5 == "")
+            {
+                dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                dataGridView2.Columns.Add("Importe", "Importe");
+                dataGridView2.Rows.Insert(0, cant, descri, impor);
+            }
+            else if (cant != "" && cant2 != "" && cant3 == "" && cant4 == "" && cant5 == "")
+            {
+                dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                dataGridView2.Columns.Add("Importe", "Importe");
+                dataGridView2.Rows.Insert(0, cant, descri, impor);
+                dataGridView2.Rows.Insert(1, cant2, descri2, impor2);
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 == "" && cant5 == "")
+            {
+                dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                dataGridView2.Columns.Add("Importe", "Importe");
+                dataGridView2.Rows.Insert(0, cant, descri, impor);
+                dataGridView2.Rows.Insert(1, cant2, descri2, impor2);
+                dataGridView2.Rows.Insert(2, cant3, descri3, impor3);
+
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 == "")
+            {
+                dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                dataGridView2.Columns.Add("Importe", "Importe");
+                dataGridView2.Rows.Insert(0, cant, descri, impor);
+                dataGridView2.Rows.Insert(1, cant2, descri2, impor2);
+                dataGridView2.Rows.Insert(2, cant3, descri3, impor3);
+                dataGridView2.Rows.Insert(3, cant4, descri4, impor4);
+
+            }
+            else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 != "")
+            {
+                dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                dataGridView2.Columns.Add("Importe", "Importe");
+                dataGridView2.Rows.Insert(0, cant, descri, impor);
+                dataGridView2.Rows.Insert(1, cant2, descri2, impor2);
+                dataGridView2.Rows.Insert(2, cant3, descri3, impor3);
+                dataGridView2.Rows.Insert(3, cant4, descri4, impor4);
+                dataGridView2.Rows.Insert(4, cant5, descri5, impor5);
+
+            }
+
+
+
+
+
+
+
+
+            //txttotal.Text = total;
             txtrestante.Text = Restante;
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
@@ -379,17 +435,29 @@ namespace pruebafirestore.Pedidos
 
         }
 
-        private void altoButton1_Click(object sender, EventArgs e)
+        private async void altoButton1_Click(object sender, EventArgs e)
         {
+            if(altoButton1.Text == "Generar Abono")
+            {
+                guardarabono();
+                printDocument1 = new PrintDocument();
 
-            guardarabono();
-            printDocument1 = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
 
-            PrinterSettings ps = new PrinterSettings();
+                printDocument1.PrinterSettings = ps;
+                printDocument1.PrintPage += imprimir;
+                printDocument1.Print();
+                this.Hide();
+            }
+            else if(altoButton1.Text == "Generar Garantia")
+            {
 
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += imprimir;
-            printDocument1.Print();
+                DocumentReference cityRef = database.Collection("Pedidos").Document(Orden);
+                await cityRef.DeleteAsync();
+                guardargarantia();
+                this.Hide();
+            }
+           
 
 
         }
@@ -427,16 +495,767 @@ namespace pruebafirestore.Pedidos
             batch.Update(sfRef, updates);
 
             await batch.CommitAsync();
-
-
-
             //await DOC2.SetAsync(data2, SetOptions.MergeAll);
             MessageBox.Show("guardado");
         }
 
+        private async void guardargarantia()
+        {
 
 
 
+            sincopia:
+            string Name = txtnombre2.Text;
+            var rand = new Random();
+            pedido = "GARANTIAS";
+            //checkBoxcotizacion.Checked = false;
+            ///checkBoxrevision.Checked = false;
+
+            string firstfour = Name.Substring(0, 2);
+
+            //txtorden2.Text = firstfour;
+
+            string iniciodepedidos = pedido.Substring(0, 2);
+
+            //generacion  de numero aleatorio de orden
+            var guid = Guid.NewGuid();
+            var justNumbers = new String(guid.ToString().Where(Char.IsDigit).ToArray());
+            var seed = int.Parse(justNumbers.Substring(0, 9));
+
+            var random = new Random(seed);
+
+            txtpruibea.Text = seed.ToString();
+            txtorden.Text = iniciodepedidos + firstfour + seed.ToString();
+
+
+
+
+            DocumentReference docRef = database.Collection("Garantias").Document(txtorden.Text);
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+            if (snapshot.Exists)
+            {
+                MessageBox.Show("Repetido");
+                goto sincopia;
+            }
+            else
+            {
+
+                DocumentReference DOC = database.Collection("Garantias").Document("contador"); 
+                Dictionary<String, Object> data1 = new Dictionary<string, object>()
+                {
+                 {"ID", FieldValue.Increment(1)}
+                 };
+                await DOC.SetAsync(data1, SetOptions.MergeAll);
+
+                DocumentReference docRef2 = database.Collection("Garantias").Document("contador");
+                DocumentSnapshot snapsho2 = await docRef2.GetSnapshotAsync();
+                if (snapsho2.Exists)
+                {
+                    Dictionary<string, object> counter = snapsho2.ToDictionary();
+                    foreach (var item in counter)
+                        lblcontador.Text = string.Format("{1}", item.Key, item.Value);
+                }
+
+                BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
+                Codigo.IncludeLabel = true;
+                pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
+
+                printDocument2 = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                printDocument2.PrinterSettings = ps;
+                printDocument2.PrintPage += imprimir2;
+                printDocument2.Print();
+
+
+
+            }
+
+
+
+            
+
+
+
+            //await DOC2.SetAsync(data2, SetOptions.MergeAll);
+            //MessageBox.Show("guardado");
+        }
+
+        private async void imprimir2(object sender, PrintPageEventArgs e)
+        {
+            // Image newImage2 = Image.FromFile(@"\\EBEST-AB78DLU\ebest\ebestimprimr4.jpg");
+            Image newImage = Properties.Resources.ebestimprimr4;
+
+            printDocument1.PrinterSettings.PrinterName = "TM-T20II";
+
+            // Create rectangle for source image.
+            RectangleF srcRect = new RectangleF(100.0F, 100.0F, 150.0F, 150.0F);
+            e.Graphics.DrawImage(newImage, 30, 2);
+
+            //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
+            e.Graphics.DrawString("           Garantía", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
+            e.Graphics.DrawString("                                       id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
+            e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
+            e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
+            e.Graphics.DrawString("                  Reynosa Tamaulipas", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 220));
+            e.Graphics.DrawString("                             88500", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 240));
+            e.Graphics.DrawString("                  e-best@live.com.mx", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 260));
+            e.Graphics.DrawString("                         8999222312", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 280));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 300));
+            e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 330));
+            e.Graphics.DrawString("      Nombre: " + Nombre, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 350));
+            e.Graphics.DrawString("      Modelo: "  + Modelo, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 370));
+
+           
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 405));
+
+                if (dataGridView2.Rows.Count == 1)
+                {
+
+                    String p1 = dataGridView2.Rows[0].Cells["Descripcion"].Value.ToString();
+
+                    String p2 = dataGridView2.Rows[0].Cells["Cantidad"].Value.ToString();
+
+                    String p3 = dataGridView2.Rows[0].Cells["Importe"].Value.ToString();
+                    //String p1 = dataGridView1.Columns
+                    e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                    e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+
+                    e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                            Total: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 520));
+
+                    e.Graphics.DrawString("          30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 545));
+                    e.Graphics.DrawString("               a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 560));
+
+                    e.Graphics.DrawString("               ¿Que es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("        La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("        daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("        liquido, o cualquier otra cosa externa;", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("        a cualquier daño derivado de los servicios de  ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("        (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("        por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("        de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 745));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 775);
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
+
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", Orden},
+
+                {"Nombre",Nombre},
+
+                {"Numero",Numero},
+
+                {"Modelo",Modelo},
+
+                {"Cantidad",p2} ,
+
+                {"Descripcion",p1} ,
+
+                {"Importe",p3},
+
+
+               // {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text}
+
+                //{"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+                }
+
+                if (dataGridView2.Rows.Count == 2)
+                {
+                    String p1 = dataGridView2.Rows[0].Cells["Descripcion"].Value.ToString();
+                    String p2 = dataGridView2.Rows[0].Cells["Cantidad"].Value.ToString();
+                    String p3 = dataGridView2.Rows[0].Cells["Importe"].Value.ToString();
+                    String p4 = dataGridView2.Rows[1].Cells["Descripcion"].Value.ToString();
+                    String p5 = dataGridView2.Rows[1].Cells["Cantidad"].Value.ToString();
+                    String p6 = dataGridView2.Rows[1].Cells["Importe"].Value.ToString();
+                    //String p1 = dataGridView1.Columns
+                    e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                    e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+                    p3 = p3.Replace("$", "");
+                    p6 = p6.Replace("$", "");
+                    Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6);
+
+                    String contar2 = total.ToString();
+                    if (contar2.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
+
+
+                e.Graphics.DrawString("           30 dias de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 565));
+                e.Graphics.DrawString("                a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 580));
+                e.Graphics.DrawString("           NOTA: La garantía otorgada quedara anulada", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+                e.Graphics.DrawString("           en caso de: daños por accidentes, por liquido", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                e.Graphics.DrawString("           o si el producto ha sido alterado o reparado ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                e.Graphics.DrawString("           por personas no autorizadas de la empresa. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 685));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, 715);
+
+                String cantidad = "*" + p2 + "*" + "*" + p5 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*";
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
+
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                    {"ID", id},
+
+                    {"Orden", txtorden.Text},
+
+                    {"Nombre",Nombre},
+
+                    {"Numero",Numero},
+
+                    {"Modelo",Modelo},
+
+                    {"Cantidad",p2},
+
+                    {"Cantidad2",p5},
+
+                    {"Descripcion",p1},
+
+                    {"Descripcion2",p4},
+
+                    {"Importe",p3},
+
+                    {"Importe2",p6},
+
+                    {"Total", contar2},
+
+                    //{"Tiempodeespera",tiemporespuesta},
+
+                    {"Fechayhora",txthorayfecha.Text},
+
+                   // {"Contraseña", contra}
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+                }
+
+                if (dataGridView2.Rows.Count == 3)
+                {
+                    String p1 = dataGridView2.Rows[0].Cells["Descripcion"].Value.ToString();
+                    String p2 = dataGridView2.Rows[0].Cells["Cantidad"].Value.ToString();
+                    String p3 = dataGridView2.Rows[0].Cells["Importe"].Value.ToString();
+                    String p4 = dataGridView2.Rows[1].Cells["Descripcion"].Value.ToString();
+                    String p5 = dataGridView2.Rows[1].Cells["Cantidad"].Value.ToString();
+                    String p6 = dataGridView2.Rows[1].Cells["Importe"].Value.ToString();
+                    String p7 = dataGridView2.Rows[2].Cells["Descripcion"].Value.ToString();
+                    String p8 = dataGridView2.Rows[2].Cells["Cantidad"].Value.ToString();
+                    String p9 = dataGridView2.Rows[2].Cells["Importe"].Value.ToString();
+
+                    //String p1 = dataGridView1.Columns
+                    e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                    e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+
+                    e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+                    e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+
+
+                    p3 = p3.Replace("$", "");
+                    p6 = p6.Replace("$", "");
+                    p9 = p9.Replace("$", "");
+                    Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9);
+
+                    String contar2 = total.ToString();
+                    if (contar2.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
+
+
+
+                e.Graphics.DrawString("           30 dias de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 585));
+                e.Graphics.DrawString("                a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+                e.Graphics.DrawString("           NOTA: La garantía otorgada quedara anulada", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                e.Graphics.DrawString("           en caso de: daños por accidentes, por liquido", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                e.Graphics.DrawString("           o si el producto ha sido alterado o reparado ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                e.Graphics.DrawString("           por personas no autorizadas de la empresa. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 705));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, 735);
+
+                String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*";
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",Nombre},
+
+                {"Numero",Numero},
+
+                {"Modelo",Modelo},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Total", contar2},
+
+               // {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text}
+
+
+                //{"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+                }
+
+
+                if (dataGridView2.Rows.Count == 4)
+                {
+                    String p1 = dataGridView2.Rows[0].Cells["Descripcion"].Value.ToString();
+                    String p2 = dataGridView2.Rows[0].Cells["Cantidad"].Value.ToString();
+                    String p3 = dataGridView2.Rows[0].Cells["Importe"].Value.ToString();
+                    String p4 = dataGridView2.Rows[1].Cells["Descripcion"].Value.ToString();
+                    String p5 = dataGridView2.Rows[1].Cells["Cantidad"].Value.ToString();
+                    String p6 = dataGridView2.Rows[1].Cells["Importe"].Value.ToString();
+                    String p7 = dataGridView2.Rows[2].Cells["Descripcion"].Value.ToString();
+                    String p8 = dataGridView2.Rows[2].Cells["Cantidad"].Value.ToString();
+                    String p9 = dataGridView2.Rows[2].Cells["Importe"].Value.ToString();
+
+                    String p10 = dataGridView2.Rows[3].Cells["Descripcion"].Value.ToString();
+                    String p11 = dataGridView2.Rows[3].Cells["Cantidad"].Value.ToString();
+                    String p12 = dataGridView2.Rows[3].Cells["Importe"].Value.ToString();
+
+
+                    //String p1 = dataGridView1.Columns
+                    e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                    e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+
+                    e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+                    e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+
+                    e.Graphics.DrawString("           " + p11, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                            " + p10, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                                                      " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+
+
+                    p3 = p3.Replace("$", "");
+                    p6 = p6.Replace("$", "");
+                    p9 = p9.Replace("$", "");
+                    p12 = p12.Replace("$", "");
+                    Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9) + Convert.ToDouble(p12);
+                    String contar2 = total.ToString();
+                    if (contar2.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+
+
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
+
+                e.Graphics.DrawString("           30 dias de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 605));
+                e.Graphics.DrawString("                a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                e.Graphics.DrawString("           NOTA: La garantía otorgada quedara anulada", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                e.Graphics.DrawString("           en caso de: daños por accidentes, por liquido", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                e.Graphics.DrawString("           o si el producto ha sido alterado o reparado ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                e.Graphics.DrawString("           por personas no autorizadas de la empresa. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 725));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, 755);
+
+
+
+
+
+                String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*" + "*" + p11 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*";
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",Nombre},
+
+                {"Numero",Numero},
+
+                {"Modelo",Modelo},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+                {"Cantidad4",p11} ,
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                {"Descripcion4",p10},
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Importe4",p12},
+
+                {"Total", contar2},
+
+               // {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text}
+
+                //{"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+                }
+
+
+                if (dataGridView2.Rows.Count == 5)
+                {
+                    String p1 = dataGridView2.Rows[0].Cells["Descripcion"].Value.ToString();
+                    String p2 = dataGridView2.Rows[0].Cells["Cantidad"].Value.ToString();
+                    String p3 = dataGridView2.Rows[0].Cells["Importe"].Value.ToString();
+                    String p4 = dataGridView2.Rows[1].Cells["Descripcion"].Value.ToString();
+                    String p5 = dataGridView2.Rows[1].Cells["Cantidad"].Value.ToString();
+                    String p6 = dataGridView2.Rows[1].Cells["Importe"].Value.ToString();
+                    String p7 = dataGridView2.Rows[2].Cells["Descripcion"].Value.ToString();
+                    String p8 = dataGridView2.Rows[2].Cells["Cantidad"].Value.ToString();
+                    String p9 = dataGridView2.Rows[2].Cells["Importe"].Value.ToString();
+
+                    String p10 = dataGridView2.Rows[3].Cells["Descripcion"].Value.ToString();
+                    String p11 = dataGridView2.Rows[3].Cells["Cantidad"].Value.ToString();
+                    String p12 = dataGridView2.Rows[3].Cells["Importe"].Value.ToString();
+
+                    String p13 = dataGridView2.Rows[4].Cells["Descripcion"].Value.ToString();
+                    String p14 = dataGridView2.Rows[4].Cells["Cantidad"].Value.ToString();
+                    String p15 = dataGridView2.Rows[4].Cells["Importe"].Value.ToString();
+
+
+                    //String p1 = dataGridView1.Columns
+                    e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
+                    e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+
+                    e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+
+                    e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+
+                    e.Graphics.DrawString("           " + p11, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                            " + p10, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                                                      " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+
+                    e.Graphics.DrawString("           " + p14, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
+                    e.Graphics.DrawString("                            " + p13, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
+                    e.Graphics.DrawString("                                                      " + p15, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
+
+
+                    p3 = p3.Replace("$", "");
+                    p6 = p6.Replace("$", "");
+                    p9 = p9.Replace("$", "");
+                    p12 = p12.Replace("$", "");
+                    p15 = p15.Replace("$", "");
+                    Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6) + Convert.ToDouble(p9) + Convert.ToDouble(p12) + Convert.ToDouble(p15);
+                    String contar2 = total.ToString();
+                    if (contar2.Length == 4)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 3)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 2)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 6)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    }
+                    else if (contar2.Length == 5)
+                    {
+                        double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                        contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+
+
+
+
+                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+
+                e.Graphics.DrawString("           30 dias de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                e.Graphics.DrawString("                a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                e.Graphics.DrawString("           NOTA: La garantía otorgada quedara anulada", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                e.Graphics.DrawString("           en caso de: daños por accidentes, por liquido", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                e.Graphics.DrawString("           o si el producto ha sido alterado o reparado ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                e.Graphics.DrawString("           por personas no autorizadas de la empresa. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 745));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, 775);
+
+
+
+                String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*" + "*" + p11 + "*" + "*" + p14 + "*";
+                    String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*" + "*" + p13 + "*";
+                    String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*" + "*" + p15 + "*";
+
+
+                    int id = (int)Convert.ToInt64(lblcontador.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
+                    Dictionary<String, Object> data2 = new Dictionary<string, object>()
+                {
+                 {"ID", id},
+
+                {"Orden", txtorden.Text},
+
+                {"Nombre",Nombre},
+
+                {"Numero",Numero},
+
+                {"Modelo",Modelo},
+
+
+                {"Cantidad",p2} ,
+
+                {"Cantidad2",p5} ,
+
+                {"Cantidad3",p8} ,
+
+                {"Cantidad4",p11} ,
+
+                {"Cantidad5",p14} ,
+
+
+                {"Descripcion",p1},
+
+                {"Descripcion2",p4},
+
+                {"Descripcion3",p7},
+
+                {"Descripcion4",p10},
+
+                {"Descripcion5",p13},
+
+
+
+                {"Importe",p3},
+
+                {"Importe2",p6},
+
+                {"Importe3",p9},
+
+                {"Importe4",p12},
+
+                {"Importe5",p15},
+
+                {"Total", contar2},
+
+               // {"Tiempodeespera",tiemporespuesta} ,
+
+                {"Fechayhora",txthorayfecha.Text}
+
+               // {"Contraseña", contra}
+
+
+                };
+                    await DOC2.SetAsync(data2, SetOptions.MergeAll);
+                    MessageBox.Show("guardado");
+
+
+
+
+
+
+
+                }
+
+
+            
+          
+
+        }
 
         private void imprimir(object sender, PrintPageEventArgs e)
         {

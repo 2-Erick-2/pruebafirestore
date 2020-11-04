@@ -8,9 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
-
-
-
+using System.Globalization;
 
 namespace pruebafirestore.formularios
 {
@@ -316,6 +314,8 @@ namespace pruebafirestore.formularios
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
             txtnombre2.Text = txtnombre.Text;
+            txtnombre.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtnombre.Text);
+            txtnombre.SelectionStart = txtnombre.Text.Length;
 
         }
 
@@ -514,12 +514,53 @@ checkprotctor.Visible = false;
 
         private void txtdescripcion_TextChanged(object sender, EventArgs e)
         {
+            if (txtdescripcion.Text == "")
+            {
 
+            }
+            else
+            {
+                string upmodelo = txtdescripcion.Text;
+                upmodelo = upmodelo.Substring(0, 1).ToUpper() + upmodelo.Substring(1).ToLower();
+                txtdescripcion.Text = upmodelo;
+                txtdescripcion.SelectionStart = txtdescripcion.Text.Length;
+            }
         }
 
         private void checkprotctor_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtnumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtmodelo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtmodelo.Text == "")
+            {
+
+            }
+            else
+            {
+                string upmodelo = txtmodelo.Text;
+                upmodelo = upmodelo.Substring(0, 1).ToUpper() + upmodelo.Substring(1).ToLower();
+                txtmodelo.Text = upmodelo;
+                txtmodelo.SelectionStart = txtmodelo.Text.Length;
+            }
         }
     }
 }

@@ -54,6 +54,7 @@ namespace pruebafirestore.Pedidos
         String Nombre = "";
         String Modelo = "";
         String Orden = "";
+        String Numero = "";
 
 
         // String fechayhora = "";
@@ -159,7 +160,7 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[21].Visible = false;
             dataGridView1.Columns[22].Visible = false;
             //TOTAL
-           dataGridView1.Columns[23].Visible = false;
+          // dataGridView1.Columns[23].Visible = false;
 
 
             dataGridView1.Columns[24].Visible = false;
@@ -247,35 +248,86 @@ namespace pruebafirestore.Pedidos
                 Nombre = row.Cells["Nombre"].Value.ToString();
                 Modelo = row.Cells["Modelo"].Value.ToString();
                 Orden = row.Cells["Orden"].Value.ToString();
+                Numero = row.Cells["Numero"].Value.ToString();
 
             }
 
             if (Abono != "" && Abono2 == "" && Abono3 == "" && Abono4 == "" && Abono5 == "")
             {
                 Abonos Abonos = new Abonos();
-               /* Abonos.cant = cant;
+                /* Abonos.cant = cant;
+                 Abonos.descri = descri;
+                 Abonos.impor = impor;*/
+                Abonos.cant = cant;
+                Abonos.cant2 = cant2;
+                Abonos.cant3 = cant3;
+                Abonos.cant4 = cant4;
+                Abonos.cant5 = cant5;
+
                 Abonos.descri = descri;
-                Abonos.impor = impor;*/
+                Abonos.descri2 = descri2;
+                Abonos.descri3 = descri3;
+                Abonos.descri4 = descri4;
+                Abonos.descri5 = descri5;
+
+                Abonos.impor = impor;
+                Abonos.impor2 = impor2;
+                Abonos.impor3 = impor3;
+                Abonos.impor4 = impor4;
+                Abonos.impor5 = impor5;
+
+                Abonos.txttotal.Text = total;
+
+
+
                 Abonos.Abono = Abono;
                 Abonos.total = total;
                 Abonos.Restante = Restante;
                 Abonos.fechayhora = fechayhora;
 
                 Abonos.Nombre = Nombre;
+                Abonos.txtnombre2.Text = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
                 Abonos.txtabonos.Text = Abono;
+                Abonos.Numero = Numero;
                 Abonos.dataGridView1.Columns.Add("Abono", "Abonos");
                 Abonos.dataGridView1.Columns.Add("Fecha", "Fecha");
                 
                 Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
                 
                 Abonos.Show();
+
+
+
+
+
             }
+
 
             else if (Abono != "" && Abono2 != "" && Abono3 == "" && Abono4 == "" && Abono5 == "")
             {
                 Abonos Abonos = new Abonos();
+                Abonos.cant = cant;
+                Abonos.cant2 = cant2;
+                Abonos.cant3 = cant3;
+                Abonos.cant4 = cant4;
+                Abonos.cant5 = cant5;
+
+                Abonos.descri = descri;
+                Abonos.descri2 = descri2;
+                Abonos.descri3 = descri3;
+                Abonos.descri4 = descri4;
+                Abonos.descri5 = descri5;
+
+                Abonos.txttotal.Text = total;
+
+
+                Abonos.impor = impor;
+                Abonos.impor2 = impor2;
+                Abonos.impor3 = impor3;
+                Abonos.impor4 = impor4;
+                Abonos.impor5 = impor5;
                 /* Abonos.cant = cant;
                  Abonos.descri = descri;
                  Abonos.impor = impor;*/
@@ -287,12 +339,14 @@ namespace pruebafirestore.Pedidos
 
                 Abonos.total = total;
                 Abonos.Restante = Restante;
+                Abonos.txtnombre2.Text = Nombre;
 
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
                 Abonos.Orden = Orden;
 
- 
+                Abonos.Numero = Numero;
+
                 String Abonosin = Abono.Replace("$", "");
                 String Abonosin2 = Abono2.Replace("$", "");
                // String Abonosin3 = Abono3.Replace("$", "");
@@ -320,11 +374,32 @@ namespace pruebafirestore.Pedidos
             else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 == "" && Abono5 == "")
             {
                 Abonos Abonos = new Abonos();
+                Abonos.cant = cant;
+                Abonos.cant2 = cant2;
+                Abonos.cant3 = cant3;
+                Abonos.cant4 = cant4;
+                Abonos.cant5 = cant5;
+
+                Abonos.descri = descri;
+                Abonos.descri2 = descri2;
+                Abonos.descri3 = descri3;
+                Abonos.descri4 = descri4;
+                Abonos.descri5 = descri5;
+
+                Abonos.txttotal.Text = total;
+
+
+                Abonos.impor = impor;
+                Abonos.impor2 = impor2;
+                Abonos.impor3 = impor3;
+                Abonos.impor4 = impor4;
+                Abonos.impor5 = impor5;
                 /* Abonos.cant = cant;
                  Abonos.descri = descri;
                  Abonos.impor = impor;*/
                 Abonos.Abono = Abono;
                 Abonos.fechayhora = fechayhora;
+                Abonos.txtnombre2.Text = Nombre;
 
                 Abonos.Abono2 = Abono2;
                 Abonos.fechayhora2 = fechayhora2;
@@ -334,6 +409,7 @@ namespace pruebafirestore.Pedidos
 
                 Abonos.total = total;
                 Abonos.Restante = Restante;
+                Abonos.Numero = Numero;
 
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
@@ -370,6 +446,27 @@ namespace pruebafirestore.Pedidos
             else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 != "" && Abono5 == "")
             {
                 Abonos Abonos = new Abonos();
+                Abonos.cant = cant;
+                Abonos.cant2 = cant2;
+                Abonos.cant3 = cant3;
+                Abonos.cant4 = cant4;
+                Abonos.cant5 = cant5;
+
+                Abonos.descri = descri;
+                Abonos.descri2 = descri2;
+                Abonos.descri3 = descri3;
+                Abonos.descri4 = descri4;
+                Abonos.descri5 = descri5;
+
+                Abonos.impor = impor;
+                Abonos.impor2 = impor2;
+                Abonos.impor3 = impor3;
+                Abonos.impor4 = impor4;
+                Abonos.impor5 = impor5;
+
+                Abonos.txttotal.Text = total;
+
+
                 /* Abonos.cant = cant;
                  Abonos.descri = descri;
                  Abonos.impor = impor;*/
@@ -378,6 +475,7 @@ namespace pruebafirestore.Pedidos
 
                 Abonos.Abono2 = Abono2;
                 Abonos.fechayhora2 = fechayhora2;
+                Abonos.txtnombre2.Text = Nombre;
 
                 Abonos.Abono3 = Abono3;
                 Abonos.fechayhora3 = fechayhora3;
@@ -388,6 +486,7 @@ namespace pruebafirestore.Pedidos
 
                 Abonos.total = total;
                 Abonos.Restante = Restante;
+                Abonos.Numero = Numero;
 
                 Abonos.Nombre = Nombre;
                 Abonos.Modelo = Modelo;
@@ -424,6 +523,26 @@ namespace pruebafirestore.Pedidos
             else if (Abono != "" && Abono2 != "" && Abono3 != "" && Abono4 != "" && Abono5 != "")
             {
                 Abonos Abonos = new Abonos();
+                Abonos.cant = cant;
+                Abonos.cant2 = cant2;
+                Abonos.cant3 = cant3;
+                Abonos.cant4 = cant4;
+                Abonos.cant5 = cant5;
+
+                Abonos.descri = descri;
+                Abonos.descri2 = descri2;
+                Abonos.descri3 = descri3;
+                Abonos.descri4 = descri4;
+                Abonos.descri5 = descri5;
+
+                Abonos.txttotal.Text = total;
+
+
+                Abonos.impor = impor;
+                Abonos.impor2 = impor2;
+                Abonos.impor3 = impor3;
+                Abonos.impor4 = impor4;
+                Abonos.impor5 = impor5;
                 /* Abonos.cant = cant;
                  Abonos.descri = descri;
                  Abonos.impor = impor;*/
@@ -435,12 +554,14 @@ namespace pruebafirestore.Pedidos
 
                 Abonos.Abono3 = Abono3;
                 Abonos.fechayhora3 = fechayhora3;
+                Abonos.txtnombre2.Text = Nombre;
 
                 Abonos.Abono4 = Abono4;
                 Abonos.fechayhora4 = fechayhora4;
 
                 Abonos.Abono5 = Abono5;
                 Abonos.fechayhora5 = fechayhora5;
+                Abonos.Numero = Numero;
 
 
                 Abonos.total = total;

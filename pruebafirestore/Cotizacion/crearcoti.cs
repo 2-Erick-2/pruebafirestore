@@ -2212,6 +2212,8 @@ namespace pruebafirestore.Cotizacion
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
             txtnombre2.Text = txtnombre.Text;
+            txtnombre.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtnombre.Text);
+            txtnombre.SelectionStart = txtnombre.Text.Length;
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -2232,6 +2234,21 @@ namespace pruebafirestore.Cotizacion
         private void checkiva_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtmodelo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtmodelo.Text == "")
+            {
+
+            }
+            else
+            {
+                string upmodelo = txtmodelo.Text;
+                upmodelo = upmodelo.Substring(0, 1).ToUpper() + upmodelo.Substring(1).ToLower();
+                txtmodelo.Text = upmodelo;
+                txtmodelo.SelectionStart = txtmodelo.Text.Length;
+            }
         }
     }
     }

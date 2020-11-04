@@ -103,6 +103,7 @@
             this.txtnumero.Name = "txtnumero";
             this.txtnumero.Size = new System.Drawing.Size(334, 35);
             this.txtnumero.TabIndex = 2;
+            this.txtnumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnumero_KeyPress);
             // 
             // label3
             // 
@@ -151,6 +152,7 @@
             this.txtmodelo.Name = "txtmodelo";
             this.txtmodelo.Size = new System.Drawing.Size(334, 31);
             this.txtmodelo.TabIndex = 7;
+            this.txtmodelo.TextChanged += new System.EventHandler(this.txtmodelo_TextChanged);
             // 
             // altoButton1
             // 

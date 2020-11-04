@@ -67,6 +67,7 @@ namespace pruebafirestore.Pedidos
         public String Modelo = "";
 
 
+        public String Orden = "";
 
         public crearpedido()
         {
@@ -911,6 +912,13 @@ namespace pruebafirestore.Pedidos
                     foreach (var item in counter)
                         lblcontador.Text = string.Format("{1}", item.Key, item.Value);
                 }
+
+                if (Orden != "")
+                {
+                    DocumentReference cityRef = database.Collection("Cotizaciones").Document(Orden);
+                    await cityRef.DeleteAsync();
+
+                }
                 // int id = (int)Convert.ToInt64(lblcontador.Text);
                 BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
                 Codigo.IncludeLabel = true;
@@ -935,6 +943,10 @@ namespace pruebafirestore.Pedidos
                 //printDocument1.Print();
                 // printPreviewDialog1.Show();
                 //Add_Document_with_orden();
+                if(Orden != "")
+                {
+                    this.Hide();
+                }
             }
         }
 
@@ -1062,6 +1074,8 @@ namespace pruebafirestore.Pedidos
 
                 {"Cantidad",p2} ,
 
+                {"Total",txttotal.Text} ,
+
                 {"Descripcion",p1} ,
 
                 {"Importe",txttotal.Text},
@@ -1069,6 +1083,8 @@ namespace pruebafirestore.Pedidos
                 {"Abono",txtabono.Text},
 
                 {"Restante",txtrestante.Text },
+
+                {"Accesorios",Accesorios},
 
 
                 {"Tiempodeespera",tiemporespuesta} ,
@@ -1187,9 +1203,12 @@ namespace pruebafirestore.Pedidos
 
                 {"Restante",txtrestante.Text },
 
+                {"Accesorios",Accesorios},
+
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
 
                 {"Contraseña", contra}
 
@@ -1325,6 +1344,8 @@ namespace pruebafirestore.Pedidos
                 {"Importe2",p6},
 
                 {"Importe3",p9},
+
+                {"Accesorios",Accesorios},
 
                 {"Total", txttotal.Text},
 
@@ -1489,6 +1510,8 @@ namespace pruebafirestore.Pedidos
 
                 {"Restante",txtrestante.Text },
 
+                {"Accesorios",Accesorios},
+
 
 
                 {"Tiempodeespera",tiemporespuesta} ,
@@ -1584,17 +1607,12 @@ namespace pruebafirestore.Pedidos
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
-
-
-
+                    
+                    
                     e.Graphics.DrawString("                                           Total: " + txttotal.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
                     e.Graphics.DrawString("                                         Abono: " + txtabono.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
                     e.Graphics.DrawString("                                     Restante: " + txtrestante.Text, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 620));
-
-
-
                     //e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
-                    
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 640));
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 665));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 685));
@@ -1660,6 +1678,8 @@ namespace pruebafirestore.Pedidos
                 {"Abono",txtabono.Text},
 
                 {"Restante",txtrestante.Text },
+
+                {"Accesorios",Accesorios},
 
 
                 {"Tiempodeespera",tiemporespuesta} ,
@@ -1820,6 +1840,8 @@ namespace pruebafirestore.Pedidos
                 {"Abono",txtabono.Text},
 
                 {"Restante",txtrestante.Text},
+
+                {"Accesorios",Accesorios},
 
 
 
@@ -1997,7 +2019,7 @@ namespace pruebafirestore.Pedidos
                 {"Descripcion2",p4},
 
 
-
+                {"Accesorios",Accesorios},
 
 
                 {"Importe",p3},
@@ -2204,6 +2226,8 @@ namespace pruebafirestore.Pedidos
                 {"Descripcion2",p4},
 
                 {"Descripcion3",p7},
+
+                {"Accesorios",Accesorios},
 
                 {"Importe",p3},
 
@@ -2432,6 +2456,9 @@ namespace pruebafirestore.Pedidos
                 {"Descripcion3",p7},
 
                 {"Descripcion4",p10},
+
+
+                {"Accesorios",Accesorios},
 
 
 
@@ -2680,6 +2707,8 @@ namespace pruebafirestore.Pedidos
 
                 {"Restante",txtrestante.Text},
 
+                {"Accesorios",Accesorios},
+
                // {"Total", contar4},
 
                 {"Tiempodeespera",tiemporespuesta},
@@ -2697,7 +2726,9 @@ namespace pruebafirestore.Pedidos
 
         private void txtnombre_TextChanged(object sender, EventArgs e)
         {
-            txtnombre2.Text = txtnombre.Text;        
+            txtnombre2.Text = txtnombre.Text;
+            txtnombre.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtnombre.Text);
+            txtnombre.SelectionStart = txtnombre.Text.Length;
         }
 
         private void txtabono_Leave(object sender, EventArgs e)
@@ -2715,6 +2746,37 @@ namespace pruebafirestore.Pedidos
             string fecha = DateTime.Now.ToShortDateString();
             string hora = DateTime.Now.ToShortTimeString();
             txthorayfecha.Text = fecha + " " + hora;
+        }
+
+        private void txtnumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtmodelo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtmodelo.Text == "")
+            {
+
+            }
+            else
+            {
+                string upmodelo = txtmodelo.Text;
+                upmodelo = upmodelo.Substring(0, 1).ToUpper() + upmodelo.Substring(1).ToLower();
+                txtmodelo.Text = upmodelo;
+                txtmodelo.SelectionStart = txtmodelo.Text.Length;
+            }
         }
     }
 }

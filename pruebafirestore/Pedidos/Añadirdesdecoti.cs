@@ -26,6 +26,7 @@ namespace pruebafirestore.Pedidos
         String Numero = "";
         String Modelo = "";
 
+        String Orden = "";
 
 
 
@@ -185,6 +186,8 @@ namespace pruebafirestore.Pedidos
                 descri4 = row.Cells["Descripcion4"].Value.ToString();
                 descri5 = row.Cells["Descripcion5"].Value.ToString();
 
+                Orden = row.Cells["Orden"].Value.ToString();
+
                 impor = row.Cells["Importe"].Value.ToString();
                 impor2 = row.Cells["Importe2"].Value.ToString();
                 impor3 = row.Cells["Importe3"].Value.ToString();
@@ -216,6 +219,8 @@ namespace pruebafirestore.Pedidos
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
+
+                pedido.Orden = Orden;
 
                 pedido.dataGridView1.Rows.Insert(0, cant, descri,"", impor);
 
@@ -259,6 +264,9 @@ namespace pruebafirestore.Pedidos
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
+
+                pedido.Orden = Orden;
+
 
 
                 pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
@@ -313,6 +321,9 @@ namespace pruebafirestore.Pedidos
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
+
+                pedido.Orden = Orden;
+
 
                 pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
                 pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
@@ -369,6 +380,8 @@ namespace pruebafirestore.Pedidos
                 pedido.impor4 = impor4;
 
                 pedido.txttotal.Text = total;
+                pedido.Orden = Orden;
+
 
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
@@ -442,6 +455,9 @@ namespace pruebafirestore.Pedidos
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
+
+                pedido.Orden = Orden;
+
 
                 pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
                 pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
