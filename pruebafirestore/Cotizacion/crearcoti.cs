@@ -374,6 +374,8 @@ namespace pruebafirestore.Cotizacion
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 printDocument1.PrinterSettings = ps;
+               // printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                //printDocument1.PrinterSettings.
                 printDocument1.PrintPage += imprimir;
                 printDocument1.Print();
                 //printPreviewDialog1.Document = printDocument1;

@@ -420,8 +420,8 @@ namespace pruebafirestore.ABONOS
                     e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 580));
                     e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
                     e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
-                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra cosa externa;", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
-                    e.Graphics.DrawString("       a cualquier daño derivado de los servicios de  ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
                     e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
                     e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
                     e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
@@ -521,9 +521,25 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 615);
+
+
+
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 565));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 580));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 600));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 765));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 795);
 
                     String cantidad = "*" + p2 + "*" + "*" + p5 + "*";
                     String descripcion = "*" + p1 + "*" + "*" + p4 + "*";
@@ -531,7 +547,7 @@ namespace pruebafirestore.ABONOS
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
 
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
@@ -562,6 +578,8 @@ namespace pruebafirestore.ABONOS
                     {"Tiempodeespera",tiemporespuesta},
 
                     {"Fechayhora",txthorayfecha.Text},
+
+                    {"Fechasalida", fechadesalida},
 
                     {"Contraseña", contra}
 
@@ -635,9 +653,22 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 585));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 785));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 815);
 
 
                     String cantidad = "*" + p2 + "*" + "*" + p5 + "*" + "*" + p8 + "*";
@@ -645,7 +676,7 @@ namespace pruebafirestore.ABONOS
                     String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*";
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -684,6 +715,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -773,9 +806,22 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 605));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 805));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 835);
 
 
 
@@ -785,7 +831,7 @@ namespace pruebafirestore.ABONOS
                     String descripcion = "*" + p1 + "*" + "*" + p4 + "*" + "*" + p7 + "*" + "*" + p10 + "*";
                     String importe = "*" + p3 + "*" + "*" + p6 + "*" + "*" + p9 + "*" + "*" + p12 + "*";
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -831,6 +877,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -939,9 +987,22 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 800));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 825));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 855);
 
 
 
@@ -951,7 +1012,7 @@ namespace pruebafirestore.ABONOS
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1003,6 +1064,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -1116,9 +1179,23 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 585));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 635);
+
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 585));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 600));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 620));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 785));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 815);
 
 
 
@@ -1128,7 +1205,7 @@ namespace pruebafirestore.ABONOS
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1161,6 +1238,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -1305,16 +1384,29 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 605));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 655);
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 605));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 620));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 640));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 805));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 835);
 
 
 
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1354,6 +1446,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -1512,16 +1606,30 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 625));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 645));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 675);
+
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 625));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 640));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 660));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 800));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 825));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 855);
 
 
 
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1567,6 +1675,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -1731,15 +1841,29 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 600));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 620));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 645));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 665));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 695);
+
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 645));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 660));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 680));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 800));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 820));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 845));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 875);
 
 
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -1789,6 +1913,8 @@ namespace pruebafirestore.ABONOS
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Contraseña", contra}
 
@@ -1893,8 +2019,6 @@ namespace pruebafirestore.ABONOS
                     }
 
 
-
-
                     if (contar3.Length == 4)
                     {
                         double d = Convert.ToDouble(total2.ToString(), CultureInfo.InvariantCulture);
@@ -1958,15 +2082,30 @@ namespace pruebafirestore.ABONOS
 
                     e.Graphics.DrawString("                                            Total: " + contar4, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 620));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 640));
-                    e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 665));
-                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 685));
-                    e.Graphics.DrawImage(pictureBox2.Image, 40, 715);
+
+
+
+
+                    e.Graphics.DrawString("           30 días de garantía por defecto de fábrica", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 665));
+                    e.Graphics.DrawString("                  a partir de la fecha de compra.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 680));
+
+                    e.Graphics.DrawString("             ¿Qué es lo que no cubre garantía?", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(5, 700));
+                    e.Graphics.DrawString("       La presente garantía no es aplicable: a cualquier", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 720));
+                    e.Graphics.DrawString("       daño causado por accidente, mal uso, contacto por ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 740));
+                    e.Graphics.DrawString("       liquido, incendio, o cualquier otra causa externa.", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 760));
+                    e.Graphics.DrawString("       A cualquier daño derivado de los servicios ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 780));
+                    e.Graphics.DrawString("       (de reparación,actualización o mejoras) realizadas ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 800));
+                    e.Graphics.DrawString("       por un tercero que no sea un representante", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 820));
+                    e.Graphics.DrawString("       de E-BEST. ", new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 840));
+
+                    e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 865));
+                    e.Graphics.DrawImage(pictureBox2.Image, 40, 895);
 
 
 
 
                     int id = (int)Convert.ToInt64(lblcontador.Text);
-                    DocumentReference DOC2 = database.Collection("Cotizaciones").Document(txtorden.Text);
+                    DocumentReference DOC2 = database.Collection("Garantias").Document(txtorden.Text);
                     Dictionary<String, Object> data2 = new Dictionary<string, object>()
                 {
                  {"ID", id},
@@ -2017,6 +2156,8 @@ namespace pruebafirestore.ABONOS
 
                 {"Fechayhora",txthorayfecha.Text},
 
+                {"Fechasalida", fechadesalida},
+
                 {"Contraseña", contra}
 
 
@@ -2025,8 +2166,10 @@ namespace pruebafirestore.ABONOS
                     MessageBox.Show("guardado");
                 }
             }
-
         }
+
+
+
         private void creargarantia_Load(object sender, EventArgs e)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
