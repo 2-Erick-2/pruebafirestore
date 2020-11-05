@@ -59,7 +59,7 @@ namespace pruebafirestore.revision
                     directorio.Columns.Add("Fecha y hora");
                     directorio.Columns.Add("Tiempo de espera");
                     directorio.Columns.Add("contraseña");
-                    directorio.Columns.Add("fechaprueba");
+                   // directorio.Columns.Add("fechaprueba");
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
 
@@ -73,7 +73,7 @@ namespace pruebafirestore.revision
                 {
                     DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
 
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña,oDate);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
                     dataGridView1.DataSource = directorio;
                 }
             }
@@ -162,98 +162,7 @@ namespace pruebafirestore.revision
 
 
 
-            /*  if (comboBoxbusqueda.Text == "Orden")
-              {
-                  try
-                  {
-                      connection.Open();
-                      OleDbCommand command = new OleDbCommand();
-                      command.Connection = connection;
-                      string query = "select * from revisiones Where orden like ('" + txtbusqueda.Text + "%')";
-                      command.CommandText = query;
-                      OleDbDataAdapter da = new OleDbDataAdapter(command);
-                      DataTable dt = new DataTable();
-                      da.Fill(dt);
-                      dataGridView1.DataSource = dt;
-                      connection.Close();
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show("Error " + ex);
-                  }
-
-              }
-
-              else if (comboBoxbusqueda.Text == "Numero")
-              {
-                  try
-                  {
-                      connection.Open();
-                      OleDbCommand command = new OleDbCommand();
-                      command.Connection = connection;
-                      string query = "select * from revisiones Where numero like ('" + txtbusqueda.Text + "%')";
-                      command.CommandText = query;
-
-                      OleDbDataAdapter da = new OleDbDataAdapter(command);
-                      DataTable dt = new DataTable();
-                      da.Fill(dt);
-                      dataGridView1.DataSource = dt;
-
-                      connection.Close();
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show("Error " + ex);
-                  }
-
-              }
-
-              else if (comboBoxbusqueda.Text == "Nombre")
-              {
-                  try
-                  {
-                      connection.Open();
-                      OleDbCommand command = new OleDbCommand();
-                      command.Connection = connection;
-                      string query = "select * from revisiones Where nombre like ('" + txtbusqueda.Text + "%')";
-                      command.CommandText = query;
-
-                      OleDbDataAdapter da = new OleDbDataAdapter(command);
-                      DataTable dt = new DataTable();
-                      da.Fill(dt);
-                      dataGridView1.DataSource = dt;
-
-                      connection.Close();
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show("Error " + ex);
-                  }
-
-              }
-
-              if (comboBoxbusqueda.Text == "Fecha")
-              {
-                  try
-                  {
-                      connection.Open();
-                      OleDbCommand command = new OleDbCommand();
-                      command.Connection = connection;
-                      string query = "select * from revisiones Where horayfecha like ('" + txtbusqueda.Text + "%')";
-                      command.CommandText = query;
-
-                      OleDbDataAdapter da = new OleDbDataAdapter(command);
-                      DataTable dt = new DataTable();
-                      da.Fill(dt);
-                      dataGridView1.DataSource = dt;
-
-                      connection.Close();
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show("Error " + ex);
-                  }
-              }*/
+     
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -308,40 +217,7 @@ namespace pruebafirestore.revision
 
 
 
-           /* Query Clientes = database.Collection(nameOfCollection);
-            QuerySnapshot snap = await Clientes.GetSnapshotAsync();
-            foreach (DocumentSnapshot docsnap in snap.Documents)
-            {
-                Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
-                if (docsnap.Exists)
-                {
-
-                    // dt = (DataTable)dataGridView1.DataSource;
-                    dataGridView1.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
-
-
-
-                }
-
-            }*/
-
-
-            /*  CollectionReference citiesRef = database.Collection("Revisiones");
-              Query query = citiesRef.WhereEqualTo("ID", txtbusqueda.Text);
-              QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
-              foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
-              {
-                  Clientesclase clientesclase = documentSnapshot.ConvertTo<Clientesclase>();
-
-                  if (documentSnapshot.Exists)
-                  {
-
-                      // dt = (DataTable)dataGridView1.DataSource;
-                      dataGridView1.Rows.Add(documentSnapshot.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
-
-                  }
-
-              }*/
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)

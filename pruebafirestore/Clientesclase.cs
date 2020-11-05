@@ -42,6 +42,9 @@ namespace pruebafirestore
         [FirestoreProperty]
         public String Fechayhora5 { get; set; }
 
+        [FirestoreProperty]
+        public String Fechasalida { get; set; }
+
 
         [FirestoreProperty]
         public int ID { get; set; }

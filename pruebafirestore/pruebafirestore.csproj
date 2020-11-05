@@ -173,6 +173,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABONOS\busquedagarantias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABONOS\busquedagarantias.Designer.cs">
+      <DependentUpon>busquedagarantias.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABONOS\contenedorabonos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
+    <EmbeddedResource Include="ABONOS\busquedagarantias.resx">
+      <DependentUpon>busquedagarantias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABONOS\contenedorabonos.resx">
       <DependentUpon>contenedorabonos.cs</DependentUpon>
     </EmbeddedResource>

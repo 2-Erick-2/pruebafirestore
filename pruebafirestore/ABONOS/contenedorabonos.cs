@@ -34,5 +34,10 @@ namespace pruebafirestore.ABONOS
             fh.Show();
 
         }
+
+        private void altoButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new busquedagarantias());
+        }
     }
 }

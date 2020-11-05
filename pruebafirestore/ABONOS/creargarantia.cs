@@ -28,6 +28,13 @@ namespace pruebafirestore.ABONOS
         String preciofinal;
         String tiemporespuesta = "";
         String contra = "";
+
+        string fecha;
+
+        DateTime fechasalida;
+        DateTime fechasalida2;
+        String fechadesalida = "";
+
         public creargarantia()
         {
             InitializeComponent();
@@ -262,6 +269,10 @@ namespace pruebafirestore.ABONOS
 
         private async void altoButton1_Click(object sender, EventArgs e)
         {
+            fechasalida = Convert.ToDateTime(fecha);
+            fechasalida2 = fechasalida.AddDays(30);
+            fechadesalida = fechasalida2.ToShortDateString().ToString();
+            
             sincopia:
             string Name = txtnombre2.Text;
             var rand = new Random();
@@ -330,6 +341,7 @@ namespace pruebafirestore.ABONOS
                 printDocument1.PrinterSettings = ps;
                 printDocument1.PrintPage += imprimir;
                 printDocument1.Print();
+                MessageBox.Show("Finalizado");
                 //printPreviewDialog1.Document = printDocument1;
                 //printDocument1.Print();
                 //printDocument1.Print();
@@ -427,6 +439,8 @@ namespace pruebafirestore.ABONOS
                  {"ID", id},
 
                 {"Orden", txtorden.Text},
+
+                {"Fechasalida", fechadesalida},
 
                 {"Nombre",txtnombre.Text},
 
@@ -2018,6 +2032,14 @@ namespace pruebafirestore.ABONOS
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+             fecha = DateTime.Now.ToShortDateString();
+            string hora = DateTime.Now.ToShortTimeString();
+
+            txthorayfecha.Text = fecha + " " + hora;
         }
     }
 }
