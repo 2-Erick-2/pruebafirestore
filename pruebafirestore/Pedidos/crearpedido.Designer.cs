@@ -127,11 +127,13 @@
             // 
             // txtnombre2
             // 
+            this.txtnombre2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtnombre2.Enabled = false;
             this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnombre2.Location = new System.Drawing.Point(1056, 9);
             this.txtnombre2.Name = "txtnombre2";
-            this.txtnombre2.Size = new System.Drawing.Size(86, 11);
+            this.txtnombre2.Size = new System.Drawing.Size(86, 4);
             this.txtnombre2.TabIndex = 169;
             // 
             // pictureBox2
@@ -310,6 +312,7 @@
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton1.Enabled = false;
             this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
@@ -349,7 +352,7 @@
             this.Importe});
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle10.NullValue = null;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -525,7 +528,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 29);
             this.label2.TabIndex = 139;
-            this.label2.Text = "Numero";
+            this.label2.Text = "Número";
             // 
             // txtnumero
             // 

@@ -61,23 +61,9 @@ namespace pruebafirestore.Cotizacion
             {
                 MessageBox.Show("Te faltan valores por ingresar o llegaste al numero maximo de productos");
             }
-           /* try
-            {
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                    command.CommandText = "insert into productos (Cantidad,Descripcion,Importe) values ('" + txtcantidad.Text + "','" + txtdescri.Text + "','" + txtimporte.Text + "')";
-                    command.ExecuteNonQuery();
-                connection.Close();
-                //MessageBox.Show("Cliente guardado");
 
+            altoButton1.Enabled = true;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }
-            crearcoti_Load(sender, e);*/
         }
 
         private void crearcoti_Load(object sender, EventArgs e)
@@ -352,12 +338,12 @@ namespace pruebafirestore.Cotizacion
                 {
                     Dictionary<string, object> counter = snapsho2.ToDictionary();
                     foreach (var item in counter)
-                    lblcontador.Text = string.Format("{1}", item.Key, item.Value);
+                        lblcontador.Text = string.Format("{1}", item.Key, item.Value);
                 }
                 // int id = (int)Convert.ToInt64(lblcontador.Text);
                 BarcodeLib.Barcode Codigo = new BarcodeLib.Barcode();
                 Codigo.IncludeLabel = true;
-                pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black,Color.White, 230, 60);
+                pictureBox2.Image = Codigo.Encode(BarcodeLib.TYPE.CODE128, txtorden.Text, Color.Black, Color.White, 230, 60);
 
                 //Create a Bitmap and draw the DataGridView on it.
                 Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
@@ -374,14 +360,39 @@ namespace pruebafirestore.Cotizacion
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 printDocument1.PrinterSettings = ps;
-               // printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                //printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                //PaperSize pkCustomSize1 = new PaperSize("First custom size", 10, 10);
+
+                //printDocument1.DefaultPageSettings.PaperSize = pkCustomSize1;
+
+
                 //printDocument1.PrinterSettings.
                 printDocument1.PrintPage += imprimir;
                 printDocument1.Print();
+
+                if(pdf.Checked == true)
+                {
+                    printDocument1 = new PrintDocument();
+                    //PrinterSettings ps = new PrinterSettings();
+                    //printDocument1.PrinterSettings = ps;
+                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                    //PaperSize pkCustomSize1 = new PaperSize("First custom size", 10, 10);
+
+                    //printDocument1.DefaultPageSettings.PaperSize = pkCustomSize1;
+
+
+                    //printDocument1.PrinterSettings.
+                    printDocument1.PrintPage += imprimir;
+                    printDocument1.Print();
+                }
+
+
+                altoButton1.Enabled = false;
                 //printPreviewDialog1.Document = printDocument1;
                 //printDocument1.Print();
                 //printDocument1.Print();
                           //Add_Document_with_orden();
+
             }
         }
 

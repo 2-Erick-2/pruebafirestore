@@ -8,23 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pruebafirestore.Cotizacion
+namespace pruebafirestore.Actualizacion
 {
-    public partial class contcotizacion : Form
+    public partial class contenedoractualizacion : Form
     {
-        public contcotizacion()
+        public contenedoractualizacion()
         {
             InitializeComponent();
         }
 
         private void altoButton4_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel2(new creardesdecoti());
-
-            
-
-
+            AbrirFormEnPanel2(new actualizacionrevisiones());
         }
+
         private void AbrirFormEnPanel2(object formhija2)
         {
             if (this.pContainer.Controls.Count > 0)
@@ -38,27 +35,14 @@ namespace pruebafirestore.Cotizacion
 
         }
 
-        private void altoButton3_Click(object sender, EventArgs e)
-        {
-            AbrirFormEnPanel2(new busquedacoti());
-
-            
-
-        }
-
         private void btncrear_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel2(new crearcoti());
+            AbrirFormEnPanel2(new actualizacioncotizaciones());
+        }
 
-
-
-            
-
-
-
-
-
-
+        private void altoButton3_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new actualizacionpedidos());
         }
     }
 }

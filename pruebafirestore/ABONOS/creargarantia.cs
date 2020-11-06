@@ -60,6 +60,12 @@ namespace pruebafirestore.ABONOS
             {
                 MessageBox.Show("Te faltan valores por ingresar o llegaste al numero maximo de productos");
             }
+
+
+
+            altoButton1.Enabled = true;
+
+
         }
 
         private void txtnumero_KeyPress(object sender, KeyPressEventArgs e)
@@ -226,27 +232,27 @@ namespace pruebafirestore.ABONOS
                 if (contar2.Length == 4)
                 {
                     double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                    preciofinal = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
                 else if (contar2.Length == 3)
                 {
                     double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                    preciofinal = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$      .00", CultureInfo.InvariantCulture);
                 }
                 else if (contar2.Length == 2)
                 {
                     double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                    preciofinal = d.ToString("$    00.00", CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
                 else if (contar2.Length == 6)
                 {
                     double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                    preciofinal = d.ToString("$0000.00", CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
                 else if (contar2.Length == 5)
                 {
                     double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                    preciofinal = d.ToString("$  000.00", CultureInfo.InvariantCulture);
+                    preciofinal = d.ToString("$  .00", CultureInfo.InvariantCulture);
                 }
 
 
@@ -341,11 +347,14 @@ namespace pruebafirestore.ABONOS
                 printDocument1.PrinterSettings = ps;
                 printDocument1.PrintPage += imprimir;
                 printDocument1.Print();
-                MessageBox.Show("Finalizado");
+                altoButton1.Enabled = false;
+                //MessageBox.Show("Finalizado");
                 //printPreviewDialog1.Document = printDocument1;
                 //printDocument1.Print();
                 //printDocument1.Print();
                 //Add_Document_with_orden();
+                altoButton1.Enabled = false;
+
             }
         }
 
@@ -362,7 +371,7 @@ namespace pruebafirestore.ABONOS
 
             //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
             e.Graphics.DrawString("           Garantía", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, 100));
-            e.Graphics.DrawString("                                       id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
+            e.Graphics.DrawString("                                       ID: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, 140));
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 150));
             e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 180));
             e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 200));
@@ -401,13 +410,13 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
 
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                            Total: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                       Total: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 520));
 
 
@@ -479,14 +488,14 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
                     e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
-                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                  " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
 
                     p3 = p3.Replace("$", "");
                     p6 = p6.Replace("$", "");
@@ -519,7 +528,7 @@ namespace pruebafirestore.ABONOS
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                    e.Graphics.DrawString("                                        Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
 
 
@@ -603,19 +612,19 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
 
                     e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
                     e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
-                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                  " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
 
                     e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
                     e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
-                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                  " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
 
 
                     p3 = p3.Replace("$", "");
@@ -651,7 +660,7 @@ namespace pruebafirestore.ABONOS
                     }
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    e.Graphics.DrawString("                                        Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
 
 
@@ -747,23 +756,23 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
 
                     e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
                     e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
-                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                  " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
 
                     e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
                     e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
-                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                  " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
 
                     e.Graphics.DrawString("           " + p11, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
                     e.Graphics.DrawString("                            " + p10, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
-                    e.Graphics.DrawString("                                                      " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                                                  " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
 
 
                     p3 = p3.Replace("$", "");
@@ -804,7 +813,7 @@ namespace pruebafirestore.ABONOS
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
+                    e.Graphics.DrawString("                                        Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 560));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 580));
 
 
@@ -886,16 +895,6 @@ namespace pruebafirestore.ABONOS
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-
                 }
 
 
@@ -923,27 +922,27 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
 
                     e.Graphics.DrawString("           " + p5, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
                     e.Graphics.DrawString("                            " + p4, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
-                    e.Graphics.DrawString("                                                      " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
+                    e.Graphics.DrawString("                                                  " + p6, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 490));
 
                     e.Graphics.DrawString("           " + p8, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
                     e.Graphics.DrawString("                            " + p7, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
-                    e.Graphics.DrawString("                                                      " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
+                    e.Graphics.DrawString("                                                  " + p9, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 510));
 
                     e.Graphics.DrawString("           " + p11, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
                     e.Graphics.DrawString("                            " + p10, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
-                    e.Graphics.DrawString("                                                      " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
+                    e.Graphics.DrawString("                                                  " + p12, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 530));
 
                     e.Graphics.DrawString("           " + p14, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
                     e.Graphics.DrawString("                            " + p13, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
-                    e.Graphics.DrawString("                                                      " + p15, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
+                    e.Graphics.DrawString("                                                  " + p15, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 550));
 
 
                     p3 = p3.Replace("$", "");
@@ -985,7 +984,7 @@ namespace pruebafirestore.ABONOS
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
+                    e.Graphics.DrawString("                                        Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 580));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 600));
 
 
@@ -1073,16 +1072,7 @@ namespace pruebafirestore.ABONOS
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
                 }
-
-
             }
             else if (checkiva.Checked == true)
 
@@ -1100,13 +1090,13 @@ namespace pruebafirestore.ABONOS
                     //String p1 = dataGridView1.Columns
                     e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, 430));
                     e.Graphics.DrawString("    Cantidad ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                           Descripcion ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
-                    e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                          Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
+                    e.Graphics.DrawString("                                                    Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 450));
                     e.Graphics.DrawString("           " + p2, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
 
                     e.Graphics.DrawString("                            " + p1, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                                      " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
-                    e.Graphics.DrawString("                                     SubTotal: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
+                    e.Graphics.DrawString("                                                  " + p3, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 470));
+                    e.Graphics.DrawString("                                 SubTotal: " + p3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 500));
 
                     p3 = p3.Replace("$", "");
 
@@ -1173,11 +1163,11 @@ namespace pruebafirestore.ABONOS
 
 
 
-                    e.Graphics.DrawString("                                              IVA: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
+                    e.Graphics.DrawString("                                          IVA: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
 
 
 
-                    e.Graphics.DrawString("                                            Total: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
+                    e.Graphics.DrawString("                                        Total: " + contar3, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 560));
 
 

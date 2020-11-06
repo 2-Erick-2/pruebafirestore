@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Google.Cloud.Firestore;
 using pruebafirestore.ABONOS;
+using pruebafirestore.Actualizacion;
 using pruebafirestore.Cotizacion;
 using pruebafirestore.Pedidos;
 
@@ -109,7 +110,8 @@ namespace pruebafirestore
             altoButton4.Inactive1 = Color.DodgerBlue;
             altoButton4.Inactive2 = Color.DodgerBlue;
 
-
+            altoButton5.Inactive1 = Color.DodgerBlue;
+            altoButton5.Inactive2 = Color.DodgerBlue;
         }
 
         private void altoButton2_Click(object sender, EventArgs e)
@@ -128,7 +130,8 @@ namespace pruebafirestore
             altoButton4.Inactive1 = Color.DodgerBlue;
             altoButton4.Inactive2 = Color.DodgerBlue;
 
-
+            altoButton5.Inactive1 = Color.DodgerBlue;
+            altoButton5.Inactive2 = Color.DodgerBlue;
 
         }
 
@@ -147,11 +150,57 @@ namespace pruebafirestore
 
             altoButton2.Inactive1 = Color.DodgerBlue;
             altoButton2.Inactive2 = Color.DodgerBlue;
+
+
+            altoButton5.Inactive1 = Color.DodgerBlue;
+            altoButton5.Inactive2 = Color.DodgerBlue;
         }
 
         private void altoButton5_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new contenedorabonos());
+
+            altoButton5.Inactive1 = Color.RoyalBlue;
+            altoButton5.Inactive2 = Color.RoyalBlue;
+
+
+            altoButton3.Inactive1 = Color.DodgerBlue;
+            altoButton3.Inactive2 = Color.DodgerBlue;
+
+            altoButton4.Inactive1 = Color.DodgerBlue;
+            altoButton4.Inactive2 = Color.DodgerBlue;
+
+            altoButton1.Inactive1 = Color.DodgerBlue;
+            altoButton1.Inactive2 = Color.DodgerBlue;
+
+            altoButton2.Inactive1 = Color.DodgerBlue;
+            altoButton2.Inactive2 = Color.DodgerBlue;
+
+
+
+
+
+        }
+
+        private void altoButton4_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new contenedoractualizacion());
+
+            altoButton5.Inactive1 = Color.DodgerBlue;
+            altoButton5.Inactive2 = Color.DodgerBlue;
+
+
+            altoButton3.Inactive1 = Color.DodgerBlue;
+            altoButton3.Inactive2 = Color.DodgerBlue;
+
+            altoButton4.Inactive1 = Color.RoyalBlue;
+            altoButton4.Inactive2 = Color.RoyalBlue;
+
+            altoButton1.Inactive1 = Color.DodgerBlue;
+            altoButton1.Inactive2 = Color.DodgerBlue;
+
+            altoButton2.Inactive1 = Color.DodgerBlue;
+            altoButton2.Inactive2 = Color.DodgerBlue;
         }
     }
 }

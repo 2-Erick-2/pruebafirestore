@@ -334,6 +334,7 @@
             this.altoButton1.BackColor = System.Drawing.Color.Transparent;
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton1.Enabled = false;
             this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.altoButton1.ForeColor = System.Drawing.Color.Black;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
@@ -390,9 +391,12 @@
             // 
             // txtnombre2
             // 
+            this.txtnombre2.BackColor = System.Drawing.Color.White;
+            this.txtnombre2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnombre2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtnombre2.Enabled = false;
             this.txtnombre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre2.Location = new System.Drawing.Point(131, 15);
+            this.txtnombre2.Location = new System.Drawing.Point(12, 52);
             this.txtnombre2.Multiline = true;
             this.txtnombre2.Name = "txtnombre2";
             this.txtnombre2.Size = new System.Drawing.Size(18, 10);
@@ -416,7 +420,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 29);
             this.label2.TabIndex = 159;
-            this.label2.Text = "Numero";
+            this.label2.Text = "Número";
             // 
             // txtnumero
             // 

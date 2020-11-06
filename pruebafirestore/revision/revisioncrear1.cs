@@ -222,6 +222,8 @@ namespace pruebafirestore.formularios
             {
                 MessageBox.Show("Error: " + ex);
             }
+            altoButton1.Enabled = false;
+
         }
         public void BrotherPrintThis()
         {

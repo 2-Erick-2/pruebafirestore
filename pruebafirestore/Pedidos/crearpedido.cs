@@ -196,6 +196,12 @@ namespace pruebafirestore.Pedidos
             {
                 MessageBox.Show("Te faltan valores por ingresar o llegaste al numero maximo de productos");
             }
+
+
+
+
+            altoButton1.Enabled = true;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -947,6 +953,7 @@ namespace pruebafirestore.Pedidos
                 {
                     this.Hide();
                 }
+                altoButton1.Enabled = false;
             }
         }
 

@@ -70,6 +70,8 @@ namespace pruebafirestore.Cotizacion
             directorio.Columns.Add("Fecha y hora");
             directorio.Columns.Add("Tiempo de espera");
             directorio.Columns.Add("contraseña");
+            directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
+
 
 
             Query Clientes = database.Collection(nameOfCollection);
@@ -89,7 +91,7 @@ namespace pruebafirestore.Cotizacion
             directorio.Rows.RemoveAt(numero);
 
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
 
             dataGridView1.Columns[2].Visible = false;
 

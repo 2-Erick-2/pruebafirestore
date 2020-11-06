@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\INSTALAR\</PublishUrl>
+    <PublishUrl>D:\INSTALADOR-SISTEMA-V2\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,9 +28,10 @@
     <ProductName>E-BEST-SISTEMA</ProductName>
     <PublisherName>Erick Del Angel</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -191,6 +192,36 @@
     <Compile Include="ABONOS\creargarantia.Designer.cs">
       <DependentUpon>creargarantia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Actualizacion\actualizacioncotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizacion\actualizacioncotizaciones.Designer.cs">
+      <DependentUpon>actualizacioncotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizacion\actualizacionpedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizacion\actualizacionpedidos.Designer.cs">
+      <DependentUpon>actualizacionpedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizacion\actualizacionrevisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizacion\actualizacionrevisiones.Designer.cs">
+      <DependentUpon>actualizacionrevisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizacion\contenedoractualizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizacion\contenedoractualizacion.Designer.cs">
+      <DependentUpon>contenedoractualizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizacion\datosrevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizacion\datosrevision.Designer.cs">
+      <DependentUpon>datosrevision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientesclase.cs" />
     <Compile Include="Cotizacion\busquedacoti.cs">
       <SubType>Form</SubType>
@@ -305,6 +336,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABONOS\creargarantia.resx">
       <DependentUpon>creargarantia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizacion\actualizacioncotizaciones.resx">
+      <DependentUpon>actualizacioncotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizacion\actualizacionpedidos.resx">
+      <DependentUpon>actualizacionpedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizacion\actualizacionrevisiones.resx">
+      <DependentUpon>actualizacionrevisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizacion\contenedoractualizacion.resx">
+      <DependentUpon>contenedoractualizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Actualizacion\datosrevision.resx">
+      <DependentUpon>datosrevision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\Añadirdesdecoti.resx">
       <DependentUpon>Añadirdesdecoti.cs</DependentUpon>

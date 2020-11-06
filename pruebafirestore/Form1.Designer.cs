@@ -75,7 +75,7 @@
             this.altoButton5.Stroke = false;
             this.altoButton5.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton5.TabIndex = 5;
-            this.altoButton5.Text = "Garantias";
+            this.altoButton5.Text = "Garantía";
             this.altoButton5.Transparency = false;
             this.altoButton5.Click += new System.EventHandler(this.altoButton5_Click);
             // 
@@ -98,8 +98,9 @@
             this.altoButton4.Stroke = false;
             this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton4.TabIndex = 4;
-            this.altoButton4.Text = "Actualizacion";
+            this.altoButton4.Text = "Actualización";
             this.altoButton4.Transparency = false;
+            this.altoButton4.Click += new System.EventHandler(this.altoButton4_Click);
             // 
             // altoButton3
             // 

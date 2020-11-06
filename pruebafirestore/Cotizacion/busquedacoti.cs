@@ -92,7 +92,11 @@ namespace pruebafirestore.Cotizacion
             directorio.Columns.Add("Importe4");
             directorio.Columns.Add("Importe5");
             directorio.Columns.Add("Total");
-            
+
+
+            directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
+
+
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
             foreach (DocumentSnapshot docsnap in snap.Documents)
@@ -110,7 +114,7 @@ namespace pruebafirestore.Cotizacion
             numero--;
             directorio.Rows.RemoveAt(numero);
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
 
            dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;

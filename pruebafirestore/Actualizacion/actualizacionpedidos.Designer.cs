@@ -1,6 +1,6 @@
-﻿namespace pruebafirestore.Pedidos
+﻿namespace pruebafirestore.Actualizacion
 {
-    partial class Añadirdesdecoti
+    partial class actualizacionpedidos
     {
         /// <summary>
         /// Required designer variable.
@@ -49,28 +49,30 @@
             "Numero",
             "Nombre",
             "Fecha"});
-            this.comboBoxbusqueda.Location = new System.Drawing.Point(369, 10);
+            this.comboBoxbusqueda.Location = new System.Drawing.Point(378, 31);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);
-            this.comboBoxbusqueda.TabIndex = 46;
+            this.comboBoxbusqueda.TabIndex = 50;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(282, 10);
+            this.label2.Location = new System.Drawing.Point(291, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 31);
-            this.label2.TabIndex = 45;
+            this.label2.TabIndex = 49;
             this.label2.Text = "Por:";
             // 
             // txtbusqueda
             // 
-            this.txtbusqueda.Location = new System.Drawing.Point(569, 10);
+            this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbusqueda.Location = new System.Drawing.Point(578, 31);
             this.txtbusqueda.Multiline = true;
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(203, 29);
-            this.txtbusqueda.TabIndex = 44;
+            this.txtbusqueda.TabIndex = 48;
+            this.txtbusqueda.TextChanged += new System.EventHandler(this.txtbusqueda_TextChanged_1);
             // 
             // dataGridView1
             // 
@@ -98,28 +100,28 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 92);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1144, 753);
-            this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.Size = new System.Drawing.Size(1159, 753);
+            this.dataGridView1.TabIndex = 47;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // Añadirdesdecoti
+            // actualizacionpedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1152, 835);
+            this.ClientSize = new System.Drawing.Size(1170, 876);
             this.Controls.Add(this.comboBoxbusqueda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtbusqueda);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Añadirdesdecoti";
-            this.Text = "Añadirdesdecoti";
-            this.Load += new System.EventHandler(this.Añadirdesdecoti_Load);
+            this.Name = "actualizacionpedidos";
+            this.Text = "actualizacionpedidos";
+            this.Load += new System.EventHandler(this.actualizacionpedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

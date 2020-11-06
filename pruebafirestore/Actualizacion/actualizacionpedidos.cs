@@ -10,27 +10,29 @@ using System.Windows.Forms;
 using Google.Cloud.Firestore;
 
 
-namespace pruebafirestore.Pedidos
+namespace pruebafirestore.Actualizacion
 {
-    public partial class busquedapedidos : Form
+    public partial class actualizacionpedidos : Form
     {
+
         FirestoreDb database;
         DataTable directorio = new DataTable();
         int numero;
-
-        public busquedapedidos()
+        public actualizacionpedidos()
         {
             InitializeComponent();
         }
-        private void busquedapedidos_Load(object sender, EventArgs e)
+
+        private void actualizacionpedidos_Load(object sender, EventArgs e)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
             comboBoxbusqueda.Text = "Orden";
 
-            GetAllDocuments("Pedidos"); 
+            GetAllDocuments("Pedidos");
         }
+
 
         async void GetAllDocuments(String nameOfCollection)
         {
@@ -65,9 +67,6 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Abono");
             directorio.Columns.Add("Restante");
 
-            directorio.Columns.Add("Accesorios");
-
-
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
 
@@ -78,7 +77,7 @@ namespace pruebafirestore.Pedidos
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña, clientesclase.Cantidad, clientesclase.Cantidad2, clientesclase.Cantidad3, clientesclase.Cantidad4, clientesclase.Cantidad5, clientesclase.Descripcion, clientesclase.Descripcion2, clientesclase.Descripcion3, clientesclase.Descripcion4, clientesclase.Descripcion5, clientesclase.Importe, clientesclase.Importe2, clientesclase.Importe3, clientesclase.Importe4, clientesclase.Importe5, clientesclase.Total, clientesclase.Abono, clientesclase.Restante,clientesclase.Accesorios);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña, clientesclase.Cantidad, clientesclase.Cantidad2, clientesclase.Cantidad3, clientesclase.Cantidad4, clientesclase.Cantidad5, clientesclase.Descripcion, clientesclase.Descripcion2, clientesclase.Descripcion3, clientesclase.Descripcion4, clientesclase.Descripcion5, clientesclase.Importe, clientesclase.Importe2, clientesclase.Importe3, clientesclase.Importe4, clientesclase.Importe5, clientesclase.Total, clientesclase.Abono, clientesclase.Restante);
                     dataGridView1.DataSource = directorio;
                 }
 
@@ -136,15 +135,46 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightBlue;
 
-            dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.White;
-            dataGridView1.Columns[8].DefaultCellStyle.BackColor = Color.LightBlue;
-
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         }
 
         private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String orden = "";
+            String Nombre = "";
+            String Numero = "";
+            String Modelo = "";
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                orden = row.Cells["Orden"].Value.ToString();
+                Nombre = row.Cells["Nombre"].Value.ToString();
+                Numero = row.Cells["Numero"].Value.ToString();
+                Modelo = row.Cells["Modelo"].Value.ToString();
+
+            }
+
+            datosrevision datos = new datosrevision();
+            string firstfour = orden.Substring(0, 2);
+
+
+            datos.tipopedido = firstfour;
+            datos.orden = orden;
+            datos.txtnombre.Text = Nombre;
+            datos.txtnumero.Text = Numero;
+            datos.txtmodelo.Text = Modelo;
+
+            datos.Show();
+        }
+
+        private void txtbusqueda_TextChanged_1(object sender, EventArgs e)
         {
             if (comboBoxbusqueda.Text == "Orden")
             {

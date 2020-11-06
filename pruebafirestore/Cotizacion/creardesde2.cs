@@ -68,6 +68,13 @@ namespace pruebafirestore.Cotizacion
             {
                 MessageBox.Show("Te faltan valores por ingresar o llegaste al numero maximo de productos");
             }
+
+
+
+
+            altoButton1.Enabled = true;
+
+
         }
 
         private void txtcantidad_KeyPress(object sender, KeyPressEventArgs e)

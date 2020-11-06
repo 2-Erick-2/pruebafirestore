@@ -122,6 +122,7 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Fecha y hora4");
             directorio.Columns.Add("Fecha y hora5");
 
+            directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
 
 
@@ -142,7 +143,7 @@ namespace pruebafirestore.Pedidos
             numero--;
             directorio.Rows.RemoveAt(numero);
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["ID"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
 
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
@@ -160,7 +161,7 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[21].Visible = false;
             dataGridView1.Columns[22].Visible = false;
             //TOTAL
-          // dataGridView1.Columns[23].Visible = false;
+          dataGridView1.Columns[23].Visible = false;
 
 
             dataGridView1.Columns[24].Visible = false;
@@ -169,6 +170,12 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[27].Visible = false;
             dataGridView1.Columns[28].Visible = false;
             dataGridView1.Columns[29].Visible = false;
+            dataGridView1.Columns[30].Visible = false;
+            dataGridView1.Columns[31].Visible = false;
+            dataGridView1.Columns[32].Visible = false;
+            dataGridView1.Columns[33].Visible = false;
+
+
 
 
 
