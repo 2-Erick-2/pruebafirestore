@@ -377,7 +377,7 @@
             // 
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Descripcion.HeaderText = " Descripcion";
+            this.Descripcion.HeaderText = "   Descripción";
             this.Descripcion.Name = "Descripcion";
             // 
             // PU
@@ -439,7 +439,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 29);
             this.label7.TabIndex = 148;
-            this.label7.Text = "Descripcion";
+            this.label7.Text = "Descripción";
             // 
             // txtdescri
             // 
@@ -591,6 +591,7 @@
             this.txttotal.Size = new System.Drawing.Size(200, 31);
             this.txttotal.TabIndex = 175;
             this.txttotal.Text = "0";
+            this.txttotal.TextChanged += new System.EventHandler(this.txttotal_TextChanged);
             // 
             // label12
             // 
@@ -621,6 +622,7 @@
             this.txtrestante.Name = "txtrestante";
             this.txtrestante.Size = new System.Drawing.Size(200, 31);
             this.txtrestante.TabIndex = 177;
+            this.txtrestante.TextChanged += new System.EventHandler(this.txtrestante_TextChanged);
             // 
             // txtotros
             // 
@@ -799,10 +801,6 @@
         private System.Windows.Forms.Label txthorayfecha;
         private System.Windows.Forms.Button button2;
         private AltoControls.AltoButton altoButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtimporte;
@@ -835,5 +833,9 @@
         public System.Windows.Forms.TextBox txtmodelo;
         public System.Windows.Forms.TextBox txtnumero;
         public System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

@@ -434,11 +434,11 @@
             // lblcontador
             // 
             this.lblcontador.AutoSize = true;
-            this.lblcontador.Location = new System.Drawing.Point(14, 256);
+            this.lblcontador.Location = new System.Drawing.Point(1101, 853);
             this.lblcontador.Name = "lblcontador";
-            this.lblcontador.Size = new System.Drawing.Size(35, 13);
+            this.lblcontador.Size = new System.Drawing.Size(18, 13);
             this.lblcontador.TabIndex = 138;
-            this.lblcontador.Text = "label9";
+            this.lblcontador.Text = "ID";
             // 
             // printDocument1
             // 

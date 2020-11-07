@@ -214,11 +214,13 @@ namespace pruebafirestore.Pedidos
                 pedido.cant = cant;
                 pedido.descri = descri;
                 pedido.impor = impor;
-                pedido.txttotal.Text = impor;
+                pedido.txttotal.Text = impor.Replace("$","");
 
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
+
+                pedido.desdecoti = "si";
 
                 pedido.Orden = Orden;
 
@@ -259,7 +261,9 @@ namespace pruebafirestore.Pedidos
                 pedido.descri2 = descri2;
                 pedido.impor2 = impor2;
 
-                pedido.txttotal.Text = total;
+                pedido.txttotal.Text = total.Replace("$", "");
+
+                pedido.desdecoti = "si";
 
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
@@ -316,7 +320,9 @@ namespace pruebafirestore.Pedidos
                 pedido.descri3 = descri3;
                 pedido.impor3 = impor3;
 
-                pedido.txttotal.Text = total;
+                pedido.txttotal.Text = total.Replace("$", "");
+
+                pedido.desdecoti = "si";
 
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
@@ -375,11 +381,13 @@ namespace pruebafirestore.Pedidos
                 pedido.descri3 = descri3;
                 pedido.impor3 = impor3;
 
+                pedido.desdecoti = "si";
+
                 pedido.cant4 = cant4;
                 pedido.descri4 = descri4;
                 pedido.impor4 = impor4;
 
-                pedido.txttotal.Text = total;
+                pedido.txttotal.Text = total.Replace("$", ""); ;
                 pedido.Orden = Orden;
 
 
@@ -450,7 +458,9 @@ namespace pruebafirestore.Pedidos
                 pedido.descri5 = descri5;
                 pedido.impor5 = impor5;
 
-                pedido.txttotal.Text = total;
+                pedido.txttotal.Text = total.Replace("$", "");
+
+                pedido.desdecoti = "si";
 
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;

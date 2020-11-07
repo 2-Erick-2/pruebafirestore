@@ -68,7 +68,7 @@ namespace pruebafirestore.Cotizacion
 
         private void crearcoti_Load(object sender, EventArgs e)
         {
-            combodias.Text = "1 día";
+            combodias.Text = "3-4 dias";
             combohoras.Text = "1 hora";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
@@ -276,9 +276,9 @@ namespace pruebafirestore.Cotizacion
             {
                 tiemporespuesta = combodias.Text;
             }
-            else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
+            else if (checkrespuesta.Checked == true && checkexistencia.Checked == true)
             {
-                tiemporespuesta = combohoras.Text;
+                tiemporespuesta = "Existencia";
             }
             else if (checkrespuesta.Checked == false)
             {
@@ -467,7 +467,7 @@ namespace pruebafirestore.Cotizacion
                 e.Graphics.DrawString("      Tiempo de espera: " + combodias.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
 
             }
-            else if (checkrespuesta.Checked == true && checkBox1.Checked == true)
+            else if (checkrespuesta.Checked == true && checkexistencia.Checked == true)
             {
                 e.Graphics.DrawString("      Tiempo de espera: " + combohoras.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 390));
 
@@ -2166,14 +2166,14 @@ namespace pruebafirestore.Cotizacion
             {
                 checkBox2.Visible = true;
                 combodias.Visible = true;
-                checkBox1.Visible = true;
+                checkexistencia.Visible = true;
                 combohoras.Visible = false;
             }
             else if (checkrespuesta.Checked == false)
             {
                 checkBox2.Visible = false;
                 combodias.Visible = false;
-                checkBox1.Visible = false;
+                checkexistencia.Visible = false;
                 combohoras.Visible = false;
             }
         }
@@ -2182,11 +2182,11 @@ namespace pruebafirestore.Cotizacion
         {
             if (checkBox2.Checked == true)
             {
-                checkBox1.Checked = false;
+                checkexistencia.Checked = false;
                 combodias.Visible = true;
                 combohoras.Visible = false;
             }
-            else if (checkBox2.Checked == false && checkBox1.Checked == false)
+            else if (checkBox2.Checked == false && checkexistencia.Checked == false)
             {
                 checkBox2.Checked = true;
                 combodias.Visible = true;
@@ -2196,19 +2196,19 @@ namespace pruebafirestore.Cotizacion
             {
                 checkBox2.Checked = false;
                 combodias.Visible = false;
-                combohoras.Visible = true;
+               // combohoras.Visible = true;
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkexistencia.Checked == true)
             {
                 checkBox2.Checked = false;
                 combodias.Visible = false;
-                combohoras.Visible = true;
+                //combohoras.Visible = true;
             }
-            else if (checkBox2.Checked == false && checkBox1.Checked == false)
+            else if (checkBox2.Checked == false && checkexistencia.Checked == false)
             {
 
                 checkBox2.Checked = true;
@@ -2217,7 +2217,7 @@ namespace pruebafirestore.Cotizacion
             }
             else
             {
-                checkBox1.Checked = false;
+                checkexistencia.Checked = false;
                 combodias.Visible = true;
                 combohoras.Visible = false;
             }

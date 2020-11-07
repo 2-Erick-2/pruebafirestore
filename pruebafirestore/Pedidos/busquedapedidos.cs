@@ -50,7 +50,7 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Cantidad4");
             directorio.Columns.Add("Cantidad5");
 
-            directorio.Columns.Add("Descripcion");
+            directorio.Columns.Add("Descripción");
             directorio.Columns.Add("Descripcion2");
             directorio.Columns.Add("Descripcion3");
             directorio.Columns.Add("Descripcion4");

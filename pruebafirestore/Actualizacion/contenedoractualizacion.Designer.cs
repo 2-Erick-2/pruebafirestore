@@ -58,7 +58,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 29);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Actualizacion";
+            this.label1.Text = "Actualización";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btncrear
             // 

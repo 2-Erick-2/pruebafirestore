@@ -54,7 +54,7 @@ namespace pruebafirestore.revision
                     directorio.Columns.Add("Nombre");
                     directorio.Columns.Add("Numero");
                     directorio.Columns.Add("Modelo");
-                    directorio.Columns.Add("Descripcion");
+                    directorio.Columns.Add("Descripción");
                     directorio.Columns.Add("Accesorios");
                     directorio.Columns.Add("Fecha y hora");
                     directorio.Columns.Add("Tiempo de espera");

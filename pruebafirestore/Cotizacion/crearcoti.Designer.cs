@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crearcoti));
             this.label5 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txthorayfecha = new System.Windows.Forms.Label();
             this.checkrespuesta = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkexistencia = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.combohoras = new System.Windows.Forms.ComboBox();
             this.combodias = new System.Windows.Forms.ComboBox();
@@ -201,7 +201,8 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 29);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Descripcion";
+            this.label7.Text = "Descripción";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtdescri
             // 
@@ -226,7 +227,7 @@
             // 
             this.txtimporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtimporte.Location = new System.Drawing.Point(681, 384);
-            this.txtimporte.MaxLength = 4;
+            this.txtimporte.MaxLength = 5;
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.Size = new System.Drawing.Size(148, 31);
             this.txtimporte.TabIndex = 22;
@@ -242,29 +243,29 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Salmon;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cantidad,
             this.Descripcion,
             this.PU,
             this.Importe});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.NullValue = null;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.NullValue = null;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.Location = new System.Drawing.Point(137, 442);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 30;
@@ -274,17 +275,17 @@
             // 
             // Cantidad
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle12;
             this.Cantidad.HeaderText = "      Cantidad";
             this.Cantidad.Name = "Cantidad";
             // 
             // Descripcion
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Descripcion.HeaderText = " Descripcion";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Descripcion.HeaderText = "   Descripción";
             this.Descripcion.Name = "Descripcion";
             // 
             // PU
@@ -295,10 +296,10 @@
             // 
             // Importe
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "C0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Format = "C0";
+            dataGridViewCellStyle14.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle14;
             this.Importe.HeaderText = "         Importe";
             this.Importe.Name = "Importe";
             // 
@@ -366,19 +367,19 @@
             this.checkrespuesta.UseVisualStyleBackColor = true;
             this.checkrespuesta.CheckedChanged += new System.EventHandler(this.checkrespuesta_CheckedChanged);
             // 
-            // checkBox1
+            // checkexistencia
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(737, 692);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(96, 33);
-            this.checkBox1.TabIndex = 122;
-            this.checkBox1.Text = "Horas";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            this.checkBox1.Visible = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkexistencia.AutoSize = true;
+            this.checkexistencia.BackColor = System.Drawing.Color.White;
+            this.checkexistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkexistencia.Location = new System.Drawing.Point(737, 692);
+            this.checkexistencia.Name = "checkexistencia";
+            this.checkexistencia.Size = new System.Drawing.Size(141, 33);
+            this.checkexistencia.TabIndex = 122;
+            this.checkexistencia.Text = "Existencia";
+            this.checkexistencia.UseVisualStyleBackColor = false;
+            this.checkexistencia.Visible = false;
+            this.checkexistencia.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -387,7 +388,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(449, 693);
+            this.checkBox2.Location = new System.Drawing.Point(480, 693);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(80, 33);
             this.checkBox2.TabIndex = 121;
@@ -416,7 +417,7 @@
             "10 horas",
             "11 horas",
             "12 horas"});
-            this.combohoras.Location = new System.Drawing.Point(852, 690);
+            this.combohoras.Location = new System.Drawing.Point(1035, 822);
             this.combohoras.Name = "combohoras";
             this.combohoras.Size = new System.Drawing.Size(121, 37);
             this.combohoras.TabIndex = 120;
@@ -431,11 +432,8 @@
             this.combodias.ForeColor = System.Drawing.Color.White;
             this.combodias.FormattingEnabled = true;
             this.combodias.Items.AddRange(new object[] {
-            "1 día",
-            "2 días",
-            "3 días",
-            "4 días",
-            "5 días"});
+            "3-4 dias",
+            "7-15 dias"});
             this.combodias.Location = new System.Drawing.Point(562, 691);
             this.combodias.Name = "combodias";
             this.combodias.Size = new System.Drawing.Size(121, 37);
@@ -447,7 +445,7 @@
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(800, 764);
+            this.txtorden.Location = new System.Drawing.Point(656, 748);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(173, 29);
             this.txtorden.TabIndex = 125;
@@ -458,7 +456,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(526, 764);
+            this.label11.Location = new System.Drawing.Point(382, 748);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(208, 29);
             this.label11.TabIndex = 124;
@@ -623,7 +621,7 @@
             this.Controls.Add(this.txtorden);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.checkrespuesta);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkexistencia);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.combohoras);
             this.Controls.Add(this.combodias);
@@ -684,7 +682,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label txthorayfecha;
         private System.Windows.Forms.CheckBox checkrespuesta;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkexistencia;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ComboBox combohoras;
         private System.Windows.Forms.ComboBox combodias;
@@ -696,14 +694,14 @@
         private System.Windows.Forms.TextBox txtrepetidos;
         private System.Windows.Forms.CheckBox checkiva;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.TextBox txtnombre2;
         private System.Windows.Forms.CheckBox checkcontra;
         private System.Windows.Forms.TextBox txtcontracel;
         private System.Windows.Forms.Label lblcontador;
         private System.Windows.Forms.CheckBox pdf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

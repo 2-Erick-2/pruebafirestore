@@ -36,7 +36,7 @@ namespace pruebafirestore.Pedidos
         double IVA = 0;
         double totalsiniva = 0;
 
-
+        public String desdecoti = "" ;
 
 
 
@@ -336,6 +336,13 @@ namespace pruebafirestore.Pedidos
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
 
+            if (desdecoti == "si")
+            {
+                altoButton1.Enabled = true;
+            }
+            else             {
+                altoButton1.Enabled = false;
+            }
 
 
         }
@@ -2784,6 +2791,22 @@ namespace pruebafirestore.Pedidos
                 upmodelo = upmodelo.Substring(0, 1).ToUpper() + upmodelo.Substring(1).ToLower();
                 txtmodelo.Text = upmodelo;
                 txtmodelo.SelectionStart = txtmodelo.Text.Length;
+            }
+        }
+
+        private void txtrestante_TextChanged(object sender, EventArgs e)
+        {
+            if (txtabono.Text == "")
+            {
+                txtrestante.Text = txttotal.Text;
+            }
+        }
+
+        private void txttotal_TextChanged(object sender, EventArgs e)
+        {
+            if (txtabono.Text == "")
+            {
+                txtrestante.Text = txttotal.Text;
             }
         }
     }

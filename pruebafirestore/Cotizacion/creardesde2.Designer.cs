@@ -37,7 +37,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(creardesde2));
             this.checkiva = new System.Windows.Forms.CheckBox();
             this.checkrespuesta = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkexistencia = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.combohoras = new System.Windows.Forms.ComboBox();
             this.combodias = new System.Windows.Forms.ComboBox();
@@ -102,19 +102,19 @@
             this.checkrespuesta.UseVisualStyleBackColor = true;
             this.checkrespuesta.CheckedChanged += new System.EventHandler(this.checkrespuesta_CheckedChanged);
             // 
-            // checkBox1
+            // checkexistencia
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(581, 638);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(96, 33);
-            this.checkBox1.TabIndex = 147;
-            this.checkBox1.Text = "Horas";
-            this.checkBox1.UseVisualStyleBackColor = false;
-            this.checkBox1.Visible = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkexistencia.AutoSize = true;
+            this.checkexistencia.BackColor = System.Drawing.Color.White;
+            this.checkexistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkexistencia.Location = new System.Drawing.Point(581, 638);
+            this.checkexistencia.Name = "checkexistencia";
+            this.checkexistencia.Size = new System.Drawing.Size(141, 33);
+            this.checkexistencia.TabIndex = 147;
+            this.checkexistencia.Text = "Existencia";
+            this.checkexistencia.UseVisualStyleBackColor = false;
+            this.checkexistencia.Visible = false;
+            this.checkexistencia.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -123,7 +123,7 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(342, 639);
+            this.checkBox2.Location = new System.Drawing.Point(352, 636);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(80, 33);
             this.checkBox2.TabIndex = 146;
@@ -152,7 +152,7 @@
             "10 horas",
             "11 horas",
             "12 horas"});
-            this.combohoras.Location = new System.Drawing.Point(696, 636);
+            this.combohoras.Location = new System.Drawing.Point(23, 807);
             this.combohoras.Name = "combohoras";
             this.combohoras.Size = new System.Drawing.Size(121, 39);
             this.combohoras.TabIndex = 145;
@@ -167,11 +167,8 @@
             this.combodias.ForeColor = System.Drawing.Color.White;
             this.combodias.FormattingEnabled = true;
             this.combodias.Items.AddRange(new object[] {
-            "1 día",
-            "2 días",
-            "3 días",
-            "4 días",
-            "5 días"});
+            "3-4 dias",
+            "7-15 dias"});
             this.combodias.Location = new System.Drawing.Point(438, 636);
             this.combodias.Name = "combodias";
             this.combodias.Size = new System.Drawing.Size(121, 37);
@@ -259,7 +256,7 @@
             // 
             this.txtimporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtimporte.Location = new System.Drawing.Point(538, 335);
-            this.txtimporte.MaxLength = 4;
+            this.txtimporte.MaxLength = 5;
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.Size = new System.Drawing.Size(104, 31);
             this.txtimporte.TabIndex = 139;
@@ -544,7 +541,7 @@
             this.Controls.Add(this.altoButton1);
             this.Controls.Add(this.checkiva);
             this.Controls.Add(this.checkrespuesta);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkexistencia);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.combohoras);
             this.Controls.Add(this.combodias);
@@ -574,7 +571,7 @@
         #endregion
         private System.Windows.Forms.CheckBox checkiva;
         private System.Windows.Forms.CheckBox checkrespuesta;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkexistencia;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ComboBox combohoras;
         private System.Windows.Forms.ComboBox combodias;

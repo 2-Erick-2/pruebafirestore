@@ -45,18 +45,7 @@ namespace pruebafirestore
         {
             AbrirFormEnPanel2(new revisioncrear1());
 
-            altoButton4.Inactive1 = Color.RoyalBlue;
-            altoButton4.Inactive2 = Color.White;
-
            
-
-            altoButton3.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton3.Inactive2 = Color.FromArgb(66, 96, 159);
-
-          
-
-
-
         }
 
         private void altoButton3_Click(object sender, EventArgs e)
@@ -64,13 +53,7 @@ namespace pruebafirestore
             AbrirFormEnPanel2(new busquedarevision());
 
 
-            altoButton3.Inactive1 = Color.RoyalBlue;
-            altoButton3.Inactive2 = Color.White;
-
-
-
-            altoButton4.Inactive1 = Color.FromArgb(37, 108, 180);
-            altoButton4.Inactive2 = Color.FromArgb(66, 96, 159);
+            
         }
     }
 }
