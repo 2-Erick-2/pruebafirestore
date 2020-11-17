@@ -342,8 +342,8 @@ namespace pruebafirestore.Cotizacion
 
                 //printDocument1.PrinterSettings.
 
-               /*printDocument1.PrintPage += imprimir;
-                printDocument1.Print();*/
+                printDocument1.PrintPage += imprimir;
+                printDocument1.Print();
 
                 if(pdf.Checked == true)
                 {
@@ -357,7 +357,9 @@ namespace pruebafirestore.Cotizacion
 
                     //printDocument1.DocumentName = "holaaaaaa";
 
-                    //printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 5000);
+                    
+                    //printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Custom2", 400, 600);
+
                     //ps2.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Custom",300, 500);
 
 

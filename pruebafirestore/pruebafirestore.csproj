@@ -174,22 +174,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABONOS\busquedagarantias.cs">
+    <Compile Include="Garantias\busquedagarantias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABONOS\busquedagarantias.Designer.cs">
+    <Compile Include="Garantias\busquedagarantias.Designer.cs">
       <DependentUpon>busquedagarantias.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABONOS\contenedorabonos.cs">
+    <Compile Include="Garantias\contenedorabonos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABONOS\contenedorabonos.Designer.cs">
+    <Compile Include="Garantias\contenedorabonos.Designer.cs">
       <DependentUpon>contenedorabonos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABONOS\creargarantia.cs">
+    <Compile Include="Garantias\creargarantia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABONOS\creargarantia.Designer.cs">
+    <Compile Include="Garantias\creargarantia.Designer.cs">
       <DependentUpon>creargarantia.cs</DependentUpon>
     </Compile>
     <Compile Include="Actualizacion\actualizacioncotizaciones.cs">
@@ -329,13 +329,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="usuarios.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
-    <EmbeddedResource Include="ABONOS\busquedagarantias.resx">
+    <EmbeddedResource Include="Garantias\busquedagarantias.resx">
       <DependentUpon>busquedagarantias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABONOS\contenedorabonos.resx">
+    <EmbeddedResource Include="Garantias\contenedorabonos.resx">
       <DependentUpon>contenedorabonos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABONOS\creargarantia.resx">
+    <EmbeddedResource Include="Garantias\creargarantia.resx">
       <DependentUpon>creargarantia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Actualizacion\actualizacioncotizaciones.resx">
