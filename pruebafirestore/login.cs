@@ -27,8 +27,16 @@ namespace pruebafirestore
             if (txtlogin.Text == "1234")
             {
                 Form1 F1 = new Form1();
+                F1.usuario = "PERLA";
+
                 F1.Show();
 
+            }
+            else if (txtlogin.Text == "5678")
+            {
+                Form1 F1 = new Form1();
+                F1.usuario = "ABAJO";
+                F1.Show();
             }
                 
         }
@@ -38,9 +46,22 @@ namespace pruebafirestore
             if (txtlogin.Text == "1234")
             {
                 Form1 F1 = new Form1();
+                
+
+
+                ClaseCompartida.usuarios = "PERLA";
+
+
                 F1.Show();
                 this.Hide();
 
+            }
+            else if (txtlogin.Text == "5678")
+            {
+                Form1 F1 = new Form1();
+                ClaseCompartida.usuarios = "ABAJO";
+                F1.Show();
+                this.Hide();
             }
         }
     }

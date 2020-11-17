@@ -131,14 +131,7 @@ namespace pruebafirestore.Pedidos
                 dataGridView2.Rows.Insert(2, cant3, descri3, impor3);
                 dataGridView2.Rows.Insert(3, cant4, descri4, impor4);
                 dataGridView2.Rows.Insert(4, cant5, descri5, impor5);
-
             }
-
-
-
-
-
-
 
 
             //txttotal.Text = total;
@@ -146,19 +139,20 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
 
-
             dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
-
-
-
 
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 
             //dataGridView1.Columns[0].Width = 1500;
-            dataGridView1.Rows[0].Selected = false;
+            dataGridView1.Rows[0].Selected = false;                                                                                                                              
+
+            if (txtrestante.Text == "0")
+            {
+                altoButton1.Enabled = true;
+            }
 
         }
 

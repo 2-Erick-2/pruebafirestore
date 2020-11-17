@@ -32,6 +32,7 @@ namespace pruebafirestore.Cotizacion
         String tiemporespuesta = "";
         String contra = "";
 
+        public string usuario = "";
 
 
         public crearcoti()
@@ -56,13 +57,15 @@ namespace pruebafirestore.Cotizacion
             txtcantidad.Text = "";
             txtdescri.Text = "";
             txtimporte.Text = "";
+
+            altoButton1.Enabled = true;
+
             }
             else
             {
                 MessageBox.Show("Te faltan valores por ingresar o llegaste al numero maximo de productos");
             }
 
-            altoButton1.Enabled = true;
 
         }
 
@@ -73,6 +76,16 @@ namespace pruebafirestore.Cotizacion
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
+
+            Form1 fh = new Form1();
+           if (ClaseCompartida.usuarios == "PERLA")
+            {
+               
+            }
+           else if (ClaseCompartida.usuarios == "ABAJO")
+            {
+                pdf.Visible = false;
+            }
             ///dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
            /* try
             {
@@ -129,45 +142,6 @@ namespace pruebafirestore.Cotizacion
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-            //
-
-          /*  if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                DataGridViewRow row2 = this.dataGridView2.Rows[e.RowIndex];
-
-                if (e.ColumnIndex == 0)
-                {
-                    tipoproducto = "Cantidad";
-                    // lbltipoproductop.Text = tipoproducto;
-
-                   label9.Text =     dataGridView1.Rows.Count.ToString();
-                    lbltipoproductop.Text = row2.Cells["id"].Value.ToString();
-                    txteditable.Text = row.Cells["Cantidad"].Value.ToString();
-                }
-                else if (e.ColumnIndex == 1)
-                {
-                    tipoproducto = "Descripcion";
-                    lbltipoproductop.Text = tipoproducto;
-                    lbltipoproductop.Text = row2.Cells["id"].Value.ToString();
-
-                    txteditable.Text = row.Cells["Descripcion"].Value.ToString();
-
-                }
-                else if (e.ColumnIndex == 2)
-                {
-                    tipoproducto = "Importe";
-                    lbltipoproductop.Text = tipoproducto;
-                    lbltipoproductop.Text = row2.Cells["id"].Value.ToString();
-
-                    txteditable.Text = row.Cells["Importe"].Value.ToString();
-
-                }*/
-                //txtmodelo.Text = row.Cells["modelo"].Value.ToString();
-
-
             }
 
         private void button2_Click(object sender, EventArgs e)
@@ -367,21 +341,28 @@ namespace pruebafirestore.Cotizacion
 
 
                 //printDocument1.PrinterSettings.
-                printDocument1.PrintPage += imprimir;
-                printDocument1.Print();
+
+               /*printDocument1.PrintPage += imprimir;
+                printDocument1.Print();*/
 
                 if(pdf.Checked == true)
                 {
-                    printDocument1 = new PrintDocument();
-                    //PrinterSettings ps = new PrinterSettings();
-                    //printDocument1.PrinterSettings = ps;
-                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-                    //PaperSize pkCustomSize1 = new PaperSize("First custom size", 10, 10);
+                    printDocument1= new PrintDocument();
+                    PrinterSettings ps2 = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps2;
 
-                    //printDocument1.DefaultPageSettings.PaperSize = pkCustomSize1;
+                   printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+
+                    //printDocument1.PrinterSettings.PrinterName = "Microsoft XPS Document Writer";
+
+                    //printDocument1.DocumentName = "holaaaaaa";
+
+                    //printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 5000);
+                    //ps2.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Custom",300, 500);
 
 
-                    //printDocument1.PrinterSettings.
+
+
                     printDocument1.PrintPage += imprimir;
                     printDocument1.Print();
                 }

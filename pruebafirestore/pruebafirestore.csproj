@@ -327,6 +327,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuarios.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
     <EmbeddedResource Include="ABONOS\busquedagarantias.resx">
       <DependentUpon>busquedagarantias.cs</DependentUpon>

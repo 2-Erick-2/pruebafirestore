@@ -18,6 +18,11 @@ namespace pruebafirestore
     public partial class Form1 : Form
     {
         FirestoreDb database;
+
+
+
+
+        public string usuario = "";
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +39,7 @@ namespace pruebafirestore
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
              database = FirestoreDb.Create("facturasebest2");
+           
             
         }
         private void AbrirFormEnPanel2(object formhija2)
@@ -41,10 +47,15 @@ namespace pruebafirestore
             if (this.pContainer.Controls.Count > 0)
                 this.pContainer.Controls.RemoveAt(0);
             Form fh = formhija2 as Form;
+
+            
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
             this.pContainer.Controls.Add(fh);
             this.pContainer.Tag = fh;
+
+
+            
             fh.Show();
 
         }

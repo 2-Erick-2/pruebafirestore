@@ -218,8 +218,8 @@
         private AltoControls.AltoButton altoButton4;
         private AltoControls.AltoButton altoButton3;
         private AltoControls.AltoButton altoButton2;
-        private AltoControls.AltoButton altoButton1;
         private AltoControls.AltoButton altoButton5;
+        public AltoControls.AltoButton altoButton1;
     }
 }
 
