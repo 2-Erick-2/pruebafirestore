@@ -66,9 +66,9 @@ namespace pruebafirestore.Pedidos
         public String Numero = "";
 
 
-
-
         string fecha;
+
+        //tring fecha;
 
         DateTime fechasalida;
         DateTime fechasalida2;
@@ -428,7 +428,7 @@ namespace pruebafirestore.Pedidos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string fecha = DateTime.Now.ToShortDateString();
+            fecha = DateTime.Now.ToShortDateString();
             string hora = DateTime.Now.ToShortTimeString();
             txthorayfecha.Text = fecha + " " + hora;
         }
@@ -462,7 +462,10 @@ namespace pruebafirestore.Pedidos
 
                 DocumentReference cityRef = database.Collection("Pedidos").Document(Orden);
                 await cityRef.DeleteAsync();
+
+
                 guardargarantia();
+
                 this.Hide();
             }
            
@@ -509,7 +512,9 @@ namespace pruebafirestore.Pedidos
 
         private async void guardargarantia()
         {
-
+            fechasalida = Convert.ToDateTime(fecha);
+            fechasalida2 = fechasalida.AddDays(30);
+            fechadesalida = fechasalida2.ToShortDateString().ToString();
 
 
             sincopia:

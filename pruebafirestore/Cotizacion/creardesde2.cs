@@ -30,6 +30,8 @@ namespace pruebafirestore.Cotizacion
         String tiemporespuesta = "";
         String contra = "";
 
+        public String estado = ""; 
+
         public creardesde2()
         {
             InitializeComponent();
@@ -252,6 +254,16 @@ namespace pruebafirestore.Cotizacion
 
         private async void altoButton1_Click(object sender, EventArgs e)
         {
+            if (checksinrefac.Checked == true)
+            {
+                estado = "Sin refacciones";
+            }
+            else if (checkperdidatotal.Checked == true)
+            {
+                estado = "Perdida total";
+            }
+
+
             if (checkrespuesta.Checked == true && checkBox2.Checked == true)
             {
                 tiemporespuesta = combodias.Text;
@@ -330,13 +342,16 @@ namespace pruebafirestore.Cotizacion
                 printDocument1.Print();
 
 
+                if (pdf.Checked == true)
+                {
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps2 = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps2;
+                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
 
-
-
-
-
-
-
+                    printDocument1.PrintPage += imprimir;
+                    printDocument1.Print();
+                }
 
             }
         }
@@ -429,10 +444,11 @@ namespace pruebafirestore.Cotizacion
 
                 {"Importe",p3},
 
-
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -440,24 +456,6 @@ namespace pruebafirestore.Cotizacion
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
 
                 if (dataGridView1.Rows.Count == 2)
@@ -511,12 +509,6 @@ namespace pruebafirestore.Cotizacion
                         contar2 = d.ToString("$  000.00", CultureInfo.InvariantCulture);
                     }
 
-
-
-
-
-
-
                     e.Graphics.DrawString("                                            Total: " + contar2, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, 520));
                     e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, 540));
                     e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, 565));
@@ -567,32 +559,15 @@ namespace pruebafirestore.Cotizacion
 
                 {"Fechayhora",txthorayfecha.Text},
 
+                {"Estado2",estado},
+
                 {"Contraseña", contra}
 
 
                 };
                     await DOC2.SetAsync(data2, SetOptions.MergeAll);
                     MessageBox.Show("guardado");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
-
                 if (dataGridView1.Rows.Count == 3)
                 {
                     String p1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
@@ -717,6 +692,8 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -864,6 +841,8 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -1037,6 +1016,8 @@ namespace pruebafirestore.Cotizacion
 
                 {"Fechayhora",txthorayfecha.Text},
 
+                {"Estado2",estado},
+
                 {"Contraseña", contra}
 
 
@@ -1194,6 +1175,7 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -1387,6 +1369,8 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -1600,6 +1584,8 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -1822,6 +1808,8 @@ namespace pruebafirestore.Cotizacion
                 {"Tiempodeespera",tiemporespuesta} ,
 
                 {"Fechayhora",txthorayfecha.Text},
+
+                {"Estado2",estado},
 
                 {"Contraseña", contra}
 
@@ -2052,6 +2040,8 @@ namespace pruebafirestore.Cotizacion
 
                 {"Fechayhora",txthorayfecha.Text},
 
+                {"Estado2",estado},
+
                 {"Contraseña", contra}
 
 
@@ -2076,6 +2066,24 @@ namespace pruebafirestore.Cotizacion
         private void checkiva_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checksinrefac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checksinrefac.Checked == true)
+            {
+                checkperdidatotal.Checked = false;
+
+            }
+          
+        }
+
+        private void checkperdidatotal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkperdidatotal.Checked == true)
+            {
+                checksinrefac.Checked = false;
+            }
         }
     }
 }

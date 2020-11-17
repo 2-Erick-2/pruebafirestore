@@ -120,5 +120,8 @@ namespace pruebafirestore
 
         [FirestoreProperty]
         public String Restante { get; set; }
+
+        [FirestoreProperty]
+        public String Estado2 { get; set; }
     }
 }

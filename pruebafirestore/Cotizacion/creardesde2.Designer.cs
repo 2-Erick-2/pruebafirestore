@@ -73,6 +73,9 @@
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.checksinrefac = new System.Windows.Forms.CheckBox();
+            this.checkperdidatotal = new System.Windows.Forms.CheckBox();
+            this.pdf = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -209,7 +212,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(73, 385);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(698, 145);
+            this.dataGridView1.Size = new System.Drawing.Size(698, 165);
             this.dataGridView1.TabIndex = 142;
             // 
             // Cantidad
@@ -457,7 +460,7 @@
             // 
             // txtrepetidos
             // 
-            this.txtrepetidos.Location = new System.Drawing.Point(12, 760);
+            this.txtrepetidos.Location = new System.Drawing.Point(12, 679);
             this.txtrepetidos.Name = "txtrepetidos";
             this.txtrepetidos.Size = new System.Drawing.Size(49, 20);
             this.txtrepetidos.TabIndex = 165;
@@ -465,7 +468,7 @@
             // 
             // txtpruibea
             // 
-            this.txtpruibea.Location = new System.Drawing.Point(12, 734);
+            this.txtpruibea.Location = new System.Drawing.Point(12, 636);
             this.txtpruibea.Name = "txtpruibea";
             this.txtpruibea.Size = new System.Drawing.Size(49, 20);
             this.txtpruibea.TabIndex = 164;
@@ -473,9 +476,9 @@
             // 
             // txtorden2
             // 
-            this.txtorden2.Location = new System.Drawing.Point(12, 708);
+            this.txtorden2.Location = new System.Drawing.Point(12, 590);
             this.txtorden2.Name = "txtorden2";
-            this.txtorden2.Size = new System.Drawing.Size(62, 20);
+            this.txtorden2.Size = new System.Drawing.Size(49, 20);
             this.txtorden2.TabIndex = 163;
             this.txtorden2.Visible = false;
             // 
@@ -516,12 +519,52 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // checksinrefac
+            // 
+            this.checksinrefac.AutoSize = true;
+            this.checksinrefac.BackColor = System.Drawing.Color.White;
+            this.checksinrefac.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checksinrefac.Location = new System.Drawing.Point(247, 590);
+            this.checksinrefac.Name = "checksinrefac";
+            this.checksinrefac.Size = new System.Drawing.Size(197, 33);
+            this.checksinrefac.TabIndex = 169;
+            this.checksinrefac.Text = "Sin refacciones";
+            this.checksinrefac.UseVisualStyleBackColor = false;
+            this.checksinrefac.CheckedChanged += new System.EventHandler(this.checksinrefac_CheckedChanged);
+            // 
+            // checkperdidatotal
+            // 
+            this.checkperdidatotal.AutoSize = true;
+            this.checkperdidatotal.BackColor = System.Drawing.Color.White;
+            this.checkperdidatotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkperdidatotal.Location = new System.Drawing.Point(474, 590);
+            this.checkperdidatotal.Name = "checkperdidatotal";
+            this.checkperdidatotal.Size = new System.Drawing.Size(168, 33);
+            this.checkperdidatotal.TabIndex = 170;
+            this.checkperdidatotal.Text = "Perdida total";
+            this.checkperdidatotal.UseVisualStyleBackColor = false;
+            this.checkperdidatotal.CheckedChanged += new System.EventHandler(this.checkperdidatotal_CheckedChanged);
+            // 
+            // pdf
+            // 
+            this.pdf.AutoSize = true;
+            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdf.Location = new System.Drawing.Point(67, 679);
+            this.pdf.Name = "pdf";
+            this.pdf.Size = new System.Drawing.Size(173, 33);
+            this.pdf.TabIndex = 171;
+            this.pdf.Text = "Guardar PDF";
+            this.pdf.UseVisualStyleBackColor = true;
+            // 
             // creardesde2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(827, 845);
+            this.Controls.Add(this.pdf);
+            this.Controls.Add(this.checkperdidatotal);
+            this.Controls.Add(this.checksinrefac);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtmodelo);
             this.Controls.Add(this.lblcontador);
@@ -607,5 +650,8 @@
         private System.Windows.Forms.TextBox txtmodelo;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox checksinrefac;
+        private System.Windows.Forms.CheckBox checkperdidatotal;
+        private System.Windows.Forms.CheckBox pdf;
     }
 }

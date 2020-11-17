@@ -608,5 +608,29 @@ namespace pruebafirestore.Pedidos
 
 
         }
+
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxbusqueda.Text == "Orden")
+            {
+                directorio.DefaultView.RowFilter = $"Orden LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Numero")
+            {
+                directorio.DefaultView.RowFilter = $"Numero LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Nombre")
+            {
+                directorio.DefaultView.RowFilter = $"Nombre LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Fecha")
+            {
+                directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
+
+            }
+        }
     }
 }

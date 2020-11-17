@@ -77,8 +77,7 @@ namespace pruebafirestore.Cotizacion
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
 
-            Form1 fh = new Form1();
-           if (ClaseCompartida.usuarios == "PERLA")
+              if (ClaseCompartida.usuarios == "PERLA")
             {
                
             }
@@ -86,58 +85,8 @@ namespace pruebafirestore.Cotizacion
             {
                 pdf.Visible = false;
             }
-            ///dataGridView1.Columns[2].DefaultCellStyle.Format = "C";
-           /* try
-            {
-                connection.Open();
-                OleDbCommand command = new OleDbCommand();
-                command.Connection = connection;
-                string query = "SELECT productos.[Cantidad], productos.[Descripcion], productos.[Importe] FROM productos; ";
-                command.CommandText = query;
-
-                OleDbDataAdapter da = new OleDbDataAdapter(command);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-
-                string query2 = "SELECT * FROM productos; ";
-                command.CommandText = query2;
-
-                OleDbDataAdapter da2 = new OleDbDataAdapter(command);
-                DataTable dt2 = new DataTable();
-                da2.Fill(dt2);
-                dataGridView2.DataSource = dt2;
-
-
-
-
-                connection.Close();
-
-                dataGridView1.RowHeadersVisible = false;
-
-
-                dataGridView1.Columns[0].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
-
-                dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
-
-                dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.White;
-                dataGridView1.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
-
            
-
-
-                dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-                dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex);
-            }*/
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -334,14 +283,7 @@ namespace pruebafirestore.Cotizacion
                 printDocument1 = new PrintDocument();
                 PrinterSettings ps = new PrinterSettings();
                 printDocument1.PrinterSettings = ps;
-                //printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-                //PaperSize pkCustomSize1 = new PaperSize("First custom size", 10, 10);
-
-                //printDocument1.DefaultPageSettings.PaperSize = pkCustomSize1;
-
-
-                //printDocument1.PrinterSettings.
-
+               
                 printDocument1.PrintPage += imprimir;
                 printDocument1.Print();
 
@@ -350,20 +292,7 @@ namespace pruebafirestore.Cotizacion
                     printDocument1= new PrintDocument();
                     PrinterSettings ps2 = new PrinterSettings();
                     printDocument1.PrinterSettings = ps2;
-
-                   printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-
-                    //printDocument1.PrinterSettings.PrinterName = "Microsoft XPS Document Writer";
-
-                    //printDocument1.DocumentName = "holaaaaaa";
-
-                    
-                    //printDocument1.DefaultPageSettings.PaperSize = new PaperSize("Custom2", 400, 600);
-
-                    //ps2.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Custom",300, 500);
-
-
-
+                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
 
                     printDocument1.PrintPage += imprimir;
                     printDocument1.Print();
@@ -371,11 +300,6 @@ namespace pruebafirestore.Cotizacion
 
 
                 altoButton1.Enabled = false;
-                //printPreviewDialog1.Document = printDocument1;
-                //printDocument1.Print();
-                //printDocument1.Print();
-                          //Add_Document_with_orden();
-
             }
         }
 
@@ -413,11 +337,6 @@ namespace pruebafirestore.Cotizacion
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-
-
-
-
 
         private async void imprimir(object sender, PrintPageEventArgs e)
         {
@@ -2246,6 +2165,11 @@ namespace pruebafirestore.Cotizacion
                 txtmodelo.Text = upmodelo;
                 txtmodelo.SelectionStart = txtmodelo.Text.Length;
             }
+        }
+
+        private void pdf_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }

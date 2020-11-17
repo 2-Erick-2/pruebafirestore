@@ -93,6 +93,8 @@ namespace pruebafirestore.Cotizacion
             directorio.Columns.Add("Importe5");
             directorio.Columns.Add("Total");
 
+            directorio.Columns.Add("Estado");
+            directorio.Columns.Add("Estado2");
 
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
@@ -104,7 +106,7 @@ namespace pruebafirestore.Cotizacion
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña,clientesclase.Cantidad,clientesclase.Cantidad2,clientesclase.Cantidad3,clientesclase.Cantidad4,clientesclase.Cantidad5,clientesclase.Descripcion,clientesclase.Descripcion2,clientesclase.Descripcion3,clientesclase.Descripcion4,clientesclase.Descripcion5,clientesclase.Importe,clientesclase.Importe2,clientesclase.Importe3,clientesclase.Importe4,clientesclase.Importe5,clientesclase.Total);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña, clientesclase.Cantidad, clientesclase.Cantidad2, clientesclase.Cantidad3, clientesclase.Cantidad4, clientesclase.Cantidad5, clientesclase.Descripcion, clientesclase.Descripcion2, clientesclase.Descripcion3, clientesclase.Descripcion4, clientesclase.Descripcion5, clientesclase.Importe, clientesclase.Importe2, clientesclase.Importe3, clientesclase.Importe4, clientesclase.Importe5, clientesclase.Total, cant,clientesclase.Estado2) ;
                     dataGridView1.DataSource = directorio;
                 }
 
@@ -132,7 +134,8 @@ namespace pruebafirestore.Cotizacion
             dataGridView1.Columns[21].Visible = false;
             dataGridView1.Columns[22].Visible = false;
             dataGridView1.Columns[23].Visible = false;
-            
+            dataGridView1.Columns[24].Visible = false;
+
 
             dataGridView1.RowHeadersVisible = false;
 
@@ -159,6 +162,9 @@ namespace pruebafirestore.Cotizacion
 
             dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[7].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[25].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[25].DefaultCellStyle.BackColor = Color.LightBlue;
 
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -360,15 +366,24 @@ namespace pruebafirestore.Cotizacion
 
             }
 
+        }
 
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Estado2")
+            {
+                if(e.Value.ToString() == "Sin refacciones")
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
 
-
-
-
-
-
-
-
+                }
+                else  if (e.Value.ToString() == "Perdida total")
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                }
+            }
         }
     }
 }
