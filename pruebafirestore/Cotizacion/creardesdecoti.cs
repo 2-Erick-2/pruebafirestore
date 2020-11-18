@@ -91,7 +91,7 @@ namespace pruebafirestore.Cotizacion
             directorio.Rows.RemoveAt(numero);
 
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
 
             //dataGridView1.Columns[2].Visible = false;
 

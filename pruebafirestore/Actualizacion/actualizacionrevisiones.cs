@@ -28,7 +28,7 @@ namespace pruebafirestore.Actualizacion
         private void actualizacionrevisiones_Load(object sender, EventArgs e)
         {
             int numdias = 0;
-            comboBoxbusqueda.Text = "Orden";
+            comboBoxbusqueda.Text = "Nombre";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
@@ -79,7 +79,7 @@ namespace pruebafirestore.Actualizacion
 
             // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
 
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Descending);
 
             // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
 

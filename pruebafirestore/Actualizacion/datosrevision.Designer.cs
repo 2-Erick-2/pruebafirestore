@@ -37,8 +37,8 @@
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.altoButton1 = new AltoControls.AltoButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checksinrefacciones = new System.Windows.Forms.CheckBox();
+            this.checkperdidatotal = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -127,27 +127,29 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Datos del cliente";
             // 
-            // checkBox1
+            // checksinrefacciones
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(27, 282);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(175, 24);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "SIN REFACCIONES";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checksinrefacciones.AutoSize = true;
+            this.checksinrefacciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checksinrefacciones.Location = new System.Drawing.Point(27, 282);
+            this.checksinrefacciones.Name = "checksinrefacciones";
+            this.checksinrefacciones.Size = new System.Drawing.Size(175, 24);
+            this.checksinrefacciones.TabIndex = 12;
+            this.checksinrefacciones.Text = "SIN REFACCIONES";
+            this.checksinrefacciones.UseVisualStyleBackColor = true;
+            this.checksinrefacciones.CheckedChanged += new System.EventHandler(this.checksinrefacciones_CheckedChanged);
             // 
-            // checkBox2
+            // checkperdidatotal
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(244, 282);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(175, 24);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "SIN REFACCIONES";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkperdidatotal.AutoSize = true;
+            this.checkperdidatotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkperdidatotal.Location = new System.Drawing.Point(244, 282);
+            this.checkperdidatotal.Name = "checkperdidatotal";
+            this.checkperdidatotal.Size = new System.Drawing.Size(155, 24);
+            this.checkperdidatotal.TabIndex = 13;
+            this.checkperdidatotal.Text = "PERDIDA TOTAL";
+            this.checkperdidatotal.UseVisualStyleBackColor = true;
+            this.checkperdidatotal.CheckedChanged += new System.EventHandler(this.checkperdidatotal_CheckedChanged);
             // 
             // datosrevision
             // 
@@ -155,8 +157,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(468, 422);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkperdidatotal);
+            this.Controls.Add(this.checksinrefacciones);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.altoButton1);
             this.Controls.Add(this.label3);
@@ -184,7 +186,7 @@
         public System.Windows.Forms.TextBox txtmodelo;
         private AltoControls.AltoButton altoButton1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checksinrefacciones;
+        private System.Windows.Forms.CheckBox checkperdidatotal;
     }
 }

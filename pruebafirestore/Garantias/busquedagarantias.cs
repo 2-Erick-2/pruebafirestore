@@ -106,7 +106,7 @@ namespace pruebafirestore.ABONOS
 
             // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
 
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], System.ComponentModel.ListSortDirection.Descending);
 
             // dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
 

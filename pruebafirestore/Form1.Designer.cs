@@ -37,6 +37,7 @@
             this.altoButton1 = new AltoControls.AltoButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pContainer = new System.Windows.Forms.Panel();
+            this.altoButton6 = new AltoControls.AltoButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.altoButton6);
             this.panel1.Controls.Add(this.altoButton5);
             this.panel1.Controls.Add(this.altoButton4);
             this.panel1.Controls.Add(this.altoButton3);
@@ -68,7 +70,7 @@
             this.altoButton5.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton5.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton5.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton5.Location = new System.Drawing.Point(924, 0);
+            this.altoButton5.Location = new System.Drawing.Point(990, 0);
             this.altoButton5.Name = "altoButton5";
             this.altoButton5.Radius = 10;
             this.altoButton5.Size = new System.Drawing.Size(165, 101);
@@ -91,10 +93,10 @@
             this.altoButton4.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton4.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton4.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton4.Location = new System.Drawing.Point(1129, 3);
+            this.altoButton4.Location = new System.Drawing.Point(1170, 1);
             this.altoButton4.Name = "altoButton4";
             this.altoButton4.Radius = 10;
-            this.altoButton4.Size = new System.Drawing.Size(203, 101);
+            this.altoButton4.Size = new System.Drawing.Size(169, 101);
             this.altoButton4.Stroke = false;
             this.altoButton4.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton4.TabIndex = 4;
@@ -114,7 +116,7 @@
             this.altoButton3.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton3.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton3.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton3.Location = new System.Drawing.Point(719, -1);
+            this.altoButton3.Location = new System.Drawing.Point(807, -1);
             this.altoButton3.Name = "altoButton3";
             this.altoButton3.Radius = 10;
             this.altoButton3.Size = new System.Drawing.Size(165, 101);
@@ -137,7 +139,7 @@
             this.altoButton2.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton2.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton2.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton2.Location = new System.Drawing.Point(498, 0);
+            this.altoButton2.Location = new System.Drawing.Point(625, 0);
             this.altoButton2.Name = "altoButton2";
             this.altoButton2.Radius = 10;
             this.altoButton2.Size = new System.Drawing.Size(165, 101);
@@ -160,7 +162,7 @@
             this.altoButton1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
-            this.altoButton1.Location = new System.Drawing.Point(296, -1);
+            this.altoButton1.Location = new System.Drawing.Point(449, -1);
             this.altoButton1.Name = "altoButton1";
             this.altoButton1.Radius = 10;
             this.altoButton1.Size = new System.Drawing.Size(165, 101);
@@ -189,6 +191,29 @@
             this.pContainer.Size = new System.Drawing.Size(1344, 876);
             this.pContainer.TabIndex = 7;
             // 
+            // altoButton6
+            // 
+            this.altoButton6.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton6.Active2 = System.Drawing.Color.RoyalBlue;
+            this.altoButton6.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton6.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton6.ForeColor = System.Drawing.Color.White;
+            this.altoButton6.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.altoButton6.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton6.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton6.Location = new System.Drawing.Point(278, -1);
+            this.altoButton6.Name = "altoButton6";
+            this.altoButton6.Radius = 10;
+            this.altoButton6.Size = new System.Drawing.Size(165, 101);
+            this.altoButton6.Stroke = false;
+            this.altoButton6.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton6.TabIndex = 6;
+            this.altoButton6.Text = "Inicio";
+            this.altoButton6.Transparency = false;
+            this.altoButton6.Click += new System.EventHandler(this.altoButton6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +226,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "E-BEST";
@@ -220,6 +246,7 @@
         private AltoControls.AltoButton altoButton2;
         private AltoControls.AltoButton altoButton5;
         public AltoControls.AltoButton altoButton1;
+        public AltoControls.AltoButton altoButton6;
     }
 }
 

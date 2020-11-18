@@ -28,7 +28,7 @@ namespace pruebafirestore.Actualizacion
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
-            comboBoxbusqueda.Text = "Orden";
+            comboBoxbusqueda.Text = "Nombre";
 
             GetAllDocuments("Pedidos");
         }
@@ -87,7 +87,7 @@ namespace pruebafirestore.Actualizacion
             numero--;
             directorio.Rows.RemoveAt(numero);
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
 
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;

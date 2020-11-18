@@ -89,6 +89,7 @@
             this.txttotalsiniva = new System.Windows.Forms.TextBox();
             this.txtIVA = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -313,8 +314,8 @@
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton1.Enabled = false;
-            this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton1.ForeColor = System.Drawing.Color.Black;
+            this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton1.ForeColor = System.Drawing.Color.White;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Location = new System.Drawing.Point(300, 801);
@@ -713,12 +714,26 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::pruebafirestore.Properties.Resources.printer__1_;
+            this.button3.Location = new System.Drawing.Point(768, 801);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 54);
+            this.button3.TabIndex = 189;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // crearpedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1154, 879);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.txtIVA);
             this.Controls.Add(this.txttotalsiniva);
             this.Controls.Add(this.txtotros);
@@ -837,5 +852,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.Button button3;
     }
 }

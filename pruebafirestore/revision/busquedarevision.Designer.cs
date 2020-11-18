@@ -139,7 +139,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "busquedarevision";
-            this.Text = "busquedarevision";
+            this.Text = "   ";
             this.Load += new System.EventHandler(this.busquedarevision_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

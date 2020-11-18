@@ -223,6 +223,7 @@ namespace pruebafirestore.formularios
                 MessageBox.Show("Error: " + ex);
             }
             altoButton1.Enabled = false;
+            button1.Enabled = true;
 
         }
         public void BrotherPrintThis()
@@ -563,6 +564,15 @@ checkprotctor.Visible = false;
                 txtmodelo.Text = upmodelo;
                 txtmodelo.SelectionStart = txtmodelo.Text.Length;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += imprimir;
+            printDocument1.Print();
         }
     }
 }

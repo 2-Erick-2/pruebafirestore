@@ -98,11 +98,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1144, 753);
+            this.dataGridView1.Size = new System.Drawing.Size(1150, 776);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -111,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1152, 835);
+            this.ClientSize = new System.Drawing.Size(1154, 837);
             this.Controls.Add(this.comboBoxbusqueda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtbusqueda);

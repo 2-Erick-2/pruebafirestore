@@ -21,6 +21,7 @@ namespace pruebafirestore.Actualizacion
 
         public String orden = "";
 
+        public String Estado = "";
 
 
         public datosrevision()
@@ -58,6 +59,8 @@ namespace pruebafirestore.Actualizacion
 
                     {"Numero", txtnumero.Text},
 
+                    {"Estado2", Estado},
+
                     {"Modelo", txtmodelo.Text}
                 };
                 await DOC2.UpdateAsync(data2);
@@ -93,6 +96,35 @@ namespace pruebafirestore.Actualizacion
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
+
+            if (tipopedido == "CO")
+            {
+                checksinrefacciones.Visible = true;
+                checkperdidatotal.Visible = true;
+            }
+            else
+            {
+                checksinrefacciones.Visible = false;
+                checkperdidatotal.Visible = false;
+            }
+        }
+
+        private void checksinrefacciones_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checksinrefacciones.Checked == true)
+            {
+                checkperdidatotal.Checked = false;
+                Estado = "Sin refacciones";
+            }
+        }
+
+        private void checkperdidatotal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkperdidatotal.Checked == true)
+            {
+                checksinrefacciones.Checked = false;
+                Estado = "Perdida total";
+            }
         }
     }
 }

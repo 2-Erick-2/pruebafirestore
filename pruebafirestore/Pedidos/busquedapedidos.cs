@@ -88,7 +88,7 @@ namespace pruebafirestore.Pedidos
             numero--;
             directorio.Rows.RemoveAt(numero);
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
-            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
+            dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Descending);
 
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;

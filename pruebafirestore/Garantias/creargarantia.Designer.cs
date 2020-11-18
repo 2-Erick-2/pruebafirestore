@@ -517,8 +517,8 @@
             this.altoButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.altoButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.altoButton1.Enabled = false;
-            this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.altoButton1.ForeColor = System.Drawing.Color.Black;
+            this.altoButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton1.ForeColor = System.Drawing.Color.White;
             this.altoButton1.Inactive1 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Inactive2 = System.Drawing.Color.DodgerBlue;
             this.altoButton1.Location = new System.Drawing.Point(311, 773);

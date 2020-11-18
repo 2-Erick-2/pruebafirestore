@@ -174,6 +174,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Busquedatodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busquedatodo.Designer.cs">
+      <DependentUpon>Busquedatodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Garantias\busquedagarantias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="usuarios.cs" />
     <Content Include="icono2ebe3st %281%29.ico" />
+    <None Include="Resources\printer %281%29.png" />
+    <None Include="Resources\printer.png" />
+    <EmbeddedResource Include="Busquedatodo.resx">
+      <DependentUpon>Busquedatodo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Garantias\busquedagarantias.resx">
       <DependentUpon>busquedagarantias.cs</DependentUpon>
     </EmbeddedResource>
