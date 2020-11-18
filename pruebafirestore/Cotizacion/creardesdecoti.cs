@@ -46,7 +46,7 @@ namespace pruebafirestore.Cotizacion
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
-            comboBoxbusqueda.Text = "Orden";
+            comboBoxbusqueda.Text = "Nombre";
 
             GetAllDocuments("Revisiones");
             //comboBoxbusqueda.Text = "Orden";
@@ -93,7 +93,7 @@ namespace pruebafirestore.Cotizacion
             //DataGridView.Sort(DataGridView.Columns(1), ListSortDirection.Ascending);
             dataGridView1.Sort(dataGridView1.Columns["Fecha y hora"], ListSortDirection.Ascending);
 
-            dataGridView1.Columns[2].Visible = false;
+            //dataGridView1.Columns[2].Visible = false;
 
 
             dataGridView1.RowHeadersVisible = false;

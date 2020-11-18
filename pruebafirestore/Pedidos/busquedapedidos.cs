@@ -27,7 +27,7 @@ namespace pruebafirestore.Pedidos
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");
-            comboBoxbusqueda.Text = "Orden";
+            comboBoxbusqueda.Text = "Nombre";
 
             GetAllDocuments("Pedidos"); 
         }

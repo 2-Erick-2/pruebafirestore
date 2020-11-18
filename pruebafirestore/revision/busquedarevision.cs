@@ -33,7 +33,7 @@ namespace pruebafirestore.revision
         private void busquedarevision_Load(object sender, EventArgs e)
         {
             int numdias = 0;
-            comboBoxbusqueda.Text = "Orden";
+            comboBoxbusqueda.Text = "Nombre";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             database = FirestoreDb.Create("facturasebest2");

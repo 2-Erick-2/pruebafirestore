@@ -172,7 +172,7 @@
             this.altoButton1.Stroke = false;
             this.altoButton1.StrokeColor = System.Drawing.Color.Gray;
             this.altoButton1.TabIndex = 9;
-            this.altoButton1.Text = "Cerrar";
+            this.altoButton1.Text = "Guardar revisión";
             this.altoButton1.Transparency = false;
             this.altoButton1.Click += new System.EventHandler(this.altoButton1_Click);
             // 

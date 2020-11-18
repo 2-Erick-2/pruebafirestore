@@ -274,8 +274,8 @@ namespace pruebafirestore.Cotizacion
 
                 //Resize DataGridView back to original height.
                 //dataGridView1.Height = height;
-
                 //Save the Bitmap to folder.
+
                 //bitmap.Save(@"D:\DataGridView.png");
 
                 BrotherPrintThis();
