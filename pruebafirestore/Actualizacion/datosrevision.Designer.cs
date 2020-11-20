@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checksinrefacciones = new System.Windows.Forms.CheckBox();
             this.checkperdidatotal = new System.Windows.Forms.CheckBox();
+            this.checKLISTO = new System.Windows.Forms.CheckBox();
+            this.checkpedidorealizado = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -131,7 +133,7 @@
             // 
             this.checksinrefacciones.AutoSize = true;
             this.checksinrefacciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checksinrefacciones.Location = new System.Drawing.Point(27, 282);
+            this.checksinrefacciones.Location = new System.Drawing.Point(18, 282);
             this.checksinrefacciones.Name = "checksinrefacciones";
             this.checksinrefacciones.Size = new System.Drawing.Size(175, 24);
             this.checksinrefacciones.TabIndex = 12;
@@ -143,7 +145,7 @@
             // 
             this.checkperdidatotal.AutoSize = true;
             this.checkperdidatotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkperdidatotal.Location = new System.Drawing.Point(244, 282);
+            this.checkperdidatotal.Location = new System.Drawing.Point(282, 282);
             this.checkperdidatotal.Name = "checkperdidatotal";
             this.checkperdidatotal.Size = new System.Drawing.Size(155, 24);
             this.checkperdidatotal.TabIndex = 13;
@@ -151,12 +153,40 @@
             this.checkperdidatotal.UseVisualStyleBackColor = true;
             this.checkperdidatotal.CheckedChanged += new System.EventHandler(this.checkperdidatotal_CheckedChanged);
             // 
+            // checKLISTO
+            // 
+            this.checKLISTO.AutoSize = true;
+            this.checKLISTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checKLISTO.Location = new System.Drawing.Point(199, 282);
+            this.checKLISTO.Name = "checKLISTO";
+            this.checKLISTO.Size = new System.Drawing.Size(62, 24);
+            this.checKLISTO.TabIndex = 14;
+            this.checKLISTO.Text = "Listo";
+            this.checKLISTO.UseVisualStyleBackColor = true;
+            this.checKLISTO.Visible = false;
+            this.checKLISTO.CheckedChanged += new System.EventHandler(this.checKLISTO_CheckedChanged);
+            // 
+            // checkpedidorealizado
+            // 
+            this.checkpedidorealizado.AutoSize = true;
+            this.checkpedidorealizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkpedidorealizado.Location = new System.Drawing.Point(282, 282);
+            this.checkpedidorealizado.Name = "checkpedidorealizado";
+            this.checkpedidorealizado.Size = new System.Drawing.Size(145, 24);
+            this.checkpedidorealizado.TabIndex = 15;
+            this.checkpedidorealizado.Text = "Pedido realizado";
+            this.checkpedidorealizado.UseVisualStyleBackColor = true;
+            this.checkpedidorealizado.Visible = false;
+            this.checkpedidorealizado.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // datosrevision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(468, 422);
+            this.Controls.Add(this.checkpedidorealizado);
+            this.Controls.Add(this.checKLISTO);
             this.Controls.Add(this.checkperdidatotal);
             this.Controls.Add(this.checksinrefacciones);
             this.Controls.Add(this.label4);
@@ -188,5 +218,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checksinrefacciones;
         private System.Windows.Forms.CheckBox checkperdidatotal;
+        private System.Windows.Forms.CheckBox checKLISTO;
+        private System.Windows.Forms.CheckBox checkpedidorealizado;
     }
 }

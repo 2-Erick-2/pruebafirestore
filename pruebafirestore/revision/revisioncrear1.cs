@@ -230,6 +230,7 @@ namespace pruebafirestore.formularios
         {
             try
             {
+
                 string path = @"C:\cartaebest3.lbx";
                 bpac.Document doc = new bpac.Document();
                 doc.Open(path);
@@ -246,6 +247,7 @@ namespace pruebafirestore.formularios
                 doc.GetObject("modelo").Text = "Modelo: " + txtmodelo.Text;
                 doc.GetObject("fecha").Text = txthorayfecha.Text;
                 doc.GetObject("obser").Text = obser;
+                doc.GetObject("id").Text = lblcontador.Text;
                 //doc.GetObject("orden").Text = orden;
                 doc.GetObject("codigo").Text = orden2;
                 //doc.GetObject("tiempo").Text = espera;
@@ -253,6 +255,8 @@ namespace pruebafirestore.formularios
                 doc.PrintOut(1, bpac.PrintOptionConstants.bpoDefault);
                 doc.EndPrint();
                 doc.Close();
+
+
             }
             catch (Exception ex)
             {

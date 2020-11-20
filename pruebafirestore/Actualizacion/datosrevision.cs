@@ -78,6 +78,8 @@ namespace pruebafirestore.Actualizacion
 
                     {"Numero", txtnumero.Text},
 
+                    {"Estado2", Estado},
+
                     {"Modelo", txtmodelo.Text}
                 };
                 await DOC2.UpdateAsync(data2);
@@ -102,10 +104,20 @@ namespace pruebafirestore.Actualizacion
                 checksinrefacciones.Visible = true;
                 checkperdidatotal.Visible = true;
             }
-            else
+            else if (tipopedido == "PE")
             {
                 checksinrefacciones.Visible = false;
                 checkperdidatotal.Visible = false;
+
+                checKLISTO.Visible = true;
+                checkpedidorealizado.Visible = true;
+            }
+            else if (tipopedido == "RE")
+            {
+                checksinrefacciones.Visible = false;
+                checkperdidatotal.Visible = false;
+                checKLISTO.Visible = false;
+                checkpedidorealizado.Visible = false;
             }
         }
 
@@ -124,6 +136,26 @@ namespace pruebafirestore.Actualizacion
             {
                 checksinrefacciones.Checked = false;
                 Estado = "Perdida total";
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkpedidorealizado.Checked == true)
+            {
+                checKLISTO.Checked = false;
+                Estado = "Pedido realizado";
+
+            }
+        }
+
+        private void checKLISTO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checKLISTO.Checked == true)
+            {
+                checkpedidorealizado.Checked = false;
+                Estado = "Listo";
+
             }
         }
     }

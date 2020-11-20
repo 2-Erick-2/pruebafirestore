@@ -35,12 +35,15 @@ namespace pruebafirestore.Pedidos
         async void GetAllDocuments(String nameOfCollection)
         {
             directorio.Columns.Add("Orden");
+
+            directorio.Columns.Add("Estado");
+
             directorio.Columns.Add("ID");
             directorio.Columns.Add("Nombre");
             directorio.Columns.Add("Numero");
             directorio.Columns.Add("Modelo");
-            // directorio.Columns.Add("Descripcion");
-            // directorio.Columns.Add("Accesorios");
+           
+
             directorio.Columns.Add("Fecha y hora");
             directorio.Columns.Add("Tiempo de espera");
             directorio.Columns.Add("contraseña");
@@ -68,6 +71,10 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Accesorios");
 
 
+            
+
+
+
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
 
@@ -78,7 +85,7 @@ namespace pruebafirestore.Pedidos
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña, clientesclase.Cantidad, clientesclase.Cantidad2, clientesclase.Cantidad3, clientesclase.Cantidad4, clientesclase.Cantidad5, clientesclase.Descripcion, clientesclase.Descripcion2, clientesclase.Descripcion3, clientesclase.Descripcion4, clientesclase.Descripcion5, clientesclase.Importe, clientesclase.Importe2, clientesclase.Importe3, clientesclase.Importe4, clientesclase.Importe5, clientesclase.Total, clientesclase.Abono, clientesclase.Restante,clientesclase.Accesorios);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.Estado2, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña, clientesclase.Cantidad, clientesclase.Cantidad2, clientesclase.Cantidad3, clientesclase.Cantidad4, clientesclase.Cantidad5, clientesclase.Descripcion, clientesclase.Descripcion2, clientesclase.Descripcion3, clientesclase.Descripcion4, clientesclase.Descripcion5, clientesclase.Importe, clientesclase.Importe2, clientesclase.Importe3, clientesclase.Importe4, clientesclase.Importe5, clientesclase.Total, clientesclase.Abono, clientesclase.Restante,clientesclase.Accesorios);
                     dataGridView1.DataSource = directorio;
                 }
 
@@ -139,6 +146,12 @@ namespace pruebafirestore.Pedidos
             dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.White;
             dataGridView1.Columns[8].DefaultCellStyle.BackColor = Color.LightBlue;
 
+            dataGridView1.Columns[26].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[26].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView1.Columns[27].HeaderCell.Style.BackColor = Color.White;
+            dataGridView1.Columns[27].DefaultCellStyle.BackColor = Color.LightBlue;
+
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -165,6 +178,42 @@ namespace pruebafirestore.Pedidos
             {
                 directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
 
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Estado2")
+            {
+                if (e.Value.ToString() == "Listo")
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+
+                }
+                else if (e.Value.ToString() == "Pedido realizado")
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void dataGridView1_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Estado")
+            {
+                if (e.Value.ToString() == "Listo")
+                {
+                    e.CellStyle.BackColor = Color.LightGreen;
+                    e.CellStyle.ForeColor = Color.Black;
+                    
+                }
+                else if (e.Value.ToString() == "Pedido realizado")
+                {
+                    e.CellStyle.BackColor = Color.LightYellow;
+                    e.CellStyle.ForeColor = Color.Black;
+                }
             }
         }
     }

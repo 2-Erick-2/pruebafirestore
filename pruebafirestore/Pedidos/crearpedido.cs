@@ -16,6 +16,7 @@ namespace pruebafirestore.Pedidos
 {
     public partial class crearpedido : Form
     {
+
         FirestoreDb database;
 
         String contar;
@@ -39,10 +40,7 @@ namespace pruebafirestore.Pedidos
         public String desdecoti = "" ;
 
 
-
-
-
-       public  String cant = "";
+        public  String cant = "";
         public String cant2 = "";
         public String cant3 = "";
         public String cant4 = "";
@@ -65,7 +63,6 @@ namespace pruebafirestore.Pedidos
         public String Nombre = "";
         public String Numero = "";
         public String Modelo = "";
-
 
         public String Orden = "";
 
