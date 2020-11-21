@@ -146,6 +146,22 @@ namespace pruebafirestore.Pedidos
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 
+
+            dataGridView2.Columns[0].HeaderCell.Style.BackColor = Color.White;
+            dataGridView2.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
+
+            dataGridView2.Columns[1].HeaderCell.Style.BackColor = Color.White;
+            dataGridView2.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView2.Columns[2].HeaderCell.Style.BackColor = Color.White;
+            dataGridView2.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
+
+            dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+           
+
             //dataGridView1.Columns[0].Width = 1500;
             dataGridView1.Rows[0].Selected = false;                                                                                                                              
 

@@ -56,6 +56,7 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -319,7 +320,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -327,20 +328,30 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView2.Location = new System.Drawing.Point(191, 38);
+            this.dataGridView2.Location = new System.Drawing.Point(444, 165);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(55, 28);
+            this.dataGridView2.Size = new System.Drawing.Size(437, 289);
             this.dataGridView2.TabIndex = 163;
-            this.dataGridView2.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(636, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 33);
+            this.label5.TabIndex = 164;
+            this.label5.Text = "Partes";
             // 
             // Abonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(450, 634);
+            this.ClientSize = new System.Drawing.Size(891, 634);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblcontador);
@@ -399,5 +410,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.TextBox txttotal;
+        private System.Windows.Forms.Label label5;
     }
 }

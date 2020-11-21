@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 
 using Google.Cloud.Firestore;
-
+using System.Globalization;
 
 namespace pruebafirestore.Pedidos
 {
@@ -224,7 +224,33 @@ namespace pruebafirestore.Pedidos
 
                 pedido.Orden = Orden;
 
-                pedido.dataGridView1.Rows.Insert(0, cant, descri,"", impor);
+                double importe1 = Convert.ToDouble(impor.Replace("$",""));
+                String IMPORTE1 = "";
+
+                if (importe1 > -1 && importe1 < 100)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 99 && importe1 < 1000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 999 && importe1 < 10000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 9999 && importe1 < 100000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+
+                pedido.dataGridView1.Rows.Insert(0, cant, descri,"", IMPORTE1);
 
                 pedido.Show();
 
@@ -271,40 +297,66 @@ namespace pruebafirestore.Pedidos
 
                 pedido.Orden = Orden;
 
+                double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                String IMPORTE1 = "";
+
+                double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE2 = "";
 
 
-                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
-                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
+                if (importe1 > -1 && importe1 < 100)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 99 && importe1 < 1000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 999 && importe1 < 10000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 9999 && importe1 < 100000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe2 > -1 && importe2 < 100)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 99 && importe2 < 1000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 999 && importe2 < 10000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 9999 && importe2 < 100000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", IMPORTE1);
+                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", IMPORTE2);
 
                 pedido.Show();
 
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 == "" && cant5 == "")
             {
-                /* mirarpartescoti mirar = new mirarpartescoti();
-                 mirar.cant = cant;
-                 mirar.cant2 = cant2;
-                 mirar.cant3 = cant3;
-
-                 mirar.descri = descri;
-                 mirar.descri2 = descri2;
-                 mirar.descri3 = descri3;
-
-                 mirar.impor = impor;
-                 mirar.impor2 = impor2;
-                 mirar.impor3 = impor3;
-
-                 mirar.total = total;
-                 mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
-                 mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
-                 mirar.dataGridView1.Columns.Add("Importe", "Importe");
-                 mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
-                 mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
-                 mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
-
-                 mirar.dataGridView1.Rows.Insert(3, "", " Total", total);
-
-                 mirar.Show();*/
+          
 
                 crearpedido pedido = new crearpedido();
                 pedido.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -331,42 +383,94 @@ namespace pruebafirestore.Pedidos
                 pedido.Orden = Orden;
 
 
-                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
-                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
-                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", impor3);
+
+
+                double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                String IMPORTE1 = "";
+
+                double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE2 = "";
+
+                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE3 = "";
+
+
+                if (importe1 > -1 && importe1 < 100)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 99 && importe1 < 1000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 999 && importe1 < 10000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 9999 && importe1 < 100000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe2 > -1 && importe2 < 100)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 99 && importe2 < 1000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 999 && importe2 < 10000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 9999 && importe2 < 100000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe3 > -1 && importe3 < 100)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 99 && importe3 < 1000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 999 && importe3 < 10000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 9999 && importe3 < 100000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+
+                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", IMPORTE1);
+                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", IMPORTE2);
+                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", IMPORTE3);
 
                 pedido.Show();
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 == "")
             {
-                /*  mirarpartescoti mirar = new mirarpartescoti();
-                  mirar.cant = cant;
-                  mirar.cant2 = cant2;
-                  mirar.cant3 = cant3;
-                  mirar.cant4 = cant4;
-
-                  mirar.descri = descri;
-                  mirar.descri2 = descri2;
-                  mirar.descri3 = descri3;
-                  mirar.descri4 = descri4;
-
-                  mirar.impor = impor;
-                  mirar.impor2 = impor2;
-                  mirar.impor3 = impor3;
-                  mirar.impor4 = impor4;
-
-                  mirar.total = total;
-                  mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
-                  mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
-                  mirar.dataGridView1.Columns.Add("Importe", "Importe");
-                  mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
-                  mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
-                  mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
-                  mirar.dataGridView1.Rows.Insert(3, cant4, descri4, impor4);
-
-                  mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
-
-                  mirar.Show();*/
+              
                 crearpedido pedido = new crearpedido();
                 pedido.FormBorderStyle = FormBorderStyle.FixedSingle;
                 pedido.cant = cant;
@@ -391,51 +495,122 @@ namespace pruebafirestore.Pedidos
                 pedido.Orden = Orden;
 
 
+
+                double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                String IMPORTE1 = "";
+
+                double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE2 = "";
+
+                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE3 = "";
+
+                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE4 = "";
+
+
+                if (importe1 > -1 && importe1 < 100)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 99 && importe1 < 1000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 999 && importe1 < 10000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 9999 && importe1 < 100000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe2 > -1 && importe2 < 100)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 99 && importe2 < 1000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 999 && importe2 < 10000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 9999 && importe2 < 100000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe3 > -1 && importe3 < 100)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 99 && importe3 < 1000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 999 && importe3 < 10000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 9999 && importe3 < 100000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe4 > -1 && importe4 < 100)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 99 && importe4 < 1000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 999 && importe4 < 10000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 9999 && importe4 < 100000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+
                 pedido.txtnombre.Text = Nombre;
                 pedido.txtnumero.Text = Numero;
                 pedido.txtmodelo.Text = Modelo;
-                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
-                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
-                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", impor3);
-                pedido.dataGridView1.Rows.Insert(3, cant4, descri4, "", impor4);
+                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", IMPORTE1);
+                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", IMPORTE2);
+                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", IMPORTE3);
+                pedido.dataGridView1.Rows.Insert(3, cant4, descri4, "", IMPORTE4);
 
                 pedido.Show();
 
             }
             else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 != "")
             {
-                /* mirarpartescoti mirar = new mirarpartescoti();
-                 mirar.cant = cant;
-                 mirar.cant2 = cant2;
-                 mirar.cant3 = cant3;
-                 mirar.cant4 = cant4;
-                 mirar.cant5 = cant5;
-
-                 mirar.descri = descri;
-                 mirar.descri2 = descri2;
-                 mirar.descri3 = descri3;
-                 mirar.descri4 = descri4;
-                 mirar.descri5 = descri5;
-
-                 mirar.impor = impor;
-                 mirar.impor2 = impor2;
-                 mirar.impor3 = impor3;
-                 mirar.impor4 = impor4;
-                 mirar.impor5 = impor5;
-
-                 mirar.total = total;
-                 mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
-                 mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
-                 mirar.dataGridView1.Columns.Add("Importe", "Importe");
-                 mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
-                 mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
-                 mirar.dataGridView1.Rows.Insert(2, cant3, descri3, impor3);
-                 mirar.dataGridView1.Rows.Insert(3, cant4, descri4, impor4);
-                 mirar.dataGridView1.Rows.Insert(5, cant5, descri5, impor5);
-
-                 mirar.dataGridView1.Rows.Insert(4, "", " Total", total);
-
-                 mirar.Show();*/
                 crearpedido pedido = new crearpedido();
                 pedido.FormBorderStyle = FormBorderStyle.FixedSingle;
                 pedido.cant = cant;
@@ -469,11 +644,137 @@ namespace pruebafirestore.Pedidos
                 pedido.Orden = Orden;
 
 
-                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", impor);
-                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", impor2);
-                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", impor3);
-                pedido.dataGridView1.Rows.Insert(3, cant4, descri4, "", impor4);
-                pedido.dataGridView1.Rows.Insert(4, cant5, descri5, "", impor5);
+
+                double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                String IMPORTE1 = "";
+
+                double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE2 = "";
+
+                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE3 = "";
+
+                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE4 = "";
+
+                double importe5 = Convert.ToDouble(impor2.Replace("$", ""));
+                String IMPORTE5 = "";
+
+
+                if (importe1 > -1 && importe1 < 100)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 99 && importe1 < 1000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 999 && importe1 < 10000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe1 > 9999 && importe1 < 100000)
+                {
+                    double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe2 > -1 && importe2 < 100)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 99 && importe2 < 1000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 999 && importe2 < 10000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe2 > 9999 && importe2 < 100000)
+                {
+                    double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe3 > -1 && importe3 < 100)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 99 && importe3 < 1000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 999 && importe3 < 10000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe3 > 9999 && importe3 < 100000)
+                {
+                    double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe4 > -1 && importe4 < 100)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 99 && importe4 < 1000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 999 && importe4 < 10000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe4 > 9999 && importe4 < 100000)
+                {
+                    double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE4 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+
+                if (importe5 > -1 && importe5 < 100)
+                {
+                    double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE5 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe5 > 99 && importe5 < 1000)
+                {
+                    double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE5 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe5 > 999 && importe5 < 10000)
+                {
+                    double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE5 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (importe5 > 9999 && importe5 < 100000)
+                {
+                    double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                    IMPORTE5 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+                pedido.dataGridView1.Rows.Insert(0, cant, descri, "", IMPORTE1);
+                pedido.dataGridView1.Rows.Insert(1, cant2, descri2, "", IMPORTE2);
+                pedido.dataGridView1.Rows.Insert(2, cant3, descri3, "", IMPORTE3);
+                pedido.dataGridView1.Rows.Insert(3, cant4, descri4, "", IMPORTE4);
+                pedido.dataGridView1.Rows.Insert(4, cant5, descri5, "", IMPORTE5);
 
                 pedido.Show();
             }
