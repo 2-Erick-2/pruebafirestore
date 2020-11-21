@@ -205,14 +205,19 @@ namespace pruebafirestore.Pedidos
             {
                 if (e.Value.ToString() == "Listo")
                 {
+
                     e.CellStyle.BackColor = Color.LightGreen;
+
                     e.CellStyle.ForeColor = Color.Black;
                     
                 }
                 else if (e.Value.ToString() == "Pedido realizado")
                 {
-                    e.CellStyle.BackColor = Color.LightYellow;
+
+                    e.CellStyle.BackColor = Color.Yellow;
+
                     e.CellStyle.ForeColor = Color.Black;
+
                 }
             }
         }
