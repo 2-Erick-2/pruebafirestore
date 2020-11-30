@@ -556,6 +556,7 @@
             this.pdf.TabIndex = 171;
             this.pdf.Text = "Guardar PDF";
             this.pdf.UseVisualStyleBackColor = true;
+            this.pdf.Visible = false;
             // 
             // button3
             // 

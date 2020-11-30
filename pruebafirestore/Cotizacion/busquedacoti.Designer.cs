@@ -48,7 +48,8 @@
             "Orden",
             "Numero",
             "Nombre",
-            "Fecha"});
+            "Fecha",
+            "Modelo"});
             this.comboBoxbusqueda.Location = new System.Drawing.Point(377, 59);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);
@@ -108,6 +109,7 @@
             this.dataGridView1.TabIndex = 39;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView1_RowPrePaint);
             // 
             // busquedacoti
             // 

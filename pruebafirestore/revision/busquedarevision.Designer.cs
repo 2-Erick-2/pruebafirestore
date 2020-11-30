@@ -60,7 +60,8 @@
             "Orden",
             "Numero",
             "Nombre",
-            "Fecha"});
+            "Fecha",
+            "Modelo"});
             this.comboBoxbusqueda.Location = new System.Drawing.Point(342, 92);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);

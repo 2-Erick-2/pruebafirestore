@@ -23,7 +23,10 @@ namespace pruebafirestore.Actualizacion
 
         public String Estado = "";
 
+        public String fechafin = "";
+        public String ID = "";
 
+        public String Contrasena = "";
         public datosrevision()
         {
             InitializeComponent();
@@ -41,6 +44,8 @@ namespace pruebafirestore.Actualizacion
                     {"Nombre", txtnombre.Text},
 
                     {"Numero", txtnumero.Text},
+
+                    {"Descripcion", txtdescri.Text},
 
                     {"Modelo", txtmodelo.Text}
                 };
@@ -103,6 +108,7 @@ namespace pruebafirestore.Actualizacion
             {
                 checksinrefacciones.Visible = true;
                 checkperdidatotal.Visible = true;
+                checkclienteno.Visible = true;
             }
             else if (tipopedido == "PE")
             {
@@ -118,6 +124,10 @@ namespace pruebafirestore.Actualizacion
                 checkperdidatotal.Visible = false;
                 checKLISTO.Visible = false;
                 checkpedidorealizado.Visible = false;
+
+                label5.Enabled = true;
+                txtdescri.Enabled = true;
+                altoButton3.Visible = true;
             }
         }
 
@@ -126,6 +136,7 @@ namespace pruebafirestore.Actualizacion
             if (checksinrefacciones.Checked == true)
             {
                 checkperdidatotal.Checked = false;
+                checkclienteno.Checked = false;
                 Estado = "Sin refacciones";
             }
         }
@@ -135,6 +146,7 @@ namespace pruebafirestore.Actualizacion
             if (checkperdidatotal.Checked == true)
             {
                 checksinrefacciones.Checked = false;
+                checkclienteno.Checked = false;
                 Estado = "Perdida total";
             }
         }
@@ -187,6 +199,63 @@ namespace pruebafirestore.Actualizacion
                     await cityRef.DeleteAsync();
                 }
                 MessageBox.Show("Eliminado");
+            }
+        }
+
+        private void checkclienteno_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkclienteno.Checked == true)
+            {
+                checkperdidatotal.Checked = false;
+                checksinrefacciones.Checked = false;
+                Estado = "Cliente no quiere reparar";
+            }
+        }
+
+        private void altoButton3_Click(object sender, EventArgs e)
+        {
+            BrotherPrintThis();
+        }
+
+        public void BrotherPrintThis()
+        {
+            try
+            {
+
+                string path = @"C:\cartaebest3.lbx";
+                bpac.Document doc = new bpac.Document();
+                doc.Open(path);
+                bool test = doc.SetPrinter("Brother QL-800", true);
+                string pedido2 = "Tipo pedido: Revision";
+                string nombre = "Nombre: " + txtnombre.Text;
+                string numero = "Numero: " + txtnumero.Text;
+                string obser = "Obs.: " + txtdescri.Text;
+               // string orden = "Numero orden: " + orden;
+                string orden2 = orden;
+                doc.GetObject("pedido").Text = pedido2;
+                doc.GetObject("nombre").Text = nombre;
+                doc.GetObject("numero").Text = numero;
+                doc.GetObject("modelo").Text = "Modelo: " + txtmodelo.Text;
+
+                doc.GetObject("fecha").Text = fechafin;
+
+                doc.GetObject("obser").Text = obser;
+                doc.GetObject("contraseña").Text = "Clave: "+ Contrasena;
+
+                doc.GetObject("id").Text = ID;
+                //doc.GetObject("orden").Text = orden;
+                doc.GetObject("codigo").Text = orden2;
+                //doc.GetObject("tiempo").Text = espera;
+                doc.StartPrint("", bpac.PrintOptionConstants.bpoDefault);
+                doc.PrintOut(1, bpac.PrintOptionConstants.bpoDefault);
+                doc.EndPrint();
+                doc.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

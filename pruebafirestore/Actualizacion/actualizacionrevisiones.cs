@@ -132,6 +132,10 @@ namespace pruebafirestore.Actualizacion
             String Nombre = "";
             String Numero = "";
             String Modelo = "";
+            String Descripcion = "";
+            String Fecha = "";
+            String id = "";
+            String Contras = "";
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
@@ -139,6 +143,10 @@ namespace pruebafirestore.Actualizacion
                 Nombre = row.Cells["Nombre"].Value.ToString();
                 Numero = row.Cells["Numero"].Value.ToString();
                 Modelo = row.Cells["Modelo"].Value.ToString();
+                Descripcion = row.Cells["Descripcion"].Value.ToString();
+                Fecha = row.Cells["Fecha y hora"].Value.ToString();
+                id = row.Cells["ID"].Value.ToString();
+                Contras = row.Cells["Contraseña"].Value.ToString();
 
             }
 
@@ -151,7 +159,11 @@ namespace pruebafirestore.Actualizacion
             datos.txtnombre.Text = Nombre;
             datos.txtnumero.Text = Numero;
             datos.txtmodelo.Text = Modelo;
+            datos.txtdescri.Text = Descripcion;
 
+            datos.fechafin = Fecha;
+            datos.ID = id;
+            datos.Contrasena = Contras;
             datos.Show();
         }
 
@@ -175,6 +187,11 @@ namespace pruebafirestore.Actualizacion
             else if (comboBoxbusqueda.Text == "Fecha")
             {
                 directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Modelo")
+            {
+                directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
 
             }
         }

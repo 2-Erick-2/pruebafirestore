@@ -80,10 +80,19 @@ namespace pruebafirestore
             directorio.Columns.Add("Numero");
             directorio.Columns.Add("Modelo");
             directorio.Columns.Add("Descripción");
-            directorio.Columns.Add("Accesorios");
-            directorio.Columns.Add("Fecha y hora");
-            directorio.Columns.Add("Tiempo de espera");
             directorio.Columns.Add("contraseña");
+
+            directorio.Columns.Add("Accesorios");
+
+
+            directorio.Columns.Add("Tiempo de espera");
+            directorio.Columns.Add("Fecha y hora");
+
+
+
+
+
+
             // directorio.Columns.Add("fechaprueba");
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
 
@@ -98,7 +107,7 @@ namespace pruebafirestore
                 {
                     DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
 
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Contraseña, clientesclase.Accesorios, clientesclase.Tiempodeespera, clientesclase.Fechayhora);
                     dataGridView1.DataSource = directorio;
                 }
             }
@@ -185,9 +194,9 @@ namespace pruebafirestore
                 Clientesclase clientesclase = docsnap.ConvertTo<Clientesclase>();
                 if (docsnap.Exists)
                 {
-                    DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
+                    //DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
 
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Contraseña, clientesclase.Accesorios, clientesclase.Tiempodeespera, clientesclase.Fechayhora);
                     dataGridView1.DataSource = directorio;
                 }
             }
@@ -277,7 +286,7 @@ namespace pruebafirestore
                 {
                     DateTime oDate = Convert.ToDateTime(clientesclase.Fechayhora);
 
-                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Accesorios, clientesclase.Fechayhora, clientesclase.Tiempodeespera, clientesclase.Contraseña);
+                    directorio.Rows.Add(docsnap.Id, clientesclase.ID.ToString(), clientesclase.Nombre, clientesclase.Numero, clientesclase.Modelo, clientesclase.Descripcion, clientesclase.Contraseña, clientesclase.Accesorios, clientesclase.Tiempodeespera, clientesclase.Fechayhora);
                     dataGridView1.DataSource = directorio;
                 }
             }

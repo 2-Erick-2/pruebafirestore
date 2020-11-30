@@ -91,6 +91,7 @@
             this.txtIVA = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button3 = new System.Windows.Forms.Button();
+            this.pdf = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -199,7 +200,7 @@
             this.txtorden.AutoSize = true;
             this.txtorden.BackColor = System.Drawing.Color.White;
             this.txtorden.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtorden.Location = new System.Drawing.Point(400, 758);
+            this.txtorden.Location = new System.Drawing.Point(486, 749);
             this.txtorden.Name = "txtorden";
             this.txtorden.Size = new System.Drawing.Size(173, 29);
             this.txtorden.TabIndex = 162;
@@ -729,12 +730,25 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // pdf
+            // 
+            this.pdf.AutoSize = true;
+            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdf.Location = new System.Drawing.Point(271, 745);
+            this.pdf.Name = "pdf";
+            this.pdf.Size = new System.Drawing.Size(173, 33);
+            this.pdf.TabIndex = 190;
+            this.pdf.Text = "Guardar PDF";
+            this.pdf.UseVisualStyleBackColor = true;
+            this.pdf.Visible = false;
+            // 
             // crearpedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1154, 879);
+            this.Controls.Add(this.pdf);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtIVA);
             this.Controls.Add(this.txttotalsiniva);
@@ -856,5 +870,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.CheckBox pdf;
     }
 }

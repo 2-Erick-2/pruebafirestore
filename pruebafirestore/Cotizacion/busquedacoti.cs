@@ -58,9 +58,8 @@ namespace pruebafirestore.Cotizacion
             comboBoxbusqueda.Text = "Nombre";
 
             GetAllDocuments("Cotizaciones");
-
-           // directorio.DefaultView.RowFilter = $"[Fecha y hora] NOT = 'label10'";
-
+            
+            // directorio.DefaultView.RowFilter = $"[Fecha y hora] NOT = 'label10'";
         }
         async void GetAllDocuments(String nameOfCollection)
         {
@@ -169,6 +168,8 @@ namespace pruebafirestore.Cotizacion
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Rows[0].Selected = false;
+
         }
 
 
@@ -365,17 +366,22 @@ namespace pruebafirestore.Cotizacion
                 directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
 
             }
+            else if (comboBoxbusqueda.Text == "Modelo")
+            {
+                directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
+
+            }
 
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Estado2")
+            /*if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Estado2")
             {
                 if(e.Value.ToString() == "Sin refacciones")
                 {
-                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
 
                 }
                 else  if (e.Value.ToString() == "Perdida total")
@@ -383,6 +389,27 @@ namespace pruebafirestore.Cotizacion
                     dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
                     dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
                 }
+                if (e.Value.ToString() == "Cliente no quiere reparar")
+                {
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Orange;
+                    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+                }
+            }*/
+        }
+
+        private void dataGridView1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[25].Value.ToString() == "Cliente no quiere reparar")
+            {
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Orange;
+            }
+            else if (dataGridView1.Rows[e.RowIndex].Cells[25].Value.ToString() == "Sin refacciones")
+            {
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+            }
+            else if (dataGridView1.Rows[e.RowIndex].Cells[25].Value.ToString() == "Perdida total")
+            {
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
             }
         }
     }

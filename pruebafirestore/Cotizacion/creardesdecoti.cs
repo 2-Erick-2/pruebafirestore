@@ -173,6 +173,11 @@ namespace pruebafirestore.Cotizacion
                 directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
 
             }
+            else if (comboBoxbusqueda.Text == "Modelo")
+            {
+                directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
+
+            }
 
         }
 

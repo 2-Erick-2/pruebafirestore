@@ -341,6 +341,10 @@ namespace pruebafirestore.Pedidos
                 altoButton1.Enabled = false;
             }
 
+            if (ClaseCompartida.usuarios == "PERLA")
+            {
+                pdf.Visible = true;
+            }
 
         }
 
@@ -951,7 +955,20 @@ namespace pruebafirestore.Pedidos
                 //printDocument1.Print();
                 // printPreviewDialog1.Show();
                 //Add_Document_with_orden();
-                if(Orden != "")
+
+                if (pdf.Checked == true)
+                {
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps2 = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps2;
+                    printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+
+                    printDocument1.PrintPage += impresion2;
+                    printDocument1.Print();
+                }
+
+
+                if (Orden != "")
                 {
                     this.Hide();
                 }
@@ -1025,6 +1042,8 @@ namespace pruebafirestore.Pedidos
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
             e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 25));
             e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("      Numero: " + txtnumero.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
             e.Graphics.DrawString("      Modelo: " + txtmarca.Text + " " + txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
 
             
@@ -1363,7 +1382,7 @@ namespace pruebafirestore.Pedidos
 
                 {"Numero",txtnumero.Text},
 
-                {"Modelo",txtmarca.Text + " "+txtmodelo.Text},
+                {"Modelo",txtmodelo.Text},
 
                 {"Cantidad",c1} ,
 
@@ -1411,6 +1430,368 @@ namespace pruebafirestore.Pedidos
             await DOC2.SetAsync(data2, SetOptions.MergeAll);
             MessageBox.Show("guardado");
         }
+
+
+
+
+        private  void impresion2(object sender, PrintPageEventArgs e)
+        {
+            Image newImage = Properties.Resources.ebestimprimr4;
+            int y = 100;
+
+            // Create rectangle for source image.
+            RectangleF srcRect = new RectangleF(100.0F, 100.0F, 150.0F, 150.0F);
+            e.Graphics.DrawImage(newImage, 30, 2);
+
+            //e.Graphics.DrawImageUnscaledAndClipped(newImage,new Point(10,10));
+            e.Graphics.DrawString("             Pedido", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(5, y));
+            e.Graphics.DrawString("                                       id: " + lblcontador.Text, new Font("Arial", 8, FontStyle.Regular), Brushes.Black, new Point(5, y += 40));
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+            e.Graphics.DrawString("                    GUGE900514C70", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 30));
+            e.Graphics.DrawString("     Calle Pedro J. Méndez No.1082-A OTE.", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                  Reynosa Tamaulipas", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                             88500", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                         8999222312", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                         8994349816", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                         8991420006", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                  e-best@live.com.mx", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 25));
+            e.Graphics.DrawString("      Nombre: " + txtnombre.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("      Numero: " + txtnumero.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+            e.Graphics.DrawString("      Modelo: " + txtmarca.Text + " " + txtmodelo.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+
+            if (checkrespuesta.Checked == true)
+            {
+                e.Graphics.DrawString("      Tiempo de espera: " + combohoras.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+            }
+
+            e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
+            e.Graphics.DrawString("                       PARTES ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("    Cant. ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("                       Descripción ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y));
+            e.Graphics.DrawString("                                                      Importe ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y));
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                int d = y;
+                // MessageBox.Show(d.ToString());
+                e.Graphics.DrawString(row.Cells["Cantidad"].Value.ToString() + "         " + row.Cells["Descripcion"].Value.ToString(), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(25, y += 20));
+                e.Graphics.DrawString("                                              " + row.Cells["Importe"].Value.ToString(), new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(25, d += 20));
+
+                // e.Graphics.DrawString(dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString(), new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new Point(5, y +=40));
+            }
+            String p1 = "";
+            String p2 = "";
+            String p3 = "";
+            String p4 = "";
+            String p5 = "";
+
+            String c1 = "";
+            String c2 = "";
+            String c3 = "";
+            String c4 = "";
+            String c5 = "";
+
+            String d1 = "";
+            String d2 = "";
+            String d3 = "";
+            String d4 = "";
+            String d5 = "";
+
+
+            String TOTALFINAL = "";
+
+
+            Double total = 0;
+
+            double iva = 0;
+
+            double ivasin = 0;
+
+            double abono = Convert.ToDouble(txtabono.Text.Replace("$", ""));
+
+            if (dataGridView1.Rows.Count == 1)
+            {
+                p1 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString().Replace("$", "");
+                c1 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                d1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+
+
+
+                total = Convert.ToDouble(p1);
+                ivasin = total * .08;
+                iva = total * 1.08;
+            }
+            else if (dataGridView1.Rows.Count == 2)
+            {
+                p1 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString().Replace("$", "");
+                p2 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString().Replace("$", "");
+
+
+                c1 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                c2 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+
+                d1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                d2 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+
+
+                total = Convert.ToDouble(p1) + Convert.ToDouble(p2);
+                ivasin = total * .08;
+
+                iva = total * 1.08;
+            }
+            else if (dataGridView1.Rows.Count == 3)
+            {
+                p1 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString().Replace("$", "");
+                p2 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString().Replace("$", "");
+                p3 = dataGridView1.Rows[2].Cells["Importe"].Value.ToString().Replace("$", "");
+
+                c1 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                c2 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+                c3 = dataGridView1.Rows[2].Cells["Cantidad"].Value.ToString();
+
+
+                d1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                d2 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+                d3 = dataGridView1.Rows[2].Cells["Descripcion"].Value.ToString();
+
+
+                total = Convert.ToDouble(p1) + Convert.ToDouble(p2) + Convert.ToDouble(p3);
+                ivasin = total * .08;
+
+                iva = total * 1.08;
+            }
+            else if (dataGridView1.Rows.Count == 4)
+            {
+                p1 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString().Replace("$", "");
+                p2 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString().Replace("$", "");
+                p3 = dataGridView1.Rows[2].Cells["Importe"].Value.ToString().Replace("$", "");
+                p4 = dataGridView1.Rows[3].Cells["Importe"].Value.ToString().Replace("$", "");
+
+
+                c1 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                c2 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+                c3 = dataGridView1.Rows[2].Cells["Cantidad"].Value.ToString();
+                c4 = dataGridView1.Rows[3].Cells["Cantidad"].Value.ToString();
+
+
+                d1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                d2 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+                d3 = dataGridView1.Rows[2].Cells["Descripcion"].Value.ToString();
+                d4 = dataGridView1.Rows[3].Cells["Descripcion"].Value.ToString();
+
+                total = Convert.ToDouble(p1) + Convert.ToDouble(p2) + Convert.ToDouble(p3) + Convert.ToDouble(p4);
+                ivasin = total * .08;
+
+
+                iva = total * 1.08;
+            }
+            else if (dataGridView1.Rows.Count == 5)
+            {
+                p1 = dataGridView1.Rows[0].Cells["Importe"].Value.ToString().Replace("$", "");
+                p2 = dataGridView1.Rows[1].Cells["Importe"].Value.ToString().Replace("$", "");
+                p3 = dataGridView1.Rows[2].Cells["Importe"].Value.ToString().Replace("$", "");
+                p4 = dataGridView1.Rows[3].Cells["Importe"].Value.ToString().Replace("$", "");
+                p5 = dataGridView1.Rows[4].Cells["Importe"].Value.ToString().Replace("$", "");
+
+                c1 = dataGridView1.Rows[0].Cells["Cantidad"].Value.ToString();
+                c2 = dataGridView1.Rows[1].Cells["Cantidad"].Value.ToString();
+                c3 = dataGridView1.Rows[2].Cells["Cantidad"].Value.ToString();
+                c4 = dataGridView1.Rows[3].Cells["Cantidad"].Value.ToString();
+                c5 = dataGridView1.Rows[4].Cells["Cantidad"].Value.ToString();
+
+
+                d1 = dataGridView1.Rows[0].Cells["Descripcion"].Value.ToString();
+                d2 = dataGridView1.Rows[1].Cells["Descripcion"].Value.ToString();
+                d3 = dataGridView1.Rows[2].Cells["Descripcion"].Value.ToString();
+                d4 = dataGridView1.Rows[3].Cells["Descripcion"].Value.ToString();
+                d5 = dataGridView1.Rows[4].Cells["Descripcion"].Value.ToString();
+
+                total = Convert.ToDouble(p1) + Convert.ToDouble(p2) + Convert.ToDouble(p3) + Convert.ToDouble(p4) + Convert.ToDouble(p5);
+                ivasin = total * .08;
+
+
+                iva = total * 1.08;
+
+            }
+
+
+            String preciototal = "";
+
+            String ivatotal = "";
+
+            String ivasintotal = "";
+
+            String Abono = "";
+
+            String res = "";
+
+            if (total > -1 && total < 100)
+            {
+                double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                preciototal = d.ToString("$      .00", CultureInfo.InvariantCulture);
+            }
+            else if (total > 99 && total < 1000)
+            {
+                double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                preciototal = d.ToString("$    .00", CultureInfo.InvariantCulture);
+            }
+            else if (total > 999 && total < 10000)
+            {
+                double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                preciototal = d.ToString("$  .00", CultureInfo.InvariantCulture);
+            }
+            else if (total > 9999 && total < 100000)
+            {
+                double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
+                preciototal = d.ToString("$.00", CultureInfo.InvariantCulture);
+            }
+
+            if (iva > -1 && iva < 100)
+            {
+                double d = Convert.ToDouble(iva.ToString(), CultureInfo.InvariantCulture);
+                ivatotal = d.ToString("$      .00", CultureInfo.InvariantCulture);
+            }
+            else if (iva > 99 && iva < 1000)
+            {
+                double d = Convert.ToDouble(iva.ToString(), CultureInfo.InvariantCulture);
+                ivatotal = d.ToString("$    .00", CultureInfo.InvariantCulture);
+            }
+            else if (iva > 999 && iva < 10000)
+            {
+                double d = Convert.ToDouble(iva.ToString(), CultureInfo.InvariantCulture);
+                ivatotal = d.ToString("$  .00", CultureInfo.InvariantCulture);
+            }
+            else if (iva > 9999 && iva < 100000)
+            {
+                double d = Convert.ToDouble(iva.ToString(), CultureInfo.InvariantCulture);
+                ivatotal = d.ToString("$.00", CultureInfo.InvariantCulture);
+            }
+
+            if (ivasin > -1 && ivasin < 100)
+            {
+                double d = Convert.ToDouble(ivasin.ToString(), CultureInfo.InvariantCulture);
+                ivasintotal = d.ToString("$      .00", CultureInfo.InvariantCulture);
+            }
+            else if (ivasin > 99 && ivasin < 1000)
+            {
+                double d = Convert.ToDouble(ivasin.ToString(), CultureInfo.InvariantCulture);
+                ivasintotal = d.ToString("$    .00", CultureInfo.InvariantCulture);
+            }
+            else if (ivasin > 999 && ivasin < 10000)
+            {
+                double d = Convert.ToDouble(ivasin.ToString(), CultureInfo.InvariantCulture);
+                ivasintotal = d.ToString("$  .00", CultureInfo.InvariantCulture);
+            }
+            else if (ivasin > 9999 && ivasin < 100000)
+            {
+                double d = Convert.ToDouble(ivasin.ToString(), CultureInfo.InvariantCulture);
+                ivasintotal = d.ToString("$.00", CultureInfo.InvariantCulture);
+            }
+
+            if (abono > -1 && abono < 100)
+            {
+                double d = Convert.ToDouble(abono.ToString(), CultureInfo.InvariantCulture);
+                Abono = d.ToString("$      .00", CultureInfo.InvariantCulture);
+            }
+            else if (abono > 99 && abono < 1000)
+            {
+                double d = Convert.ToDouble(abono.ToString(), CultureInfo.InvariantCulture);
+                Abono = d.ToString("$    .00", CultureInfo.InvariantCulture);
+            }
+            else if (abono > 999 && abono < 10000)
+            {
+                double d = Convert.ToDouble(abono.ToString(), CultureInfo.InvariantCulture);
+                Abono = d.ToString("$  .00", CultureInfo.InvariantCulture);
+            }
+            else if (abono > 9999 && abono < 100000)
+            {
+                double d = Convert.ToDouble(abono.ToString(), CultureInfo.InvariantCulture);
+                Abono = d.ToString("$.00", CultureInfo.InvariantCulture);
+            }
+
+            if (checkiva.Checked == true)
+            {
+                double restante = iva - abono;
+
+
+                if (restante > -1 && restante < 100)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 99 && restante < 1000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 999 && restante < 10000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 9999 && restante < 100000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+                e.Graphics.DrawString("                                  SubTotal: " + preciototal, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 25));
+                e.Graphics.DrawString("                                           IVA: " + ivasintotal, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                                        Total: " + ivatotal, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                                      Abono: " + Abono, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                                  Restante: " + res, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 25));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, y += 30);
+                TOTALFINAL = ivatotal;
+            }
+            else
+            {
+                double restante = total - abono;
+
+
+                if (restante > -1 && restante < 100)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 99 && restante < 1000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 999 && restante < 10000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                }
+                else if (restante > 9999 && restante < 100000)
+                {
+                    double d = Convert.ToDouble(restante.ToString(), CultureInfo.InvariantCulture);
+                    res = d.ToString("$.00", CultureInfo.InvariantCulture);
+                }
+
+                e.Graphics.DrawString("                                        Total: " + preciototal, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 25));
+                e.Graphics.DrawString("                                      Abono: " + Abono, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                                  Restante: " + res, new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawString("                      Diagnóstico gratis", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 25));
+                e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+                e.Graphics.DrawImage(pictureBox2.Image, 40, y += 30);
+                TOTALFINAL = preciototal;
+            }
+
+        }
+
+
 
         private async void imprimir(object sender, PrintPageEventArgs e)
         {

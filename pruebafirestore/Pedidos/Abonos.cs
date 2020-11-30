@@ -631,6 +631,8 @@ namespace pruebafirestore.Pedidos
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
             e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 25));
             e.Graphics.DrawString("      Nombre: " + Nombre, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("      Numero: " + Numero, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
             e.Graphics.DrawString("      Modelo: " + Modelo, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
 
             /*if (checkrespuesta.Checked == true && checkBox2.Checked == true)
@@ -1715,6 +1717,8 @@ namespace pruebafirestore.Pedidos
             e.Graphics.DrawString("  =================", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new Point(5, y += 30));
             e.Graphics.DrawString("      Fecha: " + txthorayfecha.Text, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 30));
             e.Graphics.DrawString("      Nombre: " + Nombre, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+            e.Graphics.DrawString("      Numero: " + Numero, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
+
             e.Graphics.DrawString("      Modelo: " + Modelo, new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new Point(5, y += 20));
             
             

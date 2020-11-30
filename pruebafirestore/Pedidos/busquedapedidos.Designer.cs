@@ -48,8 +48,9 @@
             "Orden",
             "Numero",
             "Nombre",
-            "Fecha"});
-            this.comboBoxbusqueda.Location = new System.Drawing.Point(377, 12);
+            "Fecha",
+            "Modelo"});
+            this.comboBoxbusqueda.Location = new System.Drawing.Point(378, 38);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);
             this.comboBoxbusqueda.TabIndex = 46;
@@ -58,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 12);
+            this.label2.Location = new System.Drawing.Point(291, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 31);
             this.label2.TabIndex = 45;
@@ -67,7 +68,7 @@
             // txtbusqueda
             // 
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbusqueda.Location = new System.Drawing.Point(577, 12);
+            this.txtbusqueda.Location = new System.Drawing.Point(578, 38);
             this.txtbusqueda.Multiline = true;
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(203, 29);
@@ -100,11 +101,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1164, 790);
+            this.dataGridView1.Size = new System.Drawing.Size(1164, 745);
             this.dataGridView1.TabIndex = 47;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting_1);
             // 

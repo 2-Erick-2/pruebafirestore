@@ -179,6 +179,11 @@ namespace pruebafirestore.Pedidos
                 directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
 
             }
+            else if (comboBoxbusqueda.Text == "Modelo")
+            {
+                directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
+
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
