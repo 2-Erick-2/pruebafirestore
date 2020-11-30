@@ -158,5 +158,36 @@ namespace pruebafirestore.Actualizacion
 
             }
         }
+
+        private async void altoButton2_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Eliminar", "Eliminando",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.Yes)
+            {
+                // cancel the closure of the form.
+
+
+                if (tipopedido == "CO")
+                {
+                    DocumentReference cityRef = database.Collection("Cotizaciones").Document(orden);
+                    await cityRef.DeleteAsync();
+                }
+                else if (tipopedido == "PE")
+                {
+                    DocumentReference cityRef = database.Collection("Pedidos").Document(orden);
+                    await cityRef.DeleteAsync();
+                }
+                else if (tipopedido == "RE")
+                {
+                    DocumentReference cityRef = database.Collection("Revisiones").Document(orden);
+                    await cityRef.DeleteAsync();
+                }
+                MessageBox.Show("Eliminado");
+            }
+        }
     }
 }

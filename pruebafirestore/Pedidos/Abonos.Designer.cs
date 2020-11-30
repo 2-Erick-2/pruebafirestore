@@ -57,6 +57,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkiva = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -230,7 +231,7 @@
             // 
             // printDocument1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.imprimir);
             // 
             // txtabonos
             // 
@@ -345,12 +346,26 @@
             this.label5.TabIndex = 164;
             this.label5.Text = "Partes";
             // 
+            // checkiva
+            // 
+            this.checkiva.AutoSize = true;
+            this.checkiva.BackColor = System.Drawing.Color.White;
+            this.checkiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkiva.Location = new System.Drawing.Point(483, 579);
+            this.checkiva.Name = "checkiva";
+            this.checkiva.Size = new System.Drawing.Size(68, 33);
+            this.checkiva.TabIndex = 165;
+            this.checkiva.Text = "IVA";
+            this.checkiva.UseVisualStyleBackColor = false;
+            this.checkiva.Visible = false;
+            // 
             // Abonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(891, 634);
+            this.Controls.Add(this.checkiva);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.pictureBox2);
@@ -376,7 +391,7 @@
             this.MaximizeBox = false;
             this.Name = "Abonos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Abonos";
+            this.Text = "23";
             this.Load += new System.EventHandler(this.Abonos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -411,5 +426,6 @@
         public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.TextBox txttotal;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkiva;
     }
 }

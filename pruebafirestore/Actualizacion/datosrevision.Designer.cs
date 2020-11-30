@@ -41,6 +41,7 @@
             this.checkperdidatotal = new System.Windows.Forms.CheckBox();
             this.checKLISTO = new System.Windows.Forms.CheckBox();
             this.checkpedidorealizado = new System.Windows.Forms.CheckBox();
+            this.altoButton2 = new AltoControls.AltoButton();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -179,12 +180,35 @@
             this.checkpedidorealizado.Visible = false;
             this.checkpedidorealizado.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // altoButton2
+            // 
+            this.altoButton2.Active1 = System.Drawing.Color.RoyalBlue;
+            this.altoButton2.Active2 = System.Drawing.Color.RoyalBlue;
+            this.altoButton2.BackColor = System.Drawing.Color.Transparent;
+            this.altoButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.altoButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.altoButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.altoButton2.ForeColor = System.Drawing.Color.White;
+            this.altoButton2.Inactive1 = System.Drawing.Color.DodgerBlue;
+            this.altoButton2.Inactive2 = System.Drawing.Color.DodgerBlue;
+            this.altoButton2.Location = new System.Drawing.Point(105, 375);
+            this.altoButton2.Name = "altoButton2";
+            this.altoButton2.Radius = 10;
+            this.altoButton2.Size = new System.Drawing.Size(245, 48);
+            this.altoButton2.Stroke = false;
+            this.altoButton2.StrokeColor = System.Drawing.Color.Gray;
+            this.altoButton2.TabIndex = 16;
+            this.altoButton2.Text = "Eliminar";
+            this.altoButton2.Transparency = false;
+            this.altoButton2.Click += new System.EventHandler(this.altoButton2_Click);
+            // 
             // datosrevision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(468, 422);
+            this.Controls.Add(this.altoButton2);
             this.Controls.Add(this.checkpedidorealizado);
             this.Controls.Add(this.checKLISTO);
             this.Controls.Add(this.checkperdidatotal);
@@ -200,6 +224,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "datosrevision";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "datosrevision";
             this.Load += new System.EventHandler(this.datosrevision_Load);
             this.ResumeLayout(false);
@@ -220,5 +245,6 @@
         private System.Windows.Forms.CheckBox checkperdidatotal;
         private System.Windows.Forms.CheckBox checKLISTO;
         private System.Windows.Forms.CheckBox checkpedidorealizado;
+        private AltoControls.AltoButton altoButton2;
     }
 }
