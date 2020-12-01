@@ -50,7 +50,7 @@
             "Nombre",
             "Fecha",
             "Modelo"});
-            this.comboBoxbusqueda.Location = new System.Drawing.Point(370, 11);
+            this.comboBoxbusqueda.Location = new System.Drawing.Point(377, 38);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);
             this.comboBoxbusqueda.TabIndex = 50;
@@ -58,17 +58,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(283, 11);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(290, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 31);
+            this.label2.Size = new System.Drawing.Size(57, 29);
             this.label2.TabIndex = 49;
             this.label2.Text = "Por:";
             // 
             // txtbusqueda
             // 
             this.txtbusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbusqueda.Location = new System.Drawing.Point(570, 11);
+            this.txtbusqueda.Location = new System.Drawing.Point(577, 38);
             this.txtbusqueda.Multiline = true;
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(203, 29);

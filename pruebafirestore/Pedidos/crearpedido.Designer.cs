@@ -39,7 +39,6 @@
             this.txtcontracel = new System.Windows.Forms.TextBox();
             this.checkcontra = new System.Windows.Forms.CheckBox();
             this.txtnombre2 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.checkiva = new System.Windows.Forms.CheckBox();
             this.txtrepetidos = new System.Windows.Forms.TextBox();
             this.txtpruibea = new System.Windows.Forms.TextBox();
@@ -52,14 +51,12 @@
             this.combohoras = new System.Windows.Forms.ComboBox();
             this.combodias = new System.Windows.Forms.ComboBox();
             this.txthorayfecha = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.altoButton1 = new AltoControls.AltoButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtimporte = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -90,10 +87,14 @@
             this.txttotalsiniva = new System.Windows.Forms.TextBox();
             this.txtIVA = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
             this.pdf = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblcontador
@@ -138,14 +139,6 @@
             this.txtnombre2.Name = "txtnombre2";
             this.txtnombre2.Size = new System.Drawing.Size(86, 4);
             this.txtnombre2.TabIndex = 169;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(18, 184);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 104);
-            this.pictureBox2.TabIndex = 168;
-            this.pictureBox2.TabStop = false;
             // 
             // checkiva
             // 
@@ -293,21 +286,6 @@
             this.txthorayfecha.Text = "label10";
             this.txthorayfecha.Visible = false;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.PanWest;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::pruebafirestore.Properties.Resources.minus;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(941, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 31);
-            this.button2.TabIndex = 154;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // altoButton1
             // 
             this.altoButton1.Active1 = System.Drawing.Color.RoyalBlue;
@@ -398,21 +376,6 @@
             this.Importe.HeaderText = "         Importe";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::pruebafirestore.Properties.Resources.anadir;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(894, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 31);
-            this.button1.TabIndex = 151;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -717,6 +680,35 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pdf
+            // 
+            this.pdf.AutoSize = true;
+            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdf.Location = new System.Drawing.Point(271, 745);
+            this.pdf.Name = "pdf";
+            this.pdf.Size = new System.Drawing.Size(173, 33);
+            this.pdf.TabIndex = 190;
+            this.pdf.Text = "Guardar PDF";
+            this.pdf.UseVisualStyleBackColor = true;
+            this.pdf.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = global::pruebafirestore.Properties.Resources.printer__2_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(894, 802);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(220, 54);
+            this.button4.TabIndex = 191;
+            this.button4.Text = "Imprimir datos";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button3
             // 
             this.button3.Enabled = false;
@@ -730,17 +722,43 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // pdf
+            // pictureBox2
             // 
-            this.pdf.AutoSize = true;
-            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pdf.Location = new System.Drawing.Point(271, 745);
-            this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(173, 33);
-            this.pdf.TabIndex = 190;
-            this.pdf.Text = "Guardar PDF";
-            this.pdf.UseVisualStyleBackColor = true;
-            this.pdf.Visible = false;
+            this.pictureBox2.Location = new System.Drawing.Point(18, 184);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(62, 104);
+            this.pictureBox2.TabIndex = 168;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::pruebafirestore.Properties.Resources.minus;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(941, 360);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 31);
+            this.button2.TabIndex = 154;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::pruebafirestore.Properties.Resources.anadir;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(894, 360);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 31);
+            this.button1.TabIndex = 151;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // crearpedido
             // 
@@ -748,6 +766,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1154, 879);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.pdf);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtIVA);
@@ -805,8 +824,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "   ";
             this.Load += new System.EventHandler(this.crearpedido_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -871,5 +890,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.CheckBox pdf;
+        private System.Windows.Forms.Button button4;
     }
 }

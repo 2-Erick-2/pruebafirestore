@@ -61,6 +61,7 @@
             "Numero",
             "Nombre",
             "Fecha",
+            "ID",
             "Modelo"});
             this.comboBoxbusqueda.Location = new System.Drawing.Point(342, 92);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";

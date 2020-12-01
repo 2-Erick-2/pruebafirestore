@@ -28,7 +28,6 @@ namespace pruebafirestore.ABONOS
 
         private void busquedagarantias_Load(object sender, EventArgs e)
         {
-            int numdias = 0;
             comboBoxbusqueda.Text = "Nombre";
             string path = AppDomain.CurrentDomain.BaseDirectory + @"facturasebest2-firebase-adminsdk-rvc9d-2a1a79f585.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);

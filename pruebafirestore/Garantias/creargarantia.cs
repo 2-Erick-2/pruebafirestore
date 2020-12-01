@@ -18,12 +18,7 @@ namespace pruebafirestore.ABONOS
     {
         FirestoreDb database;
 
-        //private OleDbConnection connection = new OleDbConnection();
-
-        //String tipoproducto = "";
-
         String contar;
-
         String pedido = "";
         String preciofinal;
         String tiemporespuesta = "";

@@ -49,7 +49,7 @@
             "Numero",
             "Nombre",
             "Fecha"});
-            this.comboBoxbusqueda.Location = new System.Drawing.Point(369, 10);
+            this.comboBoxbusqueda.Location = new System.Drawing.Point(369, 34);
             this.comboBoxbusqueda.Name = "comboBoxbusqueda";
             this.comboBoxbusqueda.Size = new System.Drawing.Size(163, 28);
             this.comboBoxbusqueda.TabIndex = 46;
@@ -57,16 +57,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(282, 10);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(282, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 31);
+            this.label2.Size = new System.Drawing.Size(57, 29);
             this.label2.TabIndex = 45;
             this.label2.Text = "Por:";
             // 
             // txtbusqueda
             // 
-            this.txtbusqueda.Location = new System.Drawing.Point(569, 10);
+            this.txtbusqueda.Location = new System.Drawing.Point(569, 34);
             this.txtbusqueda.Multiline = true;
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(203, 29);
@@ -98,11 +98,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.Size = new System.Drawing.Size(1150, 776);
+            this.dataGridView1.Size = new System.Drawing.Size(1150, 748);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
