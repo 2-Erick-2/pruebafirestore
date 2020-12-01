@@ -281,7 +281,7 @@
             // 
             this.txtdescri.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescri.Location = new System.Drawing.Point(176, 335);
-            this.txtdescri.MaxLength = 12;
+            this.txtdescri.MaxLength = 19;
             this.txtdescri.Name = "txtdescri";
             this.txtdescri.Size = new System.Drawing.Size(365, 31);
             this.txtdescri.TabIndex = 137;

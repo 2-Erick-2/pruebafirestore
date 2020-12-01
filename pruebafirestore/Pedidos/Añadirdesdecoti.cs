@@ -260,23 +260,6 @@ namespace pruebafirestore.Pedidos
             }
             else if (cant != "" && cant2 != "" && cant3 == "" && cant4 == "" && cant5 == "")
             {
-                /*  mirarpartescoti mirar = new mirarpartescoti();
-                  mirar.cant = cant;
-                  mirar.cant2 = cant2;
-                  mirar.descri = descri;
-                  mirar.descri2 = descri2;
-                  mirar.impor = impor;
-                  mirar.impor2 = impor2;
-
-                  mirar.total = total;
-                  mirar.dataGridView1.Columns.Add("Cantidad", "Cantidad");
-                  mirar.dataGridView1.Columns.Add("Descripcion", "Descripcion");
-                  mirar.dataGridView1.Columns.Add("Importe", "Importe");
-                  mirar.dataGridView1.Rows.Insert(0, cant, descri, impor);
-                  mirar.dataGridView1.Rows.Insert(1, cant2, descri2, impor2);
-                  mirar.dataGridView1.Rows.Insert(2, "", " Total", total);
-
-                  mirar.Show();*/
                 crearpedido pedido = new crearpedido();
                 pedido.FormBorderStyle = FormBorderStyle.FixedSingle;
                 pedido.cant = cant;
