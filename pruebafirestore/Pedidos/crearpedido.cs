@@ -350,14 +350,8 @@ namespace pruebafirestore.Pedidos
 
         private void txtimporte_Leave(object sender, EventArgs e)
         {
-            
-
             try
             {
-
-
-
-
                 double precio = Convert.ToDouble(txtcantidad.Text) * Convert.ToDouble(txtimporte.Text);
 
                 double cantidad = Convert.ToDouble(txtimporte.Text);
@@ -404,21 +398,12 @@ namespace pruebafirestore.Pedidos
                     double d = Convert.ToDouble(precio, CultureInfo.InvariantCulture);
                     preciofinal = d.ToString("$.00", CultureInfo.InvariantCulture);
                 }
-
-
-
-
-
-               
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex);
             }
-
         }
-
         private void txtimporte_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -489,33 +474,20 @@ namespace pruebafirestore.Pedidos
                 }
                 else
                 {
-
                     double p1 = Convert.ToDouble(txttotal.Text);
                     IVA = p1 * .08;
                     txtIVA.Text = IVA.ToString();
                     double precio = (p1 * .08) + p1;
-
                     txttotal.Text = precio.ToString();
                     totalsiniva = precio - IVA;
                     txttotalsiniva.Text = totalsiniva.ToString();
                     double p2 = Convert.ToDouble(txtabono.Text);
                     double res = precio - p2;
-
                     txtrestante.Text = res.ToString();
-
-
-
-                    /* double p1 = Convert.ToDouble(txttotal.Text);
-                     double precio = (p1 * .08) + p1;
-                     txttotal.Text = precio.ToString();*/
                 }
-               
-                
             }
             else if (checkiva.Checked == false)
             {
-
-
                 if (dataGridView1.Rows.Count == 0)
                 {
                     txttotal.Text = "0";
@@ -536,8 +508,6 @@ namespace pruebafirestore.Pedidos
 
                     txtrestante.Text = res.ToString();
                     }
-                    
-
                 }
                 else if (dataGridView1.Rows.Count == 2)
                 {

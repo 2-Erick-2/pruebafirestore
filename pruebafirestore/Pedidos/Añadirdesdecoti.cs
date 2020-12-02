@@ -99,6 +99,8 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Importe5");
             directorio.Columns.Add("Total");
 
+            directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
+
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
             foreach (DocumentSnapshot docsnap in snap.Documents)
