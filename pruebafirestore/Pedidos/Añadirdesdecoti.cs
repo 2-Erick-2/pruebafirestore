@@ -82,7 +82,7 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("contraseña");
             directorio.Columns.Add("Cantidad");
             directorio.Columns.Add("Cantidad2");
-            directorio.Columns.Add("Cantidad3");
+            directorio.Columns.Add("Cantidad3"); 
             directorio.Columns.Add("Cantidad4");
             directorio.Columns.Add("Cantidad5");
 
@@ -376,7 +376,7 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
 
@@ -487,10 +487,10 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
-                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe4 = Convert.ToDouble(impor4.Replace("$", ""));
                 String IMPORTE4 = "";
 
 
@@ -636,13 +636,13 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
-                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe4 = Convert.ToDouble(impor4.Replace("$", ""));
                 String IMPORTE4 = "";
 
-                double importe5 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe5 = Convert.ToDouble(impor5.Replace("$", ""));
                 String IMPORTE5 = "";
 
 
@@ -762,6 +762,35 @@ namespace pruebafirestore.Pedidos
                 pedido.dataGridView1.Rows.Insert(4, cant5, descri5, "", IMPORTE5);
 
                 pedido.Show();
+            }
+        }
+
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxbusqueda.Text == "Orden")
+            {
+                directorio.DefaultView.RowFilter = $"Orden LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Numero")
+            {
+                directorio.DefaultView.RowFilter = $"Numero LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Nombre")
+            {
+                directorio.DefaultView.RowFilter = $"Nombre LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Fecha")
+            {
+                directorio.DefaultView.RowFilter = $"[Fecha y hora] LIKE '{txtbusqueda.Text}%'";
+
+            }
+            else if (comboBoxbusqueda.Text == "Modelo")
+            {
+                directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
+
             }
         }
     }

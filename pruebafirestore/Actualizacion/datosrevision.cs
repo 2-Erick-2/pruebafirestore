@@ -17,6 +17,55 @@ namespace pruebafirestore.Actualizacion
     {
         FirestoreDb database;
 
+        public String cant = "";
+        public String cant2 = "";
+        public String cant3 = "";
+        public String cant4 = "";
+        public String cant5 = "";
+
+        public String descri = "";
+        public String descri2 = "";
+        public String descri3 = "";
+        public String descri4 = "";
+        public String descri5 = "";
+
+
+        public String impor = "";
+        public String impor2 = "";
+        public String impor3 = "";
+        public String impor4 = "";
+        public String impor5 = "";
+
+        public String Abono = "";
+        public String Abono2 = "";
+        public String Abono3 = "";
+        public String Abono4 = "";
+        public String Abono5 = "";
+
+
+        public String fechayhora = "";
+
+        public String fechayhora2 = "";
+        public String fechayhora3 = "";
+        public String fechayhora4 = "";
+        public String fechayhora5 = "";
+        //public String Abono5 = "";
+        public String total = "";
+        public String Restante = "";
+
+
+
+
+        public String Nombre = "";
+        public String Modelo = "";
+       // public String Orden = "";
+        public String Numero = "";
+
+
+
+
+
+
         public String tipopedido = "";
 
         public String orden = "";
@@ -129,6 +178,482 @@ namespace pruebafirestore.Actualizacion
                 txtdescri.Enabled = true;
                 altoButton3.Visible = true;
             }
+
+
+
+            if (tipopedido == "CO" || tipopedido == "PE")
+            {
+                if (cant != "" && cant2 == "" && cant3 == "" && cant4 == "" && cant5 == "")
+                {
+                    dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                    dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                    dataGridView2.Columns.Add("Importe", "Importe");
+
+
+                    double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                    String IMPORTE1 = "";
+
+                    if (importe1 > -1 && importe1 < 100)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 99 && importe1 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 999 && importe1 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 9999 && importe1 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    dataGridView2.Rows.Insert(0, cant, descri, IMPORTE1);
+                }
+                else if (cant != "" && cant2 != "" && cant3 == "" && cant4 == "" && cant5 == "")
+                {
+                    dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                    dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                    dataGridView2.Columns.Add("Importe", "Importe");
+
+
+                    double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                    String IMPORTE1 = "";
+
+                    double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE2 = "";
+
+
+                    if (importe1 > -1 && importe1 < 100)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 99 && importe1 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 999 && importe1 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 9999 && importe1 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe2 > -1 && importe2 < 100)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 99 && importe2 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 999 && importe2 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 9999 && importe2 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+
+                    dataGridView2.Rows.Insert(0, cant, descri, IMPORTE1);
+                    dataGridView2.Rows.Insert(1, cant2, descri2, IMPORTE2);
+                }
+                else if (cant != "" && cant2 != "" && cant3 != "" && cant4 == "" && cant5 == "")
+                {
+                    dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                    dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                    dataGridView2.Columns.Add("Importe", "Importe");
+
+
+                    double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                    String IMPORTE1 = "";
+
+                    double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE2 = "";
+
+                    double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE3 = "";
+
+
+                    if (importe1 > -1 && importe1 < 100)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 99 && importe1 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 999 && importe1 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 9999 && importe1 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe2 > -1 && importe2 < 100)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 99 && importe2 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 999 && importe2 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 9999 && importe2 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe3 > -1 && importe3 < 100)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 99 && importe3 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 999 && importe3 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 9999 && importe3 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+                    dataGridView2.Rows.Insert(0, cant, descri, IMPORTE1);
+                    dataGridView2.Rows.Insert(1, cant2, descri2, IMPORTE2);
+                    dataGridView2.Rows.Insert(2, cant3, descri3, IMPORTE3);
+
+                }
+                else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 == "")
+                {
+                    dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                    dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                    dataGridView2.Columns.Add("Importe", "Importe");
+
+
+                    double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                    String IMPORTE1 = "";
+
+                    double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE2 = "";
+
+                    double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE3 = "";
+
+                    double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE4 = "";
+
+
+                    if (importe1 > -1 && importe1 < 100)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 99 && importe1 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 999 && importe1 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 9999 && importe1 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe2 > -1 && importe2 < 100)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 99 && importe2 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 999 && importe2 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 9999 && importe2 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe3 > -1 && importe3 < 100)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 99 && importe3 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 999 && importe3 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 9999 && importe3 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe4 > -1 && importe4 < 100)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 99 && importe4 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 999 && importe4 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 9999 && importe4 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+
+
+                    dataGridView2.Rows.Insert(0, cant, descri, IMPORTE1);
+                    dataGridView2.Rows.Insert(1, cant2, descri2, IMPORTE2);
+                    dataGridView2.Rows.Insert(2, cant3, descri3, IMPORTE3);
+                    dataGridView2.Rows.Insert(3, cant4, descri4, IMPORTE4);
+
+                }
+                else if (cant != "" && cant2 != "" && cant3 != "" && cant4 != "" && cant5 != "")
+                {
+                    dataGridView2.Columns.Add("Cantidad", "Cantidad");
+                    dataGridView2.Columns.Add("Descripcion", "Descripcion");
+                    dataGridView2.Columns.Add("Importe", "Importe");
+
+
+                    double importe1 = Convert.ToDouble(impor.Replace("$", ""));
+                    String IMPORTE1 = "";
+
+                    double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE2 = "";
+
+                    double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE3 = "";
+
+                    double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE4 = "";
+
+                    double importe5 = Convert.ToDouble(impor2.Replace("$", ""));
+                    String IMPORTE5 = "";
+
+
+                    if (importe1 > -1 && importe1 < 100)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 99 && importe1 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 999 && importe1 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe1 > 9999 && importe1 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe1.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE1 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe2 > -1 && importe2 < 100)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 99 && importe2 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 999 && importe2 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe2 > 9999 && importe2 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe2.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE2 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+                    if (importe3 > -1 && importe3 < 100)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 99 && importe3 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 999 && importe3 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe3 > 9999 && importe3 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe3.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE3 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe4 > -1 && importe4 < 100)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 99 && importe4 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 999 && importe4 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe4 > 9999 && importe4 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe4.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE4 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+                    if (importe5 > -1 && importe5 < 100)
+                    {
+                        double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE5 = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe5 > 99 && importe5 < 1000)
+                    {
+                        double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE5 = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe5 > 999 && importe5 < 10000)
+                    {
+                        double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE5 = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (importe5 > 9999 && importe5 < 100000)
+                    {
+                        double d = Convert.ToDouble(importe5.ToString(), CultureInfo.InvariantCulture);
+                        IMPORTE5 = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+                    dataGridView2.Rows.Insert(0, cant, descri, IMPORTE1);
+                    dataGridView2.Rows.Insert(1, cant2, descri2, IMPORTE2);
+                    dataGridView2.Rows.Insert(2, cant3, descri3, IMPORTE3);
+                    dataGridView2.Rows.Insert(3, cant4, descri4, IMPORTE4);
+                    dataGridView2.Rows.Insert(4, cant5, descri5, IMPORTE5);
+                }
+
+
+                //txttotal.Text = total;
+                
+
+                dataGridView2.Columns[0].HeaderCell.Style.BackColor = Color.White;
+                dataGridView2.Columns[0].DefaultCellStyle.BackColor = Color.LightYellow;
+
+                dataGridView2.Columns[1].HeaderCell.Style.BackColor = Color.White;
+                dataGridView2.Columns[1].DefaultCellStyle.BackColor = Color.LightBlue;
+
+                dataGridView2.Columns[2].HeaderCell.Style.BackColor = Color.White;
+                dataGridView2.Columns[2].DefaultCellStyle.BackColor = Color.LightBlue;
+
+                dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+                dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+
+
+                //dataGridView1.Columns[0].Width = 1500;
+                dataGridView2.Rows[0].Selected = false;
+            }
+
+
+
+
+
+
         }
 
         private void checksinrefacciones_CheckedChanged(object sender, EventArgs e)
@@ -257,6 +782,11 @@ namespace pruebafirestore.Actualizacion
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -108,6 +108,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1142, 759);
             this.dataGridView1.TabIndex = 47;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // Movimientospedidos
             // 

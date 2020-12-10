@@ -195,7 +195,7 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
 
@@ -284,10 +284,10 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
-                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe4 = Convert.ToDouble(impor4.Replace("$", ""));
                 String IMPORTE4 = "";
 
 
@@ -401,13 +401,13 @@ namespace pruebafirestore.Pedidos
                 double importe2 = Convert.ToDouble(impor2.Replace("$", ""));
                 String IMPORTE2 = "";
 
-                double importe3 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe3 = Convert.ToDouble(impor3.Replace("$", ""));
                 String IMPORTE3 = "";
 
-                double importe4 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe4 = Convert.ToDouble(impor4.Replace("$", ""));
                 String IMPORTE4 = "";
 
-                double importe5 = Convert.ToDouble(impor2.Replace("$", ""));
+                double importe5 = Convert.ToDouble(impor5.Replace("$", ""));
                 String IMPORTE5 = "";
 
 

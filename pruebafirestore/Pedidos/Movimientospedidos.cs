@@ -123,10 +123,6 @@ namespace pruebafirestore.Pedidos
             directorio.Columns.Add("Fecha y hora5");
 
             directorio.Columns["Fecha y hora"].DataType = Type.GetType("System.DateTime");
-
-
-
-
             Query Clientes = database.Collection(nameOfCollection);
             QuerySnapshot snap = await Clientes.GetSnapshotAsync();
             foreach (DocumentSnapshot docsnap in snap.Documents)
@@ -304,11 +300,6 @@ namespace pruebafirestore.Pedidos
                 Abonos.dataGridView1.Rows.Insert(0, Abono, fechayhora);
                 
                 Abonos.Show();
-
-
-
-
-
             }
 
 
@@ -636,6 +627,11 @@ namespace pruebafirestore.Pedidos
                 directorio.DefaultView.RowFilter = $"[Modelo] LIKE '{txtbusqueda.Text}%'";
 
             }
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
