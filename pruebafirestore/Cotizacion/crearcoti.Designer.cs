@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crearcoti));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crearcoti));
             this.label5 = new System.Windows.Forms.Label();
             this.txtmodelo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,10 +51,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtimporte = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.altoButton1 = new AltoControls.AltoButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -76,11 +72,15 @@
             this.checkcontra = new System.Windows.Forms.CheckBox();
             this.txtcontracel = new System.Windows.Forms.TextBox();
             this.lblcontador = new System.Windows.Forms.Label();
+            this.pdf = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pdf = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -273,36 +273,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(841, 201);
             this.dataGridView1.TabIndex = 32;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Cantidad
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Cantidad.HeaderText = "      Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Descripcion
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Descripcion.HeaderText = "   Descripción";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // PU
-            // 
-            this.PU.HeaderText = "             PU";
-            this.PU.Name = "PU";
-            this.PU.ReadOnly = true;
-            // 
-            // Importe
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "C0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Importe.HeaderText = "         Importe";
-            this.Importe.Name = "Importe";
             // 
             // altoButton1
             // 
@@ -553,6 +523,31 @@
             this.lblcontador.Text = "label10";
             this.lblcontador.Visible = false;
             // 
+            // pdf
+            // 
+            this.pdf.AutoSize = true;
+            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdf.Location = new System.Drawing.Point(145, 744);
+            this.pdf.Name = "pdf";
+            this.pdf.Size = new System.Drawing.Size(173, 33);
+            this.pdf.TabIndex = 136;
+            this.pdf.Text = "Guardar PDF";
+            this.pdf.UseVisualStyleBackColor = true;
+            this.pdf.CheckedChanged += new System.EventHandler(this.pdf_CheckedChanged);
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::pruebafirestore.Properties.Resources.printer__1_;
+            this.button3.Location = new System.Drawing.Point(737, 805);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 54);
+            this.button3.TabIndex = 142;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(15, 200);
@@ -591,30 +586,38 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pdf
+            // Cantidad
             // 
-            this.pdf.AutoSize = true;
-            this.pdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pdf.Location = new System.Drawing.Point(145, 744);
-            this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(173, 33);
-            this.pdf.TabIndex = 136;
-            this.pdf.Text = "Guardar PDF";
-            this.pdf.UseVisualStyleBackColor = true;
-            this.pdf.CheckedChanged += new System.EventHandler(this.pdf_CheckedChanged);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Elephant", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Cantidad.HeaderText = "      Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
-            // button3
+            // Descripcion
             // 
-            this.button3.Enabled = false;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::pruebafirestore.Properties.Resources.printer__1_;
-            this.button3.Location = new System.Drawing.Point(737, 805);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 54);
-            this.button3.TabIndex = 142;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Descripcion.HeaderText = "   Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // PU
+            // 
+            this.PU.HeaderText = "             PU";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            // 
+            // Importe
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Importe.HeaderText = "         Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
             // 
             // crearcoti
             // 
@@ -715,10 +718,10 @@
         private System.Windows.Forms.TextBox txtcontracel;
         private System.Windows.Forms.Label lblcontador;
         private System.Windows.Forms.CheckBox pdf;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
-        private System.Windows.Forms.Button button3;
     }
 }

@@ -38,6 +38,14 @@ namespace pruebafirestore.ABONOS
         private void altoButton3_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel2(new busquedagarantias());
+
+            
+
+        }
+
+        private void altoButton1_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel2(new Añadirdesderevision());
         }
     }
 }

@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\INSTALADOR-SISTEMA-V17\</PublishUrl>
+    <PublishUrl>D:\INSTALADOR-SISTEMA-V18\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <ProductName>E-BEST-SISTEMA</ProductName>
     <PublisherName>Erick Del Angel</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -186,6 +186,12 @@
     <Compile Include="Busquedatodo.Designer.cs">
       <DependentUpon>Busquedatodo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Garantias\Añadirdesderevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garantias\Añadirdesderevision.Designer.cs">
+      <DependentUpon>Añadirdesderevision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Garantias\busquedagarantias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,12 @@
     <Compile Include="Cotizacion\mirarpartescoti.Designer.cs">
       <DependentUpon>mirarpartescoti.cs</DependentUpon>
     </Compile>
+    <Compile Include="Garantias\garantiadesderevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garantias\garantiadesderevision.Designer.cs">
+      <DependentUpon>garantiadesderevision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\Abonos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +359,9 @@
     <EmbeddedResource Include="Busquedatodo.resx">
       <DependentUpon>Busquedatodo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Garantias\Añadirdesderevision.resx">
+      <DependentUpon>Añadirdesderevision.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Garantias\busquedagarantias.resx">
       <DependentUpon>busquedagarantias.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Actualizacion\datosrevision.resx">
       <DependentUpon>datosrevision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garantias\garantiadesderevision.resx">
+      <DependentUpon>garantiadesderevision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\Añadirdesdecoti.resx">
       <DependentUpon>Añadirdesdecoti.cs</DependentUpon>

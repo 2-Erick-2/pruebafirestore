@@ -21,7 +21,6 @@ namespace pruebafirestore.Cotizacion
         {
             AbrirFormEnPanel2(new creardesdecoti());
 
-            
 
 
         }

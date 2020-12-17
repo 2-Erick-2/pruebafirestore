@@ -366,12 +366,12 @@ namespace pruebafirestore.Pedidos
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
-                else if (cantidad > 999 && cantidad < 9999)
+                else if (cantidad > 999 && cantidad < 10000)
                 {
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$  .00", CultureInfo.InvariantCulture);
                 }
-                else if (cantidad > 9999 && cantidad < 99999)
+                else if (cantidad > 9999 && cantidad < 100000)
                 {
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$.00", CultureInfo.InvariantCulture);
@@ -4869,8 +4869,9 @@ namespace pruebafirestore.Pedidos
             e.Graphics.DrawImage(pictureBox2.Image, 40, y += 20);
         }
 
+        private void txtimporte_TextChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

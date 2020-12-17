@@ -188,7 +188,6 @@ namespace pruebafirestore.Pedidos
                 dataGridView2.Columns.Add("Descripcion", "Descripcion");
                 dataGridView2.Columns.Add("Importe", "Importe");
 
-
                 double importe1 = Convert.ToDouble(impor.Replace("$", ""));
                 String IMPORTE1 = "";
 

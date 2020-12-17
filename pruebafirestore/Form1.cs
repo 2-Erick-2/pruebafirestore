@@ -253,5 +253,10 @@ namespace pruebafirestore
 
 
         }
+
+        private void pContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

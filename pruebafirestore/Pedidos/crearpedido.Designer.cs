@@ -395,6 +395,7 @@
             this.txtimporte.Name = "txtimporte";
             this.txtimporte.Size = new System.Drawing.Size(148, 31);
             this.txtimporte.TabIndex = 149;
+            this.txtimporte.TextChanged += new System.EventHandler(this.txtimporte_TextChanged);
             this.txtimporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtimporte_KeyPress);
             this.txtimporte.Leave += new System.EventHandler(this.txtimporte_Leave);
             // 

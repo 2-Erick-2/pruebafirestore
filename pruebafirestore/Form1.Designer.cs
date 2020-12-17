@@ -213,6 +213,7 @@
             this.pContainer.Name = "pContainer";
             this.pContainer.Size = new System.Drawing.Size(1344, 876);
             this.pContainer.TabIndex = 7;
+            this.pContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pContainer_Paint);
             // 
             // Form1
             // 

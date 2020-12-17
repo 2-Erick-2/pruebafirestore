@@ -208,12 +208,12 @@ namespace pruebafirestore.ABONOS
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
-                else if (cantidad > 999 && cantidad < 9999)
+                else if (cantidad > 999 && cantidad < 10000)
                 {
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$  .00", CultureInfo.InvariantCulture);
                 }
-                else if (cantidad > 9999 && cantidad < 99999)
+                else if (cantidad > 9999 && cantidad < 100000)
                 {
                     double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
                     txtimporte.Text = d.ToString("$.00", CultureInfo.InvariantCulture);
@@ -230,80 +230,18 @@ namespace pruebafirestore.ABONOS
                     double d = Convert.ToDouble(precio, CultureInfo.InvariantCulture);
                     preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
                 }
-                else if (precio > 999 && precio < 9999)
+                else if (precio > 999 && precio < 10000)
                 {
                     double d = Convert.ToDouble(precio, CultureInfo.InvariantCulture);
                     preciofinal = d.ToString("$  .00", CultureInfo.InvariantCulture);
                 }
-                else if (precio > 9999 && precio < 99999)
+                else if (precio > 9999 && precio < 100000)
                 {
                     double d = Convert.ToDouble(precio, CultureInfo.InvariantCulture);
                     preciofinal = d.ToString("$.00", CultureInfo.InvariantCulture);
                 }
 
 
-
-
-
-
-                /*
-                                Double precio = Convert.ToDouble(txtcantidad.Text) * Convert.ToDouble(txtimporte.Text);
-                                preciofinal = precio.ToString();
-                                String contar2 = preciofinal;
-
-                                contar = txtimporte.Text;
-                                if (contar.Length == 4)
-                                {
-                                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
-                                    txtimporte.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar.Length == 3)
-                                {
-                                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
-                                    txtimporte.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar.Length == 2)
-                                {
-                                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
-                                    txtimporte.Text = d.ToString("$    00.00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar.Length == 6)
-                                {
-                                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
-                                    txtimporte.Text = d.ToString("$0000.00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar.Length == 5)
-                                {
-                                    double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
-                                    txtimporte.Text = d.ToString("$  000.00", CultureInfo.InvariantCulture);
-                                }
-
-
-                                if (contar2.Length == 4)
-                                {
-                                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar2.Length == 3)
-                                {
-                                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                                    preciofinal = d.ToString("$      .00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar2.Length == 2)
-                                {
-                                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar2.Length == 6)
-                                {
-                                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                                    preciofinal = d.ToString("$    .00", CultureInfo.InvariantCulture);
-                                }
-                                else if (contar2.Length == 5)
-                                {
-                                    double d = Convert.ToDouble(preciofinal, CultureInfo.InvariantCulture);
-                                    preciofinal = d.ToString("$  .00", CultureInfo.InvariantCulture);
-                                }*/
 
 
             }
@@ -939,6 +877,35 @@ namespace pruebafirestore.ABONOS
                     Double total = Convert.ToDouble(p3) + Convert.ToDouble(p6);
 
                     String contar2 = total.ToString();
+
+
+                    if (total > -1 && total < 100)
+                    {
+                        double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                        txtimporte.Text = d.ToString("$      .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (total > 99 && total < 1000)
+                    {
+                        double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                        txtimporte.Text = d.ToString("$    .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (total > 999 && total < 10000)
+                    {
+                        double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                        txtimporte.Text = d.ToString("$  .00", CultureInfo.InvariantCulture);
+                    }
+                    else if (total > 9999 && total < 100000)
+                    {
+                        double d = Convert.ToDouble(txtimporte.Text, CultureInfo.InvariantCulture);
+                        txtimporte.Text = d.ToString("$.00", CultureInfo.InvariantCulture);
+                    }
+
+
+
+
+
+
+
                     if (contar2.Length == 4)
                     {
                         double d = Convert.ToDouble(total.ToString(), CultureInfo.InvariantCulture);
